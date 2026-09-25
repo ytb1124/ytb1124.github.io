@@ -14,9 +14,7 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
     <header className="site-header">
       <Link className="brand" href={localizedPath(locale, '/')}>Taebin Yoo</Link>
       <nav className="desktop-nav" aria-label="Primary navigation">
-        <Link href={localizedPath(locale, '/projects')}>Work <span>01</span></Link>
-        <Link href={localizedPath(locale, '/profile')}>About <span>03</span></Link>
-        <Link href={localizedPath(locale, '/contact')}>Contact <span>04</span></Link>
+        {site.nav.map(item=><Link key={item.key} href={localizedPath(locale,`/${item.key}`)}>{item.label}</Link>)}
       </nav>
       <div className="header-actions">
         <label className="language-picker">
@@ -51,10 +49,6 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
 export function Footer({ locale }: { locale: Locale }) {
   return (
     <footer className="site-footer">
-      <div className="remix-card">
-        <span>Get this for FREE!</span>
-        <a href="https://framer.link/nodgKDQ" target="_blank" rel="noreferrer">✣ Remix</a>
-      </div>
       <div className="footer-grid">
         <div>
           <span className="footer-label">Pages</span>
@@ -79,22 +73,12 @@ export function PageShell({ children, locale, path }: { children: React.ReactNod
 }
 
 export function HeroTitle({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  return <section className={`page-title ${className}`}><h1>{children}</h1></section>;
+  const projectClass = children === 'Projects' ? 'projects-title' : '';
+  return <section className={`page-title ${projectClass} ${className}`}><h1>{children}</h1></section>;
 }
 
 export function ProjectCard({ project, locale }: { project: Project; locale: Locale }) {
-  const localizedQuestion = locale === 'ko'
-    ? ({
-      'corrective-impulse-response': '물리적 경계를 넘어 공간의 음향적 정체성을 어떻게 재현할 수 있을까?',
-      'live-immersive-audio': '몰입형 오디오는 공연자·창작자·관객의 관계를 어떻게 새롭게 구성할 수 있을까?',
-      'multichannel-mixing-system': '공간 음향은 공연장에서 관객이 보는 것과 듣는 것을 어떻게 연결할 수 있을까?',
-      'wan-audio-transmission': '물리적 거리가 제약이 될 때에도 음악적 협업을 어떻게 이어갈 수 있을까?',
-      'electronic-drums': '전자악기는 연주자마다 다른 고유한 다이내믹과 표현을 어떻게 포착할 수 있을까?',
-      'audio-to-midi-system': '음악가는 인간의 표현과 디지털 작곡 사이를 어떻게 자연스럽게 오갈 수 있을까?',
-      arirang: '역사적 음악을 현대 기술을 통해 어떻게 새롭게 해석할 수 있을까?',
-      'adaptive-monitor-system': '서로 다른 청취 방식을 중심으로 음악 시스템을 설계하면 어떤 가능성이 열릴까?',
-      'ai-audio-engineering-copilot': '엔지니어링 도구는 전문성을 대체하지 않으면서 인간의 판단을 어떻게 지원할 수 있을까?',
-    } as Record<string, string>)[project.slug] : project.question;
+  const localizedQuestion = project.question;
 
   return (
     <Link className="project-card-link" href={localizedPath(locale, `/projects/${project.slug}`)}>
