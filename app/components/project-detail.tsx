@@ -15,7 +15,8 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
       </div>
       <div className="detail-body">
         {body.map((text,i)=><p key={i}>{text}</p>)}
-        {project.sources?.map(source=><p key={source.href}><a href={source.href}>{source.label}: {source.href}</a></p>)}
+        {locale==='ko'&&project.sources&&<p>출처</p>}
+        {project.sources?.map(source=><p key={source.href}><a href={source.href}>{locale==='ko'?(source.label.startsWith('Byeonsa')?'변사 / 음원 참고':'영상 출처'):source.label}: {source.href}</a></p>)}
         {project.video&&<div className="detail-video"><iframe src={project.video} title={project.title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen /></div>}
       </div>
     </div>

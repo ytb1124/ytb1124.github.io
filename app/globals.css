@@ -157,3 +157,4 @@ body{background:#000;font-family:'Inter Display',Inter,sans-serif}
   .contact-grid img{position:absolute;top:371.953px;left:434.305px;width:397.648px;height:258px;max-width:none;object-fit:cover}
 }
 @media(min-width:901px){.profile-content{height:2859px}.research-section:last-child{padding-bottom:7px}}
+@media(min-width:901px){.site-header{padding:34px 30px}.brand{justify-self:start;font-size:20px;line-height:24px;letter-spacing:0}.desktop-nav{position:relative;left:-7.5px;gap:30px}.desktop-nav a{font-size:14px;line-height:16.8px;letter-spacing:.012em}}
