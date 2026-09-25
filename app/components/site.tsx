@@ -5,10 +5,9 @@ import { useState } from 'react';
 import { Locale, localizedPath, Project, site } from '../data/site';
 
 const navigation = [
-  { label: 'Home', path: '/' },
-  { label: 'Experience', path: '/experience' },
-  { label: 'Projects', path: '/projects' },
   { label: 'Profile', path: '/profile' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'Experience', path: '/experience' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -20,7 +19,7 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
     <header className="site-header">
       <a className="brand" href={localizedPath(locale, '/')}>{locale==='ko'?'유태빈':'Taebin Yoo'}</a>
       <nav className="desktop-nav" aria-label="Primary navigation">
-        {navigation.filter(item=>item.path!=='/').map(item=><a className={path===item.path?'is-active':''} key={item.label} href={localizedPath(locale,item.path)}>{item.label}</a>)}
+        {navigation.map(item=><a className={path===item.path?'is-active':''} key={item.label} href={localizedPath(locale,item.path)}>{item.label}</a>)}
       </nav>
       <div className="header-actions">
         <label className="language-picker">
@@ -55,32 +54,23 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
 export function Footer({ locale }: { locale: Locale }) {
   return (
     <footer className="site-footer">
-      <div className="footer-grid">
-        <div className="footer-contact">
-          <span className="footer-label">{locale==='ko'?'연락하기':'Get in touch'}</span>
-          <a href={site.contact.emailHref}>{site.contact.email}</a>
-          <a href={site.contact.phoneHref}>{site.contact.phone}</a>
-        </div>
+      <div className="footer-simple">
+        <nav className="footer-pages" aria-label="Footer navigation">
+          <span className="footer-label">{locale==='ko'?'페이지':'Pages'}</span>
+          {navigation.map((item) => <a key={item.label} href={localizedPath(locale, item.path)}>{item.label}</a>)}
+        </nav>
         <div className="footer-socials">
-          <span className="footer-label">Connect</span>
-          <a href={site.socials.instagram}>Instagram →</a>
-          <a href={site.socials.linkedin}>LinkedIn →</a>
-          <a href={site.socials.youtube}>YouTube →</a>
-        </div>
-        <div className="footer-signature">
-          <strong>Taebin Yoo</strong>
-          <small>© 2026 TAE BIN YOO · SEOUL</small>
+          <span className="footer-label">Socials</span>
+          <a href={site.socials.instagram}>Instagram</a>
+          <a href={site.socials.linkedin}>LinkedIn</a>
         </div>
       </div>
-      <nav className="footer-nav" aria-label="Footer navigation">
-        {navigation.map((item) => <a key={item.label} href={localizedPath(locale, item.path)}>{item.label}</a>)}
-      </nav>
     </footer>
   );
 }
 
 export function PageShell({ children, locale, path }: { children: React.ReactNode; locale: Locale; path?: string }) {
-  return <div className={`site-frame${path==='/'?' is-home':''}`}><Header locale={locale} path={path} /><main>{children}</main><Footer locale={locale} /></div>;
+  return <div className={`site-frame locale-${locale}${path==='/'?' is-home':''}`}><Header locale={locale} path={path} /><main>{children}</main><Footer locale={locale} /></div>;
 }
 
 export function HeroTitle({ children, className = '' }: { children: React.ReactNode; className?: string }) {
