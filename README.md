@@ -1,0 +1,22 @@
+# Taebin Yoo portfolio
+
+This is a code-based recreation of the public Framer portfolio at https://taebin-yoo.framer.website.
+
+## Edit content
+
+Text, links, project metadata, and image paths live in `app/data/site.ts`. Replace a file in `public/images/` or update its path in that data file to change a photo. Layout and responsive behavior live in `app/components/site.tsx` and `app/globals.css`.
+
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+## Build for GitHub Pages
+
+```bash
+npm run build
+```
+
+The build writes the static site to `dist/client` and creates directory-style route copies for GitHub Pages. The included workflow deploys that directory whenever `main` is updated.
