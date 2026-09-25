@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Locale, localizedPath, Project, site } from '../data/site';
@@ -12,9 +11,9 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
 
   return (
     <header className="site-header">
-      <Link className="brand" href={localizedPath(locale, '/')}>{locale==='ko'?'유태빈':'Taebin Yoo'}</Link>
+      <a className="brand" href={localizedPath(locale, '/')}>{locale==='ko'?'유태빈':'Taebin Yoo'}</a>
       <nav className="desktop-nav" aria-label="Primary navigation">
-        {site.nav.map(item=><Link key={item.key} href={localizedPath(locale,`/${item.key}`)}>{item.label}</Link>)}
+        {site.nav.map(item=><a key={item.key} href={localizedPath(locale,`/${item.key}`)}>{item.label}</a>)}
       </nav>
       <div className="header-actions">
         <label className="language-picker">
@@ -31,9 +30,9 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
       <div className={`mobile-menu ${open ? 'is-open' : ''}`} aria-hidden={!open}>
         <div className="mobile-links">
           {[{key:'projects',label:'Work',number:'01'},{key:'experience',label:'Experience',number:'02'},{key:'profile',label:'About',number:'03'},{key:'contact',label:'Contact',number:'04'}].map((item) => (
-            <Link key={item.key} href={localizedPath(locale, `/${item.key}`)} onClick={() => setOpen(false)}>
+            <a key={item.key} href={localizedPath(locale, `/${item.key}`)} onClick={() => setOpen(false)}>
               <span>{item.label}</span><span>{item.number}</span>
-            </Link>
+            </a>
           ))}
         </div>
         <div className="mobile-socials">
@@ -56,7 +55,7 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="footer-grid">
         <div>
           <span className="footer-label">Pages</span>
-          {site.nav.map((item) => <Link key={item.key} href={localizedPath(locale, `/${item.key}`)}>{item.label}</Link>)}
+          {site.nav.map((item) => <a key={item.key} href={localizedPath(locale, `/${item.key}`)}>{item.label}</a>)}
         </div>
         <div>
           <span className="footer-label">Socials</span>
@@ -95,7 +94,7 @@ export function ProjectCard({ project, locale, compact=false }: { project: Proje
   } as Record<string,string>)[project.slug] : project.question;
 
   return (
-    <Link className="project-card-link" href={localizedPath(locale, `/projects/${project.slug}`)}>
+    <a className="project-card-link" href={localizedPath(locale, `/projects/${project.slug}`)} aria-label={project.title}>
       <article className="project-card">
         <div className="project-media"><Image src={project.image} alt="" width={1200} height={800} loading="lazy" /></div>
         <div className="project-copy">
@@ -106,7 +105,7 @@ export function ProjectCard({ project, locale, compact=false }: { project: Proje
           {!compact&&project.ongoing && <span className="ongoing">ONGOING RESEARCH</span>}
         </div>
       </article>
-    </Link>
+    </a>
   );
 }
 
