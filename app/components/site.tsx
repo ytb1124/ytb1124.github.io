@@ -97,16 +97,18 @@ export function ProjectCard({ project, locale }: { project: Project; locale: Loc
     } as Record<string, string>)[project.slug] : project.question;
 
   return (
-    <article className="project-card">
-      <div className="project-media"><Image src={project.image} alt="" width={1200} height={800} loading="lazy" /></div>
-      <div className="project-copy">
-        <div className="project-meta"><span>{project.year}</span><span>{project.category}</span></div>
-        <h3>{project.title}</h3>
-        <p>{project.description}</p>
-        <p className="project-question">{localizedQuestion}</p>
-        {project.ongoing && <span className="ongoing">ONGOING RESEARCH</span>}
-      </div>
-    </article>
+    <Link className="project-card-link" href={localizedPath(locale, `/projects/${project.slug}`)}>
+      <article className="project-card">
+        <div className="project-media"><Image src={project.image} alt="" width={1200} height={800} loading="lazy" /></div>
+        <div className="project-copy">
+          <div className="project-meta"><span>{project.year}</span><span>{project.category}</span></div>
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+          <p className="project-question">{localizedQuestion}</p>
+          {project.ongoing && <span className="ongoing">ONGOING RESEARCH</span>}
+        </div>
+      </article>
+    </Link>
   );
 }
 
