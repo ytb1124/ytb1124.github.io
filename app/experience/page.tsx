@@ -5,7 +5,7 @@ import { koreanExperience } from '../data/korean';
 export const dynamic = 'force-static';
 
 type DetailItem = {
-  organization: string;
+  organization?: string;
   role: string;
   period: string;
   location?: string;
@@ -30,32 +30,20 @@ const experienceEn: readonly DetailItem[] = [
     ],
   },
   {
-    organization: 'Youngkwang Church · Seongseok Church · Jamsildong Church',
-    role: 'Sound Engineer — House of Worship',
-    period: '2023 – Present',
-    details: [
-      'Operate and manage sound systems in community-based performance contexts where clarity, inclusion, and emotional delivery are critical.',
-      'Observed how audience conditions affect participation and emotional reception, shaping a research interest in accessible performance technology.',
-    ],
-  },
-  {
-    organization: 'Artmix · Seoul Sound · TSA · Others',
-    role: 'Live Sound Technician — Stage & System Support',
-    period: 'July 2023 – Present',
+    role: 'Freelance Sound Engineer',
+    period: '2022 – Present',
     location: 'Seoul, South Korea',
     details: [
-      'Support sound teams during setup, teardown, and live operation for concerts and events.',
-      'Assist with stage workflows, signal routing, and on-site troubleshooting in large-scale, team-based productions.',
+      'Engineered live sound for 200+ concerts, worship services, and performance events across varied venues and system configurations.',
+      'Operated FOH and monitor systems, microphones, loudspeakers, routing, and system alignment under real-time performance constraints.',
     ],
   },
   {
-    organization: 'JPKorea · RentalOn · ODI Sound · Others',
-    role: 'Freelance Live Sound Engineer / System Lead',
-    period: 'July 2023 – Present',
+    role: 'Church Sound Engineer',
+    period: '2023 – Present',
+    location: 'Various Churches, South Korea',
     details: [
-      'Lead system design, tuning, and live operation across more than 200 performances.',
-      'Make technical decisions affecting coverage, balance, and consistency of audience experience.',
-      'Coordinate with artists, stage teams, and production staff to translate artistic intent into reliable technical execution.',
+      'Provide live sound engineering across multiple church venues, including a one-year part-time position at Armed Forces Central Church in Seoul.',
     ],
   },
   {
@@ -84,11 +72,6 @@ const experienceEn: readonly DetailItem[] = [
     ],
   },
   {
-    organization: 'Ministry of National Defense, Republic of Korea',
-    role: 'Live Sound Engineer — House of Worship',
-    period: 'June 2023 – June 2024',
-  },
-  {
     organization: 'Republic of Korea Army',
     role: 'Sergeant · Blue House / Presidential Security Service',
     period: 'May 2021 – November 2022',
@@ -107,32 +90,20 @@ const experienceKo: readonly DetailItem[] = [
     ],
   },
   {
-    organization: '영광교회 · 성석교회 · 잠실동교회',
-    role: '교회 음향 엔지니어',
-    period: '2023년 – 현재',
-    details: [
-      '명료도, 포용성, 감정 전달이 중요한 공동체 공연 환경에서 음향 시스템을 운영하고 관리했습니다.',
-      '관객의 서로 다른 조건이 참여와 정서적 수용에 미치는 영향을 관찰하며 접근 가능한 공연 기술에 관한 연구 관심을 발전시켰습니다.',
-    ],
-  },
-  {
-    organization: 'Artmix · Seoul Sound · TSA 외',
-    role: '라이브 사운드 테크니션 — 무대·시스템 지원',
-    period: '2023년 7월 – 현재',
+    role: '프리랜서 사운드 엔지니어',
+    period: '2022년 – 현재',
     location: '서울, 대한민국',
     details: [
-      '콘서트와 행사에서 음향 팀의 설치, 철수, 라이브 운영을 지원했습니다.',
-      '대규모 제작 현장에서 무대 진행, 신호 라우팅, 현장 문제 해결을 담당했습니다.',
+      '다양한 공연장과 시스템 환경에서 200회 이상의 콘서트, 예배, 공연 행사의 라이브 사운드를 담당했습니다.',
+      '실시간 공연 환경에서 FOH와 모니터 시스템, 마이크, 라우드스피커, 신호 라우팅, 시스템 얼라인먼트를 운영했습니다.',
     ],
   },
   {
-    organization: 'JPKorea · RentalOn · ODI Sound 외',
-    role: '프리랜서 라이브 사운드 엔지니어 / 시스템 리드',
-    period: '2023년 7월 – 현재',
+    role: '교회 사운드 엔지니어',
+    period: '2023년 – 현재',
+    location: '대한민국 내 여러 교회',
     details: [
-      '200회 이상의 공연에서 시스템 설계, 튜닝, 라이브 운영을 총괄했습니다.',
-      '커버리지, 밸런스, 관객 경험의 일관성에 영향을 주는 기술적 결정을 담당했습니다.',
-      '아티스트와 무대·제작 팀의 의도를 안정적인 기술 실행으로 연결했습니다.',
+      '서울 국군중앙교회의 1년간 파트타임 근무를 포함해 여러 교회에서 라이브 사운드 엔지니어링을 담당했습니다.',
     ],
   },
   { organization: 'Preply', role: '한국어 강사', period: '2023년 – 현재' },
@@ -157,11 +128,6 @@ const experienceKo: readonly DetailItem[] = [
     ],
   },
   {
-    organization: '대한민국 국방부',
-    role: '국군중앙교회 라이브 사운드 엔지니어',
-    period: '2023년 6월 – 2024년 6월',
-  },
-  {
     organization: '대한민국 육군',
     role: '병장 · 청와대 / 대통령경호처',
     period: '2021년 5월 – 2022년 11월',
@@ -171,9 +137,9 @@ const experienceKo: readonly DetailItem[] = [
 function DetailGroup({ title, items }: { title: string; items: readonly DetailItem[] }) {
   return <section className="experience-section">
     <header className="experience-section-title"><h2>{title}</h2></header>
-    <div className="experience-list">{items.map((item) => <article className="experience-entry" key={`${item.organization}-${item.period}`}>
+    <div className="experience-list">{items.map((item) => <article className="experience-entry" key={`${item.role}-${item.period}`}>
       <div className="experience-entry-head">
-        <div><p className="experience-organization">{item.organization}</p><h3>{item.role}</h3></div>
+        <div>{item.organization && <p className="experience-organization">{item.organization}</p>}<h3>{item.role}</h3></div>
         <div className="experience-meta"><time>{item.period}</time>{item.location && <span>{item.location}</span>}</div>
       </div>
       {item.details && <ul>{item.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>}
