@@ -13,13 +13,11 @@ export default function ProfilePage({locale='en' as const}:{locale?:'en'|'ko'}) 
     'After being discharged, and before returning to school, I spent two months in Vancouver and took a cross-continental train journey from Vancouver to New York. That experience continues to shape how I see people and culture, and today I also work as a Korean language tutor on Preply.'
   ];
   const photos=[2,3,5,7,8,11,12,13,10,14,9];
-  const phonePhotos=[2,4,5,7,8,9,10,8,14];
   return <PageShell locale={locale} path="/profile">
     <section className="page-title image-title"><Image src="/framer/profile/01.jpeg" alt="Taebin Yoo as a child performing" fill priority/><h1><span>{profile.title}</span></h1></section>
     <div className={`profile-content${locale === 'ko' ? ' profile-content-ko' : ''}`}>
       <section className="profile-story">{profile.paragraphs.map(p=><p key={p}>{p}</p>)}</section>
       <section className="profile-collage">{photos.map(i=>{const n=String(i).padStart(2,'0');const ext=[2,3,7,10,11,12,13,14].includes(i)?'jpg':'png';return <Image key={n} src={`/framer/profile/${n}.${ext}`} alt="" width={800} height={900}/>})}</section>
-      <section className="profile-collage-phone">{phonePhotos.map((i,index)=>{const n=String(i).padStart(2,'0');const ext=[2,4,7,10,14].includes(i)?'jpg':'png';return <Image key={`${n}-${index}`} src={`/framer/profile/${n}.${ext}`} alt="" width={800} height={900}/>})}</section>
       <section className="profile-education">{education.map(p=><p key={p}>{p}</p>)}</section>
       <section className="profile-media"><YoutubeEmbed/><div><h2>Podcast</h2><a className="text-link" href={site.socials.notion}>🌟 &lt;LINK&gt; LIVE SOUND</a></div></section>
     </div>

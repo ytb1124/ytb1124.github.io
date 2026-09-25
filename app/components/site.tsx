@@ -4,16 +4,23 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Locale, localizedPath, Project, site } from '../data/site';
 
+const navigation = [
+  { label: 'Home', path: '/' },
+  { label: 'Experience', path: '/experience' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'Profile', path: '/profile' },
+  { label: 'Contact', path: '/contact' },
+];
+
 export function Header({ locale, path = '/' }: { locale: Locale; path?: string }) {
   const [open, setOpen] = useState(false);
   const englishPath = path || '/';
   const koreanPath = `/ko${englishPath === '/' ? '/' : englishPath}`;
-
   return (
     <header className="site-header">
-      <a className="brand" href={localizedPath(locale, '/')}>{locale==='ko'?'유태빈':'Taebin Yoo'}</a>
+      <a className="brand" href={localizedPath(locale, '/')}><span>TY</span>{locale==='ko'?'유태빈':'Taebin Yoo'}</a>
       <nav className="desktop-nav" aria-label="Primary navigation">
-        {site.nav.map(item=><a key={item.key} href={localizedPath(locale,`/${item.key}`)}>{item.label}</a>)}
+        {navigation.map(item=><a className={path===item.path?'is-active':''} key={item.label} href={localizedPath(locale,item.path)}>{item.label}</a>)}
       </nav>
       <div className="header-actions">
         <label className="language-picker">
@@ -29,9 +36,9 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
       </div>
       <div className={`mobile-menu ${open ? 'is-open' : ''}`} aria-hidden={!open}>
         <div className="mobile-links">
-          {[{key:'projects',label:'Work',number:'01'},{key:'experience',label:'Experience',number:'02'},{key:'profile',label:'About',number:'03'},{key:'contact',label:'Contact',number:'04'}].map((item) => (
-            <a key={item.key} href={localizedPath(locale, `/${item.key}`)} onClick={() => setOpen(false)}>
-              <span>{item.label}</span><span>{item.number}</span>
+          {navigation.map((item,index) => (
+            <a key={item.label} href={localizedPath(locale, item.path)} onClick={() => setOpen(false)}>
+              <span>{item.label}</span><span>{String(index+1).padStart(2,'0')}</span>
             </a>
           ))}
         </div>
@@ -48,39 +55,40 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
 export function Footer({ locale }: { locale: Locale }) {
   return (
     <footer className="site-footer">
-      <div className="remix-card">
-        <span>Get this for FREE!</span>
-        <a href="https://framer.link/nodgKDQ" target="_blank" rel="noreferrer">✣ Remix</a>
-      </div>
       <div className="footer-grid">
-        <div>
-          <span className="footer-label">Pages</span>
-          {site.nav.map((item) => <a key={item.key} href={localizedPath(locale, `/${item.key}`)}>{item.label}</a>)}
+        <div className="footer-contact">
+          <span className="footer-label">{locale==='ko'?'연락하기':'Get in touch'}</span>
+          <a href={site.contact.emailHref}>{site.contact.email}</a>
+          <a href={site.contact.phoneHref}>{site.contact.phone}</a>
         </div>
-        <div>
-          <span className="footer-label">Socials</span>
+        <div className="footer-socials">
+          <span className="footer-label">Connect</span>
           <a href={site.socials.instagram}>Instagram</a>
           <a href={site.socials.linkedin}>LinkedIn</a>
+          <a href={site.socials.youtube}>YouTube</a>
         </div>
         <div className="footer-signature">
           <strong>Taebin Yoo</strong>
-          <small>© 2026 Taebin Yoo. All rights reserved.</small>
+          <small>© 2026 TAE BIN YOO · SEOUL</small>
         </div>
       </div>
+      <nav className="footer-nav" aria-label="Footer navigation">
+        {navigation.map((item) => <a key={item.label} href={localizedPath(locale, item.path)}>{item.label}</a>)}
+      </nav>
     </footer>
   );
 }
 
 export function PageShell({ children, locale, path }: { children: React.ReactNode; locale: Locale; path?: string }) {
-  return <><Header locale={locale} path={path} /><main>{children}</main><Footer locale={locale} /></>;
+  return <div className={`site-frame${path==='/'?' is-home':''}`}><Header locale={locale} path={path} /><main>{children}</main><Footer locale={locale} /></div>;
 }
 
 export function HeroTitle({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const projectClass = children === 'Projects' ? 'projects-title' : '';
-  return <section className={`page-title ${projectClass} ${className}`}><h1>{children}</h1></section>;
+  return <section className={`page-title ${projectClass} ${className}`}><span className="page-kicker">TAEBIN YOO / PORTFOLIO</span><h1>{children}</h1></section>;
 }
 
-export function ProjectCard({ project, locale, compact=false }: { project: Project; locale: Locale; compact?:boolean }) {
+export function ProjectCard({ project, locale, compact=false, minimal=false }: { project: Project; locale: Locale; compact?:boolean; minimal?:boolean }) {
   const localizedQuestion = locale === 'ko' ? ({
     'corrective-impulse-response':'물리적 경계를 넘어 공간의 음향적 정체성을 어떻게 재현할 수 있을까?',
     'live-immerssive-audio':'몰입형 오디오는 공연자·창작자·관객의 관계를 어떻게 새롭게 구성할 수 있을까?',
@@ -100,8 +108,8 @@ export function ProjectCard({ project, locale, compact=false }: { project: Proje
         <div className="project-copy">
           <div className="project-meta"><span>{project.year}</span><span>{project.category}</span></div>
           <h3>{project.title}</h3>
-          <p>{project.description}</p>
-          {!compact&&<p className="project-question">{localizedQuestion}</p>}
+          {!minimal&&<p>{project.description}</p>}
+          {!minimal&&!compact&&<p className="project-question">{localizedQuestion}</p>}
           {!compact&&project.ongoing && <span className="ongoing">ONGOING RESEARCH</span>}
         </div>
       </article>
