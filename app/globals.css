@@ -72,7 +72,8 @@ p,h1,h2,h3,strong,span,a{overflow-wrap:break-word}
 .project-meta{display:flex;gap:22px;color:var(--muted);font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
 .project-copy h3{margin:11px 0 9px;font-family:Sentient,Georgia,serif;font-size:clamp(17px,1.6vw,23px);font-weight:400;line-height:1.08}
 .project-copy p{margin:0;color:var(--muted);font-family:Sentient,Georgia,serif;font-size:11px;line-height:1.5}
-.project-question{margin-top:16px!important;color:var(--ink)!important;font-style:italic}
+.project-question{margin-top:14px!important;color:#fff!important;font-family:'Inter Display',Arial,sans-serif!important;font-size:clamp(12px,1.1vw,15px)!important;font-style:normal;font-weight:600;line-height:1.4!important}
+.locale-ko .project-question{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif!important;font-weight:500}
 .ongoing{display:inline-block;margin-top:13px;border:1px solid var(--ink);padding:6px 8px;font-size:6px;font-weight:600;letter-spacing:.11em}
 .home-stage{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center;padding:100px var(--gutter);background:#101010;color:#fff}
 .home-stage .section-head{display:block;margin:0;border:0;padding:0}
@@ -215,6 +216,7 @@ main:has(.cv-intro) .page-title h1{font-size:clamp(27px,3.6vw,49px)}
   .section-head h2{margin-bottom:22px;font-size:27px}
   .project-grid{grid-template-columns:1fr;gap:52px}
   .project-copy h3{font-size:18px}
+  .project-question{font-size:13px!important}
   .home-stage{gap:40px;padding-block:85px}
   .page-title{height:300px;padding-top:105px;padding-bottom:42px}
   .page-title h1{width:100%;font-size:clamp(25px,6.5vw,31px);line-height:1.05;overflow-wrap:normal;word-break:normal}
@@ -264,5 +266,6 @@ main:has(.cv-intro) .page-title h1{font-size:clamp(27px,3.6vw,49px)}
 
 .locale-ko .brand{font-family:'Noto Serif KR','AppleMyungjo','Batang',serif}
 .locale-ko :is(.intro-name,.home-quote,.section-head,.project-copy,.research,.project-detail,.profile-hero,.profile-content,.cv-intro,.records,.stage-video,.contact-grid) :is(h1,h2,h3,p,strong){font-family:'Noto Serif KR','AppleMyungjo','Batang',serif!important}
+.locale-ko .project-copy .project-question{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif!important}
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}

@@ -78,7 +78,7 @@ export function HeroTitle({ children, className = '' }: { children: React.ReactN
   return <section className={`page-title ${projectClass} ${className}`}><span className="page-kicker">TAEBIN YOO / PORTFOLIO</span><h1>{children}</h1></section>;
 }
 
-export function ProjectCard({ project, locale, compact=false, minimal=false }: { project: Project; locale: Locale; compact?:boolean; minimal?:boolean }) {
+export function ProjectCard({ project, locale, compact=false }: { project: Project; locale: Locale; compact?:boolean; minimal?:boolean }) {
   const localizedQuestion = locale === 'ko' ? ({
     'corrective-impulse-response':'물리적 경계를 넘어 공간의 음향적 정체성을 어떻게 재현할 수 있을까?',
     'live-immerssive-audio':'몰입형 오디오는 공연자·창작자·관객의 관계를 어떻게 새롭게 구성할 수 있을까?',
@@ -98,8 +98,7 @@ export function ProjectCard({ project, locale, compact=false, minimal=false }: {
         <div className="project-copy">
           <div className="project-meta"><span>{project.year}</span><span>{project.category}</span></div>
           <h3>{project.title}</h3>
-          {!minimal&&<p>{project.description}</p>}
-          {!minimal&&!compact&&<p className="project-question">{localizedQuestion}</p>}
+          <p className="project-question">{localizedQuestion}</p>
           {!compact&&project.ongoing && <span className="ongoing">ONGOING RESEARCH</span>}
         </div>
       </article>
