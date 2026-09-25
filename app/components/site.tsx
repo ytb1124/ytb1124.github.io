@@ -43,9 +43,9 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
           ))}
         </div>
         <div className="mobile-socials">
-          <a href={site.socials.instagram}>Instagram</a>
+          <a href={site.socials.instagram}>Instagram →</a>
           <a href="#x">X</a>
-          <a href={site.socials.youtube}>YouTube</a>
+          <a href={site.socials.youtube}>YouTube →</a>
         </div>
       </div>
     </header>
@@ -63,9 +63,9 @@ export function Footer({ locale }: { locale: Locale }) {
         </div>
         <div className="footer-socials">
           <span className="footer-label">Connect</span>
-          <a href={site.socials.instagram}>Instagram</a>
-          <a href={site.socials.linkedin}>LinkedIn</a>
-          <a href={site.socials.youtube}>YouTube</a>
+          <a href={site.socials.instagram}>Instagram →</a>
+          <a href={site.socials.linkedin}>LinkedIn →</a>
+          <a href={site.socials.youtube}>YouTube →</a>
         </div>
         <div className="footer-signature">
           <strong>Taebin Yoo</strong>

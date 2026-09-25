@@ -22,7 +22,7 @@ export default function ProfilePage({locale='en' as const}:{locale?:'en'|'ko'}) 
       <section className="profile-story">{profile.paragraphs.map(p=><p key={p}>{p}</p>)}</section>
       <section className="profile-collage">{photos.map(i=>{const n=String(i).padStart(2,'0');const ext=[2,3,7,10,11,12,13,14].includes(i)?'jpg':'png';return <Image key={n} src={`/framer/profile/${n}.${ext}`} alt="" width={800} height={900}/>})}</section>
       <section className="profile-education">{education.map(p=><p key={p}>{p}</p>)}</section>
-      <section className="profile-media"><YoutubeEmbed/><div><h2>Podcast</h2><a className="text-link" href={site.socials.notion}>🌟 &lt;LINK&gt; LIVE SOUND</a></div></section>
+      <section className="profile-media"><YoutubeEmbed/><div><h2>Podcast</h2><a className="text-link" href={site.socials.notion}>LIVE SOUND PORTFOLIO →</a></div></section>
     </div>
   </PageShell>;
 }
