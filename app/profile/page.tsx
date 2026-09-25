@@ -14,7 +14,10 @@ export default function ProfilePage({locale='en' as const}:{locale?:'en'|'ko'}) 
   ];
   const photos=[2,3,5,7,8,11,12,13,10,14,9];
   return <PageShell locale={locale} path="/profile">
-    <section className="page-title image-title"><Image src="/framer/profile/01.jpeg" alt="Taebin Yoo as a child performing" fill priority/><h1><span>{profile.title}</span></h1></section>
+    <section className="profile-hero content-width">
+      <div><span className="page-kicker">TAEBIN YOO / PROFILE</span><h1>{profile.title}</h1></div>
+      <Image src="/framer/profile/01.jpeg" alt="Taebin Yoo as a child performing" width={478} height={478} priority/>
+    </section>
     <div className={`profile-content${locale === 'ko' ? ' profile-content-ko' : ''}`}>
       <section className="profile-story">{profile.paragraphs.map(p=><p key={p}>{p}</p>)}</section>
       <section className="profile-collage">{photos.map(i=>{const n=String(i).padStart(2,'0');const ext=[2,3,7,10,11,12,13,14].includes(i)?'jpg':'png';return <Image key={n} src={`/framer/profile/${n}.${ext}`} alt="" width={800} height={900}/>})}</section>

@@ -18,9 +18,9 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
   const koreanPath = `/ko${englishPath === '/' ? '/' : englishPath}`;
   return (
     <header className="site-header">
-      <a className="brand" href={localizedPath(locale, '/')}><span>TY</span>{locale==='ko'?'유태빈':'Taebin Yoo'}</a>
+      <a className="brand" href={localizedPath(locale, '/')}>{locale==='ko'?'유태빈':'Taebin Yoo'}</a>
       <nav className="desktop-nav" aria-label="Primary navigation">
-        {navigation.map(item=><a className={path===item.path?'is-active':''} key={item.label} href={localizedPath(locale,item.path)}>{item.label}</a>)}
+        {navigation.filter(item=>item.path!=='/').map(item=><a className={path===item.path?'is-active':''} key={item.label} href={localizedPath(locale,item.path)}>{item.label}</a>)}
       </nav>
       <div className="header-actions">
         <label className="language-picker">
