@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { PageShell, ProjectCard, YoutubeEmbed } from './components/site';
+import { PageShell, ProjectCard } from './components/site';
 import { HeroShader } from './components/hero-shader';
 import { allProjects, Locale, localizedPath, site } from './data/site';
 
@@ -16,7 +16,6 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
         {home.quoteEnd&&<h3>{home.quoteEnd}</h3>}
       </section>
       <section className={`selected-projects content-width${locale === 'ko' ? ' selected-projects-ko' : ''}`}><div className="section-head"><a href={localizedPath(locale, '/projects')}>View All Projects →</a><h2>{locale === 'ko' ? '최근 프로젝트' : 'Selected Projects'}</h2></div><div className="project-grid">{featured.map((project) => <ProjectCard key={project.slug} project={project} locale={locale} compact />)}</div></section>
-      <section className="stage-video home-stage content-width"><div className="section-head"><h2>From the Stage</h2><a href={site.socials.youtube}>MIXING PORTFOLIO →</a></div><YoutubeEmbed playlist /></section>
     </PageShell>
   );
 }

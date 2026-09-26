@@ -20,7 +20,7 @@ export function ImageLightbox() {
       if (!(target instanceof Element)) return false;
       const element = target.closest('img');
       if (!(element instanceof HTMLImageElement)) return false;
-      if (!element.closest('main') || element.closest('.admin-shell') || element.closest('[data-no-lightbox]') || element.closest('.image-lightbox')) return false;
+      if (!element.closest('main') || element.closest('a[href]') || element.closest('.admin-shell') || element.closest('[data-no-lightbox]') || element.closest('.image-lightbox')) return false;
       lastFocused.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
       setImage({ src: element.currentSrc || element.src, alt: element.alt || 'Enlarged photograph' });
       return true;

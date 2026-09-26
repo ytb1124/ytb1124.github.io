@@ -423,6 +423,7 @@ main:has(.cv-intro) .page-title h1{font-size:clamp(27px,3.6vw,49px)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
 main img{cursor:zoom-in}
+main a[href] img{cursor:pointer}
 main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .image-lightbox{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:clamp(18px,4vw,56px);background:rgba(0,0,0,.94);cursor:zoom-out}
 .image-lightbox-backdrop{position:absolute;inset:0;border:0;background:transparent;cursor:zoom-out}
