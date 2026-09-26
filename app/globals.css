@@ -33,7 +33,7 @@ p,h1,h2,h3,strong,span,a{overflow-wrap:break-word}
 .language-picker select{width:82px;border:0;background:transparent;color:#fff;padding:9px 16px 9px 0;font-size:11px;cursor:pointer}
 .menu-toggle,.mobile-menu{display:none}
 
-.home-hero{position:relative;width:100%;height:90svh;min-height:610px;overflow:hidden;background:#1e3e60;isolation:isolate}
+.home-hero{position:relative;width:100%;height:100vh;height:100dvh;min-height:0;overflow:hidden;background:#1e3e60;isolation:isolate}
 .hero-shader{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
 .home-hero:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.12) 55%,rgba(0,0,0,.55));pointer-events:none}
 .home-hero h1{position:absolute;inset:0;display:grid;place-content:center;margin:0;padding:90px 22px 22px;text-align:center;font-family:Jersey,'Inter Display',sans-serif;font-size:clamp(27px,3vw,50px);font-weight:400;line-height:.9;letter-spacing:.01em;text-shadow:0 2px 22px rgba(0,0,0,.28)}
@@ -262,7 +262,7 @@ main:has(.cv-intro) .page-title h1{font-size:clamp(27px,3.6vw,49px)}
   .content-width,.page-title,.project-detail,.profile-content,.site-footer{width:100%}
   .site-frame{padding-bottom:10px}
   .brand{font-size:18px}
-  .home-hero{height:90svh;min-height:560px}
+  .home-hero{height:100vh;height:100dvh;min-height:0}
   .home-hero h1{font-size:clamp(25px,7.2vw,34px);line-height:.92;padding-inline:16px}
   .hero-orb{bottom:28px}
   .home-intro{gap:52px;padding-top:82px;padding-bottom:84px}
@@ -430,3 +430,20 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .image-lightbox img{position:relative;display:block;max-width:min(94vw,1800px);max-height:90vh;width:auto;height:auto;object-fit:contain;cursor:default;box-shadow:0 28px 90px rgba(0,0,0,.55)}
 .image-lightbox-close{position:fixed;top:18px;right:22px;z-index:1;width:46px;height:46px;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:rgba(0,0,0,.35);color:#fff;font:300 32px/1 Arial,sans-serif;cursor:pointer}
 .image-lightbox-close:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+/* Viewport-sized chapters; content can grow instead of being clipped. */
+:root{--screen-height:100vh;--header-height:100px}
+@supports(height:100dvh){:root{--screen-height:100dvh}}
+.site-frame{padding-bottom:0}
+.site-frame>main{min-height:var(--screen-height)}
+.site-frame .page-title{height:auto;min-height:var(--screen-height);justify-content:center;padding-block:calc(var(--header-height) + 40px) 60px}
+.site-frame :is(.home-intro,.home-quote,.selected-projects,.profile-hero,.contact-grid,.cv-intro,.production-section,.research-section,.experience-section,.profile-story,.profile-education,.profile-media,.detail-intro,.project-framework){min-height:calc(var(--screen-height) - var(--header-height));scroll-margin-top:var(--header-height)}
+.site-frame :is(.home-intro,.profile-hero,.contact-grid,.cv-intro,.profile-story,.profile-media,.detail-intro){align-content:center}
+.site-frame .profile-hero{min-height:var(--screen-height)}
+.site-frame .home-quote{display:flex;flex-direction:column;justify-content:center}
+.site-frame main>section+section,.site-frame .production-section{border-top:1px solid var(--line)}
+.site-frame .detail-title{min-height:calc(var(--screen-height) - 140px);display:flex;flex-direction:column;justify-content:center}
+.site-frame .site-footer{border-top:1px solid var(--line)}
+@media(max-width:920px){:root{--header-height:70px}}
+@media(max-width:640px){.site-frame .detail-title{min-height:calc(var(--screen-height) - 105px)}}
+@media(max-height:500px){.home-hero h1{padding-top:75px;padding-bottom:65px}.hero-orb{bottom:16px;width:32px;height:32px}}
