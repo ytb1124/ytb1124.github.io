@@ -165,7 +165,7 @@
       "number": "01.",
       "title": "Immersive Experience",
       "koreanTitle": "이머시브 경험",
-      "question": "How can technology adapt sound to the space?",
+      "question": "How can sound adapt to the space in which it is experienced?",
       "koreanQuestion": "기술은 공간에 맞춰 소리를 어떻게 적응시킬 수 있을까?",
       "projectSlugs": [
         "corrective-impulse-response",
@@ -178,7 +178,7 @@
       "number": "02.",
       "title": "Musical Expression",
       "koreanTitle": "음악적 표현",
-      "question": "How can technology adapt to the performer?",
+      "question": "How can musical systems follow the performer, rather than requiring the performer to follow the system?",
       "koreanQuestion": "기술은 연주자에게 어떻게 적응할 수 있을까?",
       "projectSlugs": [
         "electronic-drums",
@@ -189,8 +189,8 @@
       "number": "03.",
       "title": "Musical Participation",
       "koreanTitle": "음악적 참여",
-      "question": "How can technology adapt to different ways of hearing, moving, and expressing?",
-      "koreanQuestion": "기술은 서로 다른 듣기·움직임·표현 방식에 어떻게 적응할 수 있을까?",
+      "question": "How can people participate in music in their own ways without being forced into a single way of hearing, moving, or expressing?",
+      "koreanQuestion": "사람들은 서로 각자 다른 듣기·움직임·표현 방식으로 어떻게 음악에 참여할 수 있을까?",
       "projectSlugs": [
         "adaptive-monitor-system"
       ]
