@@ -31,7 +31,7 @@
   ],
   "home": {
     "hero": "Why was I born?\nWho am I?\nWhat will I have to do?",
-    "intro": "I work at the intersection of live sound, music technology, and human experience. My practice explores how technology can change the ways we create, experience, and participate in music. Starting from live sound engineering, I have gradually moved toward immersive audio, interactive systems, and accessible music technology - always asking how technology can respond to the people who use it.",
+    "intro": "I work at the intersection of live sound, music technology, and human experience. My work explores how musical systems can adapt to spaces, performers, and different ways of experiencing and expressing music. Starting from live sound engineering, I have gradually moved toward immersive audio, interactive systems, and accessible music technology—always asking how technology can adapt to the people who use it, rather than asking people to adapt to the system.",
     "credentials": "DIMA · Department of Audio Production\nNational Technical Qualification for Theatrical Arts (Audio), · Ministry of Culture, Sports and Tourism\nOutstanding Paper Presentation Award · The 5th Electroacoustics & Stage Sound Conference, The Acoustical Society of Korea",
     "role": "Sound Engineer & Emerging Researcher",
     "disciplines": "Immersive Audio · Music Technology",
@@ -39,7 +39,7 @@
     "quoteEnd": ""
   },
   "koreanHome": {
-    "intro": "안녕하세요! 저는 인간의 감정과 상호 공감이 공연 음향 기술을 통해 어떻게 전해지는지를 탐구하는 유태빈입니다. 라이브 사운드 엔지니어 배경으로 200개 이상의 라이브 이벤트에서 디자인하고 운영한 현장 경험으로 관객을 이해합니다. 저는 동일한 관객의 입장에서 아티스트와 엔지니어의 예술적 및 기술적 의도가 모든 관객에게 최대한 동등하게 인식될 수 있는 방법을 고민합니다. 현재 저의 작업은 이머시브 오디오와 Max/MSP의 실시간 처리를 연구 도구로 사용하여 공연 시스템에서 영향을 프로토타입하고 테스트합니다. 저는 종종 장애와 같은 이유로 공연에서 소외된 관객들에게 이러한 경험을 확장하는 데 특히 동기를 부여받고 있으며, 인간 중심의 탐구, 접근성, 미래 공연 기술이 만나는 연구 환경을 찾고 있습니다.",
+    "intro": "안녕하세요! 저는 라이브 사운드, 음악 기술, 그리고 인간의 경험이 만나는 지점에서 작업합니다. 제 작업은 음악 시스템이 공간과 연주자, 그리고 사람들이 음악을 경험하고 표현하는 서로 다른 방식에 어떻게 적응할 수 있는지를 탐구합니다. 라이브 사운드 엔지니어링에서 출발해 점차 이머시브 오디오, 인터랙티브 시스템, 접근 가능한 음악 기술로 관심을 확장해 왔으며, 그 과정에서 늘 한 가지 질문을 이어가고 있습니다. 사람이 시스템에 맞추는 것이 아니라, 기술이 그것을 사용하는 사람에게 어떻게 맞춰질 수 있을까?",
     "credentials": "동아방송예술대학교 음향제작학과\n문화체육관광부 무대예술전문인 무대음향 3급\n한국음향학회 제5회 전기음향&무대음향 학술대회 우수발표상",
     "role": "Sound Engineer & Emerging Researcher",
     "disciplines": "Immersive Audio · Music Technology",
