@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 import tempfile
 import time
@@ -147,6 +148,190 @@ def event_type_from(title: str, tags: list[str]) -> str:
     return "Live Event Production"
 
 
+def english_title_from(title: str) -> str:
+    translated = title.strip()
+    replacements = [
+        ("동아방송예술대학교", "Dong-Ah Institute of Media and Arts"),
+        ("동아방송예술대", "DIMA"),
+        ("동아방송대", "DIMA"),
+        ("고려대학교", "Korea University"),
+        ("서강대학교", "Sogang University"),
+        ("성균관대", "Sungkyunkwan University"),
+        ("한밭대", "Hanbat National University"),
+        ("롯데장학재단", "Lotte Scholarship Foundation"),
+        ("NC문화재단", "NC Cultural Foundation"),
+        ("한국언론진흥재단", "Korea Press Foundation"),
+        ("사단법인 한국음향협회", "Korea Sound Association"),
+        ("(사)한국음향협회", "Korea Sound Association"),
+        ("한국경제인협회", "Federation of Korean Industries"),
+        ("현대자동차", "Hyundai Motor Company"),
+        ("국군중앙교회", "ROK Armed Forces Central Church"),
+        ("국방부", "Ministry of National Defense"),
+        ("신라호텔", "The Shilla Seoul"),
+        ("노브워십", "KNOB Worship"),
+        ("로이킴", "Roy Kim"),
+        ("신승훈", "Shin Seung Hun"),
+        ("어반자카파", "Urban Zakapa"),
+        ("김혜윤", "Kim Hye-yoon"),
+        ("샤이니 태민", "SHINee TAEMIN"),
+        ("NCT 태용", "NCT TAEYONG"),
+        ("르세라핌", "LE SSERAFIM"),
+        ("(여자)아이들", "(G)I-DLE"),
+        ("정세운", "JEONG SEWOON"),
+        ("싸이", "PSY"),
+        ("경기도 안성시 주최", "Hosted by Anseong City, Gyeonggi Province"),
+        ("안성시", "Anseong City"),
+        ("부천시", "Bucheon City"),
+        ("시흥시", "Siheung City"),
+        ("노원구", "Nowon District"),
+        ("음향시스템 튜닝", "Sound System Tuning"),
+        ("음향 시스템 튜닝", "Sound System Tuning"),
+        ("전체 예배당", "Main Sanctuary"),
+        ("소예배실", "Chapel"),
+        ("예배당", "Sanctuary"),
+        ("신차 발표회", "New Vehicle Launch"),
+        ("팬미팅", "Fan Meeting"),
+        ("정기공연", "Annual Concert"),
+        ("개강공연", "Opening Concert"),
+        ("기념 공연", "Anniversary Concert"),
+        ("전시 콘서트", "Exhibition Concert"),
+        ("토크콘서트", "Talk Concert"),
+        ("콘서트", "Concert"),
+        ("쇼케이스", "Showcase"),
+        ("수련회", "Retreat"),
+        ("연합예배", "Joint Worship Service"),
+        ("감사예배&임직식", "Thanksgiving Service & Ordination Ceremony"),
+        ("감사예배", "Thanksgiving Service"),
+        ("찬양집회", "Worship Concert"),
+        ("성탄 공연", "Christmas Concert"),
+        ("뮤지컬 발표회", "Musical Showcase"),
+        ("뮤지컬 투어", "Musical Tour"),
+        ("뮤지컬", "Musical"),
+        ("연극", "Theater"),
+        ("소리극", "Music Theater"),
+        ("가요제", "Singing Contest"),
+        ("발표회", "Showcase"),
+        ("말하기 대회", "Speech Competition"),
+        ("학술대회", "Conference"),
+        ("컨퍼런스", "Conference"),
+        ("회원대회", "Members Convention"),
+        ("드론 라이트쇼", "Drone Light Show"),
+        ("마을축제", "Community Festival"),
+        ("문화제", "Cultural Festival"),
+        ("축제", "Festival"),
+        ("영화제", "Film Festival"),
+        ("박람회", "Fair"),
+        ("버스킹", "Busking Performance"),
+        ("음향 오퍼레이팅", "Audio Mixing"),
+        ("오퍼레이팅", "Mixing"),
+        ("음향간사", "House Audio Engineer"),
+        ("음향담당관", "Audio Engineer"),
+        ("원형무대 기획", "In-the-Round Stage System Design"),
+        ("원형 무대 기획", "In-the-Round Stage System Design"),
+        ("음향 담당", "Audio Production"),
+        ("기획공연", "Special Production"),
+        ("녹음", "Recording"),
+        ("동문 홈커밍데이", "Alumni Homecoming Day"),
+        ("네트워킹데이", "Networking Day"),
+        ("한마음소통캠프", "Community Camp"),
+        ("희망장학생", "Hope Scholars"),
+        ("롯데희망장학생", "Lotte Hope Scholars"),
+        ("군선교연합캠프", "United Military Ministry Camp"),
+        ("경영자 제주하계포럼", "Jeju Summer Business Forum"),
+        ("어반 아일랜드", "Urban Island"),
+        ("모두의 인공지능 윤리", "AI Ethics for Everyone"),
+        ("국제어학원", "Institute of International Education"),
+        ("국제 영어", "International English"),
+        ("이머시브 오디오", "Immersive Audio"),
+        ("신격호평전독후활동공모전 롯데임직원 행사", "Shin Kyuk-ho Biography Reading Contest · Lotte Employee Event"),
+        ("개천절민족공동행사", "National Foundation Day Community Event"),
+        ("꿈끼 한마당", "Dream & Talent Festival"),
+        ("그린나래 종합예술발표회", "그린나래 Arts Showcase"),
+        ("화요콘서트", "Tuesday Concert"),
+        ("포레스트런", "Forest Run"),
+        ("애쉬 아일랜드", "ASH ISLAND"),
+        ("유스페스티벌", "Youth Festival"),
+        ("하계", "Summer "),
+        ("동계", "Winter "),
+        ("내한공연", "Korea Concert"),
+        ("페스티벌", "Festival"),
+        ("음악회", "Concert"),
+        ("시즌", "Season "),
+        ("창립 100주년", "100th Anniversary"),
+        ("50주년 기념 시민콘서트", "50th Anniversary Civic Concert"),
+        ("관현악단 오케스트라", "Orchestra"),
+        ("금요예배", "Friday Worship"),
+        ("학생회", "Student Council"),
+        ("중앙동아리", "Student Club"),
+        ("밴드동아리", "Band Club"),
+        ("주니어보드", "Junior Board"),
+        ("거리", "Street "),
+        ("원형무대", "In-the-Round Stage"),
+        ("셋업", "Setup"),
+        ("공연", "Performance"),
+        ("행사", "Event"),
+        ("대학", "University"),
+        ("청년부", "Young Adults Ministry"),
+        ("청소년부", "Youth Ministry"),
+        ("중고등부", "Youth Ministry"),
+        ("중등부", "Middle School Ministry"),
+        ("고등부", "High School Ministry"),
+        ("초등부", "Children's Ministry"),
+        ("전교인", "All-Church"),
+        ("중학교", "Middle School"),
+        ("고등학교", "High School"),
+        ("초등학교", "Elementary School"),
+        ("교회", "Church"),
+        ("장학생", "Scholars"),
+        ("장학", "Scholarship"),
+        ("기업행사", "Corporate Event"),
+        ("강연 행사", "Lecture Event"),
+        ("연합체전", "Intercollegiate Sports Day"),
+        ("해단식", "Closing Ceremony"),
+        ("진로체험", "Career Exploration"),
+        ("청소년", "Youth"),
+    ]
+    for korean, english in replacements:
+        translated = translated.replace(korean, english)
+
+    cleanup_replacements = [
+        ("희망 Scholars", "Hope Scholars"),
+        ("롯데 Hope Scholars", "Lotte Hope Scholars"),
+        ("화요 Concert", "Tuesday Concert"),
+        ("화요Concert", "Tuesday Concert"),
+        ("그린나래 종합예술 Showcase", "그린나래 Arts Showcase"),
+        ("그린나래 종합예술Showcase", "그린나래 Arts Showcase"),
+        ("50주년 기념 시민 Concert", "50th Anniversary Civic Concert"),
+        ("50주년 기념 시민Concert", "50th Anniversary Civic Concert"),
+        ("KPFKorea Press Foundation", "KPF · Korea Press Foundation"),
+        ("100th Anniversary 기념", "100th Anniversary"),
+        ("성탄 Concert", "Christmas Concert"),
+        ("캠프코리아 스탭", "Camp Korea Staff"),
+        ("CCC 연합 예배", "CCC Joint Worship Service"),
+        ("DIMA Musical 과 1학년 기말 Performance", "DIMA Department of Musical Theatre · First-Year Final Performance"),
+        ("Season 2 방송 1회차 촬영", "Season 2 · Episode 1 Filming"),
+        ("27대 Student Council", "27th Student Council"),
+        ("Youth 문화재단", "Youth Foundation"),
+        ("강연 Event", "Lecture Event"),
+        ("동아리 Showcase", "Student Club Showcase"),
+        ("찬양 저녁집회", "Evening Worship"),
+        ("서울국제경찰청장회의", "Seoul International Police Chiefs Conference"),
+    ]
+    for source, replacement in cleanup_replacements:
+        translated = translated.replace(source, replacement)
+
+    def ordinal(match: re.Match[str]) -> str:
+        number = int(match.group(1))
+        suffix = "th" if 10 <= number % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(number % 10, "th")
+        return f"{number}{suffix}"
+
+    translated = re.sub(r"제\s*(\d+)회", ordinal, translated)
+    translated = re.sub(r"(?<=[가-힣])(?=[A-Za-z(])", " ", translated)
+    translated = re.sub(r"(?<=[A-Za-z)])(?=[가-힣])", " ", translated)
+    translated = re.sub(r"\s{2,}", " ", translated)
+    return translated.strip()
+
+
 def load_page(page_id: str) -> dict:
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     cached = CACHE_DIR / f"{page_id}.json"
@@ -254,6 +439,7 @@ def main() -> None:
             {
                 "id": page_id,
                 "title": title,
+                "englishTitle": english_title_from(title),
                 "eventType": event_type_from(title, tags),
                 "image": image_path,
                 "role": role_from(tags, title, details),
@@ -267,7 +453,7 @@ def main() -> None:
             existing.unlink()
 
     lines = [
-        "export type Activity = { id: string; title: string; eventType: string; image: string; role: 'Mixing Engineer' | 'System Engineer' | 'Technician' | '애매함!' };",
+        "export type Activity = { id: string; title: string; englishTitle: string; eventType: string; image: string; role: 'Mixing Engineer' | 'System Engineer' | 'Technician' | '애매함!' };",
         "",
         "export const activities: Activity[] = [",
     ]

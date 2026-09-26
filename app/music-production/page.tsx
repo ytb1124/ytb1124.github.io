@@ -14,7 +14,7 @@ export default function MusicProductionPage() {
         </div>
         <div className="activity-meta">
           <div className="activity-title-group">
-            <h2>{activity.title}</h2>
+            <h2>{activity.englishTitle}</h2>
             <span>{activity.eventType}</span>
           </div>
           <p>{activity.role}</p>
