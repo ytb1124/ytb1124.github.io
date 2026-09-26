@@ -22,8 +22,17 @@ VIEW_ID = "00e441e6-2ee5-45a2-ad90-86eb8771ad5b"
 COLLECTION_BLOCK_ID = "307fc7b3-b78e-4a1e-9ea4-0cfc849f688d"
 MAIN_PAGE_ID = "d69375f9-4f30-46f0-af2f-05915d25d561"
 
-FOH_TAGS = {"오퍼레이팅", "튜닝"}
+MIXING_TAGS = {"오퍼레이팅"}
 STAGE_TAGS = {"크루", "RF", "랜탈회사", "무대진행 및 보조", "플레이백"}
+SYSTEM_TERMS = {
+    "음향시스템 튜닝",
+    "음향 시스템 튜닝",
+    "시스템 디자인",
+    "시스템 기획",
+    "원형무대 기획",
+    "원형 무대 기획",
+    "얼라인먼트",
+}
 
 
 def post(endpoint: str, body: dict) -> dict:
@@ -54,12 +63,15 @@ def plain_text(rich_text: list | None) -> str:
     return "".join(str(fragment[0]) for fragment in rich_text if fragment)
 
 
-def role_from(tags: list[str]) -> str:
+def role_from(tags: list[str], title: str, details: str) -> str:
     tag_set = set(tags)
-    if tag_set & FOH_TAGS:
-        return "FOH Engineer"
+    combined = f"{title} {details}"
+    if "튜닝" in tag_set or any(term in combined for term in SYSTEM_TERMS) or "AFC 이머시브 오디오" in title:
+        return "System Engineer"
+    if tag_set & MIXING_TAGS:
+        return "Mixing Engineer"
     if tag_set & STAGE_TAGS:
-        return "Stage Technician"
+        return "Technician"
     return "애매함!"
 
 
@@ -136,6 +148,10 @@ def main() -> None:
         properties = root.get("properties", {})
         title = plain_text(properties.get("title")) or "Untitled activity"
         tags = [tag.strip() for tag in plain_text(properties.get("exW_", [])).split(",") if tag.strip()]
+        details = " ".join(
+            plain_text(value(record).get("properties", {}).get("title"))
+            for record in blocks.values()
+        )
 
         image_block_id = ""
         image_source = ""
@@ -163,7 +179,7 @@ def main() -> None:
                 referenced_files.add(target_name)
 
         activities.append(
-            {"id": page_id, "title": title, "image": image_path, "role": role_from(tags)}
+            {"id": page_id, "title": title, "image": image_path, "role": role_from(tags, title, details)}
         )
         print(f"{index:03d}/{len(ordered_ids)} {activities[-1]['role']:<16} {title}", flush=True)
         time.sleep(0.12)
@@ -173,7 +189,7 @@ def main() -> None:
             existing.unlink()
 
     lines = [
-        "export type Activity = { id: string; title: string; image: string; role: 'Stage Technician' | 'FOH Engineer' | '애매함!' };",
+        "export type Activity = { id: string; title: string; image: string; role: 'Mixing Engineer' | 'System Engineer' | 'Technician' | '애매함!' };",
         "",
         "export const activities: Activity[] = [",
     ]
@@ -181,7 +197,10 @@ def main() -> None:
     lines.append("];\n")
     DATA_FILE.write_text("\n".join(lines))
 
-    counts = {role: sum(activity["role"] == role for activity in activities) for role in ("Stage Technician", "FOH Engineer", "애매함!")}
+    counts = {
+        role: sum(activity["role"] == role for activity in activities)
+        for role in ("Mixing Engineer", "System Engineer", "Technician", "애매함!")
+    }
     print(f"Synced {len(activities)} cards, {len(referenced_files)} images: {counts}")
 
 
