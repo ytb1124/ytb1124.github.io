@@ -49,10 +49,10 @@
   {
     "slug": "spatial-renderer-system-identification",
     "year": "2026",
-    "category": "Spatial Audio Research",
-    "title": "Sound xR Image Renderer System Identification",
+    "category": "Yamaha Spatial Audio Research",
+    "title": "Yamaha Sound xR Image Renderer System Identification",
     "description": "A black-box measurement study of how Sound xR Image maps loudspeaker geometry, Object position, and renderer parameters to output gains.",
-    "question": "How does Sound xR Image translate spatial coordinates and rendering parameters into loudspeaker gains?",
+    "question": "How does Yamaha Sound xR Image translate spatial coordinates and rendering parameters into loudspeaker gains?",
     "image": "/framer/projects/spatial-renderer-system-identification/01.jpeg",
     "gallery": [
       "/framer/projects/spatial-renderer-system-identification/01.jpeg",
