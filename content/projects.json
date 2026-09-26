@@ -85,11 +85,17 @@
     "resources": [
       {
         "href": "/reports/afc-renderer-analysis-ko.docx",
-        "label": { "en": "OPEN TECHNICAL REPORT (KO)", "ko": "기술 검증 보고서 열기" }
+        "label": {
+          "en": "OPEN TECHNICAL REPORT (KO)",
+          "ko": "기술 검증 보고서 열기"
+        }
       },
       {
         "href": "/downloads/afc-renderer-experiment.xlsx",
-        "label": { "en": "DOWNLOAD EXPERIMENT DATA", "ko": "실험 데이터 다운로드" }
+        "label": {
+          "en": "DOWNLOAD EXPERIMENT DATA",
+          "ko": "실험 데이터 다운로드"
+        }
       }
     ],
     "body": [
