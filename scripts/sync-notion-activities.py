@@ -151,7 +151,7 @@ def event_type_from(title: str, tags: list[str]) -> str:
 def english_title_from(title: str) -> str:
     translated = title.strip()
     replacements = [
-        ("동아방송예술대학교", "Dong-Ah Institute of Media and Arts"),
+        ("동아방송예술대학교", "DIMA"),
         ("동아방송예술대", "DIMA"),
         ("동아방송대", "DIMA"),
         ("고려대학교", "Korea University"),
