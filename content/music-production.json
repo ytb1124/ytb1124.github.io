@@ -6,7 +6,7 @@
     },
     "title": {
       "en": "Selected Projects",
-      "ko": "Selected Projects"
+      "ko": "주요 프로젝트"
     },
     "projects": [
       {
@@ -36,14 +36,14 @@
             "The system was deployed in a live outdoor performance and provided the practical starting point for a separate study of how the AFC renderer converts spatial coordinates into loudspeaker gains."
           ],
           "ko": [
-            "이 프로젝트는 자연 반사가 부족해 안정적인 공간감 형성이 어려운 야외 운동장에 Yamaha AFC Image를 적용한 사례입니다. 모든 음상을 전면 무대에 집중시키지 않고 공연장 전체를 하나의 확장된 공연 공간으로 만드는 것을 목표로 했습니다.",
-            "DME7, Dante 네트워크, L-Acoustics KARA 메인 시스템을 기반으로 9.1채널 시스템을 설계하고 운영했습니다. 스피커 배치와 정렬, 네트워크와 신호 흐름 설계, 시스템 튜닝, 파라미터 조정, 현장 운용을 담당했습니다.",
-            "완성한 시스템은 실제 야외 공연에 구축·운영했으며, 이 현장 경험은 AFC 렌더러가 공간 좌표를 스피커별 gain으로 변환하는 방식을 별도로 분석하는 후속 연구의 출발점이 되었습니다."
+            "이 프로젝트는 자연 반사가 부족해 안정적인 공간감을 만들기 어려운 야외 운동장에 Yamaha AFC Image를 적용한 작업입니다. 모든 음상을 전면 무대에 모으기보다 공연장 전체를 하나의 확장된 공연 공간으로 만드는 것을 목표로 했습니다.",
+            "DME7과 Dante 네트워크, L-Acoustics KARA 메인 시스템을 바탕으로 9.1채널 시스템을 설계하고 운영했습니다. 스피커 배치와 정렬부터 네트워크·신호 흐름 설계, 시스템 튜닝, 파라미터 조정, 현장 운용까지 맡았습니다.",
+            "완성한 시스템은 실제 야외 공연에서 운영했습니다. 이 경험은 AFC 렌더러가 공간 좌표를 스피커별 게인으로 바꾸는 방식을 분석하는 후속 연구의 출발점이 되었습니다."
           ]
         },
         "videoLabel": {
           "en": "WATCH PERFORMANCE ON YOUTUBE →",
-          "ko": "YOUTUBE에서 공연 보기 →"
+          "ko": "YouTube에서 공연 보기 →"
         },
         "reports": {
           "en": "/reports/afc-en.pdf",
@@ -87,7 +87,7 @@
         },
         "videoLabel": {
           "en": "WATCH PROJECT ON YOUTUBE →",
-          "ko": "YOUTUBE에서 프로젝트 보기 →"
+          "ko": "YouTube에서 프로젝트 보기 →"
         },
         "reports": null,
         "reportLabel": null,
@@ -114,7 +114,7 @@
     "coverAlt": "Merry Night single cover",
     "credit": {
       "en": "STUDIO RECORDING · TAEBIN YOO @ GENUIN STUDIO",
-      "ko": "STUDIO RECORDING · 유태빈 @ 게누인 스튜디오"
+      "ko": "스튜디오 레코딩 · 유태빈 @ 게누인 스튜디오"
     },
     "albumTitle": "Merry Night",
     "meta": "Jazz · 2026 · 3 tracks · 14 minutes",
@@ -139,7 +139,7 @@
     "playlistUrl": "https://youtube.com/playlist?list=OLAK5uy_nrL9Q46lqqVpIovhMFTqRS7W1ap8rybg4&si=g3Gbsei3riyYR1IX",
     "listenLabel": {
       "en": "LISTEN TO MERRY NIGHT →",
-      "ko": "MERRY NIGHT 듣기 →"
+      "ko": "Merry Night 듣기 →"
     }
   },
   "mixing": {
@@ -157,7 +157,7 @@
     },
     "linkLabel": {
       "en": "OPEN PLAYLIST ON YOUTUBE →",
-      "ko": "YOUTUBE에서 플레이리스트 열기 →"
+      "ko": "YouTube에서 플레이리스트 열기 →"
     },
     "playlistUrl": "https://youtube.com/playlist?list=PL_kWYUD-HpqlcTCfJSD_4k87kQdzyD4DZ&si=kXkmH_rhqa1GwQVR"
   },

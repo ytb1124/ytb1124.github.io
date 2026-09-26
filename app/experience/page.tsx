@@ -81,12 +81,12 @@ const experienceEn: readonly DetailItem[] = [
 const experienceKo: readonly DetailItem[] = [
   {
     organization: '독립 연구 활동',
-    role: '라이브 퍼포먼스 기술 연구자',
+    role: '라이브 공연 기술 연구자',
     period: '2023년 7월 – 현재',
     details: [
       '실제 공연 제작 현장을 실험 환경으로 삼아 실천 기반 연구를 수행하고 있습니다.',
       '200회 이상의 라이브 공연에서 음향 시스템을 설계·운영하며 감정 전달의 일관성과 관객 경험을 연구했습니다.',
-      'Max/MSP와 Python으로 이머시브 오디오 및 실시간 DSP 프로토타입을 개발하고 있습니다.',
+      'Max/MSP와 Python을 활용해 몰입형 오디오와 실시간 DSP 프로토타입을 개발하고 있습니다.',
     ],
   },
   {
@@ -95,7 +95,7 @@ const experienceKo: readonly DetailItem[] = [
     location: '서울, 대한민국',
     details: [
       '다양한 공연장과 시스템 환경에서 200회 이상의 콘서트, 예배, 공연 행사의 라이브 사운드를 담당했습니다.',
-      '실시간 공연 환경에서 FOH와 모니터 시스템, 마이크, 라우드스피커, 신호 라우팅, 시스템 얼라인먼트를 운영했습니다.',
+      '실시간 공연 환경에서 FOH(객석 음향)와 모니터 시스템, 마이크, 라우드스피커, 신호 라우팅, 시스템 정렬을 담당했습니다.',
     ],
   },
   {
@@ -172,16 +172,16 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
   }];
   const toCompact = (rows: readonly (readonly [string, string, string])[]): CompactItem[] => rows.map(([name, organization, period]) => ({ name, organization, period }));
   const labels = locale === 'ko' ? {
-    education: '학력', experience: '경력', scholarships: '장학', awards: '수상', certifications: '자격 및 수료', viewCv: 'CV PDF 보기 →', liveHistory: '라이브 사운드 이력 →', mixing: '믹싱 포트폴리오', live: '라이브 사운드 이력',
+    education: '학력', experience: '경력', scholarships: '장학금', awards: '수상', certifications: '자격 및 교육', viewCv: 'CV PDF 보기 →', liveHistory: '라이브 사운드 이력 →', mixing: '믹싱 포트폴리오', live: '라이브 사운드 이력',
   } : {
     education: 'Education', experience: 'Experience', scholarships: 'Scholarships', awards: 'Awards', certifications: 'Licenses & Certifications', viewCv: 'View CV (PDF) →', liveHistory: 'Live Sound History →', mixing: 'Mixing Portfolio', live: 'Live Sound History',
   };
 
   return <PageShell locale={locale} path="/experience">
-    <HeroTitle><span>{exp.title.split('\n').map((line) => <span key={line}>{line}</span>)}</span></HeroTitle>
+    <HeroTitle locale={locale}><span>{exp.title.split('\n').map((line) => <span key={line}>{line}</span>)}</span></HeroTitle>
     <section className={`content-width cv-intro${locale === 'ko' ? ' cv-intro-ko' : ''}`}>
       <h2>{exp.cvTitle}</h2>
-      <div><p>{exp.cvDescription}</p><div className="button-row"><a className="pill-link" href={site.socials.cv} target="_blank" rel="noopener noreferrer">{labels.viewCv}</a><a className="pill-link" href={localizedPath(locale, '/music-production')}>{locale === 'ko' ? '뮤직 프로덕션 →' : 'Music Production →'}</a></div></div>
+      <div><p>{exp.cvDescription}</p><div className="button-row"><a className="pill-link" href={site.socials.cv} target="_blank" rel="noopener noreferrer">{labels.viewCv}</a><a className="pill-link" href={localizedPath(locale, '/music-production')}>{locale === 'ko' ? '음악 제작 작업 보기 →' : 'Music Production →'}</a></div></div>
     </section>
     <div className="experience-records content-width">
       <DetailGroup title={labels.education} items={education} />
@@ -190,6 +190,6 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
       <CompactGroup title={labels.awards} items={toCompact(exp.awards)} />
       <CompactGroup title={labels.certifications} items={toCompact(exp.licenses)} />
     </div>
-    <section className="content-width stage-video experience-video"><YoutubeEmbed playlist /><div className="video-links"><h2>{labels.mixing}</h2><a className="text-link" href={site.socials.youtube}>MIXING PORTFOLIO →</a><h2>{labels.live}</h2><a className="text-link" href={localizedPath(locale, '/music-production')}>{locale === 'ko' ? '뮤직 프로덕션 →' : 'MUSIC PRODUCTION →'}</a></div></section>
+    <section className="content-width stage-video experience-video"><YoutubeEmbed playlist locale={locale} /><div className="video-links"><h2>{labels.mixing}</h2><a className="text-link" href={site.socials.youtube}>{locale === 'ko' ? '믹싱 작업 보기 →' : 'MIXING PORTFOLIO →'}</a><h2>{labels.live}</h2><a className="text-link" href={localizedPath(locale, '/music-production')}>{locale === 'ko' ? '전체 활동 보기 →' : 'MUSIC PRODUCTION →'}</a></div></section>
   </PageShell>;
 }

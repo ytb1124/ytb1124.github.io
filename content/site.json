@@ -39,10 +39,11 @@
     "quoteEnd": ""
   },
   "koreanHome": {
-    "intro": "안녕하세요! 저는 라이브 사운드, 음악 기술, 그리고 인간의 경험이 만나는 지점에서 작업합니다. 제 작업은 음악 시스템이 공간과 연주자, 그리고 사람들이 음악을 경험하고 표현하는 서로 다른 방식에 어떻게 적응할 수 있는지를 탐구합니다. 라이브 사운드 엔지니어링에서 출발해 점차 이머시브 오디오, 인터랙티브 시스템, 접근 가능한 음악 기술로 관심을 확장해 왔으며, 그 과정에서 늘 한 가지 질문을 이어가고 있습니다. 사람이 시스템에 맞추는 것이 아니라, 기술이 그것을 사용하는 사람에게 어떻게 맞춰질 수 있을까?",
+    "hero": "나는 왜 태어났을까?\n나는 누구일까?\n나는 무엇을 해야 할까?",
+    "intro": "안녕하세요! 저는 라이브 사운드와 음악 기술, 그리고 사람의 경험이 만나는 지점에서 작업합니다. 음악 시스템이 공간과 연주자, 그리고 저마다 다른 음악 경험과 표현 방식에 어떻게 맞춰질 수 있는지를 탐구합니다. 라이브 사운드 엔지니어링에서 출발해 몰입형 오디오, 인터랙티브 시스템, 접근 가능한 음악 기술로 관심을 넓혀 왔고, 그 과정에서 한 가지 질문을 꾸준히 이어가고 있습니다. 사람이 시스템에 맞추는 대신, 기술이 그것을 사용하는 사람에게 맞춰질 수는 없을까?",
     "credentials": "동아방송예술대학교 음향제작학과\n문화체육관광부 무대예술전문인 무대음향 3급\n한국음향학회 제5회 전기음향&무대음향 학술대회 우수발표상",
-    "role": "Sound Engineer & Emerging Researcher",
-    "disciplines": "Immersive Audio · Music Technology",
+    "role": "사운드 엔지니어 · 신진 연구자",
+    "disciplines": "몰입형 오디오 · 음악 기술",
     "quote": "그래서 제가 태어난 것만 같아요.\n\n제가 상상할 수 있는 \n모든 것을 경험하기 위해서요.\n\n천천히, 그러나 꾸준히요!",
     "quoteEnd": ""
   },
@@ -164,9 +165,9 @@
     {
       "number": "01.",
       "title": "Immersive Experience",
-      "koreanTitle": "이머시브 경험",
+      "koreanTitle": "몰입형 경험",
       "question": "How can sound adapt to the space in which it is experienced?",
-      "koreanQuestion": "기술은 공간에 맞춰 소리를 어떻게 적응시킬 수 있을까?",
+      "koreanQuestion": "소리는 공간의 특성에 맞춰 어떻게 달라질 수 있을까?",
       "projectSlugs": [
         "corrective-impulse-response",
         "spatial-renderer-system-identification",
@@ -179,7 +180,7 @@
       "title": "Musical Expression",
       "koreanTitle": "음악적 표현",
       "question": "How can musical systems follow the performer, rather than requiring the performer to follow the system?",
-      "koreanQuestion": "기술은 연주자에게 어떻게 적응할 수 있을까?",
+      "koreanQuestion": "연주자가 시스템에 맞추는 대신, 음악 시스템이 연주자를 따라가게 하려면 어떻게 해야 할까?",
       "projectSlugs": [
         "electronic-drums",
         "audio-to-midi-system"
@@ -190,7 +191,7 @@
       "title": "Musical Participation",
       "koreanTitle": "음악적 참여",
       "question": "How can people participate in music in their own ways without being forced into a single way of hearing, moving, or expressing?",
-      "koreanQuestion": "사람들은 서로 각자 다른 듣기·움직임·표현 방식으로 어떻게 음악에 참여할 수 있을까?",
+      "koreanQuestion": "듣고 움직이고 표현하는 방식이 달라도, 각자의 방식으로 음악에 참여하려면 무엇이 필요할까?",
       "projectSlugs": [
         "adaptive-monitor-system"
       ]

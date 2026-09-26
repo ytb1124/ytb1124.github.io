@@ -9,7 +9,7 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
   const section=site.sections.find(item=>item.projects.some(candidate=>candidate.slug===project.slug));
   const summary=projectSummaries[project.slug]?.[locale];
   const frameworkLabels = locale === 'ko'
-    ? ['연구 질문', '시스템 구성', '분석 방법', '1차 결과', '다음 검증']
+    ? ['연구 질문', '시스템 구성', '접근 방법', '현재 결과', '다음 단계']
     : ['Research question', 'System design', 'Method', 'Initial finding', 'Next validation'];
   const framework=summary ? [
     [frameworkLabels[0], summary.question],
@@ -24,15 +24,15 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
   ]:[]);
   return <PageShell locale={locale} path={`/projects/${project.slug}`}><article className={`project-detail content-width project-${project.slug} locale-${locale}`}>
     <header className="detail-title">
-        <span className="detail-kicker">PROJECT SHOWCASE / {project.year}</span>
+        <span className="detail-kicker">{locale === 'ko' ? `프로젝트 / ${project.year}` : `PROJECT SHOWCASE / ${project.year}`}</span>
         <h1>{project.title}</h1>
-        <div className="detail-meta"><span>{project.year}</span><span>{project.category}</span></div>
+        <div className="detail-meta"><span>{project.year}</span><span>{locale === 'ko' ? (section?.koreanTitle ?? project.category) : project.category}</span></div>
         {(resources.length>0||project.repository)&&<div className="report-links">{resources.map(resource=>{
           const href=resource.localized?(locale==='ko'?`/ko${resource.href}`:resource.href):resource.href;
           return <a href={href} {...(!resource.localized?{target:'_blank',rel:'noopener noreferrer'}:{})} key={resource.href}>{resource.label[locale]}</a>;
         })}{project.repository&&<a href={project.repository} target="_blank" rel="noopener noreferrer">{locale==='ko'?'GitHub 저장소 보기 →':'VIEW GITHUB REPOSITORY →'}</a>}</div>}
     </header>
-    <section className="project-framework" aria-label="Project research summary">
+    <section className="project-framework" aria-label={locale === 'ko' ? '프로젝트 연구 요약' : 'Project research summary'}>
       {framework.map(([label,value])=><div className="framework-row" key={label}><span>{label}</span><p>{value}</p></div>)}
     </section>
     <div className="detail-intro">
@@ -43,6 +43,6 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
         {project.video&&<div className="detail-video"><iframe src={project.video} title={project.title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen /></div>}
       </div>
     </div>
-    <div className="detail-gallery">{project.gallery.map((src,i)=><div className="gallery-frame" key={src}><Image src={src} alt={`${project.title} ${i+1}`} width={1800} height={1200} priority={i===0}/></div>)}</div>
+    <div className="detail-gallery">{project.gallery.map((src,i)=><div className="gallery-frame" key={src}><Image src={src} alt={locale === 'ko' ? `${project.title} 이미지 ${i+1}` : `${project.title} ${i+1}`} width={1800} height={1200} priority={i===0}/></div>)}</div>
   </article></PageShell>
 }

@@ -24,10 +24,10 @@ export function SoundXrReport({locale}:{locale:Locale}) {
   return <PageShell locale={locale} path={`${projectPath}/report`}>
     <article className="publication-page content-width">
       <header className="publication-header">
-        <span>RESEARCH REPORT / {metadata.year}</span>
+        <span>{locale==='ko'?`연구 보고서 / ${metadata.year}`:`RESEARCH REPORT / ${metadata.year}`}</span>
         <h1>{report.title}</h1>
         <p>{report.subtitle}</p>
-        <div className="publication-meta"><span>{metadata.date}</span><span>REVISION {metadata.revision}</span></div>
+        <div className="publication-meta"><span>{metadata.date}</span><span>{locale==='ko'?`개정 ${metadata.revision}`:`REVISION ${metadata.revision}`}</span></div>
         <PublicationLinks locale={locale} current="report" />
       </header>
       <div className="publication-paper">
@@ -62,10 +62,10 @@ export function SoundXrDataPreview({locale}:{locale:Locale}) {
   return <PageShell locale={locale} path={`${projectPath}/data`}>
     <article className="publication-page content-width">
       <header className="publication-header">
-        <span>EXPERIMENT DATA / {metadata.year}</span>
+        <span>{locale==='ko'?`실험 데이터 / ${metadata.year}`:`EXPERIMENT DATA / ${metadata.year}`}</span>
         <h1>{locale==='ko'?'Sound xR Image 실험 데이터':'Sound xR Image Experiment Data'}</h1>
         <p>{locale==='ko'?'렌더러 출력 게인 측정의 핵심 블록과 대표 기록을 웹에서 확인합니다.':'Review the core measurement blocks and representative renderer gain records in the browser.'}</p>
-        <div className="publication-meta"><span>{metadata.sourceWorkbook}</span><span>GAIN UNIT dB</span></div>
+        <div className="publication-meta"><span>{metadata.sourceWorkbook}</span><span>{locale==='ko'?'게인 단위 dB':'GAIN UNIT dB'}</span></div>
         <PublicationLinks locale={locale} current="data" />
       </header>
       <div className="publication-paper data-preview-paper">
