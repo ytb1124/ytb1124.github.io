@@ -46,6 +46,10 @@ p,h1,h2,h3,strong,span,a{overflow-wrap:break-word}
 .intro-name p{max-width:760px;margin:0 0 25px;font-family:Sentient,Georgia,serif;font-size:clamp(13px,1.15vw,16px);line-height:1.5}
 .intro-copy-phone{display:none}
 .intro-name>a,.intro-role>a,.text-link{display:inline-block;border-bottom:1px solid currentColor;padding-bottom:5px;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.intro-credentials{max-width:760px;margin:64px 0 0;padding:0;border-top:1px solid #303030;list-style:none}
+.intro-credentials li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid #303030;font-family:Sentient,Georgia,serif;font-size:clamp(12px,1vw,14px);line-height:1.45}
+.intro-credentials li>span{color:#747474;font-family:'Inter Display',sans-serif;font-size:9px;letter-spacing:.12em;padding-top:4px}
+.intro-credentials strong{font-weight:400}
 .intro-role{width:100%;max-width:478px;justify-self:end}.intro-role img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;filter:saturate(.86) contrast(1.04)}
 .intro-role h3{margin:23px 0 5px;font-size:14px;font-weight:600}
 .intro-role p{margin:0 0 22px;color:var(--muted);font-family:'Inter Display',sans-serif;font-size:11px;line-height:1.5}
@@ -263,6 +267,8 @@ main:has(.cv-intro) .page-title h1{font-size:clamp(27px,3.6vw,49px)}
   .intro-name h2{font-size:30px;margin-bottom:25px}
   .intro-copy{display:none}
   .intro-copy-phone{display:block!important;font-size:14px!important;line-height:1.42!important}
+  .intro-credentials{margin-top:44px}
+  .intro-credentials li{font-size:13px}
   .intro-role img{aspect-ratio:4/5}
   .home-quote{min-height:510px;padding-block:90px}
   .quote-desktop{display:none}
