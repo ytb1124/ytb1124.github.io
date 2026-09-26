@@ -2,7 +2,7 @@ import { cpSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const root = join(process.cwd(), 'dist/client');
-const routes = ['', 'contact', 'experience', 'profile', 'projects', 'ko', 'ko/contact', 'ko/experience', 'ko/profile', 'ko/projects'];
+const routes = ['', 'contact', 'experience', 'music-production', 'profile', 'projects', 'ko', 'ko/contact', 'ko/experience', 'ko/music-production', 'ko/profile', 'ko/projects'];
 function collectProjectRoutes(dir, prefix = '') {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const relative = prefix ? `${prefix}/${entry.name}` : entry.name;

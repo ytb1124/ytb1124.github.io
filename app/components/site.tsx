@@ -88,8 +88,7 @@ export function ProjectCard({ project, locale, compact=false }: { project: Proje
     'electronic-drums':'전자악기는 연주자마다 다른 고유한 다이내믹과 표현을 어떻게 포착할 수 있을까?',
     'audio-to-midi-system':'음악가는 인간의 표현과 디지털 작곡 사이를 어떻게 자연스럽게 오갈 수 있을까?',
     arirang:'역사적 음악을 현대 기술을 통해 어떻게 새롭게 해석할 수 있을까?',
-    'adaptive-monitor-system':'서로 다른 청취 방식을 중심으로 음악 시스템을 설계하면 어떤 가능성이 열릴까?',
-    'ai-audio-engineering-copilot':'엔지니어링 도구는 전문성을 대체하지 않으면서 인간의 판단을 어떻게 지원할 수 있을까?'
+    'adaptive-monitor-system':'서로 다른 청취 방식을 중심으로 음악 시스템을 설계하면 어떤 가능성이 열릴까?'
   } as Record<string,string>)[project.slug] : project.question;
 
   return (

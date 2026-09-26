@@ -301,6 +301,28 @@ main:has(.cv-intro) .page-title h1{font-size:clamp(27px,3.6vw,49px)}
 .locale-ko :is(.intro-name,.home-quote,.section-head,.project-copy,.research,.project-detail,.profile-hero,.profile-content,.cv-intro,.experience-records,.stage-video,.contact-grid) :is(h1,h2,h3,p,strong){font-family:'Noto Serif KR','AppleMyungjo','Batang',serif!important}
 .locale-ko .project-copy .project-question{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif!important}
 
+.production-showcase{background:#080808;color:#fff}
+.production-section{padding:95px var(--gutter) 110px;border-top:1px solid rgba(255,255,255,.18)}
+.production-section:first-child{border-top:0}
+.production-heading{display:grid;grid-template-columns:70px minmax(0,1fr);gap:30px;align-items:start;margin-bottom:55px}
+.production-heading>span{color:var(--orange);font-family:Sentient,Georgia,serif;font-size:40px;line-height:.9}
+.production-heading p{margin:0 0 12px;color:var(--muted);font-size:8px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.production-heading h2{margin:0;font-family:Sentient,Georgia,serif;font-size:clamp(27px,3.1vw,42px);font-weight:400;line-height:1;letter-spacing:-.035em}
+.album-feature{display:grid;grid-template-columns:minmax(280px,480px) minmax(0,1fr);gap:clamp(45px,8vw,110px);align-items:center;max-width:1120px;margin:0 auto}
+.album-feature>img{width:100%;height:auto;border-radius:18px}
+.album-credit{margin:0 0 24px;color:var(--orange);font-size:8px;font-weight:600;letter-spacing:.13em}
+.album-details h3{margin:0;font-family:Sentient,Georgia,serif;font-size:clamp(34px,5.2vw,70px);font-weight:400;line-height:.95;letter-spacing:-.045em}
+.album-meta{margin:17px 0 35px;color:var(--muted);font-size:11px;letter-spacing:.04em}
+.album-tracks{margin:0;padding:0;border-top:1px solid var(--line);list-style:none}
+.album-tracks li{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:18px;align-items:center;border-bottom:1px solid var(--line);padding:19px 0}
+.album-tracks li>span,.album-tracks time{color:var(--muted);font-size:10px;font-style:normal}
+.album-tracks strong{font-family:Sentient,Georgia,serif;font-size:clamp(14px,1.3vw,18px);font-weight:400;line-height:1.25}
+.album-note{max-width:620px;margin:30px 0 0;font-family:Sentient,Georgia,serif;font-size:14px;line-height:1.5}
+.mixing-feature{display:grid;grid-template-columns:minmax(220px,.55fr) minmax(0,1.45fr);gap:clamp(45px,7vw,100px);align-items:center;max-width:1120px;margin:0 auto}
+.mixing-copy p{margin:0 0 27px;font-family:Sentient,Georgia,serif;font-size:clamp(15px,1.45vw,20px);line-height:1.45}
+.mixing-feature .video-frame{box-shadow:0 24px 70px rgba(0,0,0,.35)}
+.live-sound-section .activity-gallery{width:100%;padding-bottom:0}
+
 .activity-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(calc(100% - 2 * var(--gutter) - 180px),1000px);margin-inline:auto;gap:clamp(30px,3.2vw,54px) clamp(18px,2vw,30px);padding-bottom:130px}
 .activity-card{min-width:0}
 .activity-media{aspect-ratio:4/3;overflow:hidden;background:#151515}
@@ -314,7 +336,8 @@ main:has(.cv-intro) .page-title h1{font-size:clamp(27px,3.6vw,49px)}
 .activity-meta p{flex:0 0 auto;margin:2px 0 0;color:var(--muted);font-family:'Inter Display',Arial,sans-serif;font-size:10px;line-height:1.25;text-align:right;white-space:nowrap}
 .locale-ko .activity-card h2{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif}
 
-@media(max-width:920px){.activity-gallery{width:calc(100% - 2 * var(--gutter));grid-template-columns:repeat(2,minmax(0,1fr));padding-bottom:100px}}
-@media(max-width:560px){.activity-gallery{grid-template-columns:1fr;gap:30px;padding-bottom:75px}.activity-card h2{font-size:15px}.activity-meta p{font-size:9px}}
+@media(max-width:920px){.album-feature{grid-template-columns:minmax(240px,360px) minmax(0,1fr);gap:45px}.mixing-feature{grid-template-columns:1fr}.mixing-copy{max-width:650px}.activity-gallery{width:calc(100% - 2 * var(--gutter));grid-template-columns:repeat(2,minmax(0,1fr));padding-bottom:100px}.live-sound-section .activity-gallery{width:100%;padding-bottom:0}}
+@media(max-width:640px){.production-section{padding-top:70px;padding-bottom:80px}.production-heading{grid-template-columns:45px minmax(0,1fr);gap:16px;margin-bottom:38px}.production-heading>span{font-size:30px}.production-heading h2{font-size:27px}.album-feature{grid-template-columns:1fr;gap:38px}.album-feature>img{border-radius:12px}.album-details h3{font-size:44px}.album-credit{line-height:1.5}.album-tracks li{grid-template-columns:28px minmax(0,1fr) auto;gap:10px}.mixing-feature{gap:32px}}
+@media(max-width:560px){.activity-gallery{grid-template-columns:1fr;gap:30px;padding-bottom:75px}.live-sound-section .activity-gallery{padding-bottom:0}.activity-card h2{font-size:15px}.activity-meta p{font-size:9px}}
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
