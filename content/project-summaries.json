@@ -81,18 +81,18 @@
   },
   "audio-to-midi-system": {
     "en": {
-      "question": "How can musicians move naturally between human expression and digital composition?",
-      "system": "An AI-assisted audio-analysis pipeline connected to a browser-based mini DAW and editable MIDI workflow.",
-      "methods": "Extract BPM, key, song form, and lyrics; generate initial instrumental MIDI; then support arrangement, MIDI editing, click tracks, and cue tracks.",
-      "result": "An end-to-end workflow has been defined for turning recorded musical ideas into editable performance materials.",
-      "next": "Implement the full prototype and test whether musicians can revise and stage their ideas with less technical friction."
+      "question": "How can recorded musical ideas become editable performance material without losing the musician's decisions?",
+      "system": "A Trackform workspace combining specialist audio-to-MIDI paths, stem separation, a browser piano roll, and a local desktop pipeline.",
+      "methods": "Use Transkun for piano with sustain repair, Basic Pitch for general and bass paths, Demucs for stems, then inspect and edit MIDI in the piano roll.",
+      "result": "The repository now contains a working web workflow and a shared processing pipeline that can be packaged as a Tauri desktop app.",
+      "next": "Evaluate transcription quality by instrument and recording condition while refining the editing and performance-preparation workflow."
     },
     "ko": {
-      "question": "음악가는 인간의 표현과 디지털 작곡 사이를 어떻게 자연스럽게 오갈 수 있을까?",
-      "system": "AI 오디오 분석 파이프라인과 브라우저 기반 미니 DAW, 편집 가능한 MIDI 워크플로우.",
-      "methods": "BPM, 조성, 송폼, 가사를 추출하고 악기별 MIDI 초안을 생성한 뒤 편곡·MIDI·클릭·큐 트랙 편집을 지원합니다.",
-      "result": "녹음된 음악적 아이디어를 편집 가능한 공연 자료로 전환하는 전체 워크플로우를 설계했습니다.",
-      "next": "전체 프로토타입을 구현하고 음악가의 기술적 부담과 아이디어 발전 과정이 개선되는지 검증합니다."
+      "question": "음악적 결정을 유지하면서 녹음된 아이디어를 편집 가능한 공연 자료로 바꿀 수 있을까?",
+      "system": "악기별 오디오-MIDI 변환, 스템 분리, 브라우저 피아노 롤, 로컬 데스크톱 파이프라인을 결합한 Trackform 작업 공간.",
+      "methods": "피아노는 Transkun과 서스테인 보정을 사용하고, 일반·베이스 경로는 Basic Pitch, 스템은 Demucs로 처리한 뒤 피아노 롤에서 MIDI를 검토하고 편집합니다.",
+      "result": "웹 작업 흐름과 Tauri 데스크톱 앱으로 패키징 가능한 공통 처리 파이프라인을 저장소에 구성했습니다.",
+      "next": "악기와 녹음 조건별 변환 품질을 평가하면서 MIDI 편집과 공연 준비 흐름을 고도화합니다."
     }
   },
   "adaptive-monitor-system": {
