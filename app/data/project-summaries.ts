@@ -1,0 +1,156 @@
+export type ProjectSummary = {
+  question: string;
+  system: string;
+  methods: string;
+  result: string;
+  next: string;
+};
+
+type LocalizedSummary = { en: ProjectSummary; ko: ProjectSummary };
+
+export const projectSummaries: Record<string, LocalizedSummary> = {
+  'corrective-impulse-response': {
+    en: {
+      question: 'How can we recreate the acoustic identity of a space beyond its physical boundaries?',
+      system: 'A Python analysis pipeline, corrective FIR filters, and a Max/MSP real-time multichannel convolution system.',
+      methods: 'Measure the target and current rooms, compare their impulse responses, calculate frequency-domain correction, and control early and late reflections for each playback channel.',
+      result: 'The reconstructed early reflections (0–40 ms) reached a correlation coefficient of 1.0 with the target hall.',
+      next: 'Test across more venues and listeners, then develop adaptive correction that responds to changing live conditions.',
+    },
+    ko: {
+      question: '물리적 경계를 넘어 공간의 음향적 정체성을 어떻게 재현할 수 있을까?',
+      system: 'Python 분석 파이프라인, 보정 FIR 필터, Max/MSP 기반 실시간 멀티채널 컨볼루션 시스템.',
+      methods: '목표 공간과 현재 공간의 IR을 측정·비교하고, 주파수 영역 보정을 계산한 뒤 채널별 초기·후기 반사를 제어했습니다.',
+      result: '재구성한 초기 반사 구간(0–40 ms)이 목표 홀과 1.0의 상관계수를 기록했습니다.',
+      next: '더 많은 공연장과 청취자를 대상으로 검증하고, 공연 환경 변화에 반응하는 적응형 보정으로 확장합니다.',
+    },
+  },
+  'live-immerssive-audio': {
+    en: {
+      question: 'How does immersive audio reshape the relationship between performers, creators, and audiences?',
+      system: 'Yamaha AFC Image, Yamaha DME-7, a Dante network, and a tuned surround loudspeaker system.',
+      methods: 'Design the system architecture, configure network audio, tune the loudspeakers, and operate the complete system during an outdoor performance.',
+      result: 'A complete immersive audio system was deployed and operated in a live outdoor performance environment.',
+      next: 'Compare how performers, creators, and audience members perceive different spatial placements and mix decisions.',
+    },
+    ko: {
+      question: '이머시브 오디오는 공연자·창작자·관객의 관계를 어떻게 새롭게 구성할 수 있을까?',
+      system: 'Yamaha AFC Image, Yamaha DME-7, Dante 네트워크, 튜닝된 서라운드 스피커 시스템.',
+      methods: '시스템 아키텍처 설계, 네트워크 오디오 구성, 스피커 튜닝, 야외 공연 현장 운영을 통합 수행했습니다.',
+      result: '야외 라이브 공연 환경에 이머시브 오디오 시스템을 구축하고 실제 공연에서 운영했습니다.',
+      next: '공간 배치와 믹싱 결정이 공연자·창작자·관객에게 어떻게 다르게 인식되는지 비교합니다.',
+    },
+  },
+  'multicannel-mixing-system': {
+    en: {
+      question: 'How can spatial audio connect what audiences see with what they hear in a performance space?',
+      system: 'A console-driven 3.1 system with additional rear-stage loudspeakers and no external immersive processor.',
+      methods: 'Separate image roles by routing front-focused sources to the center and harmonic or spatial material to the left, right, and rear channels.',
+      result: 'The system created clear physical separation, but listeners perceived disconnected sound objects rather than one coherent spatial image.',
+      next: 'Add psychoacoustic blending cues and evaluate spatial cohesion with structured audience listening tests.',
+    },
+    ko: {
+      question: '공간 음향은 공연장에서 관객이 보는 것과 듣는 것을 어떻게 연결할 수 있을까?',
+      system: '외부 이머시브 프로세서 없이 콘솔 라우팅으로 구성한 3.1 시스템과 무대 후방 스피커.',
+      methods: '전면 중심 소스는 센터로, 화성·공간 요소는 좌우 및 후방 채널로 분리해 사운드 이미지 역할을 나누었습니다.',
+      result: '물리적 분리는 명확했지만, 청취자는 하나의 공간 이미지보다 분리된 사운드 객체로 인식했습니다.',
+      next: '심리음향적 결합 단서를 추가하고 구조화된 관객 청취 평가로 공간적 응집도를 검증합니다.',
+    },
+  },
+  'wan-audio-transmission': {
+    en: {
+      question: 'How can musical collaboration continue when physical distance becomes a limitation?',
+      system: 'A DAW-to-DAW multichannel WAN testbed using relay and peer-to-peer approaches with ffmpeg, JACK, and JackTrip.',
+      methods: 'Compare commercial network-audio concepts and open-source transports while monitoring latency, XRUNs, artifacts, and long-term sample accuracy.',
+      result: 'Transport was achievable, but the absence of a shared hardware word clock caused accumulating sample drift and audible errors.',
+      next: 'Develop an independent synchronization and adaptive resampling layer separate from the audio transport.',
+    },
+    ko: {
+      question: '물리적 거리가 제약이 될 때에도 음악적 협업을 어떻게 이어갈 수 있을까?',
+      system: 'ffmpeg, JACK, JackTrip의 중계·P2P 방식을 비교하는 DAW 간 멀티채널 WAN 테스트베드.',
+      methods: '상용 네트워크 오디오 개념과 오픈소스 전송 방식을 비교하며 지연, XRUN, 오류, 장기 샘플 정확도를 관찰했습니다.',
+      result: '오디오 전송은 가능했지만 공유 하드웨어 워드 클락의 부재로 샘플 드리프트와 가청 오류가 누적됐습니다.',
+      next: '오디오 전송 계층과 분리된 독립 동기화 및 적응형 리샘플링 계층을 개발합니다.',
+    },
+  },
+  'electronic-drums': {
+    en: {
+      question: 'How can electronic instruments capture the unique dynamics and expression of individual performers?',
+      system: 'A Max/MSP electronic-drum system with real-time MIDI analysis, adaptive sound processing, and multichannel outputs.',
+      methods: 'Classify inter-onset intervals, repetition patterns, and velocity changes, then map those features to timbre and processing parameters.',
+      result: 'Performer feedback confirmed that individual playing habits were reflected immediately in the changing sound.',
+      next: 'Build player-specific response models and compare their expressive accuracy across performers and playing styles.',
+    },
+    ko: {
+      question: '전자악기는 연주자마다 다른 고유한 다이내믹과 표현을 어떻게 포착할 수 있을까?',
+      system: '실시간 MIDI 분석, 적응형 사운드 처리, 멀티채널 출력을 갖춘 Max/MSP 전자 드럼 시스템.',
+      methods: '타격 간격, 반복 패턴, 벨로시티 변화를 분류하고 이를 음색과 처리 파라미터에 동적으로 매핑했습니다.',
+      result: '연주자 피드백을 통해 개인의 연주 습관이 변화하는 사운드에 즉시 반영됨을 확인했습니다.',
+      next: '연주자별 반응 모델을 구축하고 다양한 연주자와 스타일에서 표현 정확도를 비교합니다.',
+    },
+  },
+  'audio-to-midi-system': {
+    en: {
+      question: 'How can musicians move naturally between human expression and digital composition?',
+      system: 'An AI-assisted audio-analysis pipeline connected to a browser-based mini DAW and editable MIDI workflow.',
+      methods: 'Extract BPM, key, song form, and lyrics; generate initial instrumental MIDI; then support arrangement, MIDI editing, click tracks, and cue tracks.',
+      result: 'An end-to-end workflow has been defined for turning recorded musical ideas into editable performance materials.',
+      next: 'Implement the full prototype and test whether musicians can revise and stage their ideas with less technical friction.',
+    },
+    ko: {
+      question: '음악가는 인간의 표현과 디지털 작곡 사이를 어떻게 자연스럽게 오갈 수 있을까?',
+      system: 'AI 오디오 분석 파이프라인과 브라우저 기반 미니 DAW, 편집 가능한 MIDI 워크플로우.',
+      methods: 'BPM, 조성, 송폼, 가사를 추출하고 악기별 MIDI 초안을 생성한 뒤 편곡·MIDI·클릭·큐 트랙 편집을 지원합니다.',
+      result: '녹음된 음악적 아이디어를 편집 가능한 공연 자료로 전환하는 전체 워크플로우를 설계했습니다.',
+      next: '전체 프로토타입을 구현하고 음악가의 기술적 부담과 아이디어 발전 과정이 개선되는지 검증합니다.',
+    },
+  },
+  arirang: {
+    en: {
+      question: 'How can historical music be reinterpreted through contemporary technology?',
+      system: 'Suno AI for music generation, Waves ReGen for narration restoration, and a Dolby Atmos production workflow.',
+      methods: 'Use the 2003 remake as the visual source, reference surviving period recordings, reconstruct music and byeonsa narration, and create Atmos and stereo mixes.',
+      result: 'The restoration was completed as a Dolby Atmos mix with a separate 2.0 Direct version for online release.',
+      next: 'Evaluate how audiences perceive historical authenticity, creative reinterpretation, and the use of AI in archival work.',
+    },
+    ko: {
+      question: '역사적 음악을 현대 기술을 통해 어떻게 새롭게 해석할 수 있을까?',
+      system: 'Suno AI 음악 생성, Waves ReGen 내레이션 복원, Dolby Atmos 제작 워크플로우.',
+      methods: '2003년 리메이크 영상을 기반으로 당대 음반을 참고해 음악과 변사 음성을 재구성하고 Atmos·스테레오 믹스를 제작했습니다.',
+      result: 'Dolby Atmos 믹스와 온라인 공개용 2.0 Direct 버전으로 복원 작업을 완성했습니다.',
+      next: '역사적 진정성, 창의적 재해석, 아카이브 작업에서 AI 사용에 대한 관객 인식을 평가합니다.',
+    },
+  },
+  'adaptive-monitor-system': {
+    en: {
+      question: 'What happens when musical systems are designed around different ways of hearing?',
+      system: 'An adaptive monitoring concept for Deaf and hard-of-hearing musicians in rehearsal and live performance.',
+      methods: 'Frame needs through participatory research, then connect different modes of hearing and sensing to configurable monitoring responses.',
+      result: 'The project has established its research question, participant focus, and initial system direction.',
+      next: 'Conduct co-design sessions with musicians and build the first testable monitoring prototype.',
+    },
+    ko: {
+      question: '서로 다른 청취 방식을 중심으로 음악 시스템을 설계하면 어떤 가능성이 열릴까?',
+      system: '청각장애 및 난청 음악가의 리허설과 라이브 공연을 위한 적응형 모니터링 개념.',
+      methods: '참여형 연구로 요구를 정의하고 서로 다른 듣기·감각 방식을 조절 가능한 모니터 반응과 연결합니다.',
+      result: '연구 질문, 참여 대상, 초기 시스템 방향을 수립한 단계입니다.',
+      next: '음악가와 공동 설계 세션을 진행하고 첫 번째 검증 가능한 모니터링 프로토타입을 제작합니다.',
+    },
+  },
+  'ai-audio-engineering-copilot': {
+    en: {
+      question: 'How can engineering tools support human decisions without replacing expertise?',
+      system: 'A developing AI copilot concept embedded in professional audio-engineering workflows.',
+      methods: 'Identify high-friction decision points and design context-aware suggestions that remain reviewable and controlled by the engineer.',
+      result: 'The project has defined its central problem and human-in-the-loop design principles.',
+      next: 'Build a focused prototype and evaluate usefulness, trust, and decision quality with practicing sound engineers.',
+    },
+    ko: {
+      question: '엔지니어링 도구는 전문성을 대체하지 않으면서 인간의 판단을 어떻게 지원할 수 있을까?',
+      system: '전문 오디오 엔지니어링 워크플로우에 통합되는 AI 코파일럿 개발 개념.',
+      methods: '판단 부담이 큰 지점을 찾고 엔지니어가 검토·통제할 수 있는 맥락 기반 제안을 설계합니다.',
+      result: '핵심 문제와 인간 중심의 의사결정 원칙을 정의한 단계입니다.',
+      next: '집중된 프로토타입을 제작하고 현업 엔지니어와 유용성, 신뢰도, 판단 품질을 평가합니다.',
+    },
+  },
+};
