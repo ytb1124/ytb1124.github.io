@@ -82,7 +82,7 @@ export function HeroTitle({ children, className = '' }: { children: React.ReactN
 export function ProjectCard({ project, locale, compact=false }: { project: Project; locale: Locale; compact?:boolean; minimal?:boolean }) {
   const localizedQuestion = locale === 'ko' ? ({
     'corrective-impulse-response':'현재 공연장에서 다른 홀의 초기 응답과 잔향감을 어떻게 보강할 수 있을까?',
-    'live-immerssive-audio':'몰입형 오디오는 공연자·창작자·관객의 관계를 어떻게 새롭게 구성할 수 있을까?',
+    'live-immerssive-audio':'이머시브 오디오 렌더러는 공간 좌표와 파라미터를 어떻게 스피커별 출력 gain으로 변환할까?',
     'multicannel-mixing-system':'공간 음향은 공연장에서 관객이 보는 것과 듣는 것을 어떻게 연결할 수 있을까?',
     'wan-audio-transmission':'물리적 거리가 제약이 될 때에도 음악적 협업을 어떻게 이어갈 수 있을까?',
     'electronic-drums':'전자악기는 연주자마다 다른 고유한 다이내믹과 표현을 어떻게 포착할 수 있을까?',

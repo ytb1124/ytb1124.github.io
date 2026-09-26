@@ -48,11 +48,11 @@
   },
   {
     "slug": "live-immerssive-audio",
-    "year": "2025",
-    "category": "Performance",
-    "title": "Yamaha AFC Image",
-    "description": "Investigating how immersive audio systems influence live performance experiences from multiple perspectives.",
-    "question": "How does immersive audio reshape the relationship between performers, creators, and audiences?",
+    "year": "2025—2026",
+    "category": "Immersive Audio Research",
+    "title": "Yamaha AFC Image: System & Renderer Analysis",
+    "description": "From deploying an outdoor immersive system to measuring how its renderer translates spatial coordinates and parameters into loudspeaker gains.",
+    "question": "How does an immersive audio renderer translate spatial coordinates and parameters into loudspeaker gains?",
     "image": "/framer/projects/live-immerssive-audio/cover.jpeg",
     "gallery": [
       "/framer/projects/live-immerssive-audio/cover.jpeg",
@@ -61,13 +61,30 @@
       "/framer/projects/live-immerssive-audio/03.jpeg"
     ],
     "video": "https://www.youtube.com/embed/rM2CTQfp6gE?si=9VBVIvOwFHMpO9Mr&iv_load_policy=3&rel=0&modestbranding=1&playsinline=1&autoplay=1",
-    "reports": {
-      "ko": "/reports/afc-ko.pdf",
-      "en": "/reports/afc-en.pdf"
-    },
+    "resources": [
+      {
+        "href": "/reports/afc-ko.pdf",
+        "label": { "en": "OPEN FIELD CASE STUDY (KO)", "ko": "현장 구축 사례 보고서 열기" }
+      },
+      {
+        "href": "/reports/afc-en.pdf",
+        "label": { "en": "OPEN FIELD CASE STUDY (EN)", "ko": "영문 현장 구축 사례 열기" }
+      },
+      {
+        "href": "/reports/afc-renderer-analysis-ko.docx",
+        "label": { "en": "OPEN RENDERER ANALYSIS (KO)", "ko": "렌더러 기술 분석 보고서 열기" }
+      },
+      {
+        "href": "/downloads/afc-renderer-experiment.xlsx",
+        "label": { "en": "DOWNLOAD EXPERIMENT DATA", "ko": "실험 데이터 다운로드" }
+      }
+    ],
     "body": [
-      "Designed and implemented an immersive audio system using Yamaha AFC Image for an outdoor performance venue.",
-      "Responsible for system architecture based on Yamaha DME-7, Dante network configuration, surround speakers system tuning, and on-site operation."
+      "I first designed and operated a 9.1-channel outdoor immersive audio system using Yamaha AFC Image and DME7. The work covered system architecture, Dante networking, loudspeaker alignment and tuning, parameter adjustment, and live operation. That field deployment became the starting point for a second question: how does the renderer itself convert spatial intent into output gain?",
+      "To investigate the renderer as a black box, I varied loudspeaker coordinates and IDs, Object position, XY mode, Width, Height, Precision, and Distance Attenuation, then compared the recorded output gains with numerical models. The analysis separates measured values from candidate equations and does not present the inferred formulas as Yamaha’s disclosed implementation.",
+      "Within clearly documented normal-output regions, inverse-distance weighting followed by constant-power normalization explained the recorded gain distribution. The five Precision settings were consistent with distance exponents corresponding to approximately 8–12 dB of unnormalized attenuation per distance doubling, and representative verified blocks typically matched within about 0.005 dB.",
+      "Other behavior remains conditional. Size measurements support candidate effective-distance formulas only within the tested configurations, while boundary projection, Distance Attenuation, Object Z in 3D operation, and changes caused by loudspeaker-ID assignment do not yet reduce to one general rule. Repeated tests ruled out several simpler explanations, including a mere output-column swap.",
+      "The current outcome is a bounded renderer model suitable for a Max/MSP prototype, together with a prioritized validation plan. A fully compatible clone for arbitrary layouts, out-of-area positions, and dynamic motion would require additional measurements of channel mapping, state application, 3D control paths, smoothing, and time response."
     ]
   },
   {
