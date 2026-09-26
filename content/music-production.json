@@ -1,10 +1,10 @@
 {
   "studio": {
     "eyebrow": {
-      "en": "Studio Recording",
+      "en": "Album",
       "ko": "스튜디오 레코딩"
     },
-    "title": "Merry Night — Single",
+    "title": "Studio Recording",
     "cover": "/images/music-production/merry-night-cover.png",
     "coverAlt": "Merry Night single cover",
     "credit": {
@@ -34,11 +34,11 @@
   },
   "mixing": {
     "eyebrow": {
-      "en": "Mixing Portfolio",
+      "en": "From the Stage",
       "ko": "믹싱 포트폴리오"
     },
     "title": {
-      "en": "From the Stage",
+      "en": "Mixing Portfolio",
       "ko": "공연 믹싱 작업"
     },
     "description": {
