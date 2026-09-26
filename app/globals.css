@@ -97,6 +97,8 @@ main:has(.cv-intro) .page-title h1{font-size:clamp(27px,3.6vw,49px)}
 .research-intro>span{font-size:7px;font-weight:600;letter-spacing:.2em}
 .research-intro h2{margin:22px 0 23px;font-family:Sentient,Georgia,serif;font-size:clamp(26px,3.1vw,40px);font-weight:400;line-height:1.05;letter-spacing:-.035em}
 .research-lede{max-width:760px;margin:0 auto;color:var(--muted);font-family:Sentient,Georgia,serif;font-size:clamp(13px,1.15vw,16px);line-height:1.5}
+.research-lede strong,.research-lede span{display:block}
+.research-lede strong{margin-bottom:8px;color:#fff;font-weight:600}
 .research-map{max-width:920px;margin:0 auto 120px}
 .research-map-step>a{display:grid;grid-template-columns:74px minmax(0,1fr);gap:8px 26px;border:1px solid rgba(255,255,255,.25);padding:30px 34px;transition:background .2s,border-color .2s}
 .research-map-step>a:hover{border-color:#fff;background:rgba(255,255,255,.04)}
