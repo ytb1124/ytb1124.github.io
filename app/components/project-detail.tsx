@@ -8,13 +8,16 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
   const body=locale==='ko'?(koreanProjectBodies[project.slug]??project.body):project.body;
   const section=site.sections.find(item=>item.projects.some(candidate=>candidate.slug===project.slug));
   const summary=projectSummaries[project.slug]?.[locale];
+  const frameworkLabels = locale === 'ko'
+    ? ['연구 질문', '시스템 구성', '분석 방법', '1차 결과', '다음 검증']
+    : ['Research question', 'System design', 'Method', 'Initial finding', 'Next validation'];
   const framework=summary ? [
-    ['Question', summary.question],
-    ['System', summary.system],
-    ['Methods', summary.methods],
-    ['Result', summary.result],
-    ['Next', summary.next],
-  ] : [['Question', project.question]];
+    [frameworkLabels[0], summary.question],
+    [frameworkLabels[1], summary.system],
+    [frameworkLabels[2], summary.methods],
+    [frameworkLabels[3], summary.result],
+    [frameworkLabels[4], summary.next],
+  ] : [[frameworkLabels[0], project.question]];
   const resources=project.resources??(project.reports?[
     {href:project.reports.ko,label:{en:'OPEN KOREAN REPORT →',ko:'한글 보고서 열기 →'}},
     {href:project.reports.en,label:{en:'OPEN ENGLISH REPORT →',ko:'영문 보고서 열기 →'}},

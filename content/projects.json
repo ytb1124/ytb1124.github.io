@@ -5,7 +5,7 @@
     "category": "Acoustics system",
     "title": "Corrective IR Spatial Reconstruction",
     "description": "A live six-channel hybrid system combining per-channel corrective FIRs for the initial response with a separately applied target-hall reverberation tail.",
-    "question": "How can a live venue approximate the early response and reverberant impression of another hall?",
+    "question": "How closely can electroacoustic correction bring a live venue toward another hall’s early response and reverberant character?",
     "image": "/framer/projects/corrective-impulse-response/04.jpg",
     "gallery": [
       "/framer/projects/corrective-impulse-response/04.jpg",
