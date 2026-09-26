@@ -14,20 +14,18 @@ export function MusicProduction({ locale }: { locale: Locale }) {
     <div className="production-showcase">
       <section className="selected-projects" aria-labelledby="selected-projects-title">
         <header className="selected-projects-heading">
-          <p>{musicProduction.selectedProjects.eyebrow[language]}</p>
           <h2 id="selected-projects-title">{musicProduction.selectedProjects.title[language]}</h2>
         </header>
         <div className="selected-project-list">
           {musicProduction.selectedProjects.projects.map((project,index) => <article className="selected-project" key={project.id}>
+            <div className="selected-project-cover"><Image src={project.image} alt={project.title} width={1800} height={1200} priority={index === 0} /></div>
             <header className="selected-project-header">
-              <div className="selected-project-index">{String(index + 1).padStart(2,'0')}</div>
               <div>
-                <p className="selected-project-meta">{project.category[language]} · {project.year}</p>
+                <p className="selected-project-meta">{project.year} · {project.category[language]}</p>
                 <h3>{project.title}</h3>
                 <p className="selected-project-question">{project.question[language]}</p>
               </div>
             </header>
-            <div className="selected-project-cover"><Image src={project.image} alt={project.title} width={1800} height={1200} priority={index === 0} /></div>
             <div className="selected-project-story">
               <div className="selected-project-body">
                 {project.body[language].map((paragraph,paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}
