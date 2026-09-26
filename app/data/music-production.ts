@@ -3,6 +3,25 @@ import musicProductionDocument from '../../content/music-production.json';
 export type LocalizedText = { en: string; ko: string };
 
 export type MusicProductionContent = {
+  selectedProjects: {
+    eyebrow: LocalizedText;
+    title: LocalizedText;
+    projects: {
+      id: string;
+      year: string;
+      category: LocalizedText;
+      title: string;
+      question: LocalizedText;
+      image: string;
+      gallery: string[];
+      videoUrl: string;
+      body: { en: string[]; ko: string[] };
+      videoLabel: LocalizedText;
+      reports: LocalizedText | null;
+      reportLabel: LocalizedText | null;
+      sources: { label: string; href: string }[];
+    }[];
+  };
   studio: {
     eyebrow: LocalizedText;
     title: string;
@@ -20,24 +39,6 @@ export type MusicProductionContent = {
     description: LocalizedText;
     linkLabel: LocalizedText;
     playlistUrl: string;
-    case: {
-      eyebrow: LocalizedText;
-      title: string;
-      meta: LocalizedText;
-      description: LocalizedText;
-      videoUrl: string;
-      linkLabel: LocalizedText;
-    };
-  };
-  immersive: {
-    eyebrow: LocalizedText;
-    title: string;
-    meta: LocalizedText;
-    description: LocalizedText;
-    videoUrl: string;
-    linkLabel: LocalizedText;
-    reports: LocalizedText;
-    reportLabel: LocalizedText;
   };
   credits: {
     eyebrow: LocalizedText;

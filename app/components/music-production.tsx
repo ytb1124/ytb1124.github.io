@@ -12,6 +12,40 @@ export function MusicProduction({ locale }: { locale: Locale }) {
   return <PageShell locale={locale} path="/music-production">
     <HeroTitle>Music Production</HeroTitle>
     <div className="production-showcase">
+      <section className="selected-projects" aria-labelledby="selected-projects-title">
+        <header className="selected-projects-heading">
+          <p>{musicProduction.selectedProjects.eyebrow[language]}</p>
+          <h2 id="selected-projects-title">{musicProduction.selectedProjects.title[language]}</h2>
+        </header>
+        <div className="selected-project-list">
+          {musicProduction.selectedProjects.projects.map((project,index) => <article className="selected-project" key={project.id}>
+            <header className="selected-project-header">
+              <div className="selected-project-index">{String(index + 1).padStart(2,'0')}</div>
+              <div>
+                <p className="selected-project-meta">{project.category[language]} · {project.year}</p>
+                <h3>{project.title}</h3>
+                <p className="selected-project-question">{project.question[language]}</p>
+              </div>
+            </header>
+            <div className="selected-project-cover"><Image src={project.image} alt={project.title} width={1800} height={1200} priority={index === 0} /></div>
+            <div className="selected-project-story">
+              <div className="selected-project-body">
+                {project.body[language].map((paragraph,paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}
+                <div className="selected-project-links">
+                  <a className="text-link" href={project.videoUrl} target="_blank" rel="noopener noreferrer">{project.videoLabel[language]}</a>
+                  {project.reports && project.reportLabel && <a className="text-link" href={project.reports[language]} target="_blank" rel="noopener noreferrer">{project.reportLabel[language]}</a>}
+                </div>
+                {!!project.sources.length && <div className="selected-project-sources"><span>{ko ? '자료 출처' : 'Sources'}</span>{project.sources.map((source) => <a href={source.href} target="_blank" rel="noopener noreferrer" key={source.href}>{source.label} ↗</a>)}</div>}
+              </div>
+              <YoutubeEmbed url={project.videoUrl} />
+            </div>
+            {project.gallery.length > 1 && <div className="selected-project-gallery">
+              {project.gallery.slice(1).map((image,index) => <Image src={image} alt={`${project.title} ${index + 2}`} width={1200} height={900} key={image} />)}
+            </div>}
+          </article>)}
+        </div>
+      </section>
+
       <section className="production-section recording-section" aria-labelledby="studio-recording-title">
         <div className="production-heading">
           <span>01</span>
@@ -40,39 +74,11 @@ export function MusicProduction({ locale }: { locale: Locale }) {
           <div className="mixing-copy"><p>{musicProduction.mixing.description[language]}</p><a className="text-link" href={musicProduction.mixing.playlistUrl} target="_blank" rel="noopener noreferrer">{musicProduction.mixing.linkLabel[language]}</a></div>
           <YoutubeEmbed playlist url={musicProduction.mixing.playlistUrl} />
         </div>
-        <article className="production-case">
-          <div className="production-case-copy">
-            <p className="production-case-eyebrow">{musicProduction.mixing.case.eyebrow[language]}</p>
-            <h3>{musicProduction.mixing.case.title}</h3>
-            <p className="production-case-meta">{musicProduction.mixing.case.meta[language]}</p>
-            <p className="production-case-description">{musicProduction.mixing.case.description[language]}</p>
-            <a className="text-link" href={musicProduction.mixing.case.videoUrl} target="_blank" rel="noopener noreferrer">{musicProduction.mixing.case.linkLabel[language]}</a>
-          </div>
-          <YoutubeEmbed url={musicProduction.mixing.case.videoUrl} />
-        </article>
-      </section>
-
-      <section className="production-section immersive-production-section" aria-labelledby="immersive-production-title">
-        <div className="production-heading">
-          <span>03</span>
-          <div><p>{musicProduction.immersive.eyebrow[language]}</p><h2 id="immersive-production-title">{musicProduction.immersive.title}</h2></div>
-        </div>
-        <article className="production-case">
-          <div className="production-case-copy">
-            <p className="production-case-meta">{musicProduction.immersive.meta[language]}</p>
-            <p className="production-case-description">{musicProduction.immersive.description[language]}</p>
-            <div className="production-case-links">
-              <a className="text-link" href={musicProduction.immersive.videoUrl} target="_blank" rel="noopener noreferrer">{musicProduction.immersive.linkLabel[language]}</a>
-              <a className="text-link" href={musicProduction.immersive.reports[language]} target="_blank" rel="noopener noreferrer">{musicProduction.immersive.reportLabel[language]} →</a>
-            </div>
-          </div>
-          <YoutubeEmbed url={musicProduction.immersive.videoUrl} />
-        </article>
       </section>
 
       <section className="production-section live-sound-section" aria-labelledby="live-sound-title">
         <div className="production-heading">
-          <span>04</span>
+          <span>03</span>
           <div><p>{musicProduction.credits.eyebrow[language]}</p><h2 id="live-sound-title">{musicProduction.credits.title}</h2></div>
         </div>
         <div className="activity-gallery" aria-label={ko ? '라이브 사운드 활동 이력' : 'Live sound credits'}>

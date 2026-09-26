@@ -1,46 +1,166 @@
 {
+  "selectedProjects": {
+    "eyebrow": {
+      "en": "Selected Projects",
+      "ko": "주요 프로젝트"
+    },
+    "title": {
+      "en": "Selected Projects",
+      "ko": "Selected Projects"
+    },
+    "projects": [
+      {
+        "id": "yamaha-afc-image",
+        "year": "2025",
+        "category": {
+          "en": "LIVE & IMMERSIVE PRODUCTION",
+          "ko": "라이브 & 이머시브 프로덕션"
+        },
+        "title": "Yamaha AFC Image",
+        "question": {
+          "en": "How can an outdoor immersive system turn an open field into a coherent listening space?",
+          "ko": "야외 이머시브 시스템은 열린 공간을 어떻게 하나의 일관된 청취 공간으로 만들 수 있을까?"
+        },
+        "image": "/framer/projects/live-immerssive-audio/cover.jpeg",
+        "gallery": [
+          "/framer/projects/live-immerssive-audio/cover.jpeg",
+          "/framer/projects/live-immerssive-audio/01.jpg",
+          "/framer/projects/live-immerssive-audio/02.jpeg",
+          "/framer/projects/live-immerssive-audio/03.jpeg"
+        ],
+        "videoUrl": "https://youtu.be/rM2CTQfp6gE",
+        "body": {
+          "en": [
+            "This project applied Yamaha AFC Image to an outdoor field where the lack of natural reflections made it difficult to create a stable sense of space. The goal was to treat the whole venue as one extended performance area rather than concentrating every image at the front stage.",
+            "I designed and operated a 9.1-channel system based on Yamaha DME7, a Dante network, and an L-Acoustics KARA main system. My work covered loudspeaker layout and alignment, network and signal-flow design, system tuning, parameter adjustment, and live operation.",
+            "The system was deployed in a live outdoor performance and provided the practical starting point for a separate study of how the AFC renderer converts spatial coordinates into loudspeaker gains."
+          ],
+          "ko": [
+            "이 프로젝트는 자연 반사가 부족해 안정적인 공간감 형성이 어려운 야외 운동장에 Yamaha AFC Image를 적용한 사례입니다. 모든 음상을 전면 무대에 집중시키지 않고 공연장 전체를 하나의 확장된 공연 공간으로 만드는 것을 목표로 했습니다.",
+            "DME7, Dante 네트워크, L-Acoustics KARA 메인 시스템을 기반으로 9.1채널 시스템을 설계하고 운영했습니다. 스피커 배치와 정렬, 네트워크와 신호 흐름 설계, 시스템 튜닝, 파라미터 조정, 현장 운용을 담당했습니다.",
+            "완성한 시스템은 실제 야외 공연에 구축·운영했으며, 이 현장 경험은 AFC 렌더러가 공간 좌표를 스피커별 gain으로 변환하는 방식을 별도로 분석하는 후속 연구의 출발점이 되었습니다."
+          ]
+        },
+        "videoLabel": {
+          "en": "WATCH PERFORMANCE ON YOUTUBE →",
+          "ko": "YOUTUBE에서 공연 보기 →"
+        },
+        "reports": {
+          "en": "/reports/afc-en.pdf",
+          "ko": "/reports/afc-ko.pdf"
+        },
+        "reportLabel": {
+          "en": "OPEN FIELD CASE STUDY →",
+          "ko": "현장 사례 보고서 열기 →"
+        },
+        "sources": []
+      },
+      {
+        "id": "arirang-1926",
+        "year": "2026",
+        "category": {
+          "en": "AI RESTORATION · DOLBY ATMOS MIXING",
+          "ko": "AI 오디오 복원 · DOLBY ATMOS 믹싱"
+        },
+        "title": "Arirang 1926: Sonic Restoration Project",
+        "question": {
+          "en": "How can historical music be reinterpreted through contemporary technology?",
+          "ko": "역사적 음악을 현대 기술을 통해 어떻게 새롭게 해석할 수 있을까?"
+        },
+        "image": "/framer/projects/arirang/cover.png",
+        "gallery": [
+          "/framer/projects/arirang/cover.png",
+          "/framer/projects/arirang/01.jpeg"
+        ],
+        "videoUrl": "https://youtu.be/JmjZB5Tf3co",
+        "body": {
+          "en": [
+            "Arirang 1926: Sonic Restoration Project is a sound-focused restoration and reinterpretation of Arirang, one of the most important films in Korean cinema history.",
+            "The original 1926 silent film was lost during the Korean War, so this project uses Lee Doo-yong’s 2003 remake as the visual source. I created the music with Suno AI, referencing surviving period recordings, and restored the Korean silent-film byeonsa narration using Waves ReGen.",
+            "The project was mixed in Dolby Atmos, with a separate 2.0 Direct version rendered for YouTube."
+          ],
+          "ko": [
+            "아리랑 1926: 사운드 복원 프로젝트는 한국 영화사에서 중요한 의미를 가진 1926년 무성영화 아리랑을 사운드 중심으로 복원하고 재해석한 작업입니다.",
+            "원본 필름은 한국전쟁 당시 소실되어 현재 남아 있지 않기 때문에, 이번 프로젝트는 이두용 감독의 2003년 리메이크 영상을 기반으로 진행했습니다. 음악은 당시 남아 있는 음반 자료를 참고해 Suno AI로 직접 제작했으며, 한국 무성영화의 독특한 문화였던 변사 음성은 Waves ReGen을 사용해 복원했습니다.",
+            "최종 사운드는 Dolby Atmos로 믹싱했으며, 유튜브 업로드를 위해 별도의 2.0 Direct 버전으로 리렌더링했습니다."
+          ]
+        },
+        "videoLabel": {
+          "en": "WATCH PROJECT ON YOUTUBE →",
+          "ko": "YOUTUBE에서 프로젝트 보기 →"
+        },
+        "reports": null,
+        "reportLabel": null,
+        "sources": [
+          {
+            "label": "Byeonsa / audio reference",
+            "href": "https://youtu.be/MAmpVgZMVa4"
+          },
+          {
+            "label": "Visual source",
+            "href": "https://youtu.be/-BC8m7ST5Us"
+          }
+        ]
+      }
+    ]
+  },
   "studio": {
-    "eyebrow": { "en": "Album", "ko": "스튜디오 레코딩" },
+    "eyebrow": {
+      "en": "Album",
+      "ko": "스튜디오 레코딩"
+    },
     "title": "Studio Recording",
     "cover": "/images/music-production/merry-night-cover.png",
     "coverAlt": "Merry Night single cover",
-    "credit": { "en": "STUDIO RECORDING · TAEBIN YOO @ GENUIN STUDIO", "ko": "STUDIO RECORDING · 유태빈 @ 게누인 스튜디오" },
+    "credit": {
+      "en": "STUDIO RECORDING · TAEBIN YOO @ GENUIN STUDIO",
+      "ko": "STUDIO RECORDING · 유태빈 @ 게누인 스튜디오"
+    },
     "albumTitle": "Merry Night",
     "meta": "Jazz · 2026 · 3 tracks · 14 minutes",
     "tracks": [
-      { "title": "Merry Night", "duration": "2:56" },
-      { "title": "Cinnamon Stick", "duration": "5:59" },
-      { "title": "I Don’t Drink Alcohol Anymore", "duration": "5:19" }
+      {
+        "title": "Merry Night",
+        "duration": "2:56"
+      },
+      {
+        "title": "Cinnamon Stick",
+        "duration": "5:59"
+      },
+      {
+        "title": "I Don’t Drink Alcohol Anymore",
+        "duration": "5:19"
+      }
     ],
-    "note": { "en": "Recorded all three tracks for Merry Night at Genuin Studio.", "ko": "Merry Night의 세 곡을 게누인 스튜디오에서 레코딩했습니다." }
-  },
-  "mixing": {
-    "eyebrow": { "en": "Mixing & Spatial Production", "ko": "믹싱 & 공간음향 프로덕션" },
-    "title": { "en": "From the Stage to Spatial Production", "ko": "무대에서 공간음향 제작까지" },
-    "description": { "en": "A selection of live performance mixes, followed by a featured Dolby Atmos production and restoration project.", "ko": "라이브 공연 믹싱 작업과 Dolby Atmos 기반의 대표 제작·복원 프로젝트를 함께 소개합니다." },
-    "linkLabel": { "en": "OPEN PLAYLIST ON YOUTUBE →", "ko": "YOUTUBE에서 플레이리스트 열기 →" },
-    "playlistUrl": "https://youtube.com/playlist?list=PL_kWYUD-HpqlcTCfJSD_4k87kQdzyD4DZ&si=kXkmH_rhqa1GwQVR",
-    "case": {
-      "eyebrow": { "en": "Featured Production", "ko": "대표 제작 사례" },
-      "title": "Arirang 1926: Sonic Restoration",
-      "meta": { "en": "AI AUDIO RESTORATION · MUSIC CREATION · DOLBY ATMOS MIXING", "ko": "AI 오디오 복원 · 음악 제작 · DOLBY ATMOS 믹싱" },
-      "description": { "en": "A sound-led reinterpretation of Arirang using the 2003 remake as its visual source. I created music with Suno AI from period references, restored byeonsa narration with Waves ReGen, and completed Dolby Atmos and 2.0 Direct mixes.", "ko": "2003년 리메이크 영상을 바탕으로 아리랑을 사운드 중심으로 재해석했습니다. 당대 자료를 참고해 Suno AI로 음악을 제작하고 Waves ReGen으로 변사 음성을 복원한 뒤, Dolby Atmos와 2.0 Direct 믹스를 완성했습니다." },
-      "videoUrl": "https://youtu.be/JmjZB5Tf3co",
-      "linkLabel": { "en": "WATCH PROJECT ON YOUTUBE →", "ko": "YOUTUBE에서 프로젝트 보기 →" }
+    "note": {
+      "en": "Recorded all three tracks for Merry Night at Genuin Studio.",
+      "ko": "Merry Night의 세 곡을 게누인 스튜디오에서 레코딩했습니다."
     }
   },
-  "immersive": {
-    "eyebrow": { "en": "Live & Immersive Production", "ko": "라이브 & 이머시브 프로덕션" },
-    "title": "Yamaha AFC Image",
-    "meta": { "en": "9.1-CHANNEL OUTDOOR IMMERSIVE SYSTEM · 2025", "ko": "9.1채널 야외 이머시브 시스템 · 2025" },
-    "description": { "en": "I designed and operated a 9.1-channel Yamaha AFC Image system for an outdoor performance using DME7, Dante networking, and an L-Acoustics KARA main system. The work covered loudspeaker layout and alignment, signal flow, tuning, renderer adjustment, and live operation.", "ko": "야외 공연을 위해 DME7, Dante 네트워크, L-Acoustics KARA 메인 시스템 기반의 9.1채널 Yamaha AFC Image 시스템을 설계하고 운영했습니다. 스피커 배치와 정렬, 신호 흐름, 튜닝, 렌더러 조정, 현장 운용을 담당했습니다." },
-    "videoUrl": "https://youtu.be/rM2CTQfp6gE",
-    "linkLabel": { "en": "WATCH PERFORMANCE ON YOUTUBE →", "ko": "YOUTUBE에서 공연 보기 →" },
-    "reports": { "en": "/reports/afc-en.pdf", "ko": "/reports/afc-ko.pdf" },
-    "reportLabel": { "en": "OPEN FIELD CASE STUDY", "ko": "현장 사례 보고서 열기" }
+  "mixing": {
+    "eyebrow": {
+      "en": "From the Stage",
+      "ko": "믹싱 포트폴리오"
+    },
+    "title": {
+      "en": "Mixing Portfolio",
+      "ko": "공연 믹싱 작업"
+    },
+    "description": {
+      "en": "A YouTube playlist of performances mixed across live stages and production environments.",
+      "ko": "라이브 공연에서 믹싱한 작업을 모은 YouTube 플레이리스트입니다."
+    },
+    "linkLabel": {
+      "en": "OPEN PLAYLIST ON YOUTUBE →",
+      "ko": "YOUTUBE에서 플레이리스트 열기 →"
+    },
+    "playlistUrl": "https://youtube.com/playlist?list=PL_kWYUD-HpqlcTCfJSD_4k87kQdzyD4DZ&si=kXkmH_rhqa1GwQVR"
   },
   "credits": {
-    "eyebrow": { "en": "Selected Credits", "ko": "활동 이력" },
-    "title": "Live Sound Credits"
+    "eyebrow": {
+      "en": "Selected Credits",
+      "ko": "활동 이력"
+    },
+    "title": "Live Sound"
   }
 }
