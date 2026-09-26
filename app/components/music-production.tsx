@@ -50,7 +50,9 @@ export function MusicProduction({ locale }: { locale: Locale }) {
           <div><p>{musicProduction.studio.eyebrow[language]}</p><h2 id="studio-recording-title">{musicProduction.studio.title}</h2></div>
         </div>
         <div className="album-feature">
-          <Image src={musicProduction.studio.cover} alt={musicProduction.studio.coverAlt} width={540} height={540} priority />
+          <a className="album-cover-link" href={musicProduction.studio.playlistUrl} target="_blank" rel="noopener noreferrer" data-no-lightbox aria-label={musicProduction.studio.listenLabel[language]}>
+            <Image src={musicProduction.studio.cover} alt={musicProduction.studio.coverAlt} width={540} height={540} priority />
+          </a>
           <div className="album-details">
             <p className="album-credit">{musicProduction.studio.credit[language]}</p>
             <h3>{musicProduction.studio.albumTitle}</h3>
@@ -59,6 +61,7 @@ export function MusicProduction({ locale }: { locale: Locale }) {
               {musicProduction.studio.tracks.map((track,index)=><li key={`${track.title}-${index}`}><span>{String(index+1).padStart(2,'0')}</span><strong>{track.title}</strong><time>{track.duration}</time></li>)}
             </ol>
             <p className="album-note">{musicProduction.studio.note[language]}</p>
+            <a className="text-link album-listen-link" href={musicProduction.studio.playlistUrl} target="_blank" rel="noopener noreferrer">{musicProduction.studio.listenLabel[language]}</a>
           </div>
         </div>
       </section>

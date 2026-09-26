@@ -32,6 +32,8 @@ export type MusicProductionContent = {
     meta: string;
     tracks: { title: string; duration: string }[];
     note: LocalizedText;
+    playlistUrl: string;
+    listenLabel: LocalizedText;
   };
   mixing: {
     eyebrow: LocalizedText;
