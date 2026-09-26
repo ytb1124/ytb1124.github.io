@@ -431,19 +431,30 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .image-lightbox-close{position:fixed;top:18px;right:22px;z-index:1;width:46px;height:46px;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:rgba(0,0,0,.35);color:#fff;font:300 32px/1 Arial,sans-serif;cursor:pointer}
 .image-lightbox-close:focus-visible{outline:2px solid #fff;outline-offset:3px}
 
-/* Viewport-sized chapters; content can grow instead of being clipped. */
-:root{--screen-height:100vh;--header-height:100px}
-@supports(height:100dvh){:root{--screen-height:100dvh}}
+/* Only the opening home hero fills the viewport; editorial sections follow content. */
 .site-frame{padding-bottom:0}
-.site-frame>main{min-height:var(--screen-height)}
-.site-frame .page-title{height:auto;min-height:var(--screen-height);justify-content:center;padding-block:calc(var(--header-height) + 40px) 60px}
-.site-frame :is(.home-intro,.home-quote,.selected-projects,.profile-hero,.contact-grid,.cv-intro,.production-section,.research-section,.experience-section,.profile-story,.profile-education,.profile-media,.detail-intro,.project-framework){min-height:calc(var(--screen-height) - var(--header-height));scroll-margin-top:var(--header-height)}
-.site-frame :is(.home-intro,.profile-hero,.contact-grid,.cv-intro,.profile-story,.profile-media,.detail-intro){align-content:center}
-.site-frame .profile-hero{min-height:var(--screen-height)}
-.site-frame .home-quote{display:flex;flex-direction:column;justify-content:center}
-.site-frame main>section+section,.site-frame .production-section{border-top:1px solid var(--line)}
-.site-frame .detail-title{min-height:calc(var(--screen-height) - 140px);display:flex;flex-direction:column;justify-content:center}
-.site-frame .site-footer{border-top:1px solid var(--line)}
-@media(max-width:920px){:root{--header-height:70px}}
-@media(max-width:640px){.site-frame .detail-title{min-height:calc(var(--screen-height) - 105px)}}
+.site-frame main>section+section,.site-frame .production-section,.site-frame .site-footer{border-top:1px solid var(--line)}
 @media(max-height:500px){.home-hero h1{padding-top:75px;padding-bottom:65px}.hero-orb{bottom:16px;width:32px;height:32px}}
+
+/* Comfortable reading sizes shared by the English and Korean content pages. */
+.site-frame:not(.is-home) :is(.page-title h1,.profile-hero h1,.detail-title h1){font-size:clamp(32px,3.8vw,52px);line-height:1.12}
+.site-frame:not(.is-home) :is(.profile-story p,.profile-education p,.cv-intro p,.detail-body p,.framework-row p,.research-lede,.research-question,.research-map-step p,.publication-paper p,.selected-project-body p,.mixing-copy p,.album-note){font-size:clamp(16px,1.3vw,18px);line-height:1.65}
+.site-frame:not(.is-home) .profile-story p:first-child,.site-frame:not(.is-home) .framework-row:first-child p{font-size:clamp(20px,1.9vw,26px);line-height:1.45}
+.site-frame:not(.is-home) .experience-entry ul{font-size:16px;line-height:1.65}
+.site-frame:not(.is-home) :is(.experience-meta,.experience-organization,.activity-title-group span,.activity-meta p,.project-meta,.detail-meta){font-size:13px;line-height:1.5}
+.site-frame:not(.is-home) .project-copy h3{font-size:clamp(22px,2vw,28px);line-height:1.2}
+.site-frame:not(.is-home) .project-question{font-size:clamp(16px,1.3vw,18px)!important;line-height:1.5!important}
+.site-frame:not(.is-home) .activity-card h2{font-size:17px;line-height:1.4}
+.site-frame:not(.is-home) .detail-sources{font-size:13px!important}
+.site-frame:not(.is-home) .page-title{height:auto;min-height:280px;padding-block:145px 50px}
+.site-frame:not(.is-home) .research-intro{padding-block:65px 55px}
+.site-frame:not(.is-home) .research-map{margin-bottom:70px}
+.site-frame:not(.is-home) .detail-title{padding-block:30px 60px}
+.site-frame:not(.is-home) .cv-intro{padding-block:65px}
+@media(max-width:640px){
+  .site-frame:not(.is-home) .page-title{min-height:230px;padding-block:110px 40px}
+  .site-frame:not(.is-home) .research-intro{padding-block:45px}
+  .site-frame:not(.is-home) .cv-intro{padding-block:45px;gap:28px}
+  .site-frame:not(.is-home) .detail-title{padding-block:25px 45px}
+  .site-frame:not(.is-home) .activity-meta{flex-wrap:wrap;gap:8px}
+}
