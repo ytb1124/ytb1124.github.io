@@ -17,16 +17,32 @@
   },
   "live-immerssive-audio": {
     "en": {
+      "question": "How can an outdoor immersive system turn an open field into a coherent listening space?",
+      "system": "A 9.1-channel Yamaha AFC Image system using DME7, Dante networking, and an L-Acoustics KARA main system.",
+      "methods": "Design the loudspeaker layout, signal flow, and network; align and tune the system; adjust the renderer; and operate it during a live outdoor performance.",
+      "result": "The complete immersive system was deployed and operated in an outdoor field, extending spatial images beyond the conventional front-stage system.",
+      "next": "Use the operational findings to refine spatial mix decisions and investigate the renderer’s gain behavior as a separate measurement study."
+    },
+    "ko": {
+      "question": "야외 이머시브 시스템은 열린 공간을 어떻게 하나의 일관된 청취 공간으로 만들 수 있을까?",
+      "system": "DME7, Dante 네트워크, L-Acoustics KARA 메인 시스템으로 구성한 9.1채널 Yamaha AFC Image 시스템.",
+      "methods": "스피커 배치, 신호 흐름과 네트워크를 설계하고 시스템 정렬·튜닝과 렌더러 조정, 야외 공연 현장 운용을 수행했습니다.",
+      "result": "야외 운동장에 전체 이머시브 시스템을 구축·운영하여 기존 전면 무대 중심 시스템보다 넓은 공간에 음상을 배치했습니다.",
+      "next": "현장 운용 결과를 공간 믹싱 결정에 반영하고, 렌더러의 gain 동작은 별도 측정 연구로 검증합니다."
+    }
+  },
+  "spatial-renderer-system-identification": {
+    "en": {
       "question": "How does an immersive audio renderer translate spatial coordinates and parameters into loudspeaker gains?",
-      "system": "A Yamaha AFC Image and DME7 field system, followed by an electrical measurement testbed and numerical comparison workflow.",
-      "methods": "Deploy and operate the outdoor system, then vary loudspeaker coordinates and IDs, Object position, XY mode, Size, Precision, and Distance Attenuation while comparing measured gains with candidate models.",
+      "system": "An AFC Image electrical measurement testbed paired with a numerical model-comparison workflow.",
+      "methods": "Vary loudspeaker coordinates and IDs, Object position, XY mode, Size, Precision, and Distance Attenuation while comparing recorded gains with candidate models.",
       "result": "In documented normal-output regions, inverse-distance weighting, five Precision settings, and constant-power normalization explained representative gain blocks to about 0.005 dB; ID-dependent and boundary behavior remain unresolved.",
       "next": "Verify channel mapping and state application, then test asymmetric positions, Object Z in XY OFF, small Size values, boundary transitions, and dynamic time response."
     },
     "ko": {
       "question": "이머시브 오디오 렌더러는 공간 좌표와 파라미터를 어떻게 스피커별 출력 gain으로 변환할까?",
-      "system": "Yamaha AFC Image와 DME7 기반 현장 시스템, 전기적 출력 측정 테스트베드, 수치 모델 비교 워크플로우.",
-      "methods": "야외 시스템을 구축·운영한 뒤 스피커 좌표와 ID, Object 위치, XY 모드, Size, Precision, Distance Attenuation을 바꾸며 측정 gain을 후보 모델과 비교했습니다.",
+      "system": "AFC Image 전기적 출력 측정 테스트베드와 수치 모델 비교 워크플로우.",
+      "methods": "스피커 좌표와 ID, Object 위치, XY 모드, Size, Precision, Distance Attenuation을 바꾸며 측정 gain을 후보 모델과 비교했습니다.",
       "result": "조건이 명확한 정상 출력 구간에서 역거리 가중치, Precision 5단계, constant-power normalization이 대표 기록을 약 0.005 dB 수준으로 설명했으며, ID 의존 및 경계 동작은 미해결로 남았습니다.",
       "next": "채널 대응과 설정 적용 상태를 확인한 뒤 비대칭 위치, XY OFF의 Object Z, 작은 Size, 경계 전환, 동적 시간 응답을 검증합니다."
     }

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Spatial audio renderer measurement diagram</title>
+  <desc id="desc">An object position connected to five loudspeakers with measured output gain bars and a DBAP equation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121212"/>
+      <stop offset="1" stop-color="#020202"/>
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ffffff" stroke-opacity=".065" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#f5f5f5">
+    <text x="90" y="105" font-size="28" letter-spacing="6" fill="#ff6b35">BLACK-BOX MEASUREMENT</text>
+    <text x="90" y="175" font-size="58" font-weight="600">SPATIAL RENDERER</text>
+    <text x="90" y="238" font-size="58" font-weight="600">SYSTEM IDENTIFICATION</text>
+    <text x="90" y="292" font-size="23" fill="#9f9f9f">COORDINATES → DISTANCE WEIGHTS → LOUDSPEAKER GAINS</text>
+  </g>
+  <g stroke="#ffffff" stroke-opacity=".24" stroke-width="2">
+    <path d="M720 590 L430 430"/>
+    <path d="M720 590 L1010 430"/>
+    <path d="M720 590 L1120 700"/>
+    <path d="M720 590 L720 800"/>
+    <path d="M720 590 L320 700"/>
+  </g>
+  <g fill="#0b0b0b" stroke="#f2f2f2" stroke-width="4">
+    <circle cx="430" cy="430" r="38"/><circle cx="1010" cy="430" r="38"/>
+    <circle cx="1120" cy="700" r="38"/><circle cx="720" cy="800" r="38"/><circle cx="320" cy="700" r="38"/>
+  </g>
+  <g fill="#f2f2f2" font-family="Arial, Helvetica, sans-serif" font-size="21" text-anchor="middle">
+    <text x="430" y="438">SP1</text><text x="1010" y="438">SP2</text>
+    <text x="1120" y="708">SP3</text><text x="720" y="808">SP4</text><text x="320" y="708">SP5</text>
+  </g>
+  <circle cx="720" cy="590" r="30" fill="#ff6b35"/>
+  <circle cx="720" cy="590" r="50" fill="none" stroke="#ff6b35" stroke-opacity=".35" stroke-width="2"/>
+  <text x="720" y="598" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#080808">OBJ</text>
+  <g transform="translate(1240 380)" font-family="Arial, Helvetica, sans-serif">
+    <text x="0" y="0" fill="#9f9f9f" font-size="18" letter-spacing="3">MEASURED GAIN</text>
+    <g transform="translate(0 42)">
+      <rect width="220" height="22" fill="#2a2a2a"/><rect width="154" height="22" fill="#ff6b35"/>
+      <rect y="46" width="220" height="22" fill="#2a2a2a"/><rect y="46" width="110" height="22" fill="#f0f0f0"/>
+      <rect y="92" width="220" height="22" fill="#2a2a2a"/><rect y="92" width="74" height="22" fill="#f0f0f0"/>
+      <rect y="138" width="220" height="22" fill="#2a2a2a"/><rect y="138" width="48" height="22" fill="#f0f0f0"/>
+      <rect y="184" width="220" height="22" fill="#2a2a2a"/><rect y="184" width="29" height="22" fill="#f0f0f0"/>
+    </g>
+    <text x="0" y="300" fill="#f5f5f5" font-size="28">wᵢ = Dᵢ⁻ᵃ</text>
+    <text x="0" y="350" fill="#f5f5f5" font-size="28">gᵢ = wᵢ / √Σwₖ²</text>
+    <text x="0" y="400" fill="#9f9f9f" font-size="17">REPRESENTATIVE RESIDUAL ≈ 0.005 dB</text>
+  </g>
+  <g transform="translate(90 930)" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#9f9f9f">
+    <text x="0" y="0">SPEAKER ID</text><text x="170" y="0">OBJECT XYZ</text><text x="350" y="0">SIZE</text>
+    <text x="455" y="0">PRECISION</text><text x="610" y="0">DISTANCE ATTENUATION</text>
+  </g>
+</svg>

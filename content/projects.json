@@ -48,11 +48,11 @@
   },
   {
     "slug": "live-immerssive-audio",
-    "year": "2025—2026",
-    "category": "Immersive Audio Research",
-    "title": "Yamaha AFC Image: System & Renderer Analysis",
-    "description": "From deploying an outdoor immersive system to measuring how its renderer translates spatial coordinates and parameters into loudspeaker gains.",
-    "question": "How does an immersive audio renderer translate spatial coordinates and parameters into loudspeaker gains?",
+    "year": "2025",
+    "category": "Performance",
+    "title": "Yamaha AFC Image",
+    "description": "Designing and operating a 9.1-channel immersive audio system for an outdoor performance venue.",
+    "question": "How can an outdoor immersive system turn an open field into a coherent listening space?",
     "image": "/framer/projects/live-immerssive-audio/cover.jpeg",
     "gallery": [
       "/framer/projects/live-immerssive-audio/cover.jpeg",
@@ -61,18 +61,31 @@
       "/framer/projects/live-immerssive-audio/03.jpeg"
     ],
     "video": "https://www.youtube.com/embed/rM2CTQfp6gE?si=9VBVIvOwFHMpO9Mr&iv_load_policy=3&rel=0&modestbranding=1&playsinline=1&autoplay=1",
+    "reports": {
+      "ko": "/reports/afc-ko.pdf",
+      "en": "/reports/afc-en.pdf"
+    },
+    "body": [
+      "This project applied Yamaha AFC Image to an outdoor field where the lack of natural reflections made it difficult to create a stable sense of space. The goal was to treat the whole venue as one extended performance area rather than concentrating every image at the front stage.",
+      "I designed and operated a 9.1-channel system based on Yamaha DME7, a Dante network, and an L-Acoustics KARA main system. My work covered loudspeaker layout and alignment, network and signal-flow design, system tuning, parameter adjustment, and live operation.",
+      "The system was deployed in a live outdoor performance and provided the practical starting point for a separate study of how the AFC renderer converts spatial coordinates into loudspeaker gains."
+    ]
+  },
+  {
+    "slug": "spatial-renderer-system-identification",
+    "year": "2026",
+    "category": "Spatial Audio Research",
+    "title": "Spatial Audio Renderer System Identification",
+    "description": "A black-box measurement study of how AFC Image maps loudspeaker geometry, Object position, and renderer parameters to output gains.",
+    "question": "How does an immersive audio renderer translate spatial coordinates and parameters into loudspeaker gains?",
+    "image": "/framer/projects/spatial-renderer-system-identification/cover.svg",
+    "gallery": [
+      "/framer/projects/spatial-renderer-system-identification/cover.svg"
+    ],
     "resources": [
       {
-        "href": "/reports/afc-ko.pdf",
-        "label": { "en": "OPEN FIELD CASE STUDY (KO)", "ko": "현장 구축 사례 보고서 열기" }
-      },
-      {
-        "href": "/reports/afc-en.pdf",
-        "label": { "en": "OPEN FIELD CASE STUDY (EN)", "ko": "영문 현장 구축 사례 열기" }
-      },
-      {
         "href": "/reports/afc-renderer-analysis-ko.docx",
-        "label": { "en": "OPEN RENDERER ANALYSIS (KO)", "ko": "렌더러 기술 분석 보고서 열기" }
+        "label": { "en": "OPEN TECHNICAL REPORT (KO)", "ko": "기술 검증 보고서 열기" }
       },
       {
         "href": "/downloads/afc-renderer-experiment.xlsx",
@@ -80,11 +93,11 @@
       }
     ],
     "body": [
-      "I first designed and operated a 9.1-channel outdoor immersive audio system using Yamaha AFC Image and DME7. The work covered system architecture, Dante networking, loudspeaker alignment and tuning, parameter adjustment, and live operation. That field deployment became the starting point for a second question: how does the renderer itself convert spatial intent into output gain?",
-      "To investigate the renderer as a black box, I varied loudspeaker coordinates and IDs, Object position, XY mode, Width, Height, Precision, and Distance Attenuation, then compared the recorded output gains with numerical models. The analysis separates measured values from candidate equations and does not present the inferred formulas as Yamaha’s disclosed implementation.",
+      "This study followed the outdoor AFC Image deployment and focused on the renderer itself. I treated the system as a black box, varying loudspeaker coordinates and IDs, Object position, XY mode, Width, Height, Precision, and Distance Attenuation while recording the resulting output gains.",
+      "The measurements were compared with numerical candidates while keeping observed values separate from inferred equations. The resulting formulas are bounded explanatory models, not claims about Yamaha’s disclosed internal implementation.",
       "Within clearly documented normal-output regions, inverse-distance weighting followed by constant-power normalization explained the recorded gain distribution. The five Precision settings were consistent with distance exponents corresponding to approximately 8–12 dB of unnormalized attenuation per distance doubling, and representative verified blocks typically matched within about 0.005 dB.",
       "Other behavior remains conditional. Size measurements support candidate effective-distance formulas only within the tested configurations, while boundary projection, Distance Attenuation, Object Z in 3D operation, and changes caused by loudspeaker-ID assignment do not yet reduce to one general rule. Repeated tests ruled out several simpler explanations, including a mere output-column swap.",
-      "The current outcome is a bounded renderer model suitable for a Max/MSP prototype, together with a prioritized validation plan. A fully compatible clone for arbitrary layouts, out-of-area positions, and dynamic motion would require additional measurements of channel mapping, state application, 3D control paths, smoothing, and time response."
+      "The current outcome is a bounded renderer model suitable for a Max/MSP prototype, together with a prioritized validation plan. A fully compatible clone for arbitrary layouts, out-of-area positions, and dynamic motion requires further measurements of channel mapping, state application, 3D control paths, smoothing, and time response."
     ]
   },
   {
