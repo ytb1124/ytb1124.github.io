@@ -14,7 +14,7 @@ function PublicationLinks({locale,current}:{locale:Locale;current:'report'|'data
     <a href={localizedPath(locale,projectPath)}>{labels.project} →</a>
     {current!=='report'&&<a href={localizedPath(locale,`${projectPath}/report`)}>{labels.report} →</a>}
     {current!=='data'&&<a href={localizedPath(locale,`${projectPath}/data`)}>{labels.data} →</a>}
-    <a href={current==='report'?(locale==='ko'?'/reports/sound-xr-image-renderer-report-ko.pdf':'/reports/sound-xr-image-renderer-report-en.pdf'):'/downloads/afc-renderer-experiment.xlsx'} download>{labels.download} ↓</a>
+    <a href={current==='report'?(locale==='ko'?'/reports/sound-xr-image-renderer-report-ko.pdf':'/reports/sound-xr-image-renderer-report-en.pdf'):'/downloads/afc-renderer-experiment.xlsx'} {...(current==='report'?{target:'_blank',rel:'noopener noreferrer'}:{download:true})}>{current==='report'?(locale==='ko'?'PDF 새 창으로 열기':'Open PDF in new tab'):labels.download} {current==='report'?'↗':'↓'}</a>
   </nav>
 }
 

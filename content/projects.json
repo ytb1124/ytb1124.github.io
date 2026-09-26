@@ -60,19 +60,25 @@
     ],
     "resources": [
       {
-        "href": "/projects/spatial-renderer-system-identification/report",
-        "localized": true,
+        "href": "/reports/sound-xr-image-renderer-report-ko.pdf",
         "label": {
-          "en": "PREVIEW RESEARCH REPORT",
-          "ko": "결과보고서 미리보기"
+          "en": "OPEN RESEARCH PAPER (KO) →",
+          "ko": "한글 결과보고서 열기 →"
+        }
+      },
+      {
+        "href": "/reports/sound-xr-image-renderer-report-en.pdf",
+        "label": {
+          "en": "OPEN RESEARCH PAPER (EN) →",
+          "ko": "영문 결과보고서 열기 →"
         }
       },
       {
         "href": "/projects/spatial-renderer-system-identification/data",
         "localized": true,
         "label": {
-          "en": "PREVIEW EXPERIMENT DATA",
-          "ko": "실험 데이터 미리보기"
+          "en": "PREVIEW EXPERIMENT DATA →",
+          "ko": "실험 데이터 미리보기 →"
         }
       }
     ],
