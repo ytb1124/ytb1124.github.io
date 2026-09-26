@@ -50,31 +50,34 @@
     "slug": "spatial-renderer-system-identification",
     "year": "2026",
     "category": "Spatial Audio Research",
-    "title": "Spatial Audio Renderer System Identification",
-    "description": "A black-box measurement study of how AFC Image maps loudspeaker geometry, Object position, and renderer parameters to output gains.",
-    "question": "How does an immersive audio renderer translate spatial coordinates and parameters into loudspeaker gains?",
-    "image": "/framer/projects/spatial-renderer-system-identification/cover.svg",
+    "title": "Sound xR Image Renderer System Identification",
+    "description": "A black-box measurement study of how Sound xR Image maps loudspeaker geometry, Object position, and renderer parameters to output gains.",
+    "question": "How does Sound xR Image translate spatial coordinates and rendering parameters into loudspeaker gains?",
+    "image": "/framer/projects/spatial-renderer-system-identification/01.jpeg",
     "gallery": [
-      "/framer/projects/spatial-renderer-system-identification/cover.svg"
+      "/framer/projects/spatial-renderer-system-identification/01.jpeg",
+      "/framer/projects/spatial-renderer-system-identification/02.jpeg"
     ],
     "resources": [
       {
-        "href": "/reports/afc-renderer-analysis-ko.docx",
+        "href": "/projects/spatial-renderer-system-identification/report",
+        "localized": true,
         "label": {
-          "en": "OPEN TECHNICAL REPORT (KO)",
-          "ko": "기술 검증 보고서 열기"
+          "en": "PREVIEW RESEARCH REPORT",
+          "ko": "결과보고서 미리보기"
         }
       },
       {
-        "href": "/downloads/afc-renderer-experiment.xlsx",
+        "href": "/projects/spatial-renderer-system-identification/data",
+        "localized": true,
         "label": {
-          "en": "DOWNLOAD EXPERIMENT DATA",
-          "ko": "실험 데이터 다운로드"
+          "en": "PREVIEW EXPERIMENT DATA",
+          "ko": "실험 데이터 미리보기"
         }
       }
     ],
     "body": [
-      "This study followed the outdoor AFC Image deployment and focused on the renderer itself. I treated the system as a black box, varying loudspeaker coordinates and IDs, Object position, XY mode, Width, Height, Precision, and Distance Attenuation while recording the resulting output gains.",
+      "This study followed the outdoor Sound xR Image deployment and focused on the renderer itself. I treated the system as a black box, varying loudspeaker coordinates and IDs, Object position, XY mode, Width, Height, Precision, and Distance Attenuation while recording the resulting output gains.",
       "The measurements were compared with numerical candidates while keeping observed values separate from inferred equations. The resulting formulas are bounded explanatory models, not claims about Yamaha’s disclosed internal implementation.",
       "Within clearly documented normal-output regions, inverse-distance weighting followed by constant-power normalization explained the recorded gain distribution. The five Precision settings were consistent with distance exponents corresponding to approximately 8–12 dB of unnormalized attenuation per distance doubling, and representative verified blocks typically matched within about 0.005 dB.",
       "Other behavior remains conditional. Size measurements support candidate effective-distance formulas only within the tested configurations, while boundary projection, Distance Attenuation, Object Z in 3D operation, and changes caused by loudspeaker-ID assignment do not yet reduce to one general rule. Repeated tests ruled out several simpler explanations, including a mere output-column swap.",

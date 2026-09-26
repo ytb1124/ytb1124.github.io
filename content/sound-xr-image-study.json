@@ -1,0 +1,203 @@
+{
+  "metadata": {
+    "year": "2026",
+    "revision": "1.0",
+    "date": "2026-09-26",
+    "sourceWorkbook": "Sheet1, 366 rows × 45 columns"
+  },
+  "ko": {
+    "title": "Sound xR Image 렌더러 시스템 식별",
+    "subtitle": "공간 좌표와 렌더링 파라미터에 따른 출력 게인 동작의 블랙박스 측정",
+    "abstract": "본 연구는 Sound xR Image가 스피커 배치, Object 위치, XY 모드, Size, Precision, Distance Attenuation을 스피커별 출력 게인으로 변환하는 동작을 전기적으로 측정하고 수치 모델과 비교했다. 조건이 명확한 정상 출력 구간에서는 역거리 가중치와 전력 정규화 모델이 대표 기록을 약 0.005 dB 이내로 설명했다. Precision 5단계는 거리 두 배당 약 8–12 dB의 정규화 전 감쇠에 해당하는 계수와 일치했다. 반면 Speaker ID 재배정, 영역 경계와 외부 위치, Object Z, Distance Attenuation의 기준 거리는 하나의 일반식으로 확정되지 않았다. 결과는 제품 내부 알고리즘의 공개 사양이 아니라 측정 범위에서 유효한 후보 모델이며, Max/MSP 프로토타입과 후속 검증을 위한 기초 자료로 제시한다.",
+    "keywords": ["Sound xR Image", "공간 음향", "블랙박스 측정", "DBAP", "시스템 식별"],
+    "sections": [
+      {
+        "heading": "1 서론",
+        "paragraphs": [
+          "이 연구는 야외 공연용 Sound xR Image 시스템을 구축한 뒤, 렌더러가 공간적 입력을 실제 출력 게인으로 바꾸는 방식을 확인하기 위해 시작했다. 운용 화면에 표시되는 위치와 파라미터만으로 결과를 재현하려면 정상 동작뿐 아니라 경계 처리와 예외 조건까지 구분해야 한다.",
+          "연구 목적은 특정 제품의 비공개 구현을 단정하는 것이 아니라, 반복 측정으로 재현 가능한 입력·출력 관계를 정리하고 적용 범위를 명시한 계산 모델을 만드는 데 있다."
+        ]
+      },
+      {
+        "heading": "2 연구 방법",
+        "paragraphs": [
+          "DME7 기반 테스트베드에서 스피커 좌표와 ID, Object 위치, XY ON/OFF, Width, Height, Precision, Distance Attenuation을 독립적으로 바꾸며 각 출력 채널의 게인을 dB 단위로 기록했다. 실험 원본은 하나의 워크시트에 조건별 블록으로 보존했다.",
+          "분석에서는 측정값과 후보식을 분리했다. 실측 dB에서 예측 dB를 뺀 잔차를 비교하고, 상대 분포가 중요한 경우 총전력 정규화 뒤 오차를 평가했다. 기록 분해능 0.01 dB는 장비 정확도나 통계적 신뢰구간을 뜻하지 않는다."
+        ]
+      },
+      {
+        "heading": "3 후보 게인 모델",
+        "paragraphs": [
+          "정상 출력 구간은 계산 위치 P와 각 스피커 사이의 거리 D에 역비례하는 가중치와 constant power normalization으로 설명했다. 거리 지수 a는 Precision 설정에 따라 달라지는 후보 계수다.",
+          "이 모델은 계산 위치 P가 이미 정해진 뒤의 게인 분포를 설명한다. 입력 Object 위치를 그대로 사용할지, 경계 또는 내부 선분에 투영할지는 별도의 미해결 단계다."
+        ],
+        "equations": [
+          "w_i = D_i^(-a)",
+          "g_i = w_i / sqrt(sum(w_k^2))"
+        ]
+      },
+      {
+        "heading": "4 결과",
+        "paragraphs": [
+          "정상 내부 위치와 Precision 스윕에서는 후보 모델의 대표 잔차가 대체로 약 0.005 dB였다. Precision이 Low에서 High로 증가할수록 가까운 스피커에 더 큰 비중이 배분됐으며, 계수는 거리 두 배당 약 8–12 dB의 정규화 전 감쇠와 일치했다.",
+          "최근 Size 실험에서 XY ON 13조건은 최대 약 0.0047 dB, RMS 약 0.0029 dB로 후보 유효거리식과 맞았다. XY OFF의 제한된 8개 기록은 최대 약 0.0051 dB로 설명됐지만 Object Z=0 조건에 한정된다.",
+          "동일한 물리 좌표 집합에서 Speaker ID 배정만 바꿨을 때 재배정하지 않은 출력도 변했다. 한 배정은 좌표 기반 모델과 최대 약 0.0128 dB로 맞았지만 다른 배정은 최대 약 1.1728 dB의 차이가 남아 단순한 출력 열 교환으로 설명되지 않았다.",
+          "일부 내부·외부 위치는 특정 선분에 투영한 뒤 거리 모델을 적용하면 설명됐지만 선분 선택 규칙은 확정되지 않았다. Object Z −2부터 +2까지의 기록에서는 출력 변화가 없었으나 원시 블록에 XY 모드가 명시되지 않아 XY OFF의 3D 동작을 입증하지 않는다."
+        ]
+      },
+      {
+        "heading": "5 논의",
+        "paragraphs": [
+          "측정 결과는 Sound xR Image가 정상 구간에서 거리 기반 분포와 전력 정규화를 사용한다는 가설을 강하게 지지한다. 그러나 Speaker ID와 경계 처리에 따른 변화는 기하 좌표만으로 구성한 단일 DBAP 모델의 적용 범위를 제한한다.",
+          "Size의 상위 구간은 변화량이 작아지는 경향을 보였지만 보편적인 임계값 10으로 해석할 수 없다. Width와 Height의 영향은 XY 모드, 스피커 Z, 배치 크기와 함께 달라졌다. Distance Attenuation은 유효 채널에 공통 감쇠로 나타났지만 기준 거리의 정의는 추가 측정이 필요하다."
+        ]
+      },
+      {
+        "heading": "6 한계와 후속 검증",
+        "paragraphs": [
+          "현재 결과는 정적 게인 기록과 제한된 배치에 기반한다. 채널 대응과 설정 적용 상태, XY OFF에서의 Object Z 스윕, 임의 비대칭 배치, 경계 통과 시 전환, smoothing과 시간 응답을 별도로 측정해야 한다.",
+          "후속 실험에서는 먼저 Speaker ID 규칙을 사전 정의한 뒤 새로운 배치로 예측을 검증하고, 위치·배치의 회전 및 확대 조건을 이용해 Distance Attenuation의 기준 거리를 분리해야 한다."
+        ]
+      },
+      {
+        "heading": "7 결론",
+        "paragraphs": [
+          "Sound xR Image의 정상 출력 구간은 Precision에 따른 역거리 가중치와 전력 정규화 모델로 높은 수치적 일치를 보였다. 동시에 Speaker ID, 경계 투영, 3D Object Z와 감쇠 거리에는 조건부 동작이 남아 있다.",
+          "따라서 현재 모델은 검증 범위를 명시한 프로토타입용 모델로 사용해야 한다. 완전한 호환 모델로 확장하려면 미해결 조건을 독립적인 사전 예측 실험으로 확인해야 한다."
+        ]
+      }
+    ]
+  },
+  "en": {
+    "title": "System Identification of the Sound xR Image Renderer",
+    "subtitle": "Black box measurement of output gain behavior across spatial coordinates and rendering parameters",
+    "abstract": "This study electrically measured how Sound xR Image maps loudspeaker geometry, Object position, XY mode, Size, Precision, and Distance Attenuation to channel gains, then compared the observations with numerical models. In clearly documented normal output regions, inverse distance weighting with constant power normalization reproduced representative records within approximately 0.005 dB. The five Precision settings were consistent with coefficients corresponding to roughly 8–12 dB of unnormalized attenuation per distance doubling. Speaker ID reassignment, boundary and outside position handling, Object Z, and the reference distance for Distance Attenuation did not reduce to one general rule. The result is a bounded explanatory model for prototyping and further validation, not a claim about the product's undisclosed internal implementation.",
+    "keywords": ["Sound xR Image", "spatial audio", "black box measurement", "DBAP", "system identification"],
+    "sections": [
+      {
+        "heading": "1 Introduction",
+        "paragraphs": [
+          "This study followed the deployment of a Sound xR Image system for an outdoor performance. It asks how the renderer converts spatial inputs into measurable output gains and which conditions must be represented to reproduce that behavior.",
+          "The objective is to establish repeatable input output relationships and a model with an explicit validity range. It does not attempt to identify or disclose proprietary source code."
+        ]
+      },
+      {
+        "heading": "2 Methods",
+        "paragraphs": [
+          "A DME7 based testbed was used to vary loudspeaker coordinates and IDs, Object position, XY ON and OFF, Width, Height, Precision, and Distance Attenuation. Output gains were recorded in decibels and retained as condition based blocks in one worksheet.",
+          "Measured values were kept separate from candidate equations. Residuals were calculated as measured minus predicted dB, and relative distributions were evaluated after total power normalization where appropriate. The 0.01 dB recording resolution is not an estimate of instrument accuracy or statistical confidence."
+        ]
+      },
+      {
+        "heading": "3 Candidate Gain Model",
+        "paragraphs": [
+          "Normal output regions were modeled using weights inversely related to the distance D between a calculated rendering position P and each loudspeaker, followed by constant power normalization. The distance exponent a is a candidate coefficient associated with the Precision setting.",
+          "The model describes the gain distribution after P has been selected. Whether P equals the input Object position or a projection onto a boundary or internal segment remains a separate unresolved stage."
+        ],
+        "equations": [
+          "w_i = D_i^(-a)",
+          "g_i = w_i / sqrt(sum(w_k^2))"
+        ]
+      },
+      {
+        "heading": "4 Results",
+        "paragraphs": [
+          "For normal internal positions and the Precision sweep, representative residuals were generally about 0.005 dB. Increasing Precision from Low to High concentrated more gain at the nearest loudspeaker, with coefficients consistent with approximately 8–12 dB of unnormalized attenuation per distance doubling.",
+          "In the recent Size experiment, 13 XY ON conditions matched a candidate effective distance expression with a maximum error of approximately 0.0047 dB and an RMS error of approximately 0.0029 dB. Eight limited XY OFF records were explained within approximately 0.0051 dB, but only for Object Z=0.",
+          "Changing Speaker ID assignment while preserving the physical coordinate set also changed outputs whose coordinates were not reassigned. One assignment matched the coordinate model within approximately 0.0128 dB, whereas the other retained an error of approximately 1.1728 dB. The behavior therefore cannot be reduced to a simple output column swap.",
+          "Several internal and outside positions were explained by projecting the Object onto selected segments before applying the distance model, but the segment selection rule was not established. A recorded Object Z sweep from −2 to +2 showed no gain change, yet the raw block did not identify XY mode and therefore does not verify 3D behavior in XY OFF."
+        ]
+      },
+      {
+        "heading": "5 Discussion",
+        "paragraphs": [
+          "The measurements strongly support distance based distribution and power normalization within normal operating regions. The effects of Speaker ID and boundary handling nevertheless limit any single DBAP model based only on physical coordinates.",
+          "Size sensitivity decreased at higher values, but the data do not support a universal cutoff at 10. Width and Height depended on XY mode, loudspeaker Z, and layout scale. Distance Attenuation appeared as a common offset across valid channels, while its reference distance remains unresolved."
+        ]
+      },
+      {
+        "heading": "6 Limitations and Further Validation",
+        "paragraphs": [
+          "The present findings are based on static gain records and a limited set of layouts. Channel mapping and state application, an Object Z sweep in XY OFF, asymmetric layouts, boundary transitions, smoothing, and time response require separate measurements.",
+          "Future tests should define the Speaker ID rule before measurement and validate it on new layouts. Rotation and scaling of both layout and Object position should then be used to isolate the distance reference used by Distance Attenuation."
+        ]
+      },
+      {
+        "heading": "7 Conclusion",
+        "paragraphs": [
+          "Normal output regions of Sound xR Image showed close numerical agreement with Precision dependent inverse distance weighting and constant power normalization. Conditional behavior remains for Speaker ID, boundary projection, 3D Object Z, and attenuation distance.",
+          "The current result should therefore be used as a bounded prototype model. Extending it to a compatible general model requires independent, pre-registered prediction tests for the unresolved conditions."
+        ]
+      }
+    ]
+  },
+  "dataPreview": {
+    "blocks": [
+      { "range": "A1:F24", "ko": "기본 위치 및 거리 변화", "en": "Baseline position and distance sweeps" },
+      { "range": "A45:F78", "ko": "평면 Width와 3D Height", "en": "Planar Width and 3D Height" },
+      { "range": "A82:F99", "ko": "Object Z와 Precision", "en": "Object Z and Precision" },
+      { "range": "A105:F151", "ko": "투영과 Distance Attenuation", "en": "Projection and Distance Attenuation" },
+      { "range": "A196:Y212", "ko": "3D Size 결합", "en": "Combined 3D Size" },
+      { "range": "A220:AN244", "ko": "배치 순열과 미세 이동", "en": "Layout permutations and local movement" },
+      { "range": "A293:O315", "ko": "최근 Size 및 감쇠 대조", "en": "Recent Size and attenuation comparisons" },
+      { "range": "A319:S359", "ko": "Speaker ID와 경계 검증", "en": "Speaker ID and boundary validation" }
+    ],
+    "tables": [
+      {
+        "id": "precision",
+        "titleKo": "Precision 5단계 출력 게인",
+        "titleEn": "Output gains across five Precision settings",
+        "noteKo": "3스피커, Object=(2, 2.89, 0), XY ON, Size=0",
+        "noteEn": "Three loudspeakers, Object=(2, 2.89, 0), XY ON, Size=0",
+        "columns": ["Precision", "Sp1 dB", "Sp2 dB", "Sp3 dB"],
+        "rows": [
+          ["Low", "−8.85", "−1.95", "−6.36"],
+          ["Slightly Low", "−9.48", "−1.72", "−6.69"],
+          ["Moderate", "−10.14", "−1.52", "−7.04"],
+          ["Slightly High", "−10.82", "−1.33", "−7.41"],
+          ["High", "−11.52", "−1.17", "−7.80"]
+        ]
+      },
+      {
+        "id": "size",
+        "titleKo": "XY ON 비대칭 Size 표본",
+        "titleEn": "Asymmetric Size samples in XY ON",
+        "noteKo": "4스피커 3D 배치, Object=(0, 2, 0), Moderate, DA=0",
+        "noteEn": "Four loudspeakers in 3D, Object=(0, 2, 0), Moderate, DA=0",
+        "columns": ["Width / Height", "Sp1 dB", "Sp2 dB", "Sp3 dB", "Sp4 dB"],
+        "rows": [
+          ["0 / 0", "−12.03", "−12.03", "−3.59", "−3.59"],
+          ["0 / 0.5", "−11.91", "−11.91", "−3.61", "−3.61"],
+          ["0.3 / 0.8", "−11.74", "−11.74", "−3.64", "−3.64"],
+          ["7 / 3", "−7.22", "−7.22", "−5.08", "−5.08"],
+          ["3 / 7", "−9.50", "−9.50", "−4.11", "−4.11"]
+        ]
+      },
+      {
+        "id": "attenuation",
+        "titleKo": "Distance Attenuation 짝 비교",
+        "titleEn": "Paired Distance Attenuation comparison",
+        "noteKo": "Object=(5, 4), Moderate, XY ON",
+        "noteEn": "Object=(5, 4), Moderate, XY ON",
+        "columns": ["DA", "Sp1 dB", "Sp2 dB", "Sp3 dB"],
+        "rows": [
+          ["0", "−14.11", "−0.67", "−9.83"],
+          ["−3", "−15.76", "−2.31", "−11.47"],
+          ["−6", "−17.40", "−3.96", "−13.12"]
+        ]
+      },
+      {
+        "id": "speaker-id",
+        "titleKo": "동일 좌표 집합의 Speaker ID 재배정",
+        "titleEn": "Speaker ID reassignment with one coordinate set",
+        "noteKo": "Object=(1, 3), Moderate, DA=0, XY ON",
+        "noteEn": "Object=(1, 3), Moderate, DA=0, XY ON",
+        "columns": ["Assignment", "Sp1 dB", "Sp2 dB", "Sp3 dB", "Sp4 dB", "Sp5 dB"],
+        "rows": [
+          ["N", "−20.03", "−16.04", "−5.82", "−8.85", "−2.41"],
+          ["T", "−20.04", "−15.38", "−8.89", "−6.99", "−1.98"]
+        ]
+      }
+    ]
+  }
+}

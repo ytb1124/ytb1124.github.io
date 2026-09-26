@@ -2,7 +2,7 @@ import projectsDocument from '../../content/projects.json';
 import siteDocument from '../../content/site.json';
 
 export type Locale = 'en' | 'ko';
-export type ProjectResource = { href: string; label: { en: string; ko: string } };
+export type ProjectResource = { href: string; label: { en: string; ko: string }; localized?: boolean };
 export type Project = {
   slug: string;
   year: string;

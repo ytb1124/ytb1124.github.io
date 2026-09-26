@@ -8,7 +8,7 @@ function collectProjectRoutes(dir, prefix = '') {
     const relative = prefix ? `${prefix}/${entry.name}` : entry.name;
     if (entry.isDirectory()) collectProjectRoutes(join(root, relative), relative);
     else {
-      const match = relative.match(/^(ko\/)?projects\/([^/]+)\.html$/);
+      const match = relative.match(/^(ko\/)?projects\/(.+)\.html$/);
       if (match) routes.push(`${match[1] ?? ''}projects/${match[2]}`);
     }
   }

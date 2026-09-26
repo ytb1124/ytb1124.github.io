@@ -17,15 +17,15 @@
   },
   "spatial-renderer-system-identification": {
     "en": {
-      "question": "How does an immersive audio renderer translate spatial coordinates and parameters into loudspeaker gains?",
-      "system": "An AFC Image electrical measurement testbed paired with a numerical model-comparison workflow.",
+      "question": "How does Sound xR Image translate spatial coordinates and rendering parameters into loudspeaker gains?",
+      "system": "A Sound xR Image electrical measurement testbed paired with a numerical model-comparison workflow.",
       "methods": "Vary loudspeaker coordinates and IDs, Object position, XY mode, Size, Precision, and Distance Attenuation while comparing recorded gains with candidate models.",
       "result": "In documented normal-output regions, inverse-distance weighting, five Precision settings, and constant-power normalization explained representative gain blocks to about 0.005 dB; ID-dependent and boundary behavior remain unresolved.",
       "next": "Verify channel mapping and state application, then test asymmetric positions, Object Z in XY OFF, small Size values, boundary transitions, and dynamic time response."
     },
     "ko": {
-      "question": "이머시브 오디오 렌더러는 공간 좌표와 파라미터를 어떻게 스피커별 출력 gain으로 변환할까?",
-      "system": "AFC Image 전기적 출력 측정 테스트베드와 수치 모델 비교 워크플로우.",
+      "question": "Sound xR Image는 공간 좌표와 렌더링 파라미터를 어떻게 스피커별 출력 gain으로 변환할까?",
+      "system": "Sound xR Image 전기적 출력 측정 테스트베드와 수치 모델 비교 워크플로우.",
       "methods": "스피커 좌표와 ID, Object 위치, XY 모드, Size, Precision, Distance Attenuation을 바꾸며 측정 gain을 후보 모델과 비교했습니다.",
       "result": "조건이 명확한 정상 출력 구간에서 역거리 가중치, Precision 5단계, constant-power normalization이 대표 기록을 약 0.005 dB 수준으로 설명했으며, ID 의존 및 경계 동작은 미해결로 남았습니다.",
       "next": "채널 대응과 설정 적용 상태를 확인한 뒤 비대칭 위치, XY OFF의 Object Z, 작은 Size, 경계 전환, 동적 시간 응답을 검증합니다."

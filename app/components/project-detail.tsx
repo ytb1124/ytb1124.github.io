@@ -24,7 +24,10 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
         <span className="detail-kicker">PROJECT SHOWCASE / {project.year}</span>
         <h1>{project.title}</h1>
         <div className="detail-meta"><span>{project.year}</span><span>{project.category}</span></div>
-        {(resources.length>0||project.repository)&&<div className="report-links">{resources.map(resource=><a href={resource.href} target="_blank" rel="noopener noreferrer" key={resource.href}>{resource.label[locale]}</a>)}{project.repository&&<a href={project.repository} target="_blank" rel="noopener noreferrer">{locale==='ko'?'GitHub 저장소 보기 →':'VIEW GITHUB REPOSITORY →'}</a>}</div>}
+        {(resources.length>0||project.repository)&&<div className="report-links">{resources.map(resource=>{
+          const href=resource.localized?(locale==='ko'?`/ko${resource.href}`:resource.href):resource.href;
+          return <a href={href} {...(!resource.localized?{target:'_blank',rel:'noopener noreferrer'}:{})} key={resource.href}>{resource.label[locale]}</a>;
+        })}{project.repository&&<a href={project.repository} target="_blank" rel="noopener noreferrer">{locale==='ko'?'GitHub 저장소 보기 →':'VIEW GITHUB REPOSITORY →'}</a>}</div>}
     </header>
     <section className="project-framework" aria-label="Project research summary">
       {framework.map(([label,value])=><div className="framework-row" key={label}><span>{label}</span><p>{value}</p></div>)}
