@@ -7,6 +7,7 @@ import { Locale, localizedPath, Project, site } from '../data/site';
 const navigation = [
   { label: 'Profile', path: '/profile' },
   { label: 'Projects', path: '/projects' },
+  { label: 'Music Production', path: '/music-production' },
   { label: 'Experience', path: '/experience' },
   { label: 'Contact', path: '/contact' },
 ];

@@ -1,5 +1,5 @@
 import { PageShell, HeroTitle, YoutubeEmbed } from '../components/site';
-import { site } from '../data/site';
+import { localizedPath, site } from '../data/site';
 import { koreanExperience } from '../data/korean';
 
 export const dynamic = 'force-static';
@@ -181,7 +181,7 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
     <HeroTitle><span>{exp.title.split('\n').map((line) => <span key={line}>{line}</span>)}</span></HeroTitle>
     <section className={`content-width cv-intro${locale === 'ko' ? ' cv-intro-ko' : ''}`}>
       <h2>{exp.cvTitle}</h2>
-      <div><p>{exp.cvDescription}</p><div className="button-row"><a className="pill-link" href={site.socials.cv} target="_blank" rel="noopener noreferrer">{labels.viewCv}</a><a className="pill-link" href={site.socials.liveHistory}>{labels.liveHistory}</a></div></div>
+      <div><p>{exp.cvDescription}</p><div className="button-row"><a className="pill-link" href={site.socials.cv} target="_blank" rel="noopener noreferrer">{labels.viewCv}</a><a className="pill-link" href={localizedPath(locale, '/music-production')}>{locale === 'ko' ? '뮤직 프로덕션 →' : 'Music Production →'}</a></div></div>
     </section>
     <div className="experience-records content-width">
       <DetailGroup title={labels.education} items={education} />
@@ -190,6 +190,6 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
       <CompactGroup title={labels.awards} items={toCompact(exp.awards)} />
       <CompactGroup title={labels.certifications} items={toCompact(exp.licenses)} />
     </div>
-    <section className="content-width stage-video experience-video"><YoutubeEmbed playlist /><div className="video-links"><h2>{labels.mixing}</h2><a className="text-link" href={site.socials.youtube}>MIXING PORTFOLIO →</a><h2>{labels.live}</h2><a className="text-link" href={site.socials.notion}>LIVE SOUND PORTFOLIO →</a></div></section>
+    <section className="content-width stage-video experience-video"><YoutubeEmbed playlist /><div className="video-links"><h2>{labels.mixing}</h2><a className="text-link" href={site.socials.youtube}>MIXING PORTFOLIO →</a><h2>{labels.live}</h2><a className="text-link" href={localizedPath(locale, '/music-production')}>{locale === 'ko' ? '뮤직 프로덕션 →' : 'MUSIC PRODUCTION →'}</a></div></section>
   </PageShell>;
 }
