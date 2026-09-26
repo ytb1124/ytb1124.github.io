@@ -5,17 +5,17 @@ export const dynamic = 'force-static';
 
 export default function ProjectsPage({ locale = 'en' as const }: { locale?: 'en' | 'ko' }) {
   return <PageShell locale={locale} path="/projects">
-    <HeroTitle>Projects</HeroTitle>
+    <HeroTitle locale={locale}>{locale === 'ko' ? '프로젝트' : 'Projects'}</HeroTitle>
     <section className={`research content-width${locale === 'ko' ? ' research-ko' : ''}`}>
       <header className="research-intro">
-        <span>SELECTED WORK / 2025—2026</span>
-        <h2>Research Through Making</h2>
+        <span>{locale === 'ko' ? '주요 작업 / 2025—2026' : 'SELECTED WORK / 2025—2026'}</span>
+        <h2>{locale === 'ko' ? '만들면서 연구합니다' : 'Research Through Making'}</h2>
         <p className="research-lede">
           <strong>{locale === 'ko' ? '사람이 기술에 맞추는 것이 아니라, 기술이 사람에게 맞춰지는 시스템을 만듭니다.' : 'I build systems that adapt to people—not the other way around.'}</strong>
           <span>{locale === 'ko' ? '저의 작업은 기술이 공간과 개인의 표현, 그리고 음악을 경험하고 참여하는 서로 다른 방식에 어떻게 반응할 수 있는지를 탐구합니다.' : 'My work explores how technology can respond to space, individual expression, and different ways of experiencing and participating in music.'}</span>
         </p>
       </header>
-      <nav className="research-map" aria-label="Research directions">
+      <nav className="research-map" aria-label={locale === 'ko' ? '연구 방향' : 'Research directions'}>
         {site.sections.map((section, index) => <div className="research-map-step" key={section.number}>
           <a href={`#research-${index + 1}`}>
             <span>{section.number}</span>
