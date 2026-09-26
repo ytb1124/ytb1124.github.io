@@ -203,5 +203,20 @@
     "body": [
       "An ongoing project investigating how performers with different hearing conditions experience monitoring, rehearsal, and musical interaction, and exploring adaptive audio systems based on their needs."
     ]
+  },
+  {
+    "slug": "ai-audio-engineering-copilot",
+    "year": "2026",
+    "category": "Technology",
+    "title": "AI Audio Engineering Copilot (Research in Development)",
+    "description": "AI-assisted tools and workflow systems that support sound engineers while preserving human expertise.",
+    "question": "How can engineering tools support human decisions without replacing expertise?",
+    "image": "/framer/projects/ai-audio-engineering-copilot/cover.jpeg",
+    "gallery": [
+      "/framer/projects/ai-audio-engineering-copilot/cover.jpeg"
+    ],
+    "body": [
+      "Exploring AI-assisted tools and workflow systems that support sound engineers while preserving human decision-making and expertise."
+    ]
   }
 ]
