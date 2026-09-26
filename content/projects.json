@@ -163,17 +163,18 @@
     "category": "Technology",
     "title": "Audio-to-MIDI System (Ongoing Research)",
     "ongoing": true,
-    "description": "An audio-to-MIDI workspace that combines specialist transcription, stem separation, piano-roll editing, and performance preparation.",
-    "question": "How can recorded musical ideas become editable performance material without losing the musician's decisions?",
+    "description": "A web-based mini DAW prototype for turning recorded ideas into editable live-performance sessions.",
+    "question": "How can AI reduce the repetitive work of preparing a live session while leaving musical decisions with the artist?",
     "image": "/framer/projects/audio-to-midi-system/cover.png",
     "gallery": [
       "/framer/projects/audio-to-midi-system/cover.png"
     ],
     "repository": "https://github.com/ytb1124/audio-to-midi",
     "body": [
-      "Many musicians have musical ideas but face technical barriers when moving from a recording into a DAW. This project explores an assistive workflow that turns audio into editable MIDI while keeping the musician in control of correction, arrangement, and performance preparation.",
-      "The current Trackform prototype supports specialist paths for piano, general audio, bass, and drums, plus Demucs stem separation. Piano mode combines Transkun transcription with an audio-guided sustain repair pass. The generated MIDI opens in a browser piano roll where notes can be moved, resized, auditioned, and exported.",
-      "The repository contains both the Next.js workspace and the FastAPI processing layer, with a shared pipeline that can also be packaged as a Tauri desktop application. It is an active research prototype: model quality depends on the recording and instrument mix, and the project evaluates how much technical friction can be removed without hiding creative decisions."
+      "Preparing a live performance from an existing recording involves more than transcription: musicians must identify BPM, key, song form, lyric timing, and the parts needed for playback, then build click and cue tracks. These steps often require both musical judgement and specialist DAW skills, creating a high technical burden for young musicians and solo creators.",
+      "This project explores an assistive workflow in which AI creates a first draft and the musician remains responsible for listening, correcting, arranging, and deciding what reaches the stage. The longer-term prototype is designed to analyse an uploaded song, propose MIDI and performance-session elements, and provide a structured editor for review rather than treating AI output as a finished result.",
+      "The current Trackform prototype supports specialist paths for piano, general audio, bass, and drums, plus Demucs stem separation. Piano mode combines Transkun transcription with an audio-guided sustain repair pass. Generated MIDI opens in a browser piano roll where notes can be moved, resized, auditioned, and exported; the shared Next.js and FastAPI pipeline can also be packaged as a Tauri desktop application.",
+      "The next phase tests one to three songs against manually prepared reference sessions and explores BPM, key, song-form, lyric-cue, click-track, and cue-track workflows. Playback in a speaker and rehearsal-style environment will be used to identify failures and iterate on the editor. The goal is a small, demonstrable performance-session prototype—not a replacement for a full DAW—whose value can be judged by how much repetitive preparation it removes while keeping creative decisions visible."
     ]
   },
   {

@@ -81,18 +81,18 @@
   },
   "audio-to-midi-system": {
     "en": {
-      "question": "How can recorded musical ideas become editable performance material without losing the musician's decisions?",
-      "system": "A Trackform workspace combining specialist audio-to-MIDI paths, stem separation, a browser piano roll, and a local desktop pipeline.",
-      "methods": "Use Transkun for piano with sustain repair, Basic Pitch for general and bass paths, Demucs for stems, then inspect and edit MIDI in the piano roll.",
-      "result": "The repository now contains a working web workflow and a shared processing pipeline that can be packaged as a Tauri desktop app.",
-      "next": "Evaluate transcription quality by instrument and recording condition while refining the editing and performance-preparation workflow."
+      "question": "How can AI reduce the repetitive work of preparing a live session while leaving musical decisions with the artist?",
+      "system": "A web-based mini DAW prototype that turns recordings into editable performance-session drafts with Trackform transcription, stem separation, and a browser piano roll.",
+      "methods": "Analyse BPM, key, form, and lyric timing; generate instrument-specific MIDI and session elements; then let the musician inspect, edit, audition, and export the result.",
+      "result": "The current prototype supports piano, general audio, bass, and drums, with Demucs stems and a shared Next.js/FastAPI pipeline that can be packaged for desktop.",
+      "next": "Compare one to three test songs against manual reference sessions and test click, cue, lyric, and playback workflows in a rehearsal-style environment."
     },
     "ko": {
-      "question": "음악적 결정을 유지하면서 녹음된 아이디어를 편집 가능한 공연 자료로 바꿀 수 있을까?",
-      "system": "악기별 오디오-MIDI 변환, 스템 분리, 브라우저 피아노 롤, 로컬 데스크톱 파이프라인을 결합한 Trackform 작업 공간.",
-      "methods": "피아노는 Transkun과 서스테인 보정을 사용하고, 일반·베이스 경로는 Basic Pitch, 스템은 Demucs로 처리한 뒤 피아노 롤에서 MIDI를 검토하고 편집합니다.",
-      "result": "웹 작업 흐름과 Tauri 데스크톱 앱으로 패키징 가능한 공통 처리 파이프라인을 저장소에 구성했습니다.",
-      "next": "악기와 녹음 조건별 변환 품질을 평가하면서 MIDI 편집과 공연 준비 흐름을 고도화합니다."
+      "question": "AI가 공연 준비의 반복 작업을 줄이면서 음악적 결정은 창작자에게 남겨둘 수 있을까?",
+      "system": "음원을 편집 가능한 공연 세션 초안으로 바꾸는 웹 기반 미니 DAW 프로토타입과 Trackform 변환·스템 분리·브라우저 피아노 롤.",
+      "methods": "BPM·조성·송폼·가사 타이밍을 분석하고 악기별 MIDI와 세션 요소를 생성한 뒤, 음악가가 결과를 검토·편집·청취·내보내기합니다.",
+      "result": "피아노·일반 오디오·베이스·드럼 변환, Demucs 스템 분리, Next.js/FastAPI 공통 파이프라인을 구현했으며 데스크톱 패키징도 가능합니다.",
+      "next": "테스트곡 1~3곡을 수동 기준 세션과 비교하고 리허설 환경에서 클릭·큐·가사·재생 흐름을 검증합니다."
     }
   },
   "adaptive-monitor-system": {
