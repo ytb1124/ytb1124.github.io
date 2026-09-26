@@ -9,6 +9,7 @@ import subprocess
 import tempfile
 import time
 import urllib.request
+from datetime import datetime
 from pathlib import Path
 
 
@@ -397,6 +398,7 @@ def main() -> None:
     ASSET_DIR.mkdir(parents=True, exist_ok=True)
     activities: list[dict[str, str]] = []
     referenced_files: set[str] = set()
+    current_year = ""
 
     for index, page_id in enumerate(ordered_ids, start=1):
         page = load_page(page_id)
@@ -404,6 +406,11 @@ def main() -> None:
         root = value(blocks.get(page_id, {}))
         properties = root.get("properties", {})
         title = plain_text(properties.get("title")) or "Untitled activity"
+        explicit_year = re.search(r"\b(20\d{2})\b", title)
+        if explicit_year:
+            current_year = explicit_year.group(1)
+        elif not current_year:
+            current_year = str(datetime.fromtimestamp(root.get("created_time", time.time() * 1000) / 1000).year)
         tags = [tag.strip() for tag in plain_text(properties.get("exW_", [])).split(",") if tag.strip()]
         details = " ".join(
             plain_text(value(record).get("properties", {}).get("title"))
@@ -441,6 +448,7 @@ def main() -> None:
                 "title": title,
                 "englishTitle": english_title_from(title),
                 "eventType": event_type_from(title, tags),
+                "year": current_year,
                 "image": image_path,
                 "role": role_from(tags, title, details),
             }
@@ -453,7 +461,7 @@ def main() -> None:
             existing.unlink()
 
     lines = [
-        "export type Activity = { id: string; title: string; englishTitle: string; eventType: string; image: string; role: 'Mixing Engineer' | 'System Engineer' | 'Technician' | '애매함!' };",
+        "export type Activity = { id: string; title: string; englishTitle: string; eventType: string; year: string; image: string; role: 'Mixing Engineer' | 'System Engineer' | 'Technician' | '애매함!' };",
         "",
         "export const activities: Activity[] = [",
     ]
