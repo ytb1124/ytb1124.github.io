@@ -13,7 +13,10 @@ export default function MusicProductionPage() {
           {activity.image ? <img src={activity.image} alt="" loading="lazy" referrerPolicy="no-referrer" /> : <div className="activity-placeholder" aria-hidden="true">♪</div>}
         </div>
         <div className="activity-meta">
-          <h2>{activity.title}</h2>
+          <div className="activity-title-group">
+            <h2>{activity.title}</h2>
+            <span>{activity.eventType}</span>
+          </div>
           <p>{activity.role}</p>
         </div>
       </article>)}

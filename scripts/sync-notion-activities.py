@@ -75,6 +75,78 @@ def role_from(tags: list[str], title: str, details: str) -> str:
     return "애매함!"
 
 
+def event_type_from(title: str, tags: list[str]) -> str:
+    lowered = title.lower()
+    tag_set = set(tags)
+    if "튜닝" in title:
+        return "Sound System Tuning"
+    if "음향담당관" in title or "음향간사" in title:
+        return "House of Worship Audio"
+    if "드론" in title:
+        return "Drone Light Show"
+    if "신차 발표회" in title:
+        return "Vehicle Launch Event"
+    if "팬미팅" in title or "fanmeeting" in lowered or "fan meeting" in lowered or "fancon" in lowered:
+        return "Fan Meeting"
+    if "쇼케이스" in title:
+        return "Artist Showcase"
+    if "수련회" in title:
+        return "Church Retreat"
+    if "캠프" in title:
+        return "Camp & Community Program"
+    if "찬양집회" in title or "연합예배" in title or "감사예배" in title or "성탄 공연" in title:
+        return "Worship Service"
+    if "뮤지컬" in title:
+        return "Musical Production"
+    if "연극" in title or "소리극" in title or "오페라마" in title:
+        return "Theater Production"
+    if "컨퍼런스" in title or "학술대회" in title or "경찰청장회의" in title:
+        return "Conference"
+    if "포럼" in title or "토크콘서트" in title or "강연" in title:
+        return "Forum & Talk"
+    if "creators day" in lowered or "crea tors day" in lowered:
+        return "Creative Industry Conference"
+    if "어워즈" in title:
+        return "Awards Event"
+    if "마라톤" in title:
+        return "Marathon & Music Festival"
+    if "영화제" in title or "시네마" in title:
+        return "Film & Community Event"
+    if "버스킹" in title:
+        return "Outdoor Live Performance"
+    if "dima tv" in lowered or "방송 1회차 촬영" in title or "녹음" in title:
+        return "Broadcast & Recording Production"
+    if "축제" in title or "festival" in lowered or "fleischfest" in lowered or "페스티벌" in title or "행주문화제" in title or "개천절" in title:
+        return "Festival"
+    if "발표회" in title or "가요제" in title or "갈라쇼" in title or "한마당" in title or "선인제" in title or "새나무제" in title or "아프dima" in lowered:
+        return "School & Community Performance"
+    if "영어 말하기 대회" in title:
+        return "English Speech Competition"
+    if "박람회" in title:
+        return "Fair & Exhibition"
+    if "회원대회" in title:
+        return "Convention"
+    if "해단식" in title:
+        return "Closing Ceremony"
+    if "콘서트" in title or "concert" in lowered or "tour" in lowered or "정기공연" in title or "음악회" in title or "개강공연" in title or "흠뻑쇼" in title:
+        return "Concert"
+    if any(term in lowered for term in ("sincerely 35", "connect x", "glitter day", "voice memo", "twinkle twinkle")):
+        return "Concert"
+    if "클래식 소풍" in title:
+        return "Community Concert"
+    if "공연" in title or "performance" in lowered or "live" in lowered:
+        return "Live Performance"
+    if "장학" in title or "재단" in title or "은행" in title or "현대자동차" in title or "tbwa" in lowered:
+        return "Corporate & Foundation Event"
+    if "연합체전" in title:
+        return "University Sports Event"
+    if "교회" in title or "교회" in tag_set:
+        return "Church Event"
+    if "오퍼레이팅" in tag_set:
+        return "Live Sound Production"
+    return "Live Event Production"
+
+
 def load_page(page_id: str) -> dict:
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     cached = CACHE_DIR / f"{page_id}.json"
@@ -179,7 +251,13 @@ def main() -> None:
                 referenced_files.add(target_name)
 
         activities.append(
-            {"id": page_id, "title": title, "image": image_path, "role": role_from(tags, title, details)}
+            {
+                "id": page_id,
+                "title": title,
+                "eventType": event_type_from(title, tags),
+                "image": image_path,
+                "role": role_from(tags, title, details),
+            }
         )
         print(f"{index:03d}/{len(ordered_ids)} {activities[-1]['role']:<16} {title}", flush=True)
         time.sleep(0.12)
@@ -189,7 +267,7 @@ def main() -> None:
             existing.unlink()
 
     lines = [
-        "export type Activity = { id: string; title: string; image: string; role: 'Mixing Engineer' | 'System Engineer' | 'Technician' | '애매함!' };",
+        "export type Activity = { id: string; title: string; eventType: string; image: string; role: 'Mixing Engineer' | 'System Engineer' | 'Technician' | '애매함!' };",
         "",
         "export const activities: Activity[] = [",
     ]
