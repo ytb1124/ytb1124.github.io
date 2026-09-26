@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSET_DIR = ROOT / "public" / "activities"
-DATA_FILE = ROOT / "app" / "data" / "activities.ts"
+DATA_FILE = ROOT / "content" / "activities.json"
 CACHE_DIR = Path(tempfile.gettempdir()) / "taebin-notion-activity-cache"
 
 SPACE_ID = "69232c8f-690f-460b-878a-3fbe3e055cff"
@@ -460,14 +460,8 @@ def main() -> None:
         if existing.is_file() and existing.name not in referenced_files:
             existing.unlink()
 
-    lines = [
-        "export type Activity = { id: string; title: string; englishTitle: string; eventType: string; year: string; image: string; role: 'Mixing Engineer' | 'System Engineer' | 'Technician' | '애매함!' };",
-        "",
-        "export const activities: Activity[] = [",
-    ]
-    lines.extend(f"  {json.dumps(activity, ensure_ascii=False)}," for activity in activities)
-    lines.append("];\n")
-    DATA_FILE.write_text("\n".join(lines))
+    DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
+    DATA_FILE.write_text(json.dumps(activities, ensure_ascii=False, indent=2) + "\n")
 
     counts = {
         role: sum(activity["role"] == role for activity in activities)

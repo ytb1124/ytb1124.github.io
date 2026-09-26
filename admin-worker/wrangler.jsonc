@@ -1,0 +1,12 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "taebin-admin-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-26",
+  "routes": [
+    { "pattern": "admin-api.taebin.link", "custom_domain": true }
+  ],
+  "kv_namespaces": [
+    { "binding": "AUTH_RATE_LIMIT", "id": "ac5856fc13a84423b4dc4be0ef02ad70" }
+  ]
+}

@@ -1,0 +1,207 @@
+[
+  {
+    "slug": "corrective-impulse-response",
+    "year": "2025",
+    "category": "Acoustics system",
+    "title": "Corrective IR Spatial Reconstruction",
+    "description": "A live six-channel hybrid system combining per-channel corrective FIRs for the initial response with a separately applied target-hall reverberation tail.",
+    "question": "How can a live venue approximate the early response and reverberant impression of another hall?",
+    "image": "/framer/projects/corrective-impulse-response/04.jpg",
+    "gallery": [
+      "/framer/projects/corrective-impulse-response/04.jpg",
+      "/framer/projects/corrective-impulse-response/05.jpg",
+      "/framer/projects/corrective-impulse-response/01.png",
+      "/framer/projects/corrective-impulse-response/02.jpeg",
+      "/framer/projects/corrective-impulse-response/03.png"
+    ],
+    "video": "https://www.youtube.com/embed/SuaV7_M-J1U?si=JWv59QuBB7qCeOs0&iv_load_policy=3&rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1",
+    "resources": [
+      {
+        "href": "/reports/corrective-ir-paper-ko.pdf",
+        "label": {
+          "en": "OPEN RESEARCH PAPER (KO)",
+          "ko": "연구 논문 열기"
+        }
+      },
+      {
+        "href": "/reports/corrective-ir-paper-en.pdf",
+        "label": {
+          "en": "OPEN RESEARCH PAPER (EN)",
+          "ko": "영문 연구 논문 열기"
+        }
+      },
+      {
+        "href": "/reports/corrective-ir-ssm-vol19-ko.pdf",
+        "label": {
+          "en": "OPEN SSM VOL. 19 ARTICLE (KO)",
+          "ko": "SSM VOL. 19 기고문 열기"
+        }
+      }
+    ],
+    "repository": "https://github.com/ytb1124/drama-space-max",
+    "body": [
+      "I began with a practical problem: applying a target hall impulse response directly in a live venue does not reproduce that hall consistently, because the processed sound still passes through the current venue and accumulates its acoustic response.",
+      "For the live system, I measured six loudspeaker-to-microphone paths using a stage-rigged AB microphone pair. A Python pipeline aligned the current and target IRs with GCC-PHAT, then generated a regularized, band-limited corrective FIR for each surround channel. The correction focused on the 125 Hz–4 kHz band and approximately the first 40 ms of the response.",
+      "In Max/MSP, each of the six surround channels was convolved with its own corrective FIR. The target hall’s reverberation tail from approximately 200 ms onward was applied separately through Convology XT, while the main PA retained the direct sound and primary mix balance.",
+      "At the measurement position centered on the fourth audience row, the mean spectral error against the target hall across all six channels decreased from 2.69 dB to 2.24 dB in the initial 0–40 ms and 125 Hz–4 kHz analysis range. This is a first-stage comparison using the measurements involved in filter generation; it does not establish an equivalent sound field throughout the audience area or a perceptual match to the target hall. Controlled listening evaluation remains future work."
+    ]
+  },
+  {
+    "slug": "live-immerssive-audio",
+    "year": "2025",
+    "category": "Performance",
+    "title": "Yamaha AFC Image",
+    "description": "Investigating how immersive audio systems influence live performance experiences from multiple perspectives.",
+    "question": "How does immersive audio reshape the relationship between performers, creators, and audiences?",
+    "image": "/framer/projects/live-immerssive-audio/cover.jpeg",
+    "gallery": [
+      "/framer/projects/live-immerssive-audio/cover.jpeg",
+      "/framer/projects/live-immerssive-audio/01.jpg",
+      "/framer/projects/live-immerssive-audio/02.jpeg",
+      "/framer/projects/live-immerssive-audio/03.jpeg"
+    ],
+    "video": "https://www.youtube.com/embed/rM2CTQfp6gE?si=9VBVIvOwFHMpO9Mr&iv_load_policy=3&rel=0&modestbranding=1&playsinline=1&autoplay=1",
+    "reports": {
+      "ko": "/reports/afc-ko.pdf",
+      "en": "/reports/afc-en.pdf"
+    },
+    "body": [
+      "Designed and implemented an immersive audio system using Yamaha AFC Image for an outdoor performance venue.",
+      "Responsible for system architecture based on Yamaha DME-7, Dante network configuration, surround speakers system tuning, and on-site operation."
+    ]
+  },
+  {
+    "slug": "multicannel-mixing-system",
+    "year": "2025",
+    "category": "Audio",
+    "title": "Multichannel Spatial Mixing System",
+    "description": "Exploring immersive sound image control and spatial mixing approaches for small performance venues.",
+    "question": "How can spatial audio connect what audiences see with what they hear in a performance space?",
+    "image": "/framer/projects/multicannel-mixing-system/cover.png",
+    "gallery": [
+      "/framer/projects/multicannel-mixing-system/cover.png",
+      "/framer/projects/multicannel-mixing-system/01.png",
+      "/framer/projects/multicannel-mixing-system/02.jpeg"
+    ],
+    "reports": {
+      "ko": "/reports/multichannel-ko.pdf",
+      "en": "/reports/multichannel-en.pdf"
+    },
+    "body": [
+      "In many live performance environments, conventional stereo sound reinforcement effectively collapses into mono due to strong direct sound from the stage. This makes it difficult to form a stable phantom image, especially for vocals, without deploying a dedicated center speaker.",
+      "This project explored an alternative multi-channel spatial mixing approach, aiming to achieve intuitive sound image control by physically aligning the “line of hearing” with the “line of sight.” The system was implemented using a 3.1-channel base structure with additional stage rear speakers, relying solely on the audio console’s routing and bus architecture—without an external immersive processor.",
+      "Mixing strategies were designed to separate sound image roles: front-heavy sources (vocals, kick, snare, bass) were routed to a center channel, while harmonic and spatial elements were distributed across LR and stage rear speakers. Spatial effects were used to enhance envelopment rather than primary image formation. System tuning treated the rig as two independent systems, focusing on temporal and spectral alignment rather than full electrical unification. While the setup achieved clear physical separation of sound sources, audience feedback revealed an unexpected result: rather than perceiving a cohesive spatial image, listeners experienced instruments as disconnected sound objects.",
+      "This outcome highlighted the limitations of purely physical and electrical approaches to spatial mixing, emphasizing the necessity of psychoacoustic and perception-centered design. The project ultimately reframed spatial mixing as a human-perception problem rather than a purely technical routing challenge."
+    ]
+  },
+  {
+    "slug": "wan-audio-transmission",
+    "year": "2025",
+    "category": "Technology",
+    "title": "WAN Audio Transmission System",
+    "description": "Exploring real-time networked audio systems for remote musical interaction and collaboration.",
+    "question": "How can musical collaboration continue when physical distance becomes a limitation?",
+    "image": "/framer/projects/wan-audio-transmission/cover.png",
+    "gallery": [
+      "/framer/projects/wan-audio-transmission/cover.png",
+      "/framer/projects/wan-audio-transmission/01.jpeg"
+    ],
+    "reports": {
+      "ko": "/reports/wan-ko.pdf",
+      "en": "/reports/wan-en.pdf"
+    },
+    "body": [
+      "This project investigated whether real-time, sample-accurate multi-channel audio transmission between DAWs is feasible over a Wide Area Network (WAN), assuming remote performance, recording, or live mixing scenarios.",
+      "Multiple approaches were sequentially tested and evaluated, including commercial network audio protocols (AES67, Dante, AVB), server-based relay systems, peer-to-peer transmission methods, and open-source solutions such as ffmpeg, JACK Audio, and JackTrip. While several methods achieved stable network connectivity and acceptable latency, none could guarantee long-term sample accuracy in a WAN environment.",
+      "Through systematic experimentation, the study identified that the core limitation was not network bandwidth or latency, but the absence of a shared hardware word clock between geographically separated DAWs. Without a common master clock, sample drift accumulated over time, resulting in XRUNs and audible digital artifacts such as tick noise.",
+      "This research confirmed that real-time multi-channel network audio over WAN is fundamentally constrained by system architecture and clock synchronization, rather than transmission performance alone. The findings suggest that future designs must incorporate an independent synchronization mechanism decoupled from the network transport layer."
+    ]
+  },
+  {
+    "slug": "electronic-drums",
+    "year": "2025",
+    "category": "Instrument",
+    "title": "Interactive Electronic Drum",
+    "description": "Exploring performer-specific instrument behavior and adaptive sound generation to preserve individual playing styles.",
+    "question": "How can electronic instruments capture the unique dynamics and expression of individual performers?",
+    "image": "/framer/projects/electronic-drums/cover.png",
+    "gallery": [
+      "/framer/projects/electronic-drums/cover.png",
+      "/framer/projects/electronic-drums/01.jpeg",
+      "/framer/projects/electronic-drums/02.jpeg"
+    ],
+    "reports": {
+      "ko": "/reports/electronic-drums-ko.pdf",
+      "en": "/reports/electronic-drums-en.pdf"
+    },
+    "body": [
+      "Commercial electronic drum systems are designed for general versatility, but often fail to reflect the expressive nuances and playing habits of individual performers—especially during rapid repetitions or wide dynamic shifts.",
+      "This project explores how electronic instruments can be designed as performer-adaptive systems, rather than static input-output devices. I focused on enabling the system to respond differently based on a performer’s real-time playing patterns. Using Max/MSP, I designed an interactive electronic drum system that analyzes MIDI input in real time, categorizing performance behavior through parameters such as inter-onset intervals (IOI), repetition patterns, and velocity fluctuations. These features were dynamically mapped to sound processing and timbral modulation.",
+      "The system was designed to progressively alter timbre during continuous strikes, recreating organic textural changes found in acoustic drums while maintaining production-ready multi-channel outputs for live mixing. Performer feedback indicated that their playing habits were immediately reflected in the sound, confirming that technology can extend musical expression rather than constrain it."
+    ]
+  },
+  {
+    "slug": "audio-to-midi-system",
+    "year": "2026",
+    "category": "Technology",
+    "title": "Audio-to-MIDI System (Ongoing Research)",
+    "ongoing": true,
+    "description": "Exploring an AI-assisted music creation workflow that transforms audio-based musical ideas into editable digital structures, helping musicians create and modify digital music more intuitively.",
+    "question": "How can musicians move naturally between human expression and digital composition?",
+    "image": "/framer/projects/audio-to-midi-system/cover.png",
+    "gallery": [
+      "/framer/projects/audio-to-midi-system/cover.png"
+    ],
+    "body": [
+      "Many musicians have musical ideas but face technical barriers when translating them into a digital production environment. This project explores an AI-assisted workflow that transforms audio recordings into editable musical structures, allowing artists to generate and refine performance materials more intuitively.",
+      "The system analyzes uploaded audio files to extract musical information such as BPM, key, song structure, and lyrics, then generates initial MIDI materials including drums, bass, chords, and other instrumental layers. Through a web-based mini DAW interface, users can edit MIDI patterns, arrange song sections, and create performance resources such as click tracks and cue tracks.",
+      "Rather than replacing musicians’ creative decisions, this project investigates how AI can support the transition between human musical expression and digital music creation."
+    ]
+  },
+  {
+    "slug": "arirang",
+    "year": "2026",
+    "category": "Audio",
+    "title": "Arirang 1926: Sonic Restoration Project",
+    "description": "Exploring the restoration and reinterpretation of historical recordings through AI-based audio restoration and immersive audio production, transforming archival music into a new contemporary listening experience.",
+    "question": "How can historical music be reinterpreted through contemporary technology?",
+    "image": "/framer/projects/arirang/cover.png",
+    "gallery": [
+      "/framer/projects/arirang/cover.png",
+      "/framer/projects/arirang/01.jpeg"
+    ],
+    "video": "https://www.youtube.com/embed/JmjZB5Tf3co?si=Fw2z2LajCyq6sXVH&iv_load_policy=3&rel=0&modestbranding=1&playsinline=1&autoplay=1",
+    "body": [
+      "Project A Dolby Atmos Mix and AI-Assisted Music Restoration Using Suno AI",
+      "Arirang 1926: Sonic Restoration Project is a sound-focused restoration and reinterpretation of Arirang, one of the most important films in Korean cinema history.",
+      "The original 1926 silent film was lost during the Korean War, so this project uses Lee Doo-yong’s 2003 remake as the visual source. I created the music with Suno AI, referencing surviving period recordings, and restored the Korean silent-film byeonsa narration using Waves ReGen.",
+      "The project was mixed in Dolby Atmos, with a separate 2.0 Direct version rendered for YouTube."
+    ],
+    "sources": [
+      {
+        "label": "Byeonsa / audio reference",
+        "href": "https://youtu.be/MAmpVgZMVa4"
+      },
+      {
+        "label": "Visual source",
+        "href": "https://youtu.be/-BC8m7ST5Us"
+      }
+    ]
+  },
+  {
+    "slug": "adaptive-monitor-system",
+    "year": "2026",
+    "category": "Performance",
+    "title": "Adaptive Monitor System for Deaf and Hard-of-Hearing Musicians (Ongoing Research)",
+    "ongoing": true,
+    "description": "Exploring adaptive monitoring systems based on how Deaf and hard-of-hearing musicians perceive, perform, and interact with music.",
+    "question": "What happens when musical systems are designed around different ways of hearing?",
+    "image": "/framer/projects/adaptive-monitor-system/cover.jpeg",
+    "gallery": [
+      "/framer/projects/adaptive-monitor-system/cover.jpeg"
+    ],
+    "body": [
+      "An ongoing project investigating how performers with different hearing conditions experience monitoring, rehearsal, and musical interaction, and exploring adaptive audio systems based on their needs."
+    ]
+  }
+]
