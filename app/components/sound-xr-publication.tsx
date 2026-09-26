@@ -39,7 +39,13 @@ export function SoundXrReport({locale}:{locale:Locale}) {
         {report.sections.map(section=><section className="publication-section" key={section.heading}>
           <h2>{section.heading}</h2>
           {section.paragraphs.map((paragraph,index)=><p key={index}>{paragraph}</p>)}
-          {'equations' in section&&section.equations&&<div className="publication-equations">{section.equations.map(equation=><p key={equation}>{equation}</p>)}</div>}
+          {section.equations.length>0&&<div className="publication-equations">{section.equations.map(equation=><figure className="publication-equation" key={equation.id}>
+            {/* Keyboard focus enables horizontal scrolling of long vector equations. */}
+            {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+            <section className="publication-equation-scroll" tabIndex={0} aria-label={equation.alt}><picture><img src={equation.src} alt={equation.alt} /></picture></section>
+            <figcaption>({Number(equation.id)})</figcaption>
+          </figure>)}</div>}
+          {section.tables.map(table=><div className="dataset-table-wrap" key={table.caption}><table><caption>{table.caption}</caption><thead><tr>{table.columns.map(column=><th scope="col" key={column}>{column}</th>)}</tr></thead><tbody>{table.rows.map((row,index)=><tr key={index}>{row.map((value,col)=><td key={col}>{value}</td>)}</tr>)}</tbody></table></div>)}
         </section>)}
         <section className="publication-note">
           <h2>{locale==='ko'?'자료 범위':'Data scope'}</h2>

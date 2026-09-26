@@ -152,8 +152,11 @@ main:has(.cv-intro) .page-title h1{font-size:clamp(27px,3.6vw,49px)}
 .publication-section{margin-bottom:66px}
 .publication-section h2{border-top:1px solid rgba(255,255,255,.22);padding-top:30px}
 .publication-equations{margin:30px 0;border-left:2px solid var(--orange);padding:15px 0 15px 24px}
-.publication-equations p{margin:0;font-family:'Inter Display',Arial,sans-serif;font-size:clamp(18px,2vw,25px);letter-spacing:.02em}
-.publication-equations p+p{margin-top:10px}
+.publication-equation{display:flex;align-items:center;gap:14px;margin:0;padding:16px 0}
+.publication-equation-scroll{flex:1;min-width:0;overflow-x:auto;padding:8px 0}
+.publication-equation img{display:block;width:auto;max-width:none;height:auto;filter:invert(1);margin:auto}
+.publication-equation figcaption{flex-shrink:0;color:#aaa;font-size:12px}
+.dataset-table-wrap caption{text-align:left;color:#ddd;padding:0 0 16px;font-size:12px;line-height:1.5}
 .publication-note{margin-top:78px;border-top:1px solid var(--ink);padding-top:31px}
 .dataset-index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px;margin-top:38px;border-top:1px solid rgba(255,255,255,.2)}
 .dataset-index>div{display:grid;grid-template-columns:105px 1fr;gap:15px;border-bottom:1px solid rgba(255,255,255,.16);padding:16px 0}
