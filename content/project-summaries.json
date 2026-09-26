@@ -126,21 +126,5 @@
       "result": "연구 질문, 참여 대상, 초기 시스템 방향을 수립한 단계입니다.",
       "next": "음악가와 공동 설계 세션을 진행하고 첫 번째 검증 가능한 모니터링 프로토타입을 제작합니다."
     }
-  },
-  "ai-audio-engineering-copilot": {
-    "en": {
-      "question": "How can engineering tools support human decisions without replacing expertise?",
-      "system": "A developing AI copilot concept embedded in professional audio-engineering workflows.",
-      "methods": "Identify high-friction decision points and design context-aware suggestions that remain reviewable and controlled by the engineer.",
-      "result": "The project has defined its central problem and human-in-the-loop design principles.",
-      "next": "Build a focused prototype and evaluate usefulness, trust, and decision quality with practicing sound engineers."
-    },
-    "ko": {
-      "question": "엔지니어링 도구는 전문성을 대체하지 않으면서 인간의 판단을 어떻게 지원할 수 있을까?",
-      "system": "전문 오디오 엔지니어링 워크플로우에 통합되는 AI 코파일럿 개발 개념.",
-      "methods": "판단 부담이 큰 지점을 찾고 엔지니어가 검토·통제할 수 있는 맥락 기반 제안을 설계합니다.",
-      "result": "핵심 문제와 인간 중심의 의사결정 원칙을 정의한 단계입니다.",
-      "next": "집중된 프로토타입을 제작하고 현업 엔지니어와 유용성, 신뢰도, 판단 품질을 평가합니다."
-    }
   }
 }

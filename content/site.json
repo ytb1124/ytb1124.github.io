@@ -191,8 +191,7 @@
       "question": "How can technology adapt to different ways of hearing, moving, and expressing?",
       "koreanQuestion": "기술은 서로 다른 듣기·움직임·표현 방식에 어떻게 적응할 수 있을까?",
       "projectSlugs": [
-        "adaptive-monitor-system",
-        "ai-audio-engineering-copilot"
+        "adaptive-monitor-system"
       ]
     }
   ],
