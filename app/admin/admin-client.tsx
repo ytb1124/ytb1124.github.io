@@ -84,6 +84,7 @@ export function AdminClient() {
   const [assets, setAssets] = useState<Asset[]>([]);
   const [deletions, setDeletions] = useState<string[]>([]);
   const [message, setMessage] = useState('');
+  const [previewKey, setPreviewKey] = useState('');
   const [busy, setBusy] = useState(true);
   const [activitySearch, setActivitySearch] = useState('');
 
@@ -110,20 +111,48 @@ export function AdminClient() {
   }, []);
 
   const login = async (event: React.FormEvent) => {
-    event.preventDefault(); setBusy(true); setMessage('');
+    event.preventDefault(); setBusy(true); setMessage(''); setPreviewKey('');
     const response = await fetch(`${API}/login`, { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username, password }) });
     const data = await response.json() as any;
     if (!response.ok) { setMessage(data.error || '로그인할 수 없습니다.'); setBusy(false); return; }
     setAuthenticated(true); setPassword(''); setCsrf(data.csrf); await loadContent(data.csrf);
   };
 
+  const waitForDeployment = async (sha: string) => {
+    for (let attempt = 0; attempt < 40; attempt += 1) {
+      try {
+        const response = await fetch(`https://api.github.com/repos/ytb1124/ytb1124.github.io/actions/runs?head_sha=${sha}&per_page=5`, { cache: 'no-store' });
+        if (response.ok) {
+          const data = await response.json() as { workflow_runs?: { status: string; conclusion: string | null }[] };
+          const run = data.workflow_runs?.[0];
+          if (run?.status === 'completed' && run.conclusion === 'success') {
+            setMessage('배포가 완료되었습니다. 아래 버튼으로 캐시 없이 최신 사이트를 확인하세요.');
+            setPreviewKey(`${sha.slice(0, 7)}-${Date.now()}`);
+            setBusy(false);
+            return;
+          }
+          if (run?.status === 'completed' && run.conclusion && run.conclusion !== 'success') {
+            setMessage(run.conclusion === 'cancelled' ? '더 최근 저장이 감지되어 이 배포가 교체되었습니다. 페이지를 새로고침해 최신 상태를 확인하세요.' : 'GitHub Pages 배포가 실패했습니다. 잠시 후 다시 저장해주세요.');
+            setBusy(false);
+            return;
+          }
+          setMessage(run ? 'GitHub Pages에 배포 중입니다. 완료될 때까지 저장 버튼을 다시 누르지 마세요.' : 'GitHub Pages 배포를 기다리는 중입니다…');
+        }
+      } catch { /* GitHub 상태 확인이 잠시 실패해도 저장된 커밋은 유지됩니다. */ }
+      await new Promise((resolve) => setTimeout(resolve, 7500));
+    }
+    setMessage('내용은 저장됐지만 배포 확인이 오래 걸리고 있습니다. 약 5분 후 사이트를 다시 확인해주세요.');
+    setBusy(false);
+  };
+
   const save = async () => {
     if (!documents) return;
-    setBusy(true); setMessage('저장하고 배포를 시작하는 중입니다…');
+    setBusy(true); setMessage('저장하고 배포를 시작하는 중입니다…'); setPreviewKey('');
     const response = await fetch(`${API}/content`, { method: 'PUT', credentials: 'include', headers: { 'Content-Type': 'application/json', 'X-Admin-CSRF': csrf }, body: JSON.stringify({ revision, documents, assets, deletions }) });
     const data = await response.json() as any;
     if (!response.ok) { setMessage(data.error || '저장할 수 없습니다.'); setBusy(false); return; }
-    setRevision(data.revision); setAssets([]); setDeletions([]); setMessage('저장되었습니다. GitHub Pages 반영에는 약 1–2분이 걸립니다.'); setBusy(false);
+    setRevision(data.revision); setAssets([]); setDeletions([]); setMessage('GitHub에 저장되었습니다. GitHub Pages 배포를 기다리는 중입니다…');
+    await waitForDeployment(data.revision);
   };
 
   const queueAsset = (file: File, onReady: (path: string) => void) => {
@@ -205,7 +234,7 @@ export function AdminClient() {
   return <main className="admin-shell">
     <header className="admin-header"><div><p>TAEBIN.LINK</p><h1>Portfolio Admin</h1></div><div><a href="/" target="_blank">사이트 보기</a><button type="button" onClick={logout}>로그아웃</button></div></header>
     <nav className="admin-tabs">{([['pages','페이지·사진'],['projects','프로젝트'],['experience','경력'],['production','Music Production']] as const).map(([key,label])=><button key={key} className={tab===key?'active':''} onClick={()=>setTab(key)}>{label}</button>)}</nav>
-    {message && <div className="admin-message">{message}</div>}
+    {message && <div className="admin-message"><span>{message}</span>{previewKey && <a className="admin-preview-link" href={`/?admin-preview=${previewKey}`} target="_blank" rel="noopener noreferrer">최신 사이트 열기</a>}</div>}
 
     {tab === 'pages' && <div className="admin-panel">
       <h2>홈</h2><div className="admin-columns"><section><h3>English</h3>{Object.keys(site.home).map((key)=><Field key={key} label={key} value={site.home[key]} onChange={(value)=>updateDocument(paths.site,(doc)=>{doc.home[key]=value;})}/>)}</section><section><h3>한국어</h3>{Object.keys(site.koreanHome).map((key)=><Field key={key} label={key} value={site.koreanHome[key]} onChange={(value)=>updateDocument(paths.site,(doc)=>{doc.koreanHome[key]=value;})}/>)}</section></div>
@@ -257,6 +286,6 @@ export function AdminClient() {
       <input className="admin-search" placeholder="행사명 검색" value={activitySearch} onChange={(event)=>setActivitySearch(event.target.value)}/>{activities.map((activity,index)=>({activity,index})).filter(({activity})=>!activityMatches || `${activity.title} ${activity.englishTitle}`.toLowerCase().includes(activityMatches)).map(({activity,index})=><details className="admin-card" key={activity.id}><summary><span>{activity.title}</span><span>{activity.eventType} · {activity.year}</span></summary><div className="admin-card-body"><ButtonRow index={index} length={activities.length} onMove={(direction)=>updateDocument(paths.activities,(doc)=>{const next=move(doc,index,direction);doc.splice(0,doc.length,...next);})} onDelete={()=>{if(confirm('이 행사를 삭제할까요?'))updateDocument(paths.activities,(doc)=>doc.splice(index,1));}}/><div className="admin-columns"><Field label="한국어 행사명" value={activity.title} onChange={(value)=>updateDocument(paths.activities,(doc)=>{doc[index].title=value;})}/><Field label="영문 행사명" value={activity.englishTitle} onChange={(value)=>updateDocument(paths.activities,(doc)=>{doc[index].englishTitle=value;})}/><Field label="행사 분류" value={activity.eventType} onChange={(value)=>updateDocument(paths.activities,(doc)=>{doc[index].eventType=value;})}/><Field label="연도" value={activity.year} onChange={(value)=>updateDocument(paths.activities,(doc)=>{doc[index].year=value;})}/><label className="admin-field"><span>역할</span><select value={activity.role} onChange={(event)=>updateDocument(paths.activities,(doc)=>{doc[index].role=event.target.value;})}><option>Mixing Engineer</option><option>System Engineer</option><option>Technician</option></select></label></div><ImageEditor label="행사 사진" value={activity.image} onChange={(value)=>updateDocument(paths.activities,(doc)=>{doc[index].image=value;})} queueAsset={queueAsset} removeAsset={removeAsset}/></div></details>)}
     </div>}
 
-    <footer className="admin-savebar"><span>{assets.length ? `새 사진 ${assets.length}장 대기 중` : '변경 사항을 확인한 뒤 저장하세요.'}</span><button className="primary" disabled={busy} onClick={save}>{busy?'저장 중…':'저장하고 배포'}</button></footer>
+    <footer className="admin-savebar"><span>{assets.length ? `새 사진 ${assets.length}장 대기 중` : '변경 사항을 확인한 뒤 저장하세요.'}</span><button className="primary" disabled={busy} onClick={save}>{busy?'배포 확인 중…':'저장하고 배포'}</button></footer>
   </main>;
 }
