@@ -85,7 +85,7 @@ export function ProjectCard({ project, locale, compact=false }: { project: Proje
     'spatial-renderer-system-identification':'Sound xR Image는 공간 좌표와 렌더링 파라미터를 어떻게 스피커별 출력 gain으로 변환할까?',
     'multicannel-mixing-system':'공간 음향은 공연장에서 관객이 보는 것과 듣는 것을 어떻게 연결할 수 있을까?',
     'wan-audio-transmission':'물리적 거리가 제약이 될 때에도 음악적 협업을 어떻게 이어갈 수 있을까?',
-    'electronic-drums':'전자악기는 연주자마다 다른 고유한 다이내믹과 표현을 어떻게 포착할 수 있을까?',
+    'electronic-drums':'전자드럼의 벨로시티 반응을 개별 연주자의 타격 특성에 맞게 어떻게 재구성할 수 있을까?',
     'audio-to-midi-system':'음악가는 인간의 표현과 디지털 작곡 사이를 어떻게 자연스럽게 오갈 수 있을까?',
     'adaptive-monitor-system':'서로 다른 청취 방식을 중심으로 음악 시스템을 설계하면 어떤 가능성이 열릴까?'
   } as Record<string,string>)[project.slug] : project.question;

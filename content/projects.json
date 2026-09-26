@@ -141,23 +141,20 @@
     "slug": "electronic-drums",
     "year": "2025",
     "category": "Instrument",
-    "title": "Interactive Electronic Drums",
-    "description": "Exploring performer-specific instrument behavior and adaptive sound generation to preserve individual playing styles.",
-    "question": "How can electronic instruments capture the unique dynamics and expression of individual performers?",
+    "title": "Performer-Tailored Electronic Drums",
+    "description": "A Max/MSP drum module with velocity zones and sample layers shaped around an individual performer’s dynamic range.",
+    "question": "How can an electronic drum’s velocity response be reshaped around an individual performer?",
     "image": "/framer/projects/electronic-drums/cover.png",
     "gallery": [
       "/framer/projects/electronic-drums/cover.png",
       "/framer/projects/electronic-drums/01.jpeg",
       "/framer/projects/electronic-drums/02.jpeg"
     ],
-    "reports": {
-      "ko": "/reports/electronic-drums-ko.pdf",
-      "en": "/reports/electronic-drums-en.pdf"
-    },
+    "repository": "https://github.com/ytb1124/performer-tailored-electronic-drums",
     "body": [
-      "Commercial electronic drum systems are designed for general versatility, but often fail to reflect the expressive nuances and playing habits of individual performers—especially during rapid repetitions or wide dynamic shifts.",
-      "This project explores how electronic instruments can be designed as performer-adaptive systems, rather than static input-output devices. I focused on enabling the system to respond differently based on a performer’s real-time playing patterns. Using Max/MSP, I designed an interactive electronic drum system that analyzes MIDI input in real time, categorizing performance behavior through parameters such as inter-onset intervals (IOI), repetition patterns, and velocity fluctuations. These features were dynamically mapped to sound processing and timbral modulation.",
-      "The system was designed to progressively alter timbre during continuous strikes, recreating organic textural changes found in acoustic drums while maintaining production-ready multi-channel outputs for live mixing. Performer feedback indicated that their playing habits were immediately reflected in the sound, confirming that technology can extend musical expression rather than constrain it."
+      "Fixed velocity mappings do not always match the usable dynamic range or touch of a particular drummer. This project began by rebuilding the relationship between MIDI velocity and sample playback around one performer’s actual striking characteristics.",
+      "The Max/MSP patch routes MIDI notes to kick, snare head, rim, side stick, tom, hi-hat, ride, and crash voices. Custom velocity zones select different samples for snare and ride articulations, while incoming velocity scales playback level across the kit. MIDI CC4 controls hi-hat openness, and each voice has its own gain, panning, and output routing for live mixing.",
+      "The result is a manually calibrated, performer-tailored drum module rather than an automatically learning adaptive system. Its current mappings demonstrate how velocity response can be tuned for one player; comparisons across performers and controlled listening tests remain future work."
     ]
   },
   {

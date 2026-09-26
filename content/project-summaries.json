@@ -65,18 +65,18 @@
   },
   "electronic-drums": {
     "en": {
-      "question": "How can electronic instruments capture the unique dynamics and expression of individual performers?",
-      "system": "A Max/MSP electronic-drum system with real-time MIDI analysis, adaptive sound processing, and multichannel outputs.",
-      "methods": "Classify inter-onset intervals, repetition patterns, and velocity changes, then map those features to timbre and processing parameters.",
-      "result": "Performer feedback confirmed that individual playing habits were reflected immediately in the changing sound.",
-      "next": "Build player-specific response models and compare their expressive accuracy across performers and playing styles."
+      "question": "How can an electronic drum’s velocity response be reshaped around an individual performer?",
+      "system": "A Max/MSP drum module that maps MIDI notes to individual voices, applies performer-tuned velocity zones, and provides per-voice gain, pan, and output routing.",
+      "methods": "Reconfigure instrument-specific velocity ranges around the player’s striking characteristics, then assign recorded samples and level scaling to those ranges.",
+      "result": "The working prototype uses custom velocity zones for snare and ride sample selection, scales kit level from MIDI velocity, and controls hi-hat openness through CC4.",
+      "next": "Document velocity distributions for additional performers and compare tailored mappings with a fixed factory-style response through playing and listening evaluations."
     },
     "ko": {
-      "question": "전자악기는 연주자마다 다른 고유한 다이내믹과 표현을 어떻게 포착할 수 있을까?",
-      "system": "실시간 MIDI 분석, 적응형 사운드 처리, 멀티채널 출력을 갖춘 Max/MSP 전자 드럼 시스템.",
-      "methods": "타격 간격, 반복 패턴, 벨로시티 변화를 분류하고 이를 음색과 처리 파라미터에 동적으로 매핑했습니다.",
-      "result": "연주자 피드백을 통해 개인의 연주 습관이 변화하는 사운드에 즉시 반영됨을 확인했습니다.",
-      "next": "연주자별 반응 모델을 구축하고 다양한 연주자와 스타일에서 표현 정확도를 비교합니다."
+      "question": "전자드럼의 벨로시티 반응을 개별 연주자의 타격 특성에 맞게 어떻게 재구성할 수 있을까?",
+      "system": "MIDI 노트를 각 드럼 보이스로 라우팅하고, 연주자 맞춤형 벨로시티 구간과 파트별 게인·팬·출력 제어를 적용한 Max/MSP 모듈입니다.",
+      "methods": "연주자의 실제 타격 특성에 맞춰 악기별 벨로시티 구간을 다시 나누고, 각 구간에 녹음 샘플과 레벨 변화를 배치했습니다.",
+      "result": "프로토타입은 스네어와 라이드의 샘플을 맞춤형 벨로시티 구간으로 선택하고, 전체 키트의 레벨을 MIDI 벨로시티에 따라 조절하며, CC4로 하이햇 개방도를 제어합니다.",
+      "next": "여러 연주자의 벨로시티 분포를 기록하고 맞춤형 매핑과 고정형 매핑의 연주감·청감 차이를 비교합니다."
     }
   },
   "audio-to-midi-system": {
