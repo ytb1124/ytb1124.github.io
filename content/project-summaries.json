@@ -15,22 +15,6 @@
       "next": "무보정·목표 IR 직접 적용·제안 방식을 RT, EDT, C80, D50, 에너지 감쇠 분석과 통제된 청취 평가로 비교합니다."
     }
   },
-  "live-immerssive-audio": {
-    "en": {
-      "question": "How can an outdoor immersive system turn an open field into a coherent listening space?",
-      "system": "A 9.1-channel Yamaha AFC Image system using DME7, Dante networking, and an L-Acoustics KARA main system.",
-      "methods": "Design the loudspeaker layout, signal flow, and network; align and tune the system; adjust the renderer; and operate it during a live outdoor performance.",
-      "result": "The complete immersive system was deployed and operated in an outdoor field, extending spatial images beyond the conventional front-stage system.",
-      "next": "Use the operational findings to refine spatial mix decisions and investigate the renderer’s gain behavior as a separate measurement study."
-    },
-    "ko": {
-      "question": "야외 이머시브 시스템은 열린 공간을 어떻게 하나의 일관된 청취 공간으로 만들 수 있을까?",
-      "system": "DME7, Dante 네트워크, L-Acoustics KARA 메인 시스템으로 구성한 9.1채널 Yamaha AFC Image 시스템.",
-      "methods": "스피커 배치, 신호 흐름과 네트워크를 설계하고 시스템 정렬·튜닝과 렌더러 조정, 야외 공연 현장 운용을 수행했습니다.",
-      "result": "야외 운동장에 전체 이머시브 시스템을 구축·운영하여 기존 전면 무대 중심 시스템보다 넓은 공간에 음상을 배치했습니다.",
-      "next": "현장 운용 결과를 공간 믹싱 결정에 반영하고, 렌더러의 gain 동작은 별도 측정 연구로 검증합니다."
-    }
-  },
   "spatial-renderer-system-identification": {
     "en": {
       "question": "How does an immersive audio renderer translate spatial coordinates and parameters into loudspeaker gains?",
@@ -109,22 +93,6 @@
       "methods": "BPM, 조성, 송폼, 가사를 추출하고 악기별 MIDI 초안을 생성한 뒤 편곡·MIDI·클릭·큐 트랙 편집을 지원합니다.",
       "result": "녹음된 음악적 아이디어를 편집 가능한 공연 자료로 전환하는 전체 워크플로우를 설계했습니다.",
       "next": "전체 프로토타입을 구현하고 음악가의 기술적 부담과 아이디어 발전 과정이 개선되는지 검증합니다."
-    }
-  },
-  "arirang": {
-    "en": {
-      "question": "How can historical music be reinterpreted through contemporary technology?",
-      "system": "Suno AI for music generation, Waves ReGen for narration restoration, and a Dolby Atmos production workflow.",
-      "methods": "Use the 2003 remake as the visual source, reference surviving period recordings, reconstruct music and byeonsa narration, and create Atmos and stereo mixes.",
-      "result": "The restoration was completed as a Dolby Atmos mix with a separate 2.0 Direct version for online release.",
-      "next": "Evaluate how audiences perceive historical authenticity, creative reinterpretation, and the use of AI in archival work."
-    },
-    "ko": {
-      "question": "역사적 음악을 현대 기술을 통해 어떻게 새롭게 해석할 수 있을까?",
-      "system": "Suno AI 음악 생성, Waves ReGen 내레이션 복원, Dolby Atmos 제작 워크플로우.",
-      "methods": "2003년 리메이크 영상을 기반으로 당대 음반을 참고해 음악과 변사 음성을 재구성하고 Atmos·스테레오 믹스를 제작했습니다.",
-      "result": "Dolby Atmos 믹스와 온라인 공개용 2.0 Direct 버전으로 복원 작업을 완성했습니다.",
-      "next": "역사적 진정성, 창의적 재해석, 아카이브 작업에서 AI 사용에 대한 관객 인식을 평가합니다."
     }
   },
   "adaptive-monitor-system": {

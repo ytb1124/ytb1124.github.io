@@ -1,61 +1,46 @@
 {
   "studio": {
-    "eyebrow": {
-      "en": "Album",
-      "ko": "스튜디오 레코딩"
-    },
+    "eyebrow": { "en": "Album", "ko": "스튜디오 레코딩" },
     "title": "Studio Recording",
     "cover": "/images/music-production/merry-night-cover.png",
     "coverAlt": "Merry Night single cover",
-    "credit": {
-      "en": "STUDIO RECORDING · TAEBIN YOO @ GENUIN STUDIO",
-      "ko": "STUDIO RECORDING · 유태빈 @ 게누인 스튜디오"
-    },
+    "credit": { "en": "STUDIO RECORDING · TAEBIN YOO @ GENUIN STUDIO", "ko": "STUDIO RECORDING · 유태빈 @ 게누인 스튜디오" },
     "albumTitle": "Merry Night",
     "meta": "Jazz · 2026 · 3 tracks · 14 minutes",
     "tracks": [
-      {
-        "title": "Merry Night",
-        "duration": "2:56"
-      },
-      {
-        "title": "Cinnamon Stick",
-        "duration": "5:59"
-      },
-      {
-        "title": "I Don’t Drink Alcohol Anymore",
-        "duration": "5:19"
-      }
+      { "title": "Merry Night", "duration": "2:56" },
+      { "title": "Cinnamon Stick", "duration": "5:59" },
+      { "title": "I Don’t Drink Alcohol Anymore", "duration": "5:19" }
     ],
-    "note": {
-      "en": "Recorded all three tracks for Merry Night at Genuin Studio.",
-      "ko": "Merry Night의 세 곡을 게누인 스튜디오에서 레코딩했습니다."
-    }
+    "note": { "en": "Recorded all three tracks for Merry Night at Genuin Studio.", "ko": "Merry Night의 세 곡을 게누인 스튜디오에서 레코딩했습니다." }
   },
   "mixing": {
-    "eyebrow": {
-      "en": "From the Stage",
-      "ko": "믹싱 포트폴리오"
-    },
-    "title": {
-      "en": "Mixing Portfolio",
-      "ko": "공연 믹싱 작업"
-    },
-    "description": {
-      "en": "A YouTube playlist of performances mixed across live stages and production environments.",
-      "ko": "라이브 공연에서 믹싱한 작업을 모은 YouTube 플레이리스트입니다."
-    },
-    "linkLabel": {
-      "en": "OPEN PLAYLIST ON YOUTUBE →",
-      "ko": "YOUTUBE에서 플레이리스트 열기 →"
-    },
-    "playlistUrl": "https://youtube.com/playlist?list=PL_kWYUD-HpqlcTCfJSD_4k87kQdzyD4DZ&si=kXkmH_rhqa1GwQVR"
+    "eyebrow": { "en": "Mixing & Spatial Production", "ko": "믹싱 & 공간음향 프로덕션" },
+    "title": { "en": "From the Stage to Spatial Production", "ko": "무대에서 공간음향 제작까지" },
+    "description": { "en": "A selection of live performance mixes, followed by a featured Dolby Atmos production and restoration project.", "ko": "라이브 공연 믹싱 작업과 Dolby Atmos 기반의 대표 제작·복원 프로젝트를 함께 소개합니다." },
+    "linkLabel": { "en": "OPEN PLAYLIST ON YOUTUBE →", "ko": "YOUTUBE에서 플레이리스트 열기 →" },
+    "playlistUrl": "https://youtube.com/playlist?list=PL_kWYUD-HpqlcTCfJSD_4k87kQdzyD4DZ&si=kXkmH_rhqa1GwQVR",
+    "case": {
+      "eyebrow": { "en": "Featured Production", "ko": "대표 제작 사례" },
+      "title": "Arirang 1926: Sonic Restoration",
+      "meta": { "en": "AI AUDIO RESTORATION · MUSIC CREATION · DOLBY ATMOS MIXING", "ko": "AI 오디오 복원 · 음악 제작 · DOLBY ATMOS 믹싱" },
+      "description": { "en": "A sound-led reinterpretation of Arirang using the 2003 remake as its visual source. I created music with Suno AI from period references, restored byeonsa narration with Waves ReGen, and completed Dolby Atmos and 2.0 Direct mixes.", "ko": "2003년 리메이크 영상을 바탕으로 아리랑을 사운드 중심으로 재해석했습니다. 당대 자료를 참고해 Suno AI로 음악을 제작하고 Waves ReGen으로 변사 음성을 복원한 뒤, Dolby Atmos와 2.0 Direct 믹스를 완성했습니다." },
+      "videoUrl": "https://youtu.be/JmjZB5Tf3co",
+      "linkLabel": { "en": "WATCH PROJECT ON YOUTUBE →", "ko": "YOUTUBE에서 프로젝트 보기 →" }
+    }
+  },
+  "immersive": {
+    "eyebrow": { "en": "Live & Immersive Production", "ko": "라이브 & 이머시브 프로덕션" },
+    "title": "Yamaha AFC Image",
+    "meta": { "en": "9.1-CHANNEL OUTDOOR IMMERSIVE SYSTEM · 2025", "ko": "9.1채널 야외 이머시브 시스템 · 2025" },
+    "description": { "en": "I designed and operated a 9.1-channel Yamaha AFC Image system for an outdoor performance using DME7, Dante networking, and an L-Acoustics KARA main system. The work covered loudspeaker layout and alignment, signal flow, tuning, renderer adjustment, and live operation.", "ko": "야외 공연을 위해 DME7, Dante 네트워크, L-Acoustics KARA 메인 시스템 기반의 9.1채널 Yamaha AFC Image 시스템을 설계하고 운영했습니다. 스피커 배치와 정렬, 신호 흐름, 튜닝, 렌더러 조정, 현장 운용을 담당했습니다." },
+    "videoUrl": "https://youtu.be/rM2CTQfp6gE",
+    "linkLabel": { "en": "WATCH PERFORMANCE ON YOUTUBE →", "ko": "YOUTUBE에서 공연 보기 →" },
+    "reports": { "en": "/reports/afc-en.pdf", "ko": "/reports/afc-ko.pdf" },
+    "reportLabel": { "en": "OPEN FIELD CASE STUDY", "ko": "현장 사례 보고서 열기" }
   },
   "credits": {
-    "eyebrow": {
-      "en": "Selected Credits",
-      "ko": "활동 이력"
-    },
-    "title": "Live Sound"
+    "eyebrow": { "en": "Selected Credits", "ko": "활동 이력" },
+    "title": "Live Sound Credits"
   }
 }

@@ -20,6 +20,24 @@ export type MusicProductionContent = {
     description: LocalizedText;
     linkLabel: LocalizedText;
     playlistUrl: string;
+    case: {
+      eyebrow: LocalizedText;
+      title: string;
+      meta: LocalizedText;
+      description: LocalizedText;
+      videoUrl: string;
+      linkLabel: LocalizedText;
+    };
+  };
+  immersive: {
+    eyebrow: LocalizedText;
+    title: string;
+    meta: LocalizedText;
+    description: LocalizedText;
+    videoUrl: string;
+    linkLabel: LocalizedText;
+    reports: LocalizedText;
+    reportLabel: LocalizedText;
   };
   credits: {
     eyebrow: LocalizedText;
