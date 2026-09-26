@@ -11,18 +11,18 @@ type LocalizedSummary = { en: ProjectSummary; ko: ProjectSummary };
 export const projectSummaries: Record<string, LocalizedSummary> = {
   'corrective-impulse-response': {
     en: {
-      question: 'How can we recreate the acoustic identity of a space beyond its physical boundaries?',
-      system: 'A Python analysis pipeline, corrective FIR filters, and a Max/MSP real-time multichannel convolution system.',
-      methods: 'Measure the target and current rooms, compare their impulse responses, calculate frequency-domain correction, and control early and late reflections for each playback channel.',
-      result: 'The reconstructed early reflections (0–40 ms) reached a correlation coefficient of 1.0 with the target hall.',
-      next: 'Test across more venues and listeners, then develop adaptive correction that responds to changing live conditions.',
+      question: 'How can a live venue approximate the early response and reverberant impression of another hall?',
+      system: 'A six-channel surround system using per-channel corrective FIRs in Max/MSP and a separately applied target-hall reverberation tail in Convology XT.',
+      methods: 'Align the current and target IRs with GCC-PHAT, generate regularized inverse FIRs for the initial response, and add the target IR tail from approximately 200 ms onward as a separate convolution stage.',
+      result: 'Across six surround channels, the mean spectral error against the target hall decreased from 2.69 dB to 2.24 dB within 125 Hz–4 kHz and the initial 0–40 ms window.',
+      next: 'Compare no correction, direct target-IR convolution, and the proposed method using RT, EDT, C80, D50, energy-decay analysis, and controlled listening tests.',
     },
     ko: {
-      question: '물리적 경계를 넘어 공간의 음향적 정체성을 어떻게 재현할 수 있을까?',
-      system: 'Python 분석 파이프라인, 보정 FIR 필터, Max/MSP 기반 실시간 멀티채널 컨볼루션 시스템.',
-      methods: '목표 공간과 현재 공간의 IR을 측정·비교하고, 주파수 영역 보정을 계산한 뒤 채널별 초기·후기 반사를 제어했습니다.',
-      result: '재구성한 초기 반사 구간(0–40 ms)이 목표 홀과 1.0의 상관계수를 기록했습니다.',
-      next: '더 많은 공연장과 청취자를 대상으로 검증하고, 공연 환경 변화에 반응하는 적응형 보정으로 확장합니다.',
+      question: '현재 공연장에서 다른 홀의 초기 응답과 잔향감을 어떻게 보강할 수 있을까?',
+      system: '채널별 보정 FIR을 적용하는 Max/MSP 기반 6채널 서라운드 시스템과 Convology XT를 통한 목표 홀 리버브 테일 처리.',
+      methods: 'GCC-PHAT으로 현재·목표 IR을 정렬하고 초기 응답용 정칙화 역필터 FIR을 생성한 뒤, 목표 IR의 약 200 ms 이후 테일을 별도 컨볼루션으로 더했습니다.',
+      result: '6개 서라운드 채널의 초기 0–40 ms, 125 Hz–4 kHz 구간에서 목표 홀 대비 평균 스펙트럼 오차가 2.69 dB에서 2.24 dB로 감소했습니다.',
+      next: '무보정·목표 IR 직접 적용·제안 방식을 RT, EDT, C80, D50, 에너지 감쇠 분석과 통제된 청취 평가로 비교합니다.',
     },
   },
   'live-immerssive-audio': {

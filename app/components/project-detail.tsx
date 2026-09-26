@@ -15,12 +15,16 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
     ['Result', summary.result],
     ['Next', summary.next],
   ] : [['Question', project.question]];
+  const resources=project.resources??(project.reports?[
+    {href:project.reports.ko,label:{en:'OPEN KOREAN REPORT →',ko:'한글 보고서 열기 →'}},
+    {href:project.reports.en,label:{en:'OPEN ENGLISH REPORT →',ko:'영문 보고서 열기 →'}},
+  ]:[]);
   return <PageShell locale={locale} path={`/projects/${project.slug}`}><article className={`project-detail content-width project-${project.slug} locale-${locale}`}>
     <header className="detail-title">
         <span className="detail-kicker">PROJECT SHOWCASE / {project.year}</span>
         <h1>{project.title}</h1>
         <div className="detail-meta"><span>{project.year}</span><span>{project.category}</span></div>
-        {(project.reports||project.repository)&&<div className="report-links">{project.reports&&<><a href={project.reports.ko} target="_blank" rel="noopener noreferrer">{locale==='ko'?'한글 보고서 열기 →':'OPEN KOREAN REPORT →'}</a><a href={project.reports.en} target="_blank" rel="noopener noreferrer">{locale==='ko'?'영문 보고서 열기 →':'OPEN ENGLISH REPORT →'}</a></>}{project.repository&&<a href={project.repository} target="_blank" rel="noopener noreferrer">{locale==='ko'?'GitHub 저장소 보기 →':'VIEW GITHUB REPOSITORY →'}</a>}</div>}
+        {(resources.length>0||project.repository)&&<div className="report-links">{resources.map(resource=><a href={resource.href} target="_blank" rel="noopener noreferrer" key={resource.href}>{resource.label[locale]}</a>)}{project.repository&&<a href={project.repository} target="_blank" rel="noopener noreferrer">{locale==='ko'?'GitHub 저장소 보기 →':'VIEW GITHUB REPOSITORY →'}</a>}</div>}
     </header>
     <section className="project-framework" aria-label="Project research summary">
       {framework.map(([label,value])=><div className="framework-row" key={label}><span>{label}</span><p>{value}</p></div>)}

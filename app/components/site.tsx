@@ -81,7 +81,7 @@ export function HeroTitle({ children, className = '' }: { children: React.ReactN
 
 export function ProjectCard({ project, locale, compact=false }: { project: Project; locale: Locale; compact?:boolean; minimal?:boolean }) {
   const localizedQuestion = locale === 'ko' ? ({
-    'corrective-impulse-response':'물리적 경계를 넘어 공간의 음향적 정체성을 어떻게 재현할 수 있을까?',
+    'corrective-impulse-response':'현재 공연장에서 다른 홀의 초기 응답과 잔향감을 어떻게 보강할 수 있을까?',
     'live-immerssive-audio':'몰입형 오디오는 공연자·창작자·관객의 관계를 어떻게 새롭게 구성할 수 있을까?',
     'multicannel-mixing-system':'공간 음향은 공연장에서 관객이 보는 것과 듣는 것을 어떻게 연결할 수 있을까?',
     'wan-audio-transmission':'물리적 거리가 제약이 될 때에도 음악적 협업을 어떻게 이어갈 수 있을까?',
