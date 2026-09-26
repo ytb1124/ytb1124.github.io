@@ -4,7 +4,7 @@ This is a code-based recreation of the public Framer portfolio at https://taebin
 
 ## Edit content
 
-Text, links, project metadata, and image paths live in `app/data/site.ts`. Replace a file in `public/images/` or update its path in that data file to change a photo. Layout and responsive behavior live in `app/components/site.tsx` and `app/globals.css`.
+Text, links, project metadata, and image paths live in the JSON files under `content/`. Replace a file in `public/images/` or use the private admin screen to change a photo. Layout and responsive behavior live in `app/components/` and `app/globals.css`.
 
 ## Run locally
 

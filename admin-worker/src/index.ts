@@ -14,6 +14,7 @@ const DOCUMENT_PATHS = [
   'content/korean.json',
   'content/project-summaries.json',
   'content/activities.json',
+  'content/music-production.json',
 ] as const;
 const ALLOWED_ORIGINS = new Set(['https://taebin.link', 'https://www.taebin.link', 'http://localhost:3000', 'http://localhost:5173']);
 const encoder = new TextEncoder();

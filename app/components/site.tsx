@@ -106,9 +106,18 @@ export function ProjectCard({ project, locale, compact=false }: { project: Proje
   );
 }
 
-export function YoutubeEmbed({ playlist = false }: { playlist?: boolean }) {
-  const src = playlist
+export function YoutubeEmbed({ playlist = false, url }: { playlist?: boolean; url?: string }) {
+  let src = playlist
     ? 'https://www.youtube.com/embed/videoseries?list=PL_kWYUD-HpqlcTCfJSD_4k87kQdzyD4DZ'
     : 'https://www.youtube.com/embed/FkPcCPqDZV0';
+  if (url) {
+    try {
+      const parsed = new URL(url);
+      const list = parsed.searchParams.get('list');
+      const video = parsed.hostname === 'youtu.be' ? parsed.pathname.slice(1) : parsed.searchParams.get('v');
+      if (playlist && list) src = `https://www.youtube.com/embed/videoseries?list=${encodeURIComponent(list)}`;
+      if (!playlist && video) src = `https://www.youtube.com/embed/${encodeURIComponent(video)}`;
+    } catch { /* Keep the current embed when the saved link is incomplete. */ }
+  }
   return <div className="video-frame"><iframe src={src} title="Taebin Yoo video" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen /></div>;
 }

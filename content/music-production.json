@@ -1,0 +1,61 @@
+{
+  "studio": {
+    "eyebrow": {
+      "en": "Studio Recording",
+      "ko": "스튜디오 레코딩"
+    },
+    "title": "Merry Night — Single",
+    "cover": "/images/music-production/merry-night-cover.png",
+    "coverAlt": "Merry Night single cover",
+    "credit": {
+      "en": "STUDIO RECORDING · TAEBIN YOO @ GENUIN STUDIO",
+      "ko": "STUDIO RECORDING · 유태빈 @ 게누인 스튜디오"
+    },
+    "albumTitle": "Merry Night",
+    "meta": "Jazz · 2026 · 3 tracks · 14 minutes",
+    "tracks": [
+      {
+        "title": "Merry Night",
+        "duration": "2:56"
+      },
+      {
+        "title": "Cinnamon Stick",
+        "duration": "5:59"
+      },
+      {
+        "title": "I Don’t Drink Alcohol Anymore",
+        "duration": "5:19"
+      }
+    ],
+    "note": {
+      "en": "Recorded all three tracks for Merry Night at Genuin Studio.",
+      "ko": "Merry Night의 세 곡을 게누인 스튜디오에서 레코딩했습니다."
+    }
+  },
+  "mixing": {
+    "eyebrow": {
+      "en": "Mixing Portfolio",
+      "ko": "믹싱 포트폴리오"
+    },
+    "title": {
+      "en": "From the Stage",
+      "ko": "공연 믹싱 작업"
+    },
+    "description": {
+      "en": "A YouTube playlist of performances mixed across live stages and production environments.",
+      "ko": "라이브 공연에서 믹싱한 작업을 모은 YouTube 플레이리스트입니다."
+    },
+    "linkLabel": {
+      "en": "OPEN PLAYLIST ON YOUTUBE →",
+      "ko": "YOUTUBE에서 플레이리스트 열기 →"
+    },
+    "playlistUrl": "https://youtube.com/playlist?list=PL_kWYUD-HpqlcTCfJSD_4k87kQdzyD4DZ&si=kXkmH_rhqa1GwQVR"
+  },
+  "credits": {
+    "eyebrow": {
+      "en": "Selected Credits",
+      "ko": "활동 이력"
+    },
+    "title": "Live Sound"
+  }
+}
