@@ -1,118 +1,47 @@
-/* oxlint-disable next/no-img-element */
 import Image from 'next/image';
-import { activities } from '../data/activities';
 import { musicProduction } from '../data/music-production';
-import type { Locale } from '../data/site';
-import { HeroTitle, PageShell, YoutubeEmbed } from './site';
-
-const koreanEventTypes: Record<string, string> = {
-  'Artist Showcase': '아티스트 쇼케이스', 'Awards Event': '시상식', 'Broadcast & Recording Production': '방송·레코딩 제작',
-  'Camp & Community Program': '캠프·커뮤니티 프로그램', 'Church Event': '교회 행사', 'Church Retreat': '교회 수련회',
-  'Closing Ceremony': '폐막식', 'Community Concert': '커뮤니티 공연', Concert: '콘서트', Conference: '컨퍼런스', Convention: '컨벤션',
-  'Corporate & Foundation Event': '기업·재단 행사', 'Creative Industry Conference': '크리에이티브 산업 컨퍼런스', 'Drone Light Show': '드론 라이트 쇼',
-  'English Speech Competition': '영어 말하기 대회', 'Fair & Exhibition': '박람회·전시', 'Fan Meeting': '팬미팅', Festival: '페스티벌',
-  'Film & Community Event': '영화·커뮤니티 행사', 'Forum & Talk': '포럼·토크', 'House of Worship Audio': '예배 공간 음향',
-  'Live Performance': '라이브 공연', 'Marathon & Music Festival': '마라톤·음악 축제', 'Musical Production': '뮤지컬 공연',
-  'Outdoor Live Performance': '야외 라이브 공연', 'School & Community Performance': '학교·지역 공연', 'Sound System Tuning': '음향 시스템 튜닝',
-  'Theater Production': '연극 공연', 'University Sports Event': '대학 스포츠 행사', 'Vehicle Launch Event': '신차 발표회', 'Worship Service': '예배',
-};
-
-const koreanRoles: Record<string, string> = {
-  'Mixing Engineer': '믹싱 엔지니어', 'System Engineer': '시스템 엔지니어', Technician: '테크니션',
-};
+import { site, type Locale } from '../data/site';
+import { PageShell, YoutubeEmbed } from './site';
+import { LiveCredits } from './live-credits';
 
 export function MusicProduction({ locale }: { locale: Locale }) {
   const ko = locale === 'ko';
-  const language = ko ? 'ko' : 'en';
-
-  return <PageShell locale={locale} path="/music-production">
-    <HeroTitle locale={locale}>{ko ? '음악 제작' : 'Music Production'}</HeroTitle>
-    <div className="production-showcase">
-      <section className="selected-projects" aria-labelledby="selected-projects-title">
-        <header className="selected-projects-heading">
-          <h2 id="selected-projects-title">{musicProduction.selectedProjects.title[language]}</h2>
-        </header>
-        <div className="selected-project-list">
-          {musicProduction.selectedProjects.projects.map((project,index) => <article className="selected-project" key={project.id}>
-            <div className="selected-project-cover"><Image src={project.image} alt={project.title} width={1800} height={1200} priority={index === 0} /></div>
-            <header className="selected-project-header">
+  return <PageShell locale={locale} path="/music-production"><div className="music-overview overview-page">
+    <header className="overview-header"><span className="section-eyebrow">{ko?'공연 · 녹음 · 믹싱':'LIVE SOUND · RECORDING · MIXING'}</span><h1>{ko?'음악 제작':'Music Production'}</h1><p>{site.pageContent[locale].music.intro}</p></header>
+    <nav className="section-jumps" aria-label={ko?'음악 제작 분야':'Music production sections'}><a href="#production-projects">{ko?'주요 작업':'Selected projects'} ↓</a><a href="#recording-mixing">{ko?'녹음과 믹싱':'Recording & mixing'} ↓</a><a href="#live-credits">{ko?'공연 기록':'Live sound credits'} ↓</a></nav>
+    <section id="production-projects" className="production-picks">
+      <div className="compact-section-head"><h2>{musicProduction.selectedProjects.title[locale]}</h2></div>
+      <div className="production-pick-grid">
+        {musicProduction.selectedProjects.projects.map(project => <details className="production-pick" key={project.id}>
+          <summary className="production-pick-summary">
+            <div className="production-pick-top">
+              <Image src={project.image} alt="" width={600} height={400}/>
               <div>
-                <p className="selected-project-meta">{project.year} · {project.category[language]}</p>
-                <h3>{project.title}</h3>
-                <p className="selected-project-question">{project.question[language]}</p>
+                <span className="production-focus">{project.category[locale]}</span>
+                <h3>{ko ? project.titleKo ?? project.title : project.title}</h3>
+                <span className="production-year">{project.year}</span>
               </div>
-            </header>
-            <div className="selected-project-story">
-              <div className="selected-project-body">
-                {project.body[language].map((paragraph,paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}
-                <div className="selected-project-links">
-                  <a className="text-link" href={project.videoUrl} target="_blank" rel="noopener noreferrer">{project.videoLabel[language]}</a>
-                  {project.reports && project.reportLabel && <a className="text-link" href={project.reports[language]} target="_blank" rel="noopener noreferrer">{project.reportLabel[language]}</a>}
-                </div>
-                {!!project.sources.length && <div className="selected-project-sources"><span>{ko ? '자료 출처' : 'Sources'}</span>{project.sources.map((source) => <a href={source.href} target="_blank" rel="noopener noreferrer" key={source.href}>{ko ? (source.label.startsWith('Byeonsa') ? '변사 음성·음원 참고' : '영상 출처') : source.label} ↗</a>)}</div>}
-              </div>
-              <YoutubeEmbed url={project.videoUrl} locale={locale} />
             </div>
-            {project.gallery.length > 1 && <div className="selected-project-gallery">
-              {project.gallery.slice(1).map((image,index) => <Image src={image} alt={`${project.title} ${index + 2}`} width={1200} height={900} key={image} />)}
+            <p>{project.question[locale]}</p>
+            <span className="production-toggle">{ko ? '작업 과정과 사진' : 'Process & photos'}<span aria-hidden="true">＋</span></span>
+          </summary>
+          <div className="production-pick-details">
+            {project.body[locale].map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+            <div className="production-resource-links">
+              <a className="text-link" href={project.videoUrl} target="_blank" rel="noopener noreferrer">{ko ? '영상 보기 ↗' : 'Watch video ↗'}</a>
+              {project.reports && <a className="text-link" href={project.reports[locale]} target="_blank" rel="noopener noreferrer">{ko ? '보고서 읽기 ↗' : 'Read report ↗'}</a>}
+            </div>
+            <YoutubeEmbed url={project.videoUrl} locale={locale}/>
+            {!!project.sources.length && <div className="selected-project-sources">
+              <span>{ko ? '참고 자료' : 'Sources'}</span>
+              {project.sources.map(source => <a href={source.href} target="_blank" rel="noopener noreferrer" key={source.href}>{ko ? (source.label.startsWith('Byeonsa') ? '변사 음성·음원 자료' : '영상 자료') : source.label} ↗</a>)}
             </div>}
-          </article>)}
-        </div>
-      </section>
-
-      <section className="production-section recording-section" aria-labelledby="studio-recording-title">
-        <div className="production-heading">
-          <span>01</span>
-          <div><p>{musicProduction.studio.eyebrow[language]}</p><h2 id="studio-recording-title">{ko ? '스튜디오 레코딩' : musicProduction.studio.title}</h2></div>
-        </div>
-        <div className="album-feature">
-          <a className="album-cover-link" href={musicProduction.studio.playlistUrl} target="_blank" rel="noopener noreferrer" data-no-lightbox aria-label={musicProduction.studio.listenLabel[language]}>
-            <Image src={musicProduction.studio.cover} alt={ko ? 'Merry Night 싱글 앨범 커버' : musicProduction.studio.coverAlt} width={540} height={540} priority />
-          </a>
-          <div className="album-details">
-            <p className="album-credit">{musicProduction.studio.credit[language]}</p>
-            <h3>{musicProduction.studio.albumTitle}</h3>
-            <p className="album-meta">{ko ? '재즈 · 2026 · 3곡 · 14분' : musicProduction.studio.meta}</p>
-            <ol className="album-tracks">
-              {musicProduction.studio.tracks.map((track,index)=><li key={`${track.title}-${index}`}><span>{String(index+1).padStart(2,'0')}</span><strong>{track.title}</strong><time>{track.duration}</time></li>)}
-            </ol>
-            <p className="album-note">{musicProduction.studio.note[language]}</p>
-            <a className="text-link album-listen-link" href={musicProduction.studio.playlistUrl} target="_blank" rel="noopener noreferrer">{musicProduction.studio.listenLabel[language]}</a>
+            <div className="production-photos">{project.gallery.slice(1).map(src => <Image key={src} src={src} alt="" width={600} height={400} loading="lazy"/>)}</div>
           </div>
-        </div>
-      </section>
-
-      <section className="production-section mixing-section" aria-labelledby="mixing-portfolio-title">
-        <div className="production-heading">
-          <span>02</span>
-          <div><p>{musicProduction.mixing.eyebrow[language]}</p><h2 id="mixing-portfolio-title">{musicProduction.mixing.title[language]}</h2></div>
-        </div>
-        <div className="mixing-feature">
-          <div className="mixing-copy"><p>{musicProduction.mixing.description[language]}</p><a className="text-link" href={musicProduction.mixing.playlistUrl} target="_blank" rel="noopener noreferrer">{musicProduction.mixing.linkLabel[language]}</a></div>
-          <YoutubeEmbed playlist url={musicProduction.mixing.playlistUrl} locale={locale} />
-        </div>
-      </section>
-
-      <section className="production-section live-sound-section" aria-labelledby="live-sound-title">
-        <div className="production-heading">
-          <span>03</span>
-          <div><p>{musicProduction.credits.eyebrow[language]}</p><h2 id="live-sound-title">{ko ? '라이브 사운드' : musicProduction.credits.title}</h2></div>
-        </div>
-        <div className="activity-gallery" aria-label={ko ? '라이브 사운드 활동 이력' : 'Live sound credits'}>
-          {activities.map((activity) => <article className="activity-card" key={activity.id}>
-            <div className="activity-media">
-              {activity.image ? <img src={activity.image} alt="" loading="lazy" referrerPolicy="no-referrer" /> : <div className="activity-placeholder" aria-hidden="true">♪</div>}
-            </div>
-            <div className="activity-meta">
-              <div className="activity-title-group">
-                <h2>{ko ? activity.title : activity.englishTitle}</h2>
-                <span>{ko ? (koreanEventTypes[activity.eventType] ?? activity.eventType) : activity.eventType} · {activity.year}</span>
-              </div>
-              <p>{ko ? (koreanRoles[activity.role] ?? activity.role) : activity.role}</p>
-            </div>
-          </article>)}
-        </div>
-      </section>
-    </div>
-  </PageShell>;
+        </details>)}
+      </div>
+    </section>
+    <section id="recording-mixing" className="recording-mixing"><div className="compact-section-head"><h2>{ko?'녹음과 믹싱':'Recording & mixing'}</h2></div><div className="recording-mixing-grid"><article className="recording-compact"><a href={musicProduction.studio.playlistUrl} target="_blank" rel="noopener noreferrer"><Image src={musicProduction.studio.cover} alt="Merry Night" width={200} height={200}/></a><div><span className="section-eyebrow">{ko?'스튜디오 녹음 · 2026':'STUDIO RECORDING · 2026'}</span><h3>{musicProduction.studio.albumTitle}</h3><p>{musicProduction.studio.note[locale]}</p><a className="text-link" href={musicProduction.studio.playlistUrl} target="_blank" rel="noopener noreferrer">{ko?'앨범 듣기 ↗':'Listen to the album ↗'}</a><section className="album-track-details"><h4 className="always-visible-heading">{ko?'곡 목록':'Track list'}</h4><ol>{musicProduction.studio.tracks.map(track=><li key={track.title}><span>{track.title}</span><time>{track.duration}</time></li>)}</ol></section></div></article><article className="mixing-compact"><span className="section-eyebrow">{ko?'라이브 믹싱':'LIVE MIXING'}</span><h3>{musicProduction.mixing.title[locale]}</h3><p>{musicProduction.mixing.description[locale]}</p><a className="text-link" href={musicProduction.mixing.playlistUrl} target="_blank" rel="noopener noreferrer">{ko?'YouTube에서 듣기 ↗':'Listen on YouTube ↗'}</a></article></div></section>
+    <section id="live-credits" className="live-credits-section"><div className="compact-section-head"><h2>{ko ? '공연 참여 기록' : musicProduction.credits.title}</h2></div><LiveCredits locale={locale}/></section>
+  </div></PageShell>;
 }

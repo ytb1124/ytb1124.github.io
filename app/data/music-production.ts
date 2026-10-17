@@ -11,6 +11,7 @@ export type MusicProductionContent = {
       year: string;
       category: LocalizedText;
       title: string;
+      titleKo?: string;
       question: LocalizedText;
       image: string;
       gallery: string[];

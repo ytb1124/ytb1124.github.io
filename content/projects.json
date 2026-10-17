@@ -3,9 +3,9 @@
     "slug": "corrective-impulse-response",
     "year": "2025",
     "category": "Acoustics system",
-    "title": "Corrective IR Spatial Reconstruction",
+    "title": "Corrective IR for Live Venues",
     "description": "A live six-channel hybrid system combining per-channel corrective FIRs for the initial response with a separately applied target-hall reverberation tail.",
-    "question": "How closely can electroacoustic correction bring a live venue toward another hall’s early response and reverberant character?",
+    "question": "Can corrective IR make one venue sound like another?",
     "image": "/framer/projects/corrective-impulse-response/04.jpg",
     "gallery": [
       "/framer/projects/corrective-impulse-response/04.jpg",
@@ -19,40 +19,64 @@
       {
         "href": "/reports/corrective-ir-paper-ko.pdf",
         "label": {
-          "en": "OPEN RESEARCH PAPER (KO)",
-          "ko": "연구 논문 열기"
+          "en": "Paper (KO) ↗",
+          "ko": "발표 논문 ↗"
         }
       },
       {
         "href": "/reports/corrective-ir-paper-en.pdf",
         "label": {
-          "en": "OPEN RESEARCH PAPER (EN)",
-          "ko": "영문 연구 논문 열기"
+          "en": "Paper (EN) ↗",
+          "ko": "영문 논문 ↗"
         }
       },
       {
         "href": "/reports/corrective-ir-ssm-vol19-ko.pdf",
         "label": {
-          "en": "OPEN SSM VOL. 19 ARTICLE (KO)",
-          "ko": "SSM VOL. 19 기고문 열기"
+          "en": "Magazine article (KO) ↗",
+          "ko": "관련 기고문 ↗"
         }
       }
     ],
     "repository": "https://github.com/ytb1124/drama-space-max",
     "body": [
-      "I began with a practical problem: applying a target hall impulse response directly in a live venue does not reproduce that hall consistently, because the processed sound still passes through the current venue and accumulates its acoustic response.",
-      "For the live system, I measured six loudspeaker-to-microphone paths using a stage-rigged AB microphone pair. A Python pipeline aligned the current and target IRs with GCC-PHAT, then generated a regularized, band-limited corrective FIR for each surround channel. The correction focused on the 125 Hz–4 kHz band and approximately the first 40 ms of the response.",
-      "In Max/MSP, each of the six surround channels was convolved with its own corrective FIR. The target hall’s reverberation tail from approximately 200 ms onward was applied separately through Convology XT, while the main PA retained the direct sound and primary mix balance.",
-      "At the measurement position centered on the fourth audience row, the mean spectral error against the target hall across all six channels decreased from 2.69 dB to 2.24 dB in the initial 0–40 ms and 125 Hz–4 kHz analysis range. This is a first-stage comparison using the measurements involved in filter generation; it does not establish an equivalent sound field throughout the audience area or a perceptual match to the target hall. Controlled listening evaluation remains future work."
-    ]
+      "Playing a target hall’s impulse response (IR) in another venue adds the current venue’s acoustics to the sound. I wanted to reduce that extra coloration before adding the target hall’s reverberation.",
+      "I measured six loudspeaker-to-microphone paths and used Python to align them with the target IR. I created a corrective FIR filter for each channel, focusing on the first 40 ms and the 125 Hz–4 kHz band. The filters use regularization to limit excessive gain.",
+      "Max/MSP applies the six filters in real time. Convology XT adds the target hall’s reverberation from about 200 ms onward. The main PA carries the direct sound.",
+      "At the fourth-row center, mean spectral error fell from 2.69 to 2.24 dB across six channels. This comparison uses the same path measurements that were used to create the filters. It does not establish improvement at other seats or a perceptual match to the target hall."
+    ],
+    "status": "Working prototype",
+    "titleKo": "공연장 보정 IR 시스템",
+    "summary": {
+      "en": "Built a six-channel correction system. At one position, mean spectral error fell from 2.69 to 2.24 dB.",
+      "ko": "6채널 보정 시스템을 만들었고, 한 측정 위치에서 평균 스펙트럼 오차가 2.69→2.24 dB로 줄었습니다."
+    },
+    "contribution": {
+      "problem": {
+        "en": "I asked how to reduce the current venue’s effect when playing a target hall IR through its speakers.",
+        "ko": "목표 홀 IR을 재생할 때 현재 공연장의 울림이 다시 더해지는 문제를 다뤘습니다."
+      },
+      "design": {
+        "en": "I measured six speaker paths and built a live system that corrects the early response and adds the target reverberation separately.",
+        "ko": "여섯 스피커 경로를 측정하고 초기 응답 보정과 목표 잔향을 따로 처리하는 실시간 시스템을 만들었습니다."
+      },
+      "analysis": {
+        "en": "I compared the first 40 ms in the 125 Hz–4 kHz band at fourth-row center. Mean error fell from 2.69 to 2.24 dB using the data used to create the filters.",
+        "ko": "4열 중앙에서 초기 40 ms·125 Hz–4 kHz 구간을 비교했습니다. 필터 생성에 사용한 자료에서 평균 오차가 2.69→2.24 dB로 줄었습니다."
+      },
+      "tools": {
+        "en": "I used Python for IR alignment and filter generation, and Max/MSP and Convology XT for playback. AI helped me write the Python code.",
+        "ko": "Python으로 IR 정렬과 필터 생성을, Max/MSP와 Convology XT로 실시간 처리를 했습니다. Python 코드 작성에는 AI의 도움을 받았습니다."
+      }
+    }
   },
   {
     "slug": "spatial-renderer-system-identification",
     "year": "2026",
     "category": "Yamaha Spatial Audio Research",
-    "title": "Yamaha Sound xR Image Renderer System Identification",
+    "title": "Sound xR Image Renderer Study",
     "description": "A black-box measurement study of how Sound xR Image maps loudspeaker geometry, Object position, and renderer parameters to output gains.",
-    "question": "How does Yamaha Sound xR Image translate spatial coordinates and rendering parameters into loudspeaker gains?",
+    "question": "How does Sound xR turn position into speaker levels?",
     "image": "/framer/projects/spatial-renderer-system-identification/01.jpeg",
     "gallery": [
       "/framer/projects/spatial-renderer-system-identification/01.jpeg",
@@ -62,41 +86,64 @@
       {
         "href": "/reports/sound-xr-image-renderer-report-ko.pdf",
         "label": {
-          "en": "OPEN RESEARCH PAPER (KO) →",
-          "ko": "한글 결과보고서 열기 →"
+          "en": "Report (KO) ↗",
+          "ko": "한글 보고서 ↗"
         }
       },
       {
         "href": "/reports/sound-xr-image-renderer-report-en.pdf",
         "label": {
-          "en": "OPEN RESEARCH PAPER (EN) →",
-          "ko": "영문 결과보고서 열기 →"
+          "en": "Report (EN) ↗",
+          "ko": "영문 보고서 ↗"
         }
       },
       {
         "href": "/projects/spatial-renderer-system-identification/data",
         "localized": true,
         "label": {
-          "en": "PREVIEW EXPERIMENT DATA →",
-          "ko": "실험 데이터 미리보기 →"
+          "en": "Measurement data →",
+          "ko": "측정 데이터 →"
         }
       }
     ],
     "body": [
-      "This study followed the outdoor Sound xR Image deployment and focused on the renderer itself. I treated the system as a black box, varying loudspeaker coordinates and IDs, Object position, XY mode, Width, Height, Precision, and Distance Attenuation while recording the resulting output gains.",
-      "The measurements were compared with numerical candidates while keeping observed values separate from inferred equations. The resulting formulas are bounded explanatory models, not claims about Yamaha’s disclosed internal implementation.",
-      "Within clearly documented normal-output regions, inverse-distance weighting followed by constant-power normalization explained the recorded gain distribution. The five Precision settings were consistent with distance exponents corresponding to approximately 8–12 dB of unnormalized attenuation per distance doubling, and representative verified blocks typically matched within about 0.005 dB.",
-      "Other behavior remains conditional. Size measurements support candidate effective-distance formulas only within the tested configurations, while boundary projection, Distance Attenuation, Object Z in 3D operation, and changes caused by loudspeaker-ID assignment do not yet reduce to one general rule. Repeated tests ruled out several simpler explanations, including a mere output-column swap.",
-      "The current outcome is a bounded renderer model suitable for a Max/MSP prototype, together with a prioritized validation plan. A fully compatible clone for arbitrary layouts, out-of-area positions, and dynamic motion requires further measurements of channel mapping, state application, 3D control paths, smoothing, and time response."
-    ]
+      "After using Sound xR Image for an outdoor performance, I wanted to understand how its settings affect the output level of each speaker. I changed speaker coordinates and IDs, Object position, XY mode, Size, Precision, and Distance Attenuation, and recorded the electrical output gains.",
+      "I compared the recorded gains with possible mathematical models. In the tested normal-output regions, inverse-distance weighting and power normalization matched representative data within about 0.005 dB. This describes observed behavior; it does not identify Yamaha’s internal implementation.",
+      "A fixed-segment model failed to predict the new five-speaker N/T tests. A different segment fitted N after I saw the measurements, but did not provide a general rule for T. That failure changed how I interpreted boundary behavior.",
+      "The next step is to fix a prediction rule before testing new layouts, and to investigate mode-dependent height control, Distance Attenuation, and moving sound sources."
+    ],
+    "status": "Measured study",
+    "titleKo": "Sound xR Image 렌더러 분석",
+    "summary": {
+      "en": "Tested how settings affect speaker gains. The distance model fits some conditions; boundary predictions failed.",
+      "ko": "설정에 따른 스피커 출력 변화를 분석했습니다. 거리 모델은 일부 조건에 맞았지만 경계 구간의 예측은 실패했습니다."
+    },
+    "contribution": {
+      "problem": {
+        "en": "I investigated why speaker ID assignment and some boundary settings changed the output in ways a simple distance model could not explain.",
+        "ko": "스피커 ID와 경계 구간의 출력이 단순 거리 모델의 예상과 달라지는 이유를 살펴봤습니다."
+      },
+      "design": {
+        "en": "I changed coordinates, IDs, Object position, and renderer settings on a DME7 system, then recorded speaker output levels with Smaart.",
+        "ko": "DME7에서 좌표·ID·Object 위치와 렌더러 설정을 바꾸고 Smaart로 스피커별 출력 레벨을 기록했습니다."
+      },
+      "analysis": {
+        "en": "I compared the measurements with model predictions and revised my explanation after the five-speaker test failed.",
+        "ko": "측정값을 모델 예측과 비교했고, 5스피커 실험에서 예측이 실패한 뒤 해석을 수정했습니다."
+      },
+      "tools": {
+        "en": "The report’s “supplied materials” are experiment.xlsx (366 rows), the AFC validation and revised technical review DOCX files, and testing result.rtf and final result.rtf. I used these records to write the analysis and report; the records do not specify the extent of AI assistance.",
+        "ko": "보고서의 “supplied materials”는 experiment.xlsx(366행), AFC 검증·수정 기술 검토 DOCX 두 파일, testing result.rtf와 final result.rtf입니다. 이 기록을 바탕으로 분석과 보고서를 작성했으며, AI 지원 범위는 기록에서 확인되지 않습니다."
+      }
+    }
   },
   {
     "slug": "multicannel-mixing-system",
     "year": "2025",
     "category": "Audio",
-    "title": "Multichannel Spatial Mixing System",
+    "title": "Multichannel Live Mixing",
     "description": "Exploring immersive sound image control and spatial mixing approaches for small performance venues.",
-    "question": "How can spatial audio connect what audiences see with what they hear in a performance space?",
+    "question": "Can sound placement match what audiences see?",
     "image": "/framer/projects/multicannel-mixing-system/cover.png",
     "gallery": [
       "/framer/projects/multicannel-mixing-system/cover.png",
@@ -108,19 +155,24 @@
       "en": "/reports/multichannel-en.pdf"
     },
     "body": [
-      "In many live performance environments, conventional stereo sound reinforcement effectively collapses into mono due to strong direct sound from the stage. This makes it difficult to form a stable phantom image, especially for vocals, without deploying a dedicated center speaker.",
-      "This project explored an alternative multi-channel spatial mixing approach, aiming to achieve intuitive sound image control by physically aligning the “line of hearing” with the “line of sight.” The system was implemented using a 3.1-channel base structure with additional stage rear speakers, relying solely on the audio console’s routing and bus architecture—without an external immersive processor.",
-      "Mixing strategies were designed to separate sound image roles: front-heavy sources (vocals, kick, snare, bass) were routed to a center channel, while harmonic and spatial elements were distributed across LR and stage rear speakers. Spatial effects were used to enhance envelopment rather than primary image formation. System tuning treated the rig as two independent systems, focusing on temporal and spectral alignment rather than full electrical unification. While the setup achieved clear physical separation of sound sources, audience feedback revealed an unexpected result: rather than perceiving a cohesive spatial image, listeners experienced instruments as disconnected sound objects.",
-      "This outcome highlighted the limitations of purely physical and electrical approaches to spatial mixing, emphasizing the necessity of psychoacoustic and perception-centered design. The project ultimately reframed spatial mixing as a human-perception problem rather than a purely technical routing challenge."
-    ]
+      "I tested whether speaker placement and console routing could make the direction of sound better match what the audience sees on stage.",
+      "I built a 3.1 system with additional rear-stage speakers. Vocals, kick, snare, and bass went to the center; other instruments and reverberation were spread across the left, right, and rear speakers.",
+      "The sources were clearly separated, but informal audience feedback suggested they sounded disconnected. This led me to consider how listeners combine sounds into one scene. A structured listening test is still needed."
+    ],
+    "status": "Field experiment",
+    "titleKo": "멀티채널 공연 믹싱",
+    "summary": {
+      "en": "Built a 3.1 system with rear speakers. Informal feedback suggested the sound felt too separated.",
+      "ko": "3.1채널과 후방 스피커를 구성했습니다. 관객 반응에서 소리가 서로 떨어져 들리는 한계를 발견했습니다."
+    }
   },
   {
     "slug": "wan-audio-transmission",
     "year": "2025",
     "category": "Technology",
-    "title": "WAN Audio Transmission System",
+    "title": "Remote Multichannel Audio",
     "description": "Exploring real-time networked audio systems for remote musical interaction and collaboration.",
-    "question": "How can musical collaboration continue when physical distance becomes a limitation?",
+    "question": "Can musicians collaborate across distance?",
     "image": "/framer/projects/wan-audio-transmission/cover.png",
     "gallery": [
       "/framer/projects/wan-audio-transmission/cover.png",
@@ -131,19 +183,24 @@
       "en": "/reports/wan-en.pdf"
     },
     "body": [
-      "This project investigated whether real-time, sample-accurate multi-channel audio transmission between DAWs is feasible over a Wide Area Network (WAN), assuming remote performance, recording, or live mixing scenarios.",
-      "Multiple approaches were sequentially tested and evaluated, including commercial network audio protocols (AES67, Dante, AVB), server-based relay systems, peer-to-peer transmission methods, and open-source solutions such as ffmpeg, JACK Audio, and JackTrip. While several methods achieved stable network connectivity and acceptable latency, none could guarantee long-term sample accuracy in a WAN environment.",
-      "Through systematic experimentation, the study identified that the core limitation was not network bandwidth or latency, but the absence of a shared hardware word clock between geographically separated DAWs. Without a common master clock, sample drift accumulated over time, resulting in XRUNs and audible digital artifacts such as tick noise.",
-      "This research confirmed that real-time multi-channel network audio over WAN is fundamentally constrained by system architecture and clock synchronization, rather than transmission performance alone. The findings suggest that future designs must incorporate an independent synchronization mechanism decoupled from the network transport layer."
-    ]
+      "I tested multichannel audio transmission between two remote DAWs for recording, mixing, and performance.",
+      "I explored commercial network-audio approaches and tested relay and peer-to-peer tools, including ffmpeg, JACK Audio, and JackTrip. Audio could be sent, but playback did not remain sample-accurate over time.",
+      "The tests pointed to clock drift between the two systems as a key limitation. Over time, this was associated with buffer errors and audible clicks. Synchronization and adaptive resampling are next steps to investigate."
+    ],
+    "status": "Technical experiment",
+    "titleKo": "원격 멀티채널 오디오 전송",
+    "summary": {
+      "en": "Tested audio between remote DAWs. Clock drift limited stable playback over time.",
+      "ko": "떨어진 DAW 사이의 오디오 전송을 시험했습니다. 시간이 지나며 쌓이는 클락 차이가 안정적인 재생을 제한했습니다."
+    }
   },
   {
     "slug": "electronic-drums",
     "year": "2025",
     "category": "Instrument",
-    "title": "Performer-Tailored Electronic Drums",
+    "title": "Personalized Electronic Drums",
     "description": "A Max/MSP drum module with velocity zones and sample layers shaped around an individual performer’s dynamic range.",
-    "question": "How can an electronic drum’s velocity response be reshaped around an individual performer?",
+    "question": "Can electronic drums adapt to each player’s touch?",
     "image": "/framer/projects/electronic-drums/cover.png",
     "gallery": [
       "/framer/projects/electronic-drums/cover.png",
@@ -152,45 +209,82 @@
     ],
     "repository": "https://github.com/ytb1124/performer-tailored-electronic-drums",
     "body": [
-      "Fixed velocity mappings do not always match the usable dynamic range or touch of a particular drummer. This project began by rebuilding the relationship between MIDI velocity and sample playback around one performer’s actual striking characteristics.",
-      "The Max/MSP patch routes MIDI notes to kick, snare head, rim, side stick, tom, hi-hat, ride, and crash voices. Custom velocity zones select different samples for snare and ride articulations, while incoming velocity scales playback level across the kit. MIDI CC4 controls hi-hat openness, and each voice has its own gain, panning, and output routing for live mixing.",
-      "The result is a manually calibrated, performer-tailored drum module rather than an automatically learning adaptive system. Its current mappings demonstrate how velocity response can be tuned for one player; comparisons across performers and controlled listening tests remain future work."
-    ]
+      "A fixed velocity map may not match how a particular drummer plays. I built a Max/MSP module to adjust sample choice and playback level to one player’s striking range.",
+      "The patch routes MIDI notes to drum sounds and uses custom velocity ranges for snare and ride samples. MIDI velocity sets playback level, CC4 controls hi-hat openness, and each drum has its own gain, pan, and output settings.",
+      "The mapping is adjusted manually for one player. It does not learn automatically. Recorded velocity distributions and a controlled comparison with a fixed mapping are still needed."
+    ],
+    "status": "Working prototype",
+    "titleKo": "연주자 맞춤 전자드럼",
+    "summary": {
+      "en": "Built a Max/MSP drum module with manually adjusted velocity ranges for one player.",
+      "ko": "한 연주자의 타격 범위에 맞춰 소리 반응을 수동으로 조절하는 Max/MSP 드럼 모듈을 만들었습니다."
+    },
+    "contribution": {
+      "problem": {
+        "en": "I wanted the drum’s response to match one player’s striking range more closely.",
+        "ko": "드럼의 소리 반응을 한 연주자의 타격 습관에 맞추고 싶었습니다."
+      },
+      "design": {
+        "en": "I built a Max/MSP module with adjustable snare and ride sample ranges, hi-hat control, and separate mixing settings for each drum.",
+        "ko": "스네어·라이드 샘플 선택 구간과 하이햇 반응, 드럼별 믹싱을 조절하는 Max/MSP 모듈을 만들었습니다."
+      },
+      "analysis": {
+        "en": "I adjusted the mapping manually for one player. Velocity distributions and a before/after comparison are still needed.",
+        "ko": "한 연주자에 맞춰 소리 반응을 수동으로 조절했습니다. 타격 세기 분포와 조절 전후 비교는 앞으로 확인해야 합니다."
+      },
+      "tools": {
+        "en": "I used Max/MSP and recorded drum samples. The project record does not specify the extent of AI assistance.",
+        "ko": "Max/MSP와 녹음한 드럼 샘플을 사용했습니다. 현재 자료에는 AI 지원 범위가 기록되어 있지 않습니다."
+      }
+    }
   },
   {
     "slug": "audio-to-midi-system",
     "year": "2026",
     "category": "Technology",
-    "title": "Audio-to-MIDI System (Ongoing Research)",
+    "title": "Audio-to-MIDI Editor",
     "ongoing": true,
-    "description": "A web-based mini DAW prototype for turning recorded ideas into editable live-performance sessions.",
-    "question": "How can AI reduce the repetitive work of preparing a live session while leaving musical decisions with the artist?",
+    "description": "A working transcription and editing prototype; accuracy and rehearsal value remain to be evaluated.",
+    "question": "Can AI ease live preparation while artists keep control?",
     "image": "/framer/projects/audio-to-midi-system/cover.png",
     "gallery": [
       "/framer/projects/audio-to-midi-system/cover.png"
     ],
     "repository": "https://github.com/ytb1124/audio-to-midi",
     "body": [
-      "Preparing a live performance from an existing recording involves more than transcription: musicians must identify BPM, key, song form, lyric timing, and the parts needed for playback, then build click and cue tracks. These steps often require both musical judgement and specialist DAW skills, creating a high technical burden for young musicians and solo creators.",
-      "This project explores an assistive workflow in which AI creates a first draft and the musician remains responsible for listening, correcting, arranging, and deciding what reaches the stage. The longer-term prototype is designed to analyse an uploaded song, propose MIDI and performance-session elements, and provide a structured editor for review rather than treating AI output as a finished result.",
-      "The current Trackform prototype supports specialist paths for piano, general audio, bass, and drums, plus Demucs stem separation. Piano mode combines Transkun transcription with an audio-guided sustain repair pass. Generated MIDI opens in a browser piano roll where notes can be moved, resized, auditioned, and exported; the shared Next.js and FastAPI pipeline can also be packaged as a Tauri desktop application.",
-      "The next phase tests one to three songs against manually prepared reference sessions and explores BPM, key, song-form, lyric-cue, click-track, and cue-track workflows. Playback in a speaker and rehearsal-style environment will be used to identify failures and iterate on the editor. The goal is a small, demonstrable performance-session prototype—not a replacement for a full DAW—whose value can be judged by how much repetitive preparation it removes while keeping creative decisions visible."
-    ]
+      "Preparing a recording for a live performance often involves transcribing parts and editing them in a DAW. I am building Trackform to make the first draft easier to create and revise.",
+      "The prototype supports piano, general audio, bass, and drum transcription, plus Demucs stem separation. Piano mode uses Transkun and an audio-based sustain correction step. Users can move, resize, audition, and export notes in a browser piano roll.",
+      "The Next.js interface and FastAPI processing pipeline can also be packaged with Tauri. These are implemented features; transcription accuracy and time savings have not yet been evaluated.",
+      "I plan to compare one to three songs with manually prepared reference MIDI, document errors, and test the editing workflow. BPM, key, song structure, lyric cues, and rehearsal playback remain areas for further development and testing."
+    ],
+    "status": "Working prototype",
+    "titleKo": "오디오 MIDI 변환·편집 도구",
+    "summary": {
+      "en": "Implemented transcription, stem separation, and MIDI editing. Accuracy testing is the next step.",
+      "ko": "음원 변환, 악기별 음원 분리, MIDI 편집을 구현했습니다. 변환 정확도는 앞으로 평가할 예정입니다."
+    }
   },
   {
     "slug": "adaptive-monitor-system",
     "year": "2026",
     "category": "Performance",
-    "title": "Adaptive Monitor System for Deaf and Hard-of-Hearing Musicians (Ongoing Research)",
+    "title": "Monitoring for Deaf and Hard-of-Hearing Musicians",
     "ongoing": true,
-    "description": "Exploring adaptive monitoring systems based on how Deaf and hard-of-hearing musicians perceive, perform, and interact with music.",
-    "question": "What happens when musical systems are designed around different ways of hearing?",
+    "description": "A research concept for co-designed monitoring; interviews and a testable prototype are planned.",
+    "question": "Can music tools adapt to how we hear?",
     "image": "/framer/projects/adaptive-monitor-system/cover.jpeg",
     "gallery": [
       "/framer/projects/adaptive-monitor-system/cover.jpeg"
     ],
     "body": [
-      "An ongoing project investigating how performers with different hearing conditions experience monitoring, rehearsal, and musical interaction, and exploring adaptive audio systems based on their needs."
-    ]
+      "I want to understand what Deaf and hard-of-hearing musicians need from monitoring during rehearsals and performances.",
+      "This is a research concept. I plan to begin with interviews and co-design sessions, then build a prototype with musicians and evaluate it in use. No participant study or prototype test has been completed."
+    ],
+    "status": "Research concept",
+    "titleKo": "청각장애·난청 음악가를 위한 모니터링",
+    "summary": {
+      "en": "A research concept. Interviews, co-design sessions, and a first prototype are planned.",
+      "ko": "연구 구상 단계입니다. 음악가 인터뷰와 공동 설계, 첫 프로토타입 제작을 계획하고 있습니다."
+    }
   }
 ]

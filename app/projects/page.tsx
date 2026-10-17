@@ -1,34 +1,37 @@
-import { PageShell, HeroTitle, ProjectCard } from '../components/site';
+import { PageShell, ProjectCard } from '../components/site';
 import { site } from '../data/site';
 
 export const dynamic = 'force-static';
 
 export default function ProjectsPage({ locale = 'en' as const }: { locale?: 'en' | 'ko' }) {
+  const ko = locale === 'ko';
+  const copy = site.pageContent[locale].projects;
+  const questionSteps = copy.stages;
   return <PageShell locale={locale} path="/projects">
-    <HeroTitle locale={locale}>{locale === 'ko' ? '프로젝트' : 'Projects'}</HeroTitle>
-    <section className={`research content-width${locale === 'ko' ? ' research-ko' : ''}`}>
-      <header className="research-intro">
-        <span>{locale === 'ko' ? '주요 작업 / 2025—2026' : 'SELECTED WORK / 2025—2026'}</span>
-        <h2>{locale === 'ko' ? '만들면서 연구합니다' : 'Research Through Making'}</h2>
-        <p className="research-lede">
-          <strong>{locale === 'ko' ? '사람이 기술에 맞추는 것이 아니라, 기술이 사람에게 맞춰지는 시스템을 만듭니다.' : 'I build systems that adapt to people—not the other way around.'}</strong>
-          <span>{locale === 'ko' ? '저의 작업은 기술이 공간과 개인의 표현, 그리고 음악을 경험하고 참여하는 서로 다른 방식에 어떻게 반응할 수 있는지를 탐구합니다.' : 'My work explores how technology can respond to space, individual expression, and different ways of experiencing and participating in music.'}</span>
-        </p>
+    <div className="research-catalog overview-page">
+      <header className="overview-header catalog-intro">
+        <div><span className="section-eyebrow">{copy.eyebrow}</span><h1>{copy.title}</h1></div>
+        <div><p>{copy.intro}</p></div>
       </header>
-      <nav className="research-map" aria-label={locale === 'ko' ? '연구 방향' : 'Research directions'}>
-        {site.sections.map((section, index) => <div className="research-map-step" key={section.number}>
-          <a href={`#research-${index + 1}`}>
-            <span>{section.number}</span>
-            <strong>{locale === 'ko' && section.koreanTitle ? section.koreanTitle : section.title}</strong>
-            <p>{locale === 'ko' ? section.koreanQuestion : section.question}</p>
-          </a>
-          {index < site.sections.length - 1 && <span className="research-map-arrow" aria-hidden="true">↓</span>}
-        </div>)}
+      <nav className="question-progression" aria-labelledby="question-progression-title">
+        <h2 id="question-progression-title">{copy.progressionTitle}</h2>
+        <ol>
+          {site.sections.map((section,index) => <li key={section.number}>
+            <a href={`#research-${index + 1}`}>
+              <span className="question-stage"><span>{section.number}</span>{questionSteps[index]}</span>
+              <p>{ko ? section.koreanQuestion : section.question}</p>
+            </a>
+            {index < 2 && <span className="question-next" aria-hidden="true">→</span>}
+          </li>)}
+        </ol>
       </nav>
-      {site.sections.map((section, index) => <div className="research-section" id={`research-${index + 1}`} key={section.number}>
-        <div className="research-heading"><span>{section.number}</span><div><h3>{locale === 'ko' && section.koreanTitle ? section.koreanTitle : section.title}</h3><p className="research-question">{locale === 'ko' ? section.koreanQuestion : section.question}</p></div></div>
-        <div className="project-grid">{section.projects.map((project) => <ProjectCard key={project.slug} project={project} locale={locale} minimal />)}</div>
-      </div>)}
-    </section>
+      {site.sections.map((section, index) => <section className="catalog-group" id={`research-${index + 1}`} key={section.number}>
+        <header className="catalog-group-head">
+          <span>{section.number}</span>
+          <div><h2>{ko ? section.koreanTitle : section.title}</h2><p>{ko ? section.koreanQuestion : section.question}</p></div>
+        </header>
+        <div className="catalog-grid">{section.projects.map(project => <ProjectCard key={project.slug} project={project} locale={locale} />)}</div>
+      </section>)}
+    </div>
   </PageShell>;
 }

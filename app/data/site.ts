@@ -8,6 +8,8 @@ export type Project = {
   year: string;
   category: string;
   title: string;
+  titleKo?: string;
+  summary?: { en: string; ko: string };
   description: string;
   question: string;
   image: string;
@@ -19,6 +21,8 @@ export type Project = {
   repository?: string;
   sources?: { label: string; href: string }[];
   ongoing?: boolean;
+  contribution?: Record<'problem' | 'design' | 'analysis' | 'tools', Record<Locale, string>>;
+  status?: 'Measured study' | 'Working prototype' | 'Research concept' | 'Field experiment' | 'Technical experiment';
 };
 
 type SiteSectionDocument = Omit<(typeof siteDocument.sections)[number], 'projectSlugs'> & {
@@ -43,6 +47,12 @@ type SiteData = Omit<typeof siteDocument, 'sections' | 'experience'> & {
 };
 
 export const allProjects = projectsDocument as Project[];
+
+export function projectStatusLabel(status: Project['status'], locale: Locale) {
+  if (!status) return '';
+  const ko = { 'Measured study': '측정·분석', 'Working prototype': '프로토타입', 'Research concept': '구상 단계', 'Field experiment': '현장 실험', 'Technical experiment': '기술 실험' };
+  return locale === 'ko' ? ko[status] : status;
+}
 
 const sections = (siteDocument.sections as SiteSectionDocument[]).map(({ projectSlugs, ...section }) => ({
   ...section,
