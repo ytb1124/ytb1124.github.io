@@ -1,0 +1,118 @@
+{
+  "en": {
+    "experience": "Questions shaped by more than 200 live performances.",
+    "workIntro": "Experiments in how we hear, play, and make music together.",
+    "directionTitle": "From spaces, to performers, to participation.",
+    "directionIntro": "Live sound taught me to listen to a room. Building instruments led me to listen to the performer. Now I want to understand what helps more people take part.",
+    "steps": [
+      {
+        "title": "Spaces",
+        "focus": "How we hear",
+        "question": "How can sound adapt to a space?",
+        "body": "The same music changes from one venue to another. I measure those differences and build systems to shape the sound around them.",
+        "links": [
+          {
+            "label": "Corrective IR",
+            "slug": "corrective-impulse-response"
+          },
+          {
+            "label": "Spatial renderer study",
+            "slug": "spatial-renderer-system-identification"
+          }
+        ]
+      },
+      {
+        "title": "Performers",
+        "focus": "How we express",
+        "question": "How can tools follow the musician?",
+        "body": "Working with performers shifted my attention from the room to the person. I build instruments and editing tools that leave room for individual touch and musical decisions.",
+        "links": [
+          {
+            "label": "Personalized drums",
+            "slug": "electronic-drums"
+          },
+          {
+            "label": "Audio-to-MIDI editor",
+            "slug": "audio-to-midi-system"
+          }
+        ]
+      },
+      {
+        "title": "Participation",
+        "focus": "How we join in",
+        "question": "How can different ways of hearing become ways of making music?",
+        "body": "This leads to my next question: how can music tools support people with different listening experiences? I plan to explore monitoring tools with Deaf and hard-of-hearing musicians.",
+        "links": [
+          {
+            "label": "Monitoring research concept",
+            "slug": "adaptive-monitor-system"
+          }
+        ]
+      }
+    ],
+    "story": "I grew up with music and mathematics. Singing, making music with friends, and working behind the mixing console have shaped how I listen. Writing helps me make sense of those experiences—and find the next question.",
+    "storyLink": "More of my story",
+    "contactTitle": "A question, an idea, or a piece of music?",
+    "contactCopy": "I’d love to talk about research, live sound, and ways to make music together.",
+    "contactLink": "Contact details",
+    "aboutLink": "About me"
+  },
+  "ko": {
+    "experience": "200회 이상의 공연 현장에서 시작된 질문들.",
+    "workIntro": "듣고, 표현하고, 함께 음악을 만드는 방법을 실험합니다.",
+    "directionTitle": "공간에서 연주자로, 연주자에서 함께하는 음악으로.",
+    "directionIntro": "공연 음향을 하며 공간의 소리를 듣게 됐고, 악기를 만들며 연주자에게 귀를 기울이게 됐습니다. 이제는 더 많은 사람이 음악에 참여하려면 무엇이 필요한지 묻고 싶습니다.",
+    "steps": [
+      {
+        "title": "공간",
+        "focus": "어떻게 듣는가",
+        "question": "소리가 공간에 맞춰 달라질 수 있을까?",
+        "body": "같은 음악도 공연장이 바뀌면 다르게 들립니다. 그 차이를 측정하고, 공간에 맞게 소리를 조정하는 시스템을 만듭니다.",
+        "links": [
+          {
+            "label": "보정 IR 시스템",
+            "slug": "corrective-impulse-response"
+          },
+          {
+            "label": "공간 음향 렌더러 분석",
+            "slug": "spatial-renderer-system-identification"
+          }
+        ]
+      },
+      {
+        "title": "연주자",
+        "focus": "어떻게 표현하는가",
+        "question": "음악 도구가 연주자를 따라갈 수 있을까?",
+        "body": "연주자와 함께 일하며 관심은 공간에서 사람으로 옮겨갔습니다. 각자의 타격 습관과 음악적 선택을 담을 수 있는 악기와 편집 도구를 만듭니다.",
+        "links": [
+          {
+            "label": "연주자 맞춤 전자드럼",
+            "slug": "electronic-drums"
+          },
+          {
+            "label": "오디오 MIDI 편집 도구",
+            "slug": "audio-to-midi-system"
+          }
+        ]
+      },
+      {
+        "title": "참여",
+        "focus": "어떻게 함께하는가",
+        "question": "서로 다르게 듣는 사람도 자기 방식으로 음악을 만들 수 있을까?",
+        "body": "다음 질문은 서로 다른 청취 경험을 음악 도구가 어떻게 지원할 수 있느냐는 것입니다. 청각장애·난청 음악가와 함께 모니터링 도구를 탐구할 계획입니다.",
+        "links": [
+          {
+            "label": "모니터링 도구 연구 구상",
+            "slug": "adaptive-monitor-system"
+          }
+        ]
+      }
+    ],
+    "story": "음악과 수학을 가까이하며 자랐습니다. 노래하고, 친구들과 음악을 만들고, 믹싱 콘솔 뒤에서 공연을 함께하며 듣는 법을 배웠습니다. 글을 쓰며 그 경험을 돌아보고, 다음 질문을 찾아갑니다.",
+    "storyLink": "제 이야기를 더 읽어보세요",
+    "contactTitle": "질문 하나, 아이디어 하나, 혹은 음악 한 곡.",
+    "contactCopy": "연구와 공연 음향, 함께 음악을 만드는 방법에 관해 이야기하고 싶습니다.",
+    "contactLink": "연락처 보기",
+    "aboutLink": "저에 대해"
+  }
+}

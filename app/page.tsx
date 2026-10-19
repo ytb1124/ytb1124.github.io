@@ -2,10 +2,12 @@ import Image from 'next/image';
 import { PageShell, ProjectCard } from './components/site';
 import { HeroShader } from './components/hero-shader';
 import { allProjects, Locale, localizedPath, site } from './data/site';
+import narrative from '../content/home-narrative.json';
+import './home.css';
 
 export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale }) {
   const home = locale === 'ko' ? site.koreanHome : site.home;
-  const overview = site.overview[locale];
+  const copy = narrative[locale];
   const featured = site.featuredProjectSlugs.map(slug=>allProjects.find(project=>project.slug===slug)!).filter(Boolean);
   return (
     <PageShell locale={locale} path="/">
@@ -13,22 +15,66 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
         <HeroShader />
         <h1>{home.hero.split('\n').map(line => <span key={line}>{line}</span>)}</h1>
         <p className="hero-caption"><span>Music Technology</span><span aria-hidden="true">·</span><span>Sound Engineer</span><span aria-hidden="true">·</span><a href={site.socials.cv} target="_blank" rel="noopener noreferrer">View CV ↗</a></p>
-        <a className="hero-orb" href="#at-a-glance" aria-label={locale === 'ko' ? '과거, 현재, 미래 보기' : 'Explore my past, present, and future'} />
+        <a className="hero-orb" href="#at-a-glance" aria-label={locale === 'ko' ? '짧은 소개 보기' : 'A little about me'} />
       </section>
-      <section className="home-at-a-glance" id="at-a-glance" aria-label={locale === 'ko' ? '과거, 현재, 미래' : 'Past, present, and future'}>
-        <dl className="overview-path">
-          <div><dt>{overview.pastLabel}</dt><dd>{overview.past}</dd></div>
-          <div><dt>{overview.nowLabel}</dt><dd>{overview.now}</dd></div>
-          <div><dt>{overview.nextLabel}</dt><dd>{overview.next}</dd></div>
-        </dl>
+      <section className="home-brief" id="at-a-glance" aria-labelledby="home-intro-title">
+        <div>
+          <h2 id="home-intro-title">{locale === 'ko' ? '유태빈' : site.name}</h2>
+          <p className="home-brief-role">{home.role}</p>
+        </div>
+        <div className="home-brief-copy">
+          <p>{home.intro}</p>
+          <div className="home-brief-bottom">
+            <span>{copy.experience}</span>
+            <a href={localizedPath(locale, '/profile')}>{copy.aboutLink} <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
       </section>
-      <section className="home-intro content-width"><div className="intro-name"><h2>{locale === 'ko' ? site.koreanName : site.name}</h2><p className="intro-copy">{home.intro}</p><p className={`intro-copy-phone${locale === 'ko' ? ' intro-copy-phone-ko' : ''}`}>{home.intro}</p><a href={localizedPath(locale, '/profile')}>{locale === 'ko' ? '저에 대해 더 알아보기 →' : 'MORE ABOUT ME →'}</a><ol className="intro-credentials">{home.credentials.split('\n').map((credential,index)=><li key={credential}><span>{String(index+1).padStart(2,'0')}</span><strong>{credential}</strong></li>)}</ol></div><div className="intro-role"><Image src={site.assets.homePortrait} alt={locale === 'ko' ? '유태빈' : 'Taebin Yoo'} width={756} height={1008}/><h3>{home.role}</h3><p>{home.disciplines}</p><a href={localizedPath(locale, '/music-production')}>{locale === 'ko' ? '음악 제작 작업 보기 →' : 'MUSIC PRODUCTION →'}</a></div></section>
-      <section className="home-quote content-width">
-        <h2 className="quote-desktop">{home.quote.split('\n').map((line, index) => <span key={index}>{line}</span>)}</h2>
-        {locale === 'ko' ? <><h2 className="quote-mobile quote-mobile-ko-main"><span>그래서 제가 태어난 것만 같아</span><span>요.</span><span>제가 상상할 수 있는 모든 것을 </span><span>경험하기 위해서요.</span></h2><h2 className="quote-mobile quote-mobile-ko-end">천천히, 그러나 꾸준히요!</h2></> : <h2 className="quote-mobile">{["That's why I was born.",'to experience whatever','I can imagine—','slowly, but steadily.'].map((line) => <span key={line}>{line}</span>)}</h2>}
-        {home.quoteEnd&&<h3>{home.quoteEnd}</h3>}
+
+      <section className="selected-projects content-width home-featured" aria-labelledby="home-projects-title">
+        <div className="section-head">
+          <a href={localizedPath(locale, '/projects')}>{locale === 'ko' ? '모든 프로젝트 보기 →' : 'View All Projects →'}</a>
+          <h2 id="home-projects-title">{locale === 'ko' ? '대표 프로젝트' : 'Selected Projects'}</h2>
+        </div>
+        <p className="home-featured-intro">{copy.workIntro}</p>
+        <div className="project-grid">{featured.map(project => <ProjectCard key={project.slug} project={project} locale={locale} compact />)}</div>
       </section>
-      <section className={`selected-projects content-width${locale === 'ko' ? ' selected-projects-ko' : ''}`}><div className="section-head"><a href={localizedPath(locale, '/projects')}>{locale === 'ko' ? '모든 프로젝트 보기 →' : 'View All Projects →'}</a><h2>{locale === 'ko' ? '최근 프로젝트' : 'Selected Projects'}</h2></div><div className="project-grid">{featured.map((project) => <ProjectCard key={project.slug} project={project} locale={locale} compact />)}</div></section>
+
+      <section className="home-inquiry" aria-labelledby="home-inquiry-title">
+        <header className="home-inquiry-heading">
+          <div>
+            <h2 id="home-inquiry-title">{copy.directionTitle}</h2>
+          </div>
+          <p>{copy.directionIntro}</p>
+        </header>
+        <ol className="home-inquiry-path">
+          {copy.steps.map((step, index) => (
+            <li key={step.title}>
+              <div className="home-inquiry-marker"><span>{String(index + 1).padStart(2, '0')}</span><span aria-hidden="true">{index < 2 ? '→' : '↗'}</span></div>
+              <p className="home-inquiry-focus">{step.focus}</p>
+              <h3>{step.title}</h3>
+              <h4>{step.question}</h4>
+              <p className="home-inquiry-body">{step.body}</p>
+              <div className="home-inquiry-links">{step.links.map(link => <a key={link.slug} href={localizedPath(locale, `/projects/${link.slug}`)}>{link.label} <span aria-hidden="true">↗</span></a>)}</div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="home-closing" aria-labelledby="home-story-title">
+        <div className="home-story">
+          <div className="home-story-image"><Image src={site.assets.homePortrait} alt={locale === 'ko' ? '유태빈' : 'Taebin Yoo'} width={756} height={1008} loading="lazy" /></div>
+          <div className="home-story-copy">
+            <h2 id="home-story-title">{home.quote.split('\n').filter(Boolean).map((line, index) => <span key={index}>{line}</span>)}</h2>
+            <p>{copy.story}</p>
+            <a className="home-inline-link" href={localizedPath(locale, '/profile')}>{copy.storyLink} <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div className="home-contact">
+          <div><h3>{copy.contactTitle}</h3><p>{copy.contactCopy}</p></div>
+          <div className="home-contact-links"><a className="home-email" href={site.contact.emailHref}>{site.contact.email} <span aria-hidden="true">↗</span></a><a className="home-inline-link" href={localizedPath(locale, '/contact')}>{copy.contactLink} <span aria-hidden="true">→</span></a></div>
+        </div>
+      </section>
     </PageShell>
   );
 }

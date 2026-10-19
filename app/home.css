@@ -1,0 +1,44 @@
+/* Home narrative. The opening hero keeps its existing styles. */
+.home-brief{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;padding:64px var(--gutter) 48px;background:#080808;scroll-margin-top:100px}
+.home-brief h2{margin:0 0 12px;font-family:Sentient,Georgia,serif;font-size:38px;font-weight:400;letter-spacing:-.035em}
+.home-brief-role{margin:0;color:#aaa;font-size:13px;line-height:1.6}
+.home-brief-copy>p{margin:0;font-size:18px;line-height:1.75;color:#e2e2e2;max-width:680px}
+.home-brief-bottom{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-top:22px;font-size:12px;line-height:1.7}
+.home-brief-bottom>span{color:#aaa}.home-brief-bottom>a{flex-shrink:0;border-bottom:1px solid #777;padding-bottom:3px}
+.is-home .selected-projects.home-featured{padding-top:32px;padding-bottom:75px}
+.is-home .home-featured .section-head{border-color:#454545;margin-bottom:16px}
+.home-featured-intro{margin:0 0 28px;color:#aaa;font-size:14px;line-height:1.7}
+.home-inquiry{padding:76px var(--gutter) 80px;background:#121315;border-block:1px solid #292a2c}
+.home-inquiry-heading{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end;margin-bottom:52px}
+.home-inquiry-heading h2{max-width:600px;margin:0;font-family:Sentient,Georgia,serif;font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.25;letter-spacing:-.025em}
+.home-inquiry-heading>p{margin:0;color:#bcbcbc;font-size:15px;line-height:1.8;max-width:480px}
+.home-inquiry-path{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;list-style:none;margin:0;padding:0}
+.home-inquiry-path>li{display:flex;flex-direction:column;min-width:0}
+.home-inquiry-marker{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #68605d;padding-top:14px;color:#ffb29f;font-size:12px}
+.home-inquiry-marker>span:last-child{font-size:22px;line-height:1}
+.home-inquiry-focus{margin:30px 0 8px;color:#aaa;font-size:11px;letter-spacing:.04em}
+.home-inquiry-path h3{margin:0 0 24px;font-family:Sentient,Georgia,serif;font-size:clamp(30px,3.5vw,46px);font-weight:400;letter-spacing:-.035em}
+.home-inquiry-path h4{min-height:3em;margin:0 0 14px;font-size:17px;font-weight:400;line-height:1.5;letter-spacing:-.01em}
+.home-inquiry-body{margin:0 0 28px;color:#aaa;font-size:14px;line-height:1.8}
+.home-inquiry-links{display:flex;flex-direction:column;align-items:start;gap:12px;margin-top:auto;padding-top:18px;border-top:1px solid #343537}
+.home-inquiry-links a{font-size:12px;line-height:1.5;color:#e3d5cf}.home-inquiry-links a span{display:inline-block;margin-left:5px}
+.home-closing{padding:80px var(--gutter) 64px;background:#080808}
+.home-story{display:grid;grid-template-columns:250px minmax(0,1fr);gap:75px;align-items:center}
+.home-story-image img{width:250px;height:auto;aspect-ratio:3/4;object-fit:cover;filter:saturate(.75)}
+.home-story-copy{max-width:790px}.home-story-copy h2{margin:0 0 24px;font-family:Sentient,Georgia,serif;font-size:clamp(25px,2.65vw,35px);line-height:1.3;font-weight:400;letter-spacing:-.025em}.home-story-copy h2 span{display:block}
+.home-story-copy>p{max-width:660px;margin:0 0 22px;color:#aaa;font-size:15px;line-height:1.8}
+.home-inline-link{display:inline-block;font-size:12px;line-height:1.6;border-bottom:1px solid #656565;padding-bottom:4px}
+.home-contact{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;border-top:1px solid #343434;margin-top:64px;padding-top:40px}
+.home-contact h3{font-family:Sentient,Georgia,serif;font-size:25px;line-height:1.4;font-weight:400;margin:0 0 12px}.home-contact p{margin:0;color:#aaa;font-size:14px;line-height:1.7}
+.home-contact-links{display:flex;flex-direction:column;align-items:flex-start;justify-self:end;gap:18px}.home-email{font-family:Sentient,Georgia,serif;font-size:clamp(21px,2.4vw,30px);line-height:1.5;letter-spacing:-.02em}.home-email span{color:#ffb29f}
+.home-brief a:hover,.home-inquiry a:hover,.home-closing a:hover{color:#ffb29f}.home-brief a:focus-visible,.home-inquiry a:focus-visible,.home-closing a:focus-visible{outline:2px solid #ffb29f;outline-offset:6px}
+.locale-ko :is(.home-brief,.home-inquiry,.home-closing) :is(h2,h3,h4){font-family:'Noto Sans KR','Apple SD Gothic Neo',sans-serif;letter-spacing:-.04em}.locale-ko .home-inquiry-heading h2{max-width:550px;line-height:1.45}.locale-ko .home-story-copy h2{font-size:clamp(23px,2.3vw,30px);line-height:1.55}
+@media(max-width:920px){
+ .home-brief{gap:35px;grid-template-columns:.7fr 1.3fr}.home-brief-bottom{flex-wrap:wrap;gap:12px}.home-inquiry-heading{gap:35px}.home-inquiry-path{gap:24px}.home-inquiry-path h4{font-size:16px}.home-story{grid-template-columns:200px 1fr;gap:40px}.home-story-image img{width:200px}
+}
+@media(max-width:640px){
+ .home-brief{grid-template-columns:1fr;gap:24px;padding-block:38px 28px;scroll-margin-top:115px}.home-brief h2{font-size:30px}.home-brief-copy>p{font-size:15px;line-height:1.8}.home-brief-bottom{font-size:11px;margin-top:18px;gap:15px}
+ .is-home .selected-projects.home-featured{padding-block:28px 45px}.home-featured .section-head{gap:18px}.home-featured .section-head>a{max-width:110px;line-height:1.5;text-align:right;font-size:10px}.home-featured .section-head h2{font-size:26px}.home-featured-intro{font-size:13px;margin-bottom:24px}
+ .home-inquiry{padding-block:44px}.home-inquiry-heading{grid-template-columns:1fr;gap:20px;margin-bottom:32px}.home-inquiry-heading h2{font-size:30px}.home-inquiry-heading>p{font-size:14px}.home-inquiry-path{grid-template-columns:1fr;gap:36px}.home-inquiry-marker>span:last-child{transform:rotate(90deg)}.home-inquiry-path>li:last-child .home-inquiry-marker>span:last-child{transform:none}.home-inquiry-focus{margin-top:22px}.home-inquiry-path h3{font-size:35px;margin-bottom:18px}.home-inquiry-path h4{min-height:0;font-size:18px;max-width:30ch}.home-inquiry-body{margin-bottom:20px;max-width:55ch}.home-inquiry-links{flex-direction:row;flex-wrap:wrap;gap:12px 22px}
+ .home-closing{padding-block:44px 40px}.home-story{grid-template-columns:1fr;gap:26px}.home-story-image img{width:130px}.home-story-copy h2{font-size:26px}.home-story-copy>p{font-size:14px}.home-contact{grid-template-columns:1fr;gap:25px;margin-top:36px;padding-top:30px}.home-contact h3{font-size:23px}.home-contact-links{justify-self:start}.home-email{font-size:25px}
+}
