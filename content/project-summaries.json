@@ -1,18 +1,26 @@
 {
   "corrective-impulse-response": {
     "en": {
-      "question": "Can corrective IR make one venue sound like another?",
+      "question": "Can the acoustic character of another venue be reproduced in the current space?",
       "system": "Six corrective FIR filters in Max/MSP, with the target hall’s late reverberation added through Convology XT.",
       "methods": "Measure six speaker paths, align the IRs with GCC-PHAT, and create gain-limited filters for 0–40 ms and 125 Hz–4 kHz.",
       "result": "At one measurement position, mean spectral error fell from 2.69 to 2.24 dB. This comparison used the same measurements that were used to design the filters.",
-      "next": "Measure other seats with new data, compare uncorrected sound, direct target-IR convolution, and this method, then run listening tests."
+      "next": "Measure other seats with new data, compare uncorrected sound, direct target-IR convolution, and this method, then run listening tests.",
+      "limitation": "Improvement at other seats, repeatability with new measurements, and a perceptual match to the target hall remain unverified.",
+      "lesson": "A smaller spectral error at one position is only a first step toward reproducing a space. The next question is whether the correction survives a change of seat and is audible to listeners.",
+      "build": "Analysed and aligned six speaker-path IRs in Python, generated corrective FIR filters, and implemented real-time multichannel convolution in Max/MSP. Convology XT adds the target hall’s late reverberation separately.",
+      "findOut": "At fourth-row center, mean spectral error fell from 2.69 to 2.24 dB on the measurements used to design the filters. Improvement at other seats and a perceptual match to the target hall remain unverified."
     },
     "ko": {
-      "question": "보정 IR로 다른 공연장의 소리를 재현할 수 있을까?",
+      "question": "다른 공연장의 음향적 특성을 현재 공간에 재현할 수 있을까?",
       "system": "Max/MSP에서 채널별 보정 FIR을 적용하고 Convology XT로 목표 홀의 잔향을 더한 6채널 시스템입니다.",
       "methods": "여섯 스피커 경로를 측정하고 GCC-PHAT으로 IR을 정렬한 뒤, 초기 0–40 ms·125 Hz–4 kHz 구간의 보정 필터를 만들었습니다.",
       "result": "한 측정 위치에서 평균 스펙트럼 오차가 2.69 dB에서 2.24 dB로 줄었습니다. 필터를 만들 때 쓴 측정 자료로 비교한 결과입니다.",
-      "next": "새로 측정한 자료로 여러 좌석에서 무보정·목표 IR 직접 적용·제안 방식을 비교하고 청취 평가를 진행할 예정입니다."
+      "next": "새로 측정한 자료로 여러 좌석에서 무보정·목표 IR 직접 적용·제안 방식을 비교하고 청취 평가를 진행할 예정입니다.",
+      "limitation": "다른 좌석에서의 개선, 새 측정 자료에서의 재현성, 목표 홀과 청감상 같은지 여부는 아직 확인하지 못했습니다.",
+      "lesson": "한 지점의 스펙트럼 오차 감소만으로 공간을 재현했다고 할 수는 없습니다. 다음 질문은 좌석이 바뀌어도 보정이 유지되고, 청취자도 그 차이를 느끼는가입니다.",
+      "build": "Python으로 여섯 스피커 경로의 IR을 분석·정렬하고 보정 FIR 필터를 생성했습니다. Max/MSP에서 실시간 멀티채널 컨볼루션을 구현하고, Convology XT로 목표 홀의 후기 잔향을 따로 더했습니다.",
+      "findOut": "4열 중앙에서 필터 생성에 쓴 측정 자료의 평균 스펙트럼 오차가 2.69→2.24 dB로 줄었습니다. 다른 좌석에서도 개선되는지, 목표 홀과 청감상 같은지는 아직 확인하지 못했습니다."
     }
   },
   "spatial-renderer-system-identification": {
@@ -21,14 +29,22 @@
       "system": "A DME7 test setup with Smaart gain measurements and numerical model comparisons.",
       "methods": "Change one set of renderer settings, record speaker gains, and compare those values with model predictions.",
       "result": "The distance model matched selected measurements in normal output conditions within about 0.005 dB. It failed to predict the output near boundaries in a new speaker layout.",
-      "next": "Test a fixed prediction rule on new layouts and investigate height controls, attenuation, and response to movement."
+      "next": "Test a fixed prediction rule on new layouts and investigate height controls, attenuation, and response to movement.",
+      "limitation": "The five-speaker N/T boundary predictions failed: maximum errors were 9.2876 and 8.6677 dB. The later 0.0064 dB fit for N was chosen after measurement; it does not explain T.",
+      "lesson": "Fitting an observed result is different from predicting an unseen layout. I need to fix the rule before the next experiment.",
+      "build": "Built a DME7 measurement setup, recorded speaker gains with Smaart, and compared numerical predictions with measurements across renderer settings and speaker layouts.",
+      "findOut": "The distance model matched selected normal-output measurements within about 0.005 dB, but boundary predictions failed in a new layout. Fitting the observed data did not establish a general prediction rule."
     },
     "ko": {
       "question": "Sound xR은 위치를 스피커별 출력으로 어떻게 바꿀까?",
       "system": "DME7과 Smaart로 출력 게인을 측정하고 수치 모델과 비교한 실험입니다.",
       "methods": "렌더러 설정을 바꾸며 스피커별 게인을 기록하고 모델의 예측값과 비교했습니다.",
       "result": "정상 출력 조건에서 거리 모델의 예측과 대표 측정값의 차이는 약 0.005 dB 이내였습니다. 하지만 스피커 배치를 바꾸자 경계 부근의 출력을 제대로 예측하지 못했습니다.",
-      "next": "예측 규칙을 미리 정해 새로운 배치에서 시험하고, 높이 제어·감쇠·움직임에 따른 응답을 확인할 예정입니다."
+      "next": "예측 규칙을 미리 정해 새로운 배치에서 시험하고, 높이 제어·감쇠·움직임에 따른 응답을 확인할 예정입니다.",
+      "limitation": "5스피커 N/T 경계 조건의 사전 예측은 실패했고 최대 오차는 각각 9.2876, 8.6677 dB였습니다. N의 0.0064 dB 사후 적합은 측정 뒤 선택한 설명이며 T까지 설명하지 못합니다.",
+      "lesson": "이미 본 결과를 설명하는 것과 새로운 배치를 예측하는 것은 다릅니다. 다음 실험에서는 규칙을 먼저 고정하고 예측력을 확인해야 합니다.",
+      "build": "DME7 측정 환경을 구성하고 Smaart로 스피커별 게인을 기록했습니다. 렌더러 설정과 스피커 배치를 바꾸며 수치 모델의 예측값을 측정값과 비교했습니다.",
+      "findOut": "정상 출력 조건의 대표 측정값은 거리 모델과 약 0.005 dB 이내로 맞았지만, 새 배치의 경계 구간 예측은 실패했습니다. 측정값을 설명하는 모델이 새로운 조건까지 예측하지는 못했습니다."
     }
   },
   "multicannel-mixing-system": {
@@ -37,14 +53,22 @@
       "system": "Console routing, a 3.1 speaker system, and extra rear-stage speakers.",
       "methods": "Route vocals and rhythm instruments to the center, with other parts and reverberation spread across the remaining speakers.",
       "result": "Some audience members said the sounds felt separated rather than blending together. This was informal feedback, not a structured listening test.",
-      "next": "Run structured listening tests to compare different ways of blending the speaker outputs."
+      "next": "Run structured listening tests to compare different ways of blending the speaker outputs.",
+      "limitation": "There is no controlled listening comparison or measured improvement in localization or immersion. Audience comments are informal observations.",
+      "lesson": "Separating sources is not enough to make a coherent sound scene. This shifted my question from where sound is placed to how listeners bring it together.",
+      "build": "Built a 3.1 system with rear-stage speakers. Routed vocals and rhythm instruments to the center, and distributed other instruments and reverberation across the remaining speakers.",
+      "findOut": "Some audience members described the sound as disconnected. Source separation alone did not make a coherent scene; localization and immersion still need a structured listening comparison."
     },
     "ko": {
       "question": "소리의 위치를 무대 위 모습과 맞출 수 있을까?",
       "system": "콘솔 라우팅과 3.1채널 시스템에 무대 뒤쪽 스피커를 더했습니다.",
       "methods": "보컬과 주요 리듬 악기는 센터로, 나머지 악기와 잔향은 좌우·후방으로 나눴습니다.",
       "result": "일부 관객은 소리가 하나로 이어지기보다 서로 떨어져 들린다고 말했습니다.",
-      "next": "스피커별 소리를 자연스럽게 연결하는 방법을 비교하고 체계적인 청취 평가를 진행할 예정입니다."
+      "next": "스피커별 소리를 자연스럽게 연결하는 방법을 비교하고 체계적인 청취 평가를 진행할 예정입니다.",
+      "limitation": "정위감이나 몰입도가 개선됐다는 정량 측정과 통제된 청취 비교는 없습니다. 관객 반응은 비공식 관찰입니다.",
+      "lesson": "음원을 분리하는 것만으로 하나의 자연스러운 장면이 만들어지지는 않았습니다. 관심은 소리를 어디에 놓는가에서 청취자가 어떻게 하나로 듣는가로 옮겨갔습니다.",
+      "build": "3.1채널과 무대 후방 스피커를 구성했습니다. 보컬·주요 리듬 악기는 센터로, 나머지 악기와 잔향은 좌우·후방으로 나누어 라우팅했습니다.",
+      "findOut": "일부 관객은 소리가 서로 떨어져 들린다고 말했습니다. 음원을 분리하는 것만으로 자연스러운 장면이 되지는 않았고, 정위감·몰입도 개선은 체계적인 청취 비교가 필요합니다."
     }
   },
   "wan-audio-transmission": {
@@ -53,14 +77,22 @@
       "system": "Two remote DAWs connected with relay and peer-to-peer audio tools.",
       "methods": "Test ffmpeg, JACK, and JackTrip while checking delay, buffer errors, and playback over time.",
       "result": "Audio transmission worked, but clock drift limited stable playback over time.",
-      "next": "Investigate synchronization and adaptive resampling between the two systems."
+      "next": "Investigate synchronization and adaptive resampling between the two systems.",
+      "limitation": "Stable, sample-accurate playback over time was not achieved. The tests do not establish a reliable remote ensemble workflow.",
+      "lesson": "Getting audio across a network is only part of musical collaboration. Keeping two systems on the same clock became the next engineering question.",
+      "build": "Connected two remote DAWs and tested relay and peer-to-peer audio transmission with ffmpeg, JACK, and JackTrip.",
+      "findOut": "Audio transmission worked, but clock drift led to buffer errors and clicks over time. A working connection did not yet provide stable, sample-accurate playback for remote collaboration."
     },
     "ko": {
       "question": "멀리 떨어져서도 함께 음악을 만들 수 있을까?",
       "system": "중계·P2P 오디오 도구로 멀리 떨어진 두 DAW를 연결했습니다.",
       "methods": "ffmpeg·JACK·JackTrip을 시험하며 지연, 버퍼 오류, 시간에 따른 재생 상태를 확인했습니다.",
       "result": "오디오는 전송됐지만, 두 장비의 클락이 조금씩 어긋나면서 장시간 안정적으로 재생하기 어려웠습니다.",
-      "next": "두 시스템 사이의 동기화와 적응형 리샘플링을 살펴볼 예정입니다."
+      "next": "두 시스템 사이의 동기화와 적응형 리샘플링을 살펴볼 예정입니다.",
+      "limitation": "장시간 샘플 단위로 일치하는 안정적 재생은 달성하지 못했습니다. 원격 합주에 안정적으로 사용할 수 있다는 검증도 남아 있습니다.",
+      "lesson": "네트워크로 소리를 보내는 것만으로 함께 연주할 조건이 갖춰지지는 않았습니다. 두 시스템의 시간을 어떻게 맞출지가 다음 기술적 질문이 됐습니다.",
+      "build": "떨어진 두 DAW를 연결하고 ffmpeg·JACK·JackTrip으로 중계 및 P2P 오디오 전송을 시험했습니다.",
+      "findOut": "오디오 전송은 됐지만, 시간이 지나며 쌓이는 클락 차이로 버퍼 오류와 클릭이 발생했습니다. 연결을 넘어 원격 협업에 필요한 장시간 안정적 재생은 확보하지 못했습니다."
     }
   },
   "electronic-drums": {
@@ -69,14 +101,22 @@
       "system": "A Max/MSP drum module with adjustable sample selection, level, pan, and hi-hat control.",
       "methods": "Manually adjust MIDI velocity ranges and sample choices for one drummer.",
       "result": "The module works with custom snare and ride mappings and CC4 hi-hat control. Its benefit to playing has not yet been measured.",
-      "next": "Record velocity distributions and compare fixed and tailored mappings with more players."
+      "next": "Record velocity distributions and compare fixed and tailored mappings with more players.",
+      "limitation": "No velocity-distribution study or controlled before/after evaluation has been completed. Automatic adaptation and benefits across players are unverified.",
+      "lesson": "Building adjustable mappings made individual touch a concrete design variable. The next step is to test whether that control helps players, rather than assume that customization is better.",
+      "build": "Built a Max/MSP drum module with manually tailored snare and ride velocity mappings, CC4 hi-hat control, and individual gain, pan, and output settings.",
+      "findOut": "Manual mappings and hi-hat control work for one player. Whether tailored responses improve playing remains unmeasured; a comparison with fixed mappings is still needed."
     },
     "ko": {
       "question": "전자드럼을 연주자의 타격 습관에 맞출 수 있을까?",
       "system": "샘플 선택과 레벨·팬·하이햇 반응을 조절할 수 있는 Max/MSP 드럼 모듈입니다.",
       "methods": "한 연주자의 연주 방식에 맞춰 MIDI 벨로시티 구간과 샘플 선택을 수동으로 조절했습니다.",
       "result": "스네어·라이드 맞춤 매핑과 CC4 하이햇 제어를 구현했습니다. 연주에 주는 효과는 아직 평가하지 않았습니다.",
-      "next": "여러 연주자의 벨로시티 분포를 기록하고 고정 매핑과 맞춤 매핑을 비교할 예정입니다."
+      "next": "여러 연주자의 벨로시티 분포를 기록하고 고정 매핑과 맞춤 매핑을 비교할 예정입니다.",
+      "limitation": "타격 세기 분포나 조절 전후 효과를 측정하지 않았습니다. 자동 적응이나 여러 연주자에게 공통으로 나타나는 효과도 검증하지 않았습니다.",
+      "lesson": "조절 가능한 매핑을 만들며 개인의 타격 습관을 설계에 반영할 수 있었습니다. 이제 맞춤 설정이 더 좋다고 가정하기보다, 실제 연주에 도움이 되는지 물어야 합니다.",
+      "build": "Max/MSP로 스네어·라이드의 벨로시티 매핑을 수동 조절하는 드럼 모듈을 만들었습니다. CC4 하이햇 제어와 드럼별 게인·팬·출력 설정을 구현했습니다.",
+      "findOut": "한 연주자에 맞춘 수동 매핑과 하이햇 제어는 동작합니다. 맞춤 반응이 연주에 주는 효과는 아직 측정하지 않았으며, 고정 매핑과의 비교가 필요합니다."
     }
   },
   "audio-to-midi-system": {
@@ -85,30 +125,46 @@
       "system": "Trackform: a browser-based transcription and MIDI editing prototype.",
       "methods": "Connect existing transcription models and stem separation to an editable piano roll.",
       "result": "Audio-to-MIDI conversion, stem separation, note editing, and export are working. I have not yet measured conversion accuracy or how much rehearsal preparation time the tool saves.",
-      "next": "Compare outputs with reference MIDI for one to three songs and test the editing and rehearsal workflow."
+      "next": "Compare outputs with reference MIDI for one to three songs and test the editing and rehearsal workflow.",
+      "limitation": "Transcription accuracy, editing effort, and rehearsal time savings have not been measured. Implemented features do not yet demonstrate workflow improvement.",
+      "lesson": "An editable output leaves musical decisions with the performer. The next question is how much correction it needs before it becomes useful in rehearsal.",
+      "build": "Built Trackform by connecting existing transcription models and stem separation to a browser piano roll with note editing, audition, and MIDI export.",
+      "findOut": "Transcription, separation, editing, and export work. Accuracy, correction effort, and rehearsal time savings remain unmeasured, so workflow improvement is not yet established."
     },
     "ko": {
       "question": "창작자의 선택을 유지하면서 AI로 공연 준비를 줄일 수 있을까?",
       "system": "음원을 MIDI로 변환하고 브라우저에서 수정하는 Trackform 프로토타입입니다.",
       "methods": "기존 변환 모델과 악기별 음원 분리를 피아노 롤 편집 화면에 연결했습니다.",
       "result": "오디오를 MIDI로 변환하고, 악기별 음원을 분리하고, 음표를 편집해 내보내는 기능을 구현했습니다. 변환 정확도와 공연 준비 시간을 얼마나 줄이는지는 아직 평가하지 않았습니다.",
-      "next": "테스트곡 1~3곡의 기준 MIDI와 출력을 비교하고 편집·리허설 과정을 시험할 예정입니다."
+      "next": "테스트곡 1~3곡의 기준 MIDI와 출력을 비교하고 편집·리허설 과정을 시험할 예정입니다.",
+      "limitation": "변환 정확도, 수정에 드는 노력, 리허설 준비 시간의 절감은 아직 측정하지 않았습니다. 기능 구현만으로 작업 흐름이 개선됐다고 말할 수는 없습니다.",
+      "lesson": "출력을 직접 고칠 수 있게 하여 연주자가 음악적 선택을 유지하도록 했습니다. 다음 질문은 리허설에 쓰기까지 얼마나 수정해야 하는가입니다.",
+      "build": "기존 변환 모델과 악기별 음원 분리를 브라우저 피아노 롤에 연결한 Trackform을 만들었습니다. 음표 편집·미리 듣기·MIDI 내보내기를 구현했습니다.",
+      "findOut": "변환·분리·편집·내보내기는 동작합니다. 정확도, 수정에 드는 노력, 리허설 준비 시간 절감은 아직 측정하지 않아 작업 흐름의 개선까지 확인한 단계는 아닙니다."
     }
   },
   "adaptive-monitor-system": {
     "en": {
-      "question": "Can music tools adapt to how we hear?",
-      "system": "A proposed monitoring tool for Deaf and hard-of-hearing musicians.",
-      "methods": "Planned: interview musicians and decide what to build together.",
-      "result": "This project is at the concept stage. I have defined the research question; interviews and prototype development are planned.",
-      "next": "Start interviews and co-design, then build a first prototype."
+      "question": "Can listeners discover their own musical cues—and find them again in a song?",
+      "system": "A planned Korean-language music listening website for cochlear implant (CI) users.",
+      "methods": "Design scope: two songs, four listening exercises, stem mixing, and personal listening notes.",
+      "result": "Prepared a literature-based system design, a website specification, and a six-week implementation plan. No prototype has been built.",
+      "next": "Confirm the two-song scope, prepare recordings, and test mobile stem playback; then build the first prototype and plan usability sessions with 2–5 CI users.",
+      "limitation": "No prototype, participant interviews, or user tests have been completed. Cue discovery, enjoyment, and learning outcomes remain hypotheses.",
+      "lesson": "Adjusting sound for a room and a drum response for a player led to a new question: can listeners choose the musical cues that work for them? This is a design motivation from earlier work, not evidence of benefit for CI users.",
+      "build": "Design only; no prototype yet. Documented a two-song listening experience with four element exercises, stem mixing, and listening notes, alongside a six-week implementation plan.",
+      "findOut": "No participant findings yet: interviews, a prototype, and user tests have not started. Whether cue exploration helps listeners discover sounds or enjoy music remains a question for evaluation."
     },
     "ko": {
-      "question": "음악 도구가 서로 다른 청취 방식에 맞춰질 수 있을까?",
-      "system": "청각장애·난청 음악가를 위한 모니터링 도구 구상입니다.",
-      "methods": "음악가 인터뷰를 통해 필요한 기능을 함께 정할 계획입니다.",
-      "result": "아직 연구 구상 단계입니다. 연구 질문을 정했고, 음악가 인터뷰와 시제품 제작을 계획하고 있습니다.",
-      "next": "인터뷰와 공동 설계를 시작하고 첫 프로토타입을 만들 예정입니다."
+      "question": "나에게 들리는 음악 단서를 발견하고, 노래 안에서 다시 찾을 수 있을까?",
+      "system": "인공와우(CI) 사용자를 위한 한국어 음악 청취 웹사이트 구상입니다.",
+      "methods": "두 곡을 바탕으로 네 가지 요소 연습, 스템 믹싱, 청취 노트를 설계했습니다.",
+      "result": "문헌 기반 학습시스템 설계, 웹사이트 구성안, 6주 실행안을 문서로 정리했습니다. 프로토타입은 아직 만들지 않았습니다.",
+      "next": "두 곡의 범위를 확정하고 녹음 준비와 모바일 스템 재생 시험을 진행한 뒤, 첫 프로토타입과 CI 사용자 2–5명의 사용성 평가를 준비할 계획입니다.",
+      "limitation": "프로토타입, 참여자 인터뷰, 사용자 테스트는 아직 진행하지 않았습니다. 단서 발견, 즐거움, 학습 효과는 모두 검증할 가설입니다.",
+      "lesson": "공간에 맞춘 소리 보정과 연주자에 맞춘 드럼 반응을 만들며, 이제 듣는 사람도 자신에게 유효한 음악 단서를 선택할 수 있을지 묻게 됐습니다. 이는 이전 경험에서 나온 설계 동기이며 CI 사용자에게 효과가 있다는 증거는 아닙니다.",
+      "build": "아직 구현 전입니다. 두 곡 기반의 네 가지 요소 연습·스템 믹싱·청취 노트를 설계하고, 문헌 기반 설계안과 6주 실행안을 문서로 정리했습니다.",
+      "findOut": "아직 참여자에게서 확인한 결과는 없습니다. 인터뷰·프로토타입·사용자 테스트는 진행 전이며, 단서 탐색이 소리의 발견과 음악 감상에 도움이 되는지 검증할 계획입니다."
     }
   }
 }

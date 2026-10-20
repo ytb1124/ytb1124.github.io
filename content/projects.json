@@ -262,29 +262,111 @@
     "summary": {
       "en": "Implemented transcription, stem separation, and MIDI editing. Accuracy testing is the next step.",
       "ko": "음원 변환, 악기별 음원 분리, MIDI 편집을 구현했습니다. 변환 정확도는 앞으로 평가할 예정입니다."
-    }
+    },
+    "progress": [
+      {
+        "label": {
+          "en": "Prototype",
+          "ko": "프로토타입"
+        },
+        "state": "done",
+        "detail": {
+          "en": "Transcription, separation, editing, and export implemented.",
+          "ko": "음원 변환·분리·편집·내보내기 구현."
+        }
+      },
+      {
+        "label": {
+          "en": "Accuracy test",
+          "ko": "정확도 테스트"
+        },
+        "state": "planned",
+        "detail": {
+          "en": "Reference-MIDI comparison for 1–3 songs planned.",
+          "ko": "1–3곡의 기준 MIDI와 비교 예정."
+        }
+      },
+      {
+        "label": {
+          "en": "User evaluation",
+          "ko": "사용자 평가"
+        },
+        "state": "planned",
+        "detail": {
+          "en": "Editing and rehearsal workflow evaluation planned.",
+          "ko": "편집·리허설 작업 흐름 평가 예정."
+        }
+      }
+    ]
   },
   {
     "slug": "adaptive-monitor-system",
     "year": "2026",
-    "category": "Performance",
-    "title": "Monitoring for Deaf and Hard-of-Hearing Musicians",
+    "category": "Music accessibility",
+    "title": "Music Listening for Cochlear Implant Users",
     "ongoing": true,
-    "description": "A research concept for co-designed monitoring; interviews and a testable prototype are planned.",
-    "question": "Can music tools adapt to how we hear?",
+    "description": "A literature-based design for exploring musical cues through two songs. Design documents prepared; prototype and user testing not started.",
+    "question": "Can listeners discover their own musical cues—and find them again in a song?",
     "image": "/framer/projects/adaptive-monitor-system/cover.jpeg",
-    "gallery": [
-      "/framer/projects/adaptive-monitor-system/cover.jpeg"
-    ],
+    "gallery": [],
     "body": [
-      "I want to understand what Deaf and hard-of-hearing musicians need from monitoring during rehearsals and performances.",
-      "This is a research concept. I plan to begin with interviews and co-design sessions, then build a prototype with musicians and evaluate it in use. No participant study or prototype test has been completed."
+      "This project changes the direction of Adaptive Musical Partner: from performance monitoring to a Korean-language music listening website for cochlear implant (CI) users. The working title is Cue Listening Room.",
+      "The proposed experience starts with two songs. Listeners would explore rhythm, timbre, pitch direction, and melody separately, then return to a song studio to isolate or raise individual stems. Personal listening notes would record cues they noticed and mixes they liked.",
+      "The six-week plan narrows the first build to five main screens: setup, home, element practice, song studio, and listening notes. It proposes dry recordings and a listen-with-guidance → practice → reflection flow. Adaptive algorithms, haptic feedback, and long-term training programmes are outside this first scope.",
+      "The current outputs are design documents, not a working product. Recordings, mobile playback checks, a prototype, and participant sessions remain planned. The six-week schedule is a proposed build sequence, not six weeks of completed work.",
+      "The proposed first evaluation is usability with 2–5 CI users: can they complete tasks, discover a cue, and choose a mix they enjoy? It cannot establish improved music perception. Longer-term learning and transfer to unfamiliar music would require a separate study."
     ],
     "status": "Research concept",
-    "titleKo": "청각장애·난청 음악가를 위한 모니터링",
+    "titleKo": "인공와우 사용자를 위한 음악 청취",
     "summary": {
-      "en": "A research concept. Interviews, co-design sessions, and a first prototype are planned.",
-      "ko": "연구 구상 단계입니다. 음악가 인터뷰와 공동 설계, 첫 프로토타입 제작을 계획하고 있습니다."
-    }
+      "en": "System design and a six-week plan prepared. No prototype or user study yet.",
+      "ko": "학습시스템 설계와 6주 실행안을 정리했습니다. 프로토타입과 사용자 연구는 아직 진행 전입니다."
+    },
+    "progress": [
+      {
+        "label": {
+          "en": "Research & design",
+          "ko": "문헌·설계"
+        },
+        "state": "done",
+        "detail": {
+          "en": "System design, website scope, and six-week plan documented.",
+          "ko": "학습시스템 설계·웹 구성·6주 실행안 문서화."
+        }
+      },
+      {
+        "label": {
+          "en": "User interviews",
+          "ko": "사용자 인터뷰"
+        },
+        "state": "planned",
+        "detail": {
+          "en": "Participant conversations remain to be conducted.",
+          "ko": "참여자 인터뷰 진행 전."
+        }
+      },
+      {
+        "label": {
+          "en": "Prototype",
+          "ko": "프로토타입"
+        },
+        "state": "planned",
+        "detail": {
+          "en": "Two-song listening website; no build yet.",
+          "ko": "두 곡 기반 청취 웹사이트 제작 전."
+        }
+      },
+      {
+        "label": {
+          "en": "Usability test",
+          "ko": "사용성 테스트"
+        },
+        "state": "planned",
+        "detail": {
+          "en": "Sessions with 2–5 CI users proposed; no results yet.",
+          "ko": "CI 사용자 2–5명 평가 계획. 결과 없음."
+        }
+      }
+    ]
   }
 ]

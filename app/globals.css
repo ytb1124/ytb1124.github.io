@@ -778,3 +778,19 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
  .question-next{left:0;top:calc(100% + 6px);width:18px;height:20px;font-size:20px;line-height:20px;transform:rotate(90deg)}
  .about-overview .profile-story-details>.always-visible-heading{font-size:20px}
 }
+
+/* Evidence and research milestones */
+.research-progress{margin:0 0 30px;padding:24px;background:#191919;border:1px solid var(--line)}.research-progress header h2{font-size:16px;margin:0 0 8px}.research-progress header p{font-size:13px;line-height:1.6;color:#aaa;margin:0}.research-progress ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));list-style:none;gap:20px;padding:0;margin:24px 0 0}.research-progress li{border-top:2px solid #555;padding-top:14px}.research-progress li[data-state=done]{border-color:#ed5739}.milestone-state{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:#aaa}.research-progress li[data-state=done] .milestone-state{color:#ff9c87}.research-progress h3{font-size:15px;margin:9px 0}.research-progress li p{font-size:13px;color:#bbb;line-height:1.6;margin:0}
+.project-result{font-size:13px;line-height:1.65;color:#bcbcbc;margin:12px 0 0}.card-progress{display:flex;flex-wrap:wrap;gap:7px 12px;margin-top:14px;border-top:1px solid var(--line);padding-top:12px}.card-progress span{font-size:10px;line-height:1.6;color:#aaa}.card-progress span[data-state=done]{color:#ff9c87}
+.concept-cover{height:100%;min-height:220px;padding:clamp(18px,2.5vw,36px);display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(ellipse at 100% 0%,#50332b,transparent 70%),#201e1b;color:#eee}.concept-cover>span{font-size:9px;letter-spacing:.12em;color:#ffab94}.concept-cover strong{white-space:pre-line;font-size:clamp(22px,2.5vw,37px);line-height:1.2;font-weight:400;margin:18px 0}.concept-cover>div{font-size:11px;color:#d3bcb1}.concept-cover small{font-size:10px;color:#aaa;margin-top:14px}.project-media:has(.concept-cover){aspect-ratio:auto;min-height:260px}.project-media:has(.concept-cover):after{display:none}
+@media(max-width:640px){.research-progress{padding:20px}.research-progress ol{grid-template-columns:1fr 1fr;gap:20px 16px}.concept-cover{min-height:240px}.concept-cover strong{font-size:30px}}
+@media(max-width:380px){.research-progress ol{grid-template-columns:1fr}}
+
+
+/* One compact account of the question, build, and findings beside the evidence. */
+.detail-overview:not(:has(.evidence-figure)){grid-template-columns:1fr}
+.merged-contribution dl{margin:0}.merged-contribution dl>div{border-top:1px solid var(--line);padding:15px 0}.merged-contribution dl>div:last-child{padding-bottom:0}
+.merged-contribution dt{font-size:11px;font-weight:500;color:#ff9c87;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}.merged-contribution dd{margin:0;font-size:14px;line-height:1.7;color:#ccc}
+.contribution-tools{margin-top:10px;font-size:11px;color:#999}.contribution-tools summary{cursor:pointer;width:fit-content}.detail-review .contribution-tools p{border:0;padding:8px 0 0;font-size:12px!important;color:#aaa}
+.project-next-step{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;border-block:1px solid var(--line);padding:18px 0;margin:0 0 30px}.project-next-step h2{font-size:12px;color:#ff9c87;margin:0;line-height:1.7}.project-next-step p{font-size:14px;line-height:1.7;color:#bbb;margin:0;max-width:95ch}
+@media(max-width:640px){.project-next-step{grid-template-columns:1fr;gap:8px}}

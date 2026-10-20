@@ -21,6 +21,7 @@ export type Project = {
   repository?: string;
   sources?: { label: string; href: string }[];
   ongoing?: boolean;
+  progress?: { label: Record<Locale, string>; state: 'done' | 'planned'; detail: Record<Locale, string> }[];
   contribution?: Record<'problem' | 'design' | 'analysis' | 'tools', Record<Locale, string>>;
   status?: 'Measured study' | 'Working prototype' | 'Research concept' | 'Field experiment' | 'Technical experiment';
 };

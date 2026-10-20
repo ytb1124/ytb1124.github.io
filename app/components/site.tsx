@@ -86,12 +86,13 @@ export function ProjectCard({ project, locale, compact=false }: { project: Proje
   return (
     <a className="project-card-link" href={localizedPath(locale, `/projects/${project.slug}`)} aria-label={locale==='ko'?(project.titleKo??project.title):project.title}>
       <article className={`project-card${compact?' is-compact':''}`}>
-        <div className="project-media"><Image src={project.image} alt="" width={1200} height={800} loading="lazy" /></div>
+        <div className="project-media">{project.slug==='adaptive-monitor-system'?<div className="concept-cover"><span>{locale==='ko'?'단서 청음실 · 연구 구상':'CUE LISTENING ROOM · CONCEPT'}</span><strong>{locale==='ko'?'단서를 찾고,\n노래로 돌아가기.':'Find a cue.\nReturn to the song.'}</strong><div>{locale==='ko'?'리듬 / 음색 / 음높이 / 멜로디':'Rhythm / Timbre / Pitch / Melody'}</div><small>{locale==='ko'?'설계 단계 · 프로토타입 없음':'Design stage · No prototype'}</small></div>:<Image src={project.image} alt="" width={1200} height={800} loading="lazy" />}</div>
         <div className="project-copy">
           <div className="project-meta"><span>{project.year}</span><span>{locale === 'ko' ? (koreanCategories[project.category] ?? project.category) : project.category}</span></div>
           <h3>{locale==='ko'?(project.titleKo??project.title):project.title}</h3>
           {project.status && <span className="project-status">{projectStatusLabel(project.status,locale)}</span>}
           <p className="project-question">{localizedQuestion}</p>
+          {project.summary && <p className="project-result">{project.summary[locale]}</p>}
         </div>
       </article>
     </a>

@@ -252,7 +252,7 @@
         "originTitle": "How live sound led me to research",
         "origin": "The same music can sound different depending on the venue and the listener. Mixing performances and tuning systems made me want to measure why this happens and build tools that better suit the people using them.",
         "futureTitle": "What I want to study next",
-        "future": "In graduate school, I want to study sound through both measurements and musicians’ experiences. I am especially interested in designing monitoring tools with Deaf and hard-of-hearing musicians and evaluating how those tools support their playing.",
+        "future": "In graduate school, I want to study sound through both measurements and listening experiences. Building room correction and performer-tailored instruments led me to ask how CI users might discover and choose musical cues that work for them. This direction is at the literature and design stage; participant interviews and prototype evaluation are planned.",
         "storyTitle": "My story · music, learning, and people",
         "storySections": [
           "Music & mathematics",
@@ -332,7 +332,7 @@
         "originTitle": "연구에 관심을 갖게 된 계기",
         "origin": "같은 음악도 공연장과 듣는 사람에 따라 다르게 들립니다. 현장에서 믹싱하고 시스템을 조정하며, 소리가 왜 달라지는지 측정하고 사람에게 맞는 도구를 만들어 보고 싶어졌습니다.",
         "futureTitle": "앞으로 하고 싶은 연구",
-        "future": "대학원에서는 음향 측정과 음악가의 실제 경험을 함께 살피고 싶습니다. 특히 청각장애·난청 음악가와 모니터링 도구를 함께 설계하고, 연주에 어떤 도움이 되는지 평가하는 연구에 관심이 있습니다.",
+        "future": "대학원에서는 음향 측정과 실제 청취 경험을 함께 살피고 싶습니다. 공간 보정과 연주자 맞춤 악기를 만든 경험에서 출발해, 인공와우 사용자가 자신에게 유효한 음악 단서를 찾고 선택할 수 있는 청취 도구를 연구하려 합니다. 현재는 문헌과 설계안을 정리한 단계이며, 사용자 인터뷰와 프로토타입 평가를 준비할 계획입니다.",
         "storyTitle": "My story · 음악, 배움, 그리고 사람들",
         "storySections": [
           "음악과 수학",

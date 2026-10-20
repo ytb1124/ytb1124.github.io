@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { PageShell } from './site';
-import { site, localizedPath, projectStatusLabel, type Locale, type Project } from '../data/site';
+import { localizedPath, projectStatusLabel, type Locale, type Project } from '../data/site';
 import { koreanProjectBodies } from '../data/korean';
 import { projectSummaries } from '../data/project-summaries';
 import { ContributionBox, ProjectEvidence } from './project-evidence';
@@ -26,9 +26,13 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
           return <a href={href} {...(!resource.localized?{target:'_blank',rel:'noopener noreferrer'}:{})} key={resource.href}>{resource.label[locale]}</a>;
         })}{project.repository&&<a href={project.repository} target="_blank" rel="noopener noreferrer">{ko?'코드 보기 ↗':'View code ↗'}</a>}</div>}
       </header>
-      {summary&&<section className="detail-takeaways"><div><h2>{project.status==='Research concept'?(ko?'현재 단계':'Current stage'):(project.status==='Working prototype'&&project.slug!=='corrective-impulse-response'?(ko?'구현한 기능':'What works so far'):(ko?'확인한 결과':'Findings'))}</h2><p>{summary.result}</p></div><div><h2>{ko?'다음 단계':'Next step'}</h2><p>{summary.next}</p></div></section>}
+      {project.progress && <section className="research-progress" aria-labelledby="progress-title">
+        <header><h2 id="progress-title">{ko?'연구 진행 상황':'Research progress'}</h2><p>{ko?'완료한 작업과 앞으로 검증할 내용을 구분합니다.':'Completed work and planned validation, shown separately.'}</p></header>
+        <ol>{project.progress.map(step=><li key={step.label.en} data-state={step.state}><span className="milestone-state">{step.state==='done'?(ko?'완료':'Completed'):(ko?'진행 전':'Not started')}</span><h3>{step.label[locale]}</h3><p>{step.detail[locale]}</p></li>)}</ol>
+      </section>}
       <div className="detail-overview"><ProjectEvidence slug={project.slug} locale={locale}/><ContributionBox slug={project.slug} locale={locale}/></div>
-      <section className="project-depth"><h2 className="always-visible-heading">{ko?'작업 과정과 사진':'Process & photos'}</h2>
+      {summary&&<div className="project-next-step"><h2>Next step</h2><p>{summary.next}</p></div>}
+      <section className="project-depth"><h2 className="always-visible-heading">{project.status==='Research concept'?(ko?'연구 방향과 구현 계획':'Research direction & proposed build'):(ko?'작업 과정과 사진':'Process & photos')}</h2>
         <div className="detail-body">{body.map((text,i)=><p key={i}>{text}</p>)}
           {project.sources&&<p className="detail-sources">{ko?'참고 자료':'Sources'}{project.sources.map(source=><span key={source.href}><br/><a href={source.href}>{source.label} ↗</a></span>)}</p>}
           {project.video&&<div className="detail-video"><iframe src={project.video} title={title} loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen/></div>}

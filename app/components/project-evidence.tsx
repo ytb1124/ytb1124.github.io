@@ -1,5 +1,6 @@
 import type { Locale } from '../data/site';
 import { contributions } from '../data/project-evidence';
+import { projectSummaries } from '../data/project-summaries';
 
 const ir = [
   ['SLF', 2.27, 1.47], ['SRF', 2.67, 2.35], ['SLC', 3.30, 2.93],
@@ -26,8 +27,17 @@ export function ProjectEvidence({ slug, locale }: { slug: string; locale: Locale
 }
 
 export function ContributionBox({ slug, locale }: { slug: string; locale: Locale }) {
-  const value = contributions[slug];
-  if (!value) return null;
-  const labels = locale === 'ko' ? ['출발한 질문', '만든 것', '분석한 것', '외부 도구와 AI'] : ['The question', 'What I built', 'What I analysed', 'External tools & AI'];
-  return <section className="contribution-box" aria-label={locale==='ko'?'내 기여':'My contribution'}><h2>{locale==='ko'?'My contribution · 내 기여':'My contribution'}</h2><div>{([value.problem,value.design,value.analysis,value.tools] as const).map((item,index)=><p key={labels[index]}><strong>{labels[index]}</strong><span>{item[locale]}</span></p>)}</div></section>;
+  const summary = projectSummaries[slug]?.[locale];
+  if (!summary) return null;
+  const tools = contributions[slug]?.tools[locale];
+  return <section className="contribution-box merged-contribution" aria-label={locale==='ko'?'내 기여와 발견':'My contribution and findings'}>
+    <h2>My contribution</h2>
+    <dl>
+      <div><dt>Wonder</dt><dd>{summary.question}</dd></div>
+      <div><dt>Build</dt><dd>{summary.build}
+        {tools&&<details className="contribution-tools"><summary>{locale==='ko'?'외부 도구와 AI 사용':'External tools & AI'}</summary><p>{tools}</p></details>}
+      </dd></div>
+      <div><dt>Find out</dt><dd>{summary.findOut}</dd></div>
+    </dl>
+  </section>;
 }

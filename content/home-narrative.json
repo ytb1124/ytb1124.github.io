@@ -1,7 +1,7 @@
 {
   "en": {
     "experience": "Questions shaped by more than 200 live performances.",
-    "workIntro": "Experiments in how we hear, play, and make music together.",
+    "workIntro": "Built systems, measured outcomes, and the questions their limits left open.",
     "directionTitle": "From spaces, to performers, to participation.",
     "directionIntro": "Live sound taught me to listen to a room. Building instruments led me to listen to the performer. Now I want to understand what helps more people take part.",
     "steps": [
@@ -41,10 +41,10 @@
         "title": "Participation",
         "focus": "How we join in",
         "question": "How can different ways of hearing become ways of making music?",
-        "body": "This leads to my next question: how can music tools support people with different listening experiences? I plan to explore monitoring tools with Deaf and hard-of-hearing musicians.",
+        "body": "Adjusting sound for a venue and drum response for one player led me to ask what listeners should be able to choose. My next project explores musical cues with CI users: the design is documented; interviews, a prototype, and tests are still ahead.",
         "links": [
           {
-            "label": "Monitoring research concept",
+            "label": "CI music listening · design stage",
             "slug": "adaptive-monitor-system"
           }
         ]
@@ -59,7 +59,7 @@
   },
   "ko": {
     "experience": "200회 이상의 공연 현장에서 시작된 질문들.",
-    "workIntro": "듣고, 표현하고, 함께 음악을 만드는 방법을 실험합니다.",
+    "workIntro": "직접 만든 시스템, 측정한 결과, 그리고 그 한계에서 이어진 질문들입니다.",
     "directionTitle": "공간에서 연주자로, 연주자에서 함께하는 음악으로.",
     "directionIntro": "공연 음향을 하며 공간의 소리를 듣게 됐고, 악기를 만들며 연주자에게 귀를 기울이게 됐습니다. 이제는 더 많은 사람이 음악에 참여하려면 무엇이 필요한지 묻고 싶습니다.",
     "steps": [
@@ -99,10 +99,10 @@
         "title": "참여",
         "focus": "어떻게 함께하는가",
         "question": "서로 다르게 듣는 사람도 자기 방식으로 음악을 만들 수 있을까?",
-        "body": "다음 질문은 서로 다른 청취 경험을 음악 도구가 어떻게 지원할 수 있느냐는 것입니다. 청각장애·난청 음악가와 함께 모니터링 도구를 탐구할 계획입니다.",
+        "body": "공간에 맞춘 소리 보정과 한 연주자에 맞춘 드럼 반응을 만들며, 듣는 사람은 무엇을 직접 선택할 수 있어야 할지 묻게 됐습니다. 다음 연구는 CI 사용자의 음악 단서 탐색입니다. 현재는 설계 문서를 정리했고, 인터뷰·프로토타입·테스트는 앞으로 진행할 일입니다.",
         "links": [
           {
-            "label": "모니터링 도구 연구 구상",
+            "label": "CI 음악 청취 · 설계 단계",
             "slug": "adaptive-monitor-system"
           }
         ]
