@@ -12,7 +12,7 @@
       "findOut": "At fourth-row center, mean spectral error fell from 2.69 to 2.24 dB on the measurements used to design the filters. Improvement at other seats and a perceptual match to the target hall remain unverified."
     },
     "ko": {
-      "question": "다른 공연장의 음향적 특성을 현재 공간에 재현할 수 있을까?",
+      "question": "다른 공연장의 공간 음향 특성을 현재 공연장에 재현할 수 있을까?",
       "system": "Max/MSP에서 채널별 보정 FIR을 적용하고 Convology XT로 목표 홀의 잔향을 더한 6채널 시스템입니다.",
       "methods": "여섯 스피커 경로를 측정하고 GCC-PHAT으로 IR을 정렬한 뒤, 초기 0–40 ms·125 Hz–4 kHz 구간의 보정 필터를 만들었습니다.",
       "result": "한 측정 위치에서 평균 스펙트럼 오차가 2.69 dB에서 2.24 dB로 줄었습니다. 필터를 만들 때 쓴 측정 자료로 비교한 결과입니다.",
@@ -67,8 +67,8 @@
       "next": "스피커별 소리를 자연스럽게 연결하는 방법을 비교하고 체계적인 청취 평가를 진행할 예정입니다.",
       "limitation": "정위감이나 몰입도가 개선됐다는 정량 측정과 통제된 청취 비교는 없습니다. 관객 반응은 비공식 관찰입니다.",
       "lesson": "음원을 분리하는 것만으로 하나의 자연스러운 장면이 만들어지지는 않았습니다. 관심은 소리를 어디에 놓는가에서 청취자가 어떻게 하나로 듣는가로 옮겨갔습니다.",
-      "build": "3.1채널과 무대 후방 스피커를 구성했습니다. 보컬·주요 리듬 악기는 센터로, 나머지 악기와 잔향은 좌우·후방으로 나누어 라우팅했습니다.",
-      "findOut": "일부 관객은 소리가 서로 떨어져 들린다고 말했습니다. 음원을 분리하는 것만으로 자연스러운 장면이 되지는 않았고, 정위감·몰입도 개선은 체계적인 청취 비교가 필요합니다."
+      "build": "3.1채널과 무대 후방 스피커를 구성했습니다. 보컬·주요 리듬 악기는 센터로, 나머지 악기와 리버브는 좌우·후방으로 나누어 라우팅했습니다.",
+      "findOut": "일부 관객은 소리가 서로 분리되어 떨어져 들린다고 말했습니다. 음원을 분리하는 것만으로 자연스러운 장면이 되지는 않았고, 정위감·몰입도 개선은 체계적인 청취 비교가 필요합니다."
     }
   },
   "wan-audio-transmission": {
@@ -84,7 +84,7 @@
       "findOut": "Audio transmission worked, but clock drift led to buffer errors and clicks over time. A working connection did not yet provide stable, sample-accurate playback for remote collaboration."
     },
     "ko": {
-      "question": "멀리 떨어져서도 함께 음악을 만들 수 있을까?",
+      "question": "멀리 떨어져서도 함께 실시간으로 음악을 만들 수 있을까?",
       "system": "중계·P2P 오디오 도구로 멀리 떨어진 두 DAW를 연결했습니다.",
       "methods": "ffmpeg·JACK·JackTrip을 시험하며 지연, 버퍼 오류, 시간에 따른 재생 상태를 확인했습니다.",
       "result": "오디오는 전송됐지만, 두 장비의 클락이 조금씩 어긋나면서 장시간 안정적으로 재생하기 어려웠습니다.",
@@ -108,7 +108,7 @@
       "findOut": "Manual mappings and hi-hat control work for one player. Whether tailored responses improve playing remains unmeasured; a comparison with fixed mappings is still needed."
     },
     "ko": {
-      "question": "전자드럼을 연주자의 타격 습관에 맞출 수 있을까?",
+      "question": "전자드럼 모듈을 연주자의 타격 습관에 맞출 수 있을까?",
       "system": "샘플 선택과 레벨·팬·하이햇 반응을 조절할 수 있는 Max/MSP 드럼 모듈입니다.",
       "methods": "한 연주자의 연주 방식에 맞춰 MIDI 벨로시티 구간과 샘플 선택을 수동으로 조절했습니다.",
       "result": "스네어·라이드 맞춤 매핑과 CC4 하이햇 제어를 구현했습니다. 연주에 주는 효과는 아직 평가하지 않았습니다.",
@@ -116,7 +116,7 @@
       "limitation": "타격 세기 분포나 조절 전후 효과를 측정하지 않았습니다. 자동 적응이나 여러 연주자에게 공통으로 나타나는 효과도 검증하지 않았습니다.",
       "lesson": "조절 가능한 매핑을 만들며 개인의 타격 습관을 설계에 반영할 수 있었습니다. 이제 맞춤 설정이 더 좋다고 가정하기보다, 실제 연주에 도움이 되는지 물어야 합니다.",
       "build": "Max/MSP로 스네어·라이드의 벨로시티 매핑을 수동 조절하는 드럼 모듈을 만들었습니다. CC4 하이햇 제어와 드럼별 게인·팬·출력 설정을 구현했습니다.",
-      "findOut": "한 연주자에 맞춘 수동 매핑과 하이햇 제어는 동작합니다. 맞춤 반응이 연주에 주는 효과는 아직 측정하지 않았으며, 고정 매핑과의 비교가 필요합니다."
+      "findOut": "한 연주자에 맞춘 수동 매핑과 하이햇 제어는 동작합니다. 맞춤 반응이 연주에 주는 효과는 아직 측정하지 않았ㅅ니다."
     }
   },
   "audio-to-midi-system": {
@@ -132,7 +132,7 @@
       "findOut": "Transcription, separation, editing, and export work. Accuracy, correction effort, and rehearsal time savings remain unmeasured, so workflow improvement is not yet established."
     },
     "ko": {
-      "question": "창작자의 선택을 유지하면서 AI로 공연 준비를 줄일 수 있을까?",
+      "question": "아티스트의 음악적 표현을 유지하면서 AI로 공연 준비를 줄일 수 있을까?",
       "system": "음원을 MIDI로 변환하고 브라우저에서 수정하는 Trackform 프로토타입입니다.",
       "methods": "기존 변환 모델과 악기별 음원 분리를 피아노 롤 편집 화면에 연결했습니다.",
       "result": "오디오를 MIDI로 변환하고, 악기별 음원을 분리하고, 음표를 편집해 내보내는 기능을 구현했습니다. 변환 정확도와 공연 준비 시간을 얼마나 줄이는지는 아직 평가하지 않았습니다.",

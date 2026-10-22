@@ -66,15 +66,15 @@
     "contribution": {
       "problem": {
         "en": "I asked how to reduce the current venue’s effect when playing a target hall IR through its speakers.",
-        "ko": "목표 홀 IR을 재생할 때 현재 공연장의 울림이 다시 더해지는 문제를 다뤘습니다."
+        "ko": "공연장에서 다른 공연장의 IR을 컨볼루션할 때 현재 공연장의 IR이 다시 더해지는 문제를 다뤘습니다."
       },
       "design": {
         "en": "I measured six speaker paths and built a live system that corrects the early response and adds the target reverberation separately.",
-        "ko": "여섯 스피커 경로를 측정하고 초기 응답 보정과 목표 잔향을 따로 처리하는 실시간 시스템을 만들었습니다."
+        "ko": "여섯 개의 서라운드 스피커 경로를 캡처하고 초기 응답 보정과 목표 잔향을 따로 처리하는 실시간 시스템을 만들었습니다."
       },
       "analysis": {
         "en": "I compared the first 40 ms in the 125 Hz–4 kHz band at fourth-row center. Mean error fell from 2.69 to 2.24 dB using the data used to create the filters.",
-        "ko": "4열 중앙에서 초기 40 ms·125 Hz–4 kHz 구간을 비교했습니다. 필터 생성에 사용한 자료에서 평균 오차가 2.69→2.24 dB로 줄었습니다."
+        "ko": "객석 4열 중앙에서 초기 40 ms·125 Hz–4 kHz 구간을 비교했습니다. 결과적으로 필터 생성에 사용한 자료에서 평균 오차가 2.69→2.24 dB로 줄었습니다."
       },
       "tools": {
         "en": "I used Python for IR alignment and filter generation, and Max/MSP and Convology XT for playback. AI helped me write the Python code.",
@@ -200,7 +200,7 @@
       "The tests pointed to clock drift between the two systems as a key limitation. Over time, this was associated with buffer errors and audible clicks. Synchronization and adaptive resampling are next steps to investigate."
     ],
     "status": "Technical experiment",
-    "titleKo": "원격 멀티채널 오디오 전송",
+    "titleKo": "실시간 원격 멀티채널 오디오 전송",
     "summary": {
       "en": "Tested audio between remote DAWs. Clock drift limited stable playback over time.",
       "ko": "떨어진 DAW 사이의 오디오 전송을 시험했습니다. 시간이 지나며 쌓이는 클락 차이가 안정적인 재생을 제한했습니다."
@@ -226,7 +226,7 @@
       "The mapping is adjusted manually for one player. It does not learn automatically. Recorded velocity distributions and a controlled comparison with a fixed mapping are still needed."
     ],
     "status": "Working prototype",
-    "titleKo": "연주자 맞춤 전자드럼",
+    "titleKo": "연주자 맞춤 전자드럼 모듈",
     "summary": {
       "en": "Built a Max/MSP drum module with manually adjusted velocity ranges for one player.",
       "ko": "한 연주자의 타격 범위에 맞춰 소리 반응을 수동으로 조절하는 Max/MSP 드럼 모듈을 만들었습니다."
@@ -234,7 +234,7 @@
     "contribution": {
       "problem": {
         "en": "I wanted the drum’s response to match one player’s striking range more closely.",
-        "ko": "드럼의 소리 반응을 한 연주자의 타격 습관에 맞추고 싶었습니다."
+        "ko": "전자드럼의 소리 반응을 한 연주자의 연주 다이나믹에 맞추고 싶었습니다."
       },
       "design": {
         "en": "I built a Max/MSP module with adjustable snare and ride sample ranges, hi-hat control, and separate mixing settings for each drum.",
@@ -242,11 +242,11 @@
       },
       "analysis": {
         "en": "I adjusted the mapping manually for one player. Velocity distributions and a before/after comparison are still needed.",
-        "ko": "한 연주자에 맞춰 소리 반응을 수동으로 조절했습니다. 타격 세기 분포와 조절 전후 비교는 앞으로 확인해야 합니다."
+        "ko": "한 연주자에 맞춰 소리 반응을 수동으로 조절했습니다. 타격 세기 분포와 조절 전후 비교는 추후 확인해야 합니다."
       },
       "tools": {
         "en": "I used Max/MSP and recorded drum samples. The project record does not specify the extent of AI assistance.",
-        "ko": "Max/MSP와 녹음한 드럼 샘플을 사용했습니다. 현재 자료에는 AI 지원 범위가 기록되어 있지 않습니다."
+        "ko": "Max/MSP와 녹음된 드럼 오디오 샘플을 사용했습니다. Max/MSP Object 정보 수집에 AI를 사용했습니다."
       }
     }
   },

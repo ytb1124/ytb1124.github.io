@@ -14,12 +14,12 @@
         "year": "2025",
         "category": {
           "en": "Immersive Live Performance",
-          "ko": "몰입형 라이브 공연"
+          "ko": "Immersive Live Performance"
         },
         "title": "Yamaha AFC Image",
         "question": {
           "en": "An outdoor immersive performance with a 9.1-channel Yamaha AFC Image system.",
-          "ko": "Yamaha AFC Image 9.1채널 시스템으로 구현한 야외 몰입형 라이브 공연입니다."
+          "ko": "Yamaha AFC Image 9.1채널 시스템으로 구현한 야외 이머시브 라이브 공연입니다."
         },
         "image": "/framer/projects/live-immerssive-audio/cover.jpeg",
         "gallery": [
