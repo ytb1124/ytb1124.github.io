@@ -143,7 +143,7 @@
       "findOut": "변환·분리·편집·내보내기는 동작합니다. 정확도, 수정에 드는 노력, 리허설 준비 시간 절감은 아직 측정하지 않아 작업 흐름의 개선까지 확인한 단계는 아닙니다."
     }
   },
-  "adaptive-monitor-system": {
+  "listening-tool-ci": {
     "en": {
       "question": "Can listeners discover their own musical cues—and find them again in a song?",
       "system": "A planned Korean-language music listening website for cochlear implant (CI) users.",

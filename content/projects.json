@@ -300,10 +300,10 @@
     ]
   },
   {
-    "slug": "adaptive-monitor-system",
-    "year": "2026",
+    "slug": "listening-tool-ci",
+    "year": "2026 listening-tool-ci",
     "category": "Music accessibility",
-    "title": "Music Listening for Cochlear Implant Users",
+    "title": "Finding the Music: A Listening Tool for CI Users",
     "ongoing": true,
     "description": "A literature-based design for exploring musical cues through two songs. Design documents prepared; prototype and user testing not started.",
     "question": "Can listeners discover their own musical cues—and find them again in a song?",
