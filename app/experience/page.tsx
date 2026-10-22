@@ -1,5 +1,5 @@
 import { PageShell } from '../components/site';
-import { localizedPath, site } from '../data/site';
+import { allProjects, localizedPath, site } from '../data/site';
 import { koreanExperience } from '../data/korean';
 
 export const dynamic = 'force-static';
@@ -8,6 +8,7 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
   const ko = locale === 'ko';
   const copy = site.pageContent[locale].experience;
   const exp = ko ? { ...site.experience, ...koreanExperience } : site.experience;
+  const plannedSubmission = allProjects.find(project => project.slug === 'corrective-impulse-response')?.plannedSubmission;
   return <PageShell locale={locale} path="/experience">
     <div className="experience-essential overview-page">
       <header className="overview-header header-with-action"><div><span className="section-eyebrow">{copy.eyebrow}</span><h1>{exp.title}</h1></div><a className="pill-link" href={site.socials.cv} target="_blank" rel="noopener noreferrer">{ko ? 'CV 보기 ↗' : 'View CV ↗'}</a></header>
@@ -20,6 +21,7 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
       <section id="selected-writing" className="writing-essential">
         <h2>{ko ? '발표와 기고' : 'Selected Writing & Presentations'}</h2>
         <div className="writing-project"><a href={localizedPath(locale,'/projects/corrective-impulse-response')}>{copy.writingProject}</a><span>{copy.writingAward}</span></div>
+        {plannedSubmission && <article><span className="writing-type">{plannedSubmission.label[locale]}</span><div><a href={plannedSubmission.href} target="_blank" rel="noopener noreferrer">{plannedSubmission.venue} ↗</a><p>{plannedSubmission.description[locale]}</p></div></article>}
         <article><span className="writing-type">{ko ? '학회 발표' : 'Conference paper'}</span><div><a href={ko ? '/reports/corrective-ir-paper-ko.pdf' : '/reports/corrective-ir-paper-en.pdf'} target="_blank" rel="noopener noreferrer">{copy.paperTitle} ↗</a><p>{copy.paperCitation}</p></div></article>
         <article><span className="writing-type">{ko ? '매거진 기고' : 'Magazine article'}</span><div><a lang="ko" href="/reports/corrective-ir-ssm-vol19-ko.pdf" target="_blank" rel="noopener noreferrer">{copy.magazineTitle}</a><p>{copy.magazineCitation}</p></div></article>
       </section>

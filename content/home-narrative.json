@@ -45,7 +45,7 @@
         "links": [
           {
             "label": "CI music listening · design stage",
-            "slug": "adaptive-monitor-system"
+            "slug": "listening-tool-ci"
           }
         ]
       }
@@ -103,7 +103,7 @@
         "links": [
           {
             "label": "CI 음악 청취 · 설계 단계",
-            "slug": "adaptive-monitor-system"
+            "slug": "listening-tool-ci"
           }
         ]
       }

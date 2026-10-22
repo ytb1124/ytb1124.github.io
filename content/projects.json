@@ -45,6 +45,18 @@
       "Max/MSP applies the six filters in real time. Convology XT adds the target hall’s reverberation from about 200 ms onward. The main PA carries the direct sound.",
       "At the fourth-row center, mean spectral error fell from 2.69 to 2.24 dB across six channels. This comparison uses the same path measurements that were used to create the filters. It does not establish improvement at other seats or a perceptual match to the target hall."
     ],
+    "plannedSubmission": {
+      "venue": "SA4ME: International Workshop on Spatial Audio for Multisensory Experiences · IEEE VR 2027",
+      "href": "https://sites.google.com/view/sa4me/home",
+      "label": {
+        "en": "Planned submission",
+        "ko": "논문 제출 예정"
+      },
+      "description": {
+        "en": "I plan to submit a paper on this Corrective IR project to SA4ME at IEEE VR 2027. The paper has not yet been submitted or accepted. If accepted, it is expected to be published in the IEEE Xplore Digital Library.",
+        "ko": "이 보정 IR 프로젝트를 IEEE VR 2027의 SA4ME 워크숍에 논문으로 제출할 예정입니다. 아직 제출·채택 전이며, 채택될 경우 IEEE Xplore Digital Library에 출판될 예정입니다."
+      }
+    },
     "status": "Working prototype",
     "titleKo": "공연장 보정 IR 시스템",
     "summary": {
@@ -301,7 +313,7 @@
   },
   {
     "slug": "listening-tool-ci",
-    "year": "2026 listening-tool-ci",
+    "year": "2026",
     "category": "Music accessibility",
     "title": "Finding the Music: A Listening Tool for CI Users",
     "ongoing": true,

@@ -26,6 +26,10 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
           return <a href={href} {...(!resource.localized?{target:'_blank',rel:'noopener noreferrer'}:{})} key={resource.href}>{resource.label[locale]}</a>;
         })}{project.repository&&<a href={project.repository} target="_blank" rel="noopener noreferrer">{ko?'코드 보기 ↗':'View code ↗'}</a>}</div>}
       </header>
+      {project.plannedSubmission && <section className="project-next-step">
+        <h2>{project.plannedSubmission.label[locale]}</h2>
+        <p><a href={project.plannedSubmission.href} target="_blank" rel="noopener noreferrer">{project.plannedSubmission.venue} ↗</a><br/>{project.plannedSubmission.description[locale]}</p>
+      </section>}
       {project.progress && <section className="research-progress" aria-labelledby="progress-title">
         <header><h2 id="progress-title">{ko?'연구 진행 상황':'Research progress'}</h2><p>{ko?'완료한 작업과 앞으로 검증할 내용을 구분합니다.':'Completed work and planned validation, shown separately.'}</p></header>
         <ol>{project.progress.map(step=><li key={step.label.en} data-state={step.state}><span className="milestone-state">{step.state==='done'?(ko?'완료':'Completed'):(ko?'진행 전':'Not started')}</span><h3>{step.label[locale]}</h3><p>{step.detail[locale]}</p></li>)}</ol>

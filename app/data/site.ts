@@ -24,6 +24,12 @@ export type Project = {
   progress?: { label: Record<Locale, string>; state: 'done' | 'planned'; detail: Record<Locale, string> }[];
   contribution?: Record<'problem' | 'design' | 'analysis' | 'tools', Record<Locale, string>>;
   status?: 'Measured study' | 'Working prototype' | 'Research concept' | 'Field experiment' | 'Technical experiment';
+  plannedSubmission?: {
+    venue: string;
+    href: string;
+    label: Record<Locale, string>;
+    description: Record<Locale, string>;
+  };
 };
 
 type SiteSectionDocument = Omit<(typeof siteDocument.sections)[number], 'projectSlugs'> & {
