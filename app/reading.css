@@ -249,3 +249,47 @@
 @media (max-width: 370px) {
   .site-frame .desktop-nav a { font-size: 11px; }
 }
+
+/* Intermediate widths keep cards readable before the four-column desktop grid. */
+@media (min-width: 481px) and (max-width: 1100px) {
+  .site-frame .home-featured .project-grid,
+  .site-frame .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 28px; }
+  .site-frame .catalog-grid .project-media { aspect-ratio: 16/10; }
+  .site-frame .research-progress ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 641px) and (max-width: 760px) {
+  .site-frame .home-inquiry-heading { grid-template-columns: 1fr; gap: 20px; }
+  .site-frame .home-inquiry-path { grid-template-columns: 1fr; gap: 32px; }
+  .site-frame .home-inquiry-path h4 { min-height: 0; }
+  .site-frame .home-inquiry-marker > span:last-child { transform: rotate(90deg); }
+  .site-frame .home-inquiry-path > li:last-child .home-inquiry-marker > span:last-child { transform: none; }
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .site-frame .brand { font-size: 22px; }
+  .site-frame .desktop-nav { gap: 14px; }
+  .site-frame .desktop-nav a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+  .site-frame .header-actions { margin-left: 18px; }
+  .site-frame .language-picker select { min-height: 44px; }
+  .site-frame .production-pick-top { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; }
+  .site-frame .production-pick-top > img { width: 96px; height: 96px; }
+  .site-frame .publication-page { padding: calc(var(--header-height) + 32px) var(--gutter) 64px; }
+  .site-frame .publication-header { padding: 0 0 32px; }
+  .site-frame .publication-header h1 { font-size: var(--page-title-size); line-height: 1.4; text-wrap: balance; }
+  .site-frame .publication-header > p { font-family: 'Inter Display', Arial, sans-serif; font-size: 15px; line-height: 1.8; }
+  .site-frame .publication-links { margin-top: 24px; gap: 10px; }
+  .site-frame .publication-links a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+  .site-frame .publication-paper { padding-top: 40px; }
+  .site-frame .publication-paper h2 { font-size: 24px; line-height: 1.5; }
+  .site-frame:not(.is-home) .publication-paper p { font-family: 'Inter Display', Arial, sans-serif; font-size: 15px; line-height: 1.8; }
+  .site-frame .publication-abstract { margin-bottom: 40px; padding-bottom: 32px; }
+  .site-frame .publication-section { margin-bottom: 40px; }
+  .site-frame .publication-paper .dataset-note { font-size: 13px!important; line-height: 1.75; }
+  .site-frame .publication-paper .publication-keywords { font-size: 12px!important; line-height: 1.75; }
+  .site-frame .publication-paper .table-scroll-hint { display: block; margin: 24px 0 10px; font-size: 12px; color: #aaa; }
+  .site-frame .publication-table .dataset-table-wrap { margin-top: 0; }
+  .site-frame .dataset-table-wrap table { font-size: 13px; }
+  .site-frame .dataset-table-wrap th { font-size: 11px; }
+}
+@media (min-width: 761px) and (max-width: 900px) {
+  .site-frame { --gutter: 28px; }
+}
