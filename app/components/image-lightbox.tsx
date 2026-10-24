@@ -3,12 +3,13 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
-type LightboxImage = { src: string; alt: string };
+type LightboxImage = { src: string; alt: string; locale: 'en' | 'ko' };
 
 export function ImageLightbox() {
   const [image, setImage] = useState<LightboxImage | null>(null);
   const lastFocused = useRef<HTMLElement | null>(null);
   const closeButton = useRef<HTMLButtonElement | null>(null);
+  const dialog = useRef<HTMLDialogElement | null>(null);
 
   const close = () => {
     setImage(null);
@@ -20,9 +21,10 @@ export function ImageLightbox() {
       if (!(target instanceof Element)) return false;
       const element = target.closest('img');
       if (!(element instanceof HTMLImageElement)) return false;
-      if (!element.closest('main') || element.closest('a[href]') || element.closest('.admin-shell') || element.closest('[data-no-lightbox]') || element.closest('.image-lightbox')) return false;
+      if (!element.closest('main') || element.closest('a[href], summary') || element.closest('.admin-shell') || element.closest('[data-no-lightbox]') || element.closest('.image-lightbox')) return false;
       lastFocused.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-      setImage({ src: element.currentSrc || element.src, alt: element.alt || 'Enlarged photograph' });
+      const locale = element.closest('[lang]')?.getAttribute('lang') === 'ko' ? 'ko' : 'en';
+      setImage({ src: element.currentSrc || element.src, alt: element.alt || (locale === 'ko' ? '확대 사진' : 'Enlarged photograph'), locale });
       return true;
     };
 
@@ -46,15 +48,17 @@ export function ImageLightbox() {
     if (!image) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    if (dialog.current && !dialog.current.open) dialog.current.showModal();
     closeButton.current?.focus();
     return () => { document.body.style.overflow = previousOverflow; };
   }, [image]);
 
   if (!image) return null;
 
-  return <dialog open className="image-lightbox" aria-label={image.alt} onCancel={close}>
-    <button className="image-lightbox-backdrop" type="button" aria-label="Close enlarged image" onClick={close} />
-    <button ref={closeButton} className="image-lightbox-close" type="button" aria-label="Close enlarged image" onClick={close}>×</button>
+  const closeLabel = image.locale === 'ko' ? '확대 사진 닫기' : 'Close enlarged image';
+  return <dialog ref={dialog} className="image-lightbox" aria-label={image.alt} onCancel={close}>
+    <button className="image-lightbox-backdrop" type="button" tabIndex={-1} aria-label={closeLabel} onClick={close} />
+    <button ref={closeButton} className="image-lightbox-close" type="button" aria-label={closeLabel} onClick={close}>×</button>
     <Image src={image.src} alt={image.alt} width={1800} height={1200} unoptimized />
   </dialog>;
 }
