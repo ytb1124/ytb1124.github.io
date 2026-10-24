@@ -1,3 +1,4 @@
+import { PageIntro } from '../components/page-intro';
 import { PageShell, ProjectCard } from '../components/site';
 import { site } from '../data/site';
 
@@ -9,10 +10,7 @@ export default function ProjectsPage({ locale = 'en' as const }: { locale?: 'en'
   const questionSteps = copy.stages;
   return <PageShell locale={locale} path="/projects">
     <div className="research-catalog overview-page">
-      <header className="overview-header catalog-intro">
-        <div><span className="section-eyebrow">{copy.eyebrow}</span><h1>{copy.title}</h1></div>
-        <div><p>{copy.intro}</p></div>
-      </header>
+      <PageIntro eyebrow={copy.eyebrow} title={copy.title} description={copy.intro} />
       <nav className="question-progression" aria-labelledby="question-progression-title">
         <h2 id="question-progression-title">{copy.progressionTitle}</h2>
         <ol>

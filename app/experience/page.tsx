@@ -1,3 +1,4 @@
+import { PageIntro } from '../components/page-intro';
 import { PageShell } from '../components/site';
 import { allProjects, localizedPath, site } from '../data/site';
 import { koreanExperience } from '../data/korean';
@@ -11,7 +12,9 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
   const plannedSubmission = allProjects.find(project => project.slug === 'corrective-impulse-response')?.plannedSubmission;
   return <PageShell locale={locale} path="/experience">
     <div className="experience-essential overview-page">
-      <header className="overview-header header-with-action"><div><span className="section-eyebrow">{copy.eyebrow}</span><h1>{exp.title}</h1></div><a className="pill-link" href={site.socials.cv} target="_blank" rel="noopener noreferrer">{ko ? 'CV 보기 ↗' : 'View CV ↗'}</a></header>
+      <PageIntro eyebrow={copy.eyebrow} title={exp.title}
+        aside={<a className="pill-link" href={site.socials.cv} target="_blank" rel="noopener noreferrer">{ko ? 'CV 보기 ↗' : 'View CV ↗'}</a>}
+      />
       <section className="education-line" aria-label={ko ? '학력' : 'Education'}><strong>{copy.school}</strong><span>{copy.degree} · {copy.period}</span><span>{copy.gpa}</span></section>
       <section className="career-highlights" aria-labelledby="career-heading">
         <h2 id="career-heading">{ko ? '주요 경력' : 'Selected experience'}</h2>

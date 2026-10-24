@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ImageLightbox } from './components/image-lightbox';
 import './globals.css';
+import './reading.css';
 
 export const metadata: Metadata = {
   title: 'Taebin Yoo',

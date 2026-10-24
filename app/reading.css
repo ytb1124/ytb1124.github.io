@@ -1,0 +1,172 @@
+/* Shared reading scale and page rhythm. The opening hero keeps its own type. */
+.site-frame {
+  --frame: 1120px;
+  --gutter: max(32px, calc((100vw - var(--frame)) / 2));
+  --header-height: 80px;
+  --page-title-size: clamp(28px, 2.7vw, 36px);
+  --section-title-size: clamp(22px, 2vw, 26px);
+  --body-size: 15px;
+  background: #080808;
+}
+.site-frame .site-header { height: var(--header-height); padding-inline: var(--gutter); }
+.site-frame .brand { font-size: 23px; }
+.site-frame .desktop-nav { gap: 28px; }
+.site-frame .desktop-nav a { font-size: 13px; }
+.site-frame .header-actions { margin-left: 32px; }
+.site-frame .overview-page,
+.site-frame .detail-review { padding: calc(var(--header-height) + 32px) var(--gutter) 64px; }
+.site-frame :is(.catalog-group, .music-overview section, #selected-writing, #at-a-glance) {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+/* All five main pages share the same left edge and title/description spacing. */
+.page-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 36px;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.page-intro-with-aside { grid-template-columns: minmax(0, 1fr) auto; }
+.page-intro .section-eyebrow { display: block; font-size: 11px; line-height: 1.5; font-weight: 500; color: #ffac95; }
+.site-frame .page-intro h1 {
+  margin: 12px 0 0;
+  font-family: Sentient, Georgia, serif;
+  font-size: var(--page-title-size);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.page-intro-copy > p { max-width: 680px; margin: 16px 0 0; font-size: var(--body-size); line-height: 1.8; color: #c0c0c0; }
+.page-intro-action { margin-top: 20px; }
+.page-intro-aside { padding-top: 28px; }
+.page-intro-aside img { width: 128px; height: 160px; object-fit: cover; }
+.page-intro-aside .pill-link { display: inline-block; padding: 10px 16px; margin: 0; }
+.site-frame :is(.text-link, .home-inline-link) { font-weight: 400; line-height: 1.6; }
+
+/* Home: keep the sequence, soften the oversized headings and tighten gaps. */
+.site-frame .home-brief { grid-template-columns: .7fr 1.3fr; gap: 48px; padding-block: 48px 36px; }
+.site-frame .home-brief h2 { font-size: 30px; line-height: 1.3; }
+.site-frame .home-brief-copy > p { font-size: var(--body-size); line-height: 1.8; max-width: 650px; }
+.site-frame .home-brief-bottom { margin-top: 18px; }
+.site-frame .selected-projects.home-featured { padding-block: 28px 52px; }
+.site-frame .home-featured .section-head { padding-bottom: 16px; margin-bottom: 16px; }
+.site-frame .home-featured .section-head h2 { font-size: var(--section-title-size); line-height: 1.35; }
+.site-frame .home-featured-intro { margin-bottom: 24px; }
+.site-frame .home-inquiry { padding-block: 52px; }
+.site-frame .home-inquiry-heading { gap: 48px; margin-bottom: 32px; }
+.site-frame .home-inquiry-heading h2 { max-width: 520px; font-size: var(--section-title-size); line-height: 1.5; }
+.site-frame .home-inquiry-path { gap: 32px; }
+.site-frame .home-inquiry-focus { margin-top: 24px; }
+.site-frame .home-inquiry-path h3 { font-size: 30px; line-height: 1.3; margin-bottom: 18px; }
+.site-frame .home-inquiry-path h4 { font-size: 16px; line-height: 1.65; }
+.site-frame .home-inquiry-body { margin-bottom: 22px; color: #b6b6b6; }
+.site-frame .home-closing { padding-block: 52px; }
+.site-frame .home-story { grid-template-columns: 180px minmax(0,1fr); gap: 48px; }
+.site-frame .home-story-image img { width: 180px; }
+.site-frame .home-story-copy h2 { font-size: 25px; line-height: 1.55; margin-bottom: 18px; }
+.site-frame .home-contact { margin-top: 44px; padding-top: 32px; }
+.site-frame .home-contact h3 { font-size: 23px; }
+.site-frame .home-email { font-size: 25px; }
+
+/* Keep small card copy readable; reduce competing display-sized text. */
+.site-frame .selected-projects .project-copy h3,
+.site-frame .catalog-grid .project-copy h3 { font-size: 17px; line-height: 1.5; margin-block: 9px; }
+.site-frame .project-copy .project-result { margin-top: 12px; font-size: 13px; line-height: 1.75; color: #b6b6b6; }
+.site-frame .catalog-grid .project-meta { font-size: 11px; }
+.site-frame :is(.selected-projects, .catalog-grid) .project-media:has(.concept-cover) { aspect-ratio: 16/10; min-height: 0; }
+.site-frame :is(.selected-projects, .catalog-grid) .concept-cover { min-height: 0; padding: 16px; }
+.site-frame :is(.selected-projects, .catalog-grid) .concept-cover > span { font-size: 8px; line-height: 1.4; letter-spacing: .02em; }
+.site-frame :is(.selected-projects, .catalog-grid) .concept-cover strong { font-size: 22px; line-height: 1.3; margin: 8px 0; }
+.site-frame :is(.selected-projects, .catalog-grid) .concept-cover > div { display: none; }
+.site-frame :is(.selected-projects, .catalog-grid) .concept-cover small { font-size: 9px; line-height: 1.4; margin: 0; }
+.site-frame .question-progression { border-top: 0; padding-top: 0; padding-bottom: 24px; margin-bottom: 32px; }
+.site-frame .question-progression > h2 { margin-bottom: 18px; }
+.site-frame .question-progression p { font-size: 17px; line-height: 1.65; letter-spacing: 0; }
+.site-frame .catalog-group-head { padding: 16px 0; border: 0; border-top: 1px solid var(--line); }
+.site-frame .catalog-group-head h2 { font-size: 20px; line-height: 1.5; }
+.site-frame .catalog-group-head p { font-size: 14px; line-height: 1.7; }
+.site-frame .catalog-group { margin-top: 36px; }
+.site-frame .question-progression + .catalog-group { margin-top: 24px; }
+.site-frame .question-progression + .catalog-group .catalog-group-head { border-top: 0; padding-top: 0; }
+
+/* Biography: align the story with the page, and constrain each paragraph. */
+.site-frame .about-research { margin: 0 0 32px; padding: 0 0 28px; border-top: 0; gap: 44px; }
+.site-frame .about-research h2 { font-size: 20px; line-height: 1.5; }
+.site-frame .about-research p { font-size: var(--body-size); line-height: 1.8; }
+.site-frame .story-reader { max-width: none; padding: 24px 0; background: none; }
+.site-frame .story-section { grid-template-columns: 160px minmax(0, 1fr); gap: 40px; }
+.site-frame .about-overview .story-copy p { max-width: 68ch; font-size: var(--body-size); line-height: 1.85; color: #c4c4c4; }
+.site-frame.locale-ko .story-copy p { max-width: 43em; }
+.site-frame .about-overview .profile-story-details > .always-visible-heading { font-size: 21px; }
+.site-frame .experience-essential .page-intro { margin-bottom: 0; }
+.site-frame .education-line { border-top: 0; padding-block: 20px; line-height: 1.7; }
+.site-frame .experience-essential h2 { font-size: 21px; line-height: 1.5; }
+.site-frame .career-line p { line-height: 1.8; }
+.site-frame .production-pick h3,
+.site-frame .recording-mixing h3 { font-size: 21px; line-height: 1.4; }
+.site-frame .compact-section-head h2 { font-size: var(--section-title-size); line-height: 1.4; }
+.site-frame .music-overview .section-jumps { border-top: 0; padding-top: 0; }
+.site-frame .contact-compact .contact-details :is(a,p) { font-size: 17px; line-height: 1.6; }
+.site-frame .contact-compact .contact-details { border-top: 0; }
+.site-frame .contact-compact .contact-details > div:first-child { padding-top: 0; }
+
+/* Project pages retain their metadata, within the same page rhythm. */
+.site-frame .detail-review .detail-title { border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+.site-frame:not(.is-home) .detail-review .detail-title h1 { max-width: 900px; font-size: var(--page-title-size); line-height: 1.35; text-wrap: balance; }
+.site-frame .detail-question { max-width: 760px; font-size: var(--body-size); line-height: 1.8; }
+.site-frame .detail-review .project-depth .detail-body { max-width: 720px; margin-left: 0; }
+.site-frame .detail-review .detail-body p { font-size: var(--body-size); line-height: 1.85; }
+.site-frame .detail-back { margin-bottom: 20px; }
+
+@media (max-width: 1000px) {
+  .site-frame .desktop-nav { gap: 18px; }
+  .site-frame .header-actions { margin-left: 22px; }
+  .site-frame .home-inquiry-heading { gap: 28px; }
+  .site-frame .home-inquiry-path { gap: 24px; }
+}
+@media (max-width: 760px) {
+  .site-frame { --gutter: 24px; --header-height: 100px; --page-title-size: 30px; }
+  .site-frame .site-header { padding-block: 8px; }
+  .site-frame .brand { font-size: 20px; }
+  .site-frame .desktop-nav { gap: 10px; }
+  .site-frame .desktop-nav a { font-size: 11px; }
+  .site-frame .header-actions { margin-left: auto; }
+  .site-frame .overview-page, .site-frame .detail-review { padding-top: calc(var(--header-height) + 28px); }
+  .page-intro { gap: 24px; margin-bottom: 26px; padding-bottom: 26px; }
+  .page-intro-copy > p { line-height: 1.8; }
+  .page-intro-aside:has(img) { display: none; }
+  .page-intro-with-aside:has(img) { grid-template-columns: minmax(0, 1fr); }
+  .page-intro-aside { padding-top: 28px; }
+  .page-intro-aside .pill-link { padding: 9px 12px; font-size: 11px; white-space: nowrap; }
+  .site-frame .story-section { grid-template-columns: 1fr; gap: 12px; }
+  .site-frame .question-progression ol { gap: 30px; }
+  .site-frame .question-progression p { font-size: 16px; max-width: none; }
+  .site-frame .question-next { top: calc(100% + 3px); }
+}
+@media (max-width: 640px) {
+  .site-frame :is(.selected-projects, .catalog-grid) .concept-cover { padding: 10px; }
+  .site-frame :is(.selected-projects, .catalog-grid) .concept-cover strong { font-size: 17px; margin: 4px 0; }
+  .site-frame :is(.selected-projects, .catalog-grid) .concept-cover small { display: none; }
+  .site-frame .home-brief { grid-template-columns: 1fr; gap: 20px; padding-block: 36px 28px; }
+  .site-frame .home-brief h2 { font-size: 28px; }
+  .site-frame .home-inquiry, .site-frame .home-closing { padding-block: 36px; }
+  .site-frame .home-inquiry-heading { grid-template-columns: 1fr; gap: 18px; margin-bottom: 28px; }
+  .site-frame .home-inquiry-path { gap: 32px; }
+  .site-frame .home-inquiry-path h3 { font-size: 27px; }
+  .site-frame .home-inquiry-path h4 { min-height: 0; font-size: 16px; }
+  .site-frame .home-story { grid-template-columns: 1fr; gap: 24px; }
+  .site-frame .home-story-image img { width: 120px; }
+  .site-frame .home-story-copy h2 { font-size: 23px; }
+  .site-frame .home-email { font-size: 23px; }
+  .site-frame .home-contact { margin-top: 32px; padding-top: 26px; }
+  .site-frame .about-research { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 370px) {
+  .site-frame { --gutter: 18px; }
+  .site-frame .desktop-nav { gap: 7px; }
+  .site-frame .desktop-nav a { font-size: 10px; }
+}

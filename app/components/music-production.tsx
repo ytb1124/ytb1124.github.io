@@ -1,3 +1,4 @@
+import { PageIntro } from './page-intro';
 import Image from 'next/image';
 import { musicProduction } from '../data/music-production';
 import { site, type Locale } from '../data/site';
@@ -7,7 +8,7 @@ import { LiveCredits } from './live-credits';
 export function MusicProduction({ locale }: { locale: Locale }) {
   const ko = locale === 'ko';
   return <PageShell locale={locale} path="/music-production"><div className="music-overview overview-page">
-    <header className="overview-header"><span className="section-eyebrow">{ko?'공연 · 녹음 · 믹싱':'LIVE SOUND · RECORDING · MIXING'}</span><h1>{ko?'음악 제작':'Music Production'}</h1><p>{site.pageContent[locale].music.intro}</p></header>
+    <PageIntro eyebrow={ko?'공연 · 녹음 · 믹싱':'LIVE SOUND · RECORDING · MIXING'} title={ko?'음악 제작':'Music Production'} description={site.pageContent[locale].music.intro} />
     <nav className="section-jumps" aria-label={ko?'음악 제작 분야':'Music production sections'}><a href="#production-projects">{ko?'주요 작업':'Selected projects'} ↓</a><a href="#recording-mixing">{ko?'녹음과 믹싱':'Recording & mixing'} ↓</a><a href="#live-credits">{ko?'공연 기록':'Live sound credits'} ↓</a></nav>
     <section id="production-projects" className="production-picks">
       <div className="compact-section-head"><h2>{musicProduction.selectedProjects.title[locale]}</h2></div>
