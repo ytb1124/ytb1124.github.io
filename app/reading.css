@@ -293,3 +293,27 @@
 @media (min-width: 761px) and (max-width: 900px) {
   .site-frame { --gutter: 28px; }
 }
+
+/* Desktop pages keep a bounded reading width even on wide monitors. */
+@media (min-width: 1101px) {
+  .site-frame .desktop-nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  .site-frame .language-picker select { min-height: 44px; }
+  .site-frame :is(.home-featured, .catalog-grid) .project-copy h3 { min-height: 3em; }
+  .site-frame .catalog-grid .project-media { aspect-ratio: 16/10; }
+  .site-frame .publication-page { padding: calc(var(--header-height) + 32px) var(--gutter) 64px; }
+  .site-frame .publication-header { max-width: none; margin: 0; padding: 0 0 32px; }
+  .site-frame .publication-header h1 { max-width: 960px; font-size: var(--page-title-size); line-height: 1.4; letter-spacing: -.025em; text-wrap: balance; }
+  .site-frame .publication-header > p { font-family: 'Inter Display', Arial, sans-serif; font-size: 16px; line-height: 1.8; }
+  .site-frame .publication-links { margin-top: 24px; }
+  .site-frame .publication-links a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+  .site-frame .publication-paper { margin-inline: 0; padding-top: 40px; }
+  .site-frame .publication-paper h2 { font-size: 24px; line-height: 1.5; }
+  .site-frame:not(.is-home) .publication-paper p { max-width: 76ch; font-family: 'Inter Display', Arial, sans-serif; font-size: 16px; line-height: 1.8; }
+  .site-frame .publication-abstract { margin-bottom: 40px; padding-bottom: 32px; }
+  .site-frame .publication-section { margin-bottom: 40px; }
+  .site-frame .publication-note { margin-top: 48px; }
+  .site-frame .publication-paper .dataset-note { font-size: 13px!important; line-height: 1.75; }
+  .site-frame .publication-paper .publication-keywords { font-size: 12px!important; line-height: 1.75; }
+  .site-frame .dataset-table-wrap table { font-size: 13px; }
+  .site-frame .dataset-table-wrap th { font-size: 11px; }
+}
