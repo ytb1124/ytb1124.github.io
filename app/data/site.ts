@@ -14,6 +14,7 @@ export type Project = {
   question: string;
   image: string;
   gallery: string[];
+  galleryCaptions?: Record<Locale, string>[];
   body: string[];
   video?: string;
   reports?: { ko: string; en: string };

@@ -41,7 +41,13 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
           {project.sources&&<p className="detail-sources">{ko?'참고 자료':'Sources'}{project.sources.map(source=><span key={source.href}><br/><a href={source.href}>{source.label} ↗</a></span>)}</p>}
           {project.video&&<div className="detail-video"><iframe src={project.video} title={title} loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen/></div>}
         </div>
-        <div className="detail-gallery">{project.gallery.map((src,i)=><div className="gallery-frame" key={src}><Image src={src} alt={`${title} ${i+1}`} width={1800} height={1200} loading="lazy"/></div>)}</div>
+        <div className="detail-gallery">{project.gallery.map((src,i)=>{
+          const caption = project.galleryCaptions?.[i]?.[locale];
+          return caption ? <figure className="gallery-frame screenshot-frame" key={src}>
+            <Image src={src} alt={caption} width={1265} height={712} loading="lazy"/>
+            <figcaption>{caption}</figcaption>
+          </figure> : <div className="gallery-frame" key={src}><Image src={src} alt={`${title} ${i+1}`} width={1800} height={1200} loading="lazy"/></div>;
+        })}</div>
       </section>
     </article>
   </PageShell>;

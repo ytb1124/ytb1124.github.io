@@ -355,8 +355,12 @@
     "ongoing": true,
     "description": "A Korean-language interactive listening prototype for CI users, with sound setup, stem mixing, cue comparisons, and personal reports. Uses pink-noise placeholders; user evaluation is still planned.",
     "question": "Can listeners discover their own musical cues—and find them again in a song?",
-    "image": "/framer/projects/adaptive-monitor-system/cover.jpeg",
-    "gallery": [],
+    "image": "/images/ci-ensemble-room/ensemble-room.jpg",
+    "gallery": [
+      "/images/ci-ensemble-room/ensemble-room.jpg",
+      "/images/ci-ensemble-room/stem-mixing.jpg",
+      "/images/ci-ensemble-room/cue-comparison.jpg"
+    ],
     "body": [
       "What should listeners be able to choose for themselves? Building sound systems for venues and a drum response for one performer led to a Korean-language interactive listening prototype for cochlear implant (CI) users: CI Interactive Ensemble Room. The project has moved from design documents to a clickable browser prototype.",
       "The implemented flow runs from sound activation through six sound-setup steps, an ensemble room, cue questions, reflection, and a personal listening report. Setup covers listening equipment and connection, comfortable volume, left–right balance, tone, instrument levels, and optional bass support. Listeners can revisit these choices from the ensemble room.",
@@ -450,6 +454,20 @@
           "en": "Implementation checklist ↗",
           "ko": "구현 체크리스트 ↗"
         }
+      }
+    ],
+    "galleryCaptions": [
+      {
+        "ko": "합주실 — 카혼·콘트라베이스·트럼펫을 혼자 듣거나 함께 듣고, 구간과 반복을 고릅니다. 실제 프로토타입 화면이며 소리는 핑크노이즈 자리표시입니다.",
+        "en": "Ensemble room — solo or combine cajon, double bass, and trumpet, then choose a section or loop. Captured from the working prototype; audio uses pink-noise placeholders."
+      },
+      {
+        "ko": "악기별 믹싱 — 악기 크기와 프리셋, 저음 도움을 조절하는 패널입니다. 기본 설정 상태를 캡처했습니다.",
+        "en": "Stem mixing — instrument levels, presets, and bass support in the expanded controls, captured at their default settings."
+      },
+      {
+        "ko": "단서 비교 — 두 소리를 듣고 차이와 느낀 단서를 표시합니다. 참여자의 응답이 아닌, 응답 전 연습 화면입니다.",
+        "en": "Cue comparison — listen to two sounds and describe their differences. This is the unanswered practice screen, not a participant result."
       }
     ]
   }

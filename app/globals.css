@@ -139,6 +139,9 @@ main:has(.cv-intro) .page-title h1{font-size:clamp(27px,3.6vw,49px)}
 .gallery-frame{min-width:0;aspect-ratio:4/3;overflow:hidden;background:#e8e6df}
 .gallery-frame:first-child{grid-column:1/-1;aspect-ratio:16/9}
 .gallery-frame img{width:100%;height:100%;object-fit:contain}
+.detail-gallery .gallery-frame.screenshot-frame{margin:0;aspect-ratio:auto;overflow:visible;background:transparent}
+.screenshot-frame img{display:block;height:auto;aspect-ratio:1265/712;background:#fcf9f0}
+.screenshot-frame figcaption{margin-top:10px;color:var(--muted);font-size:13px;line-height:1.6}
 
 .publication-page{padding:140px var(--gutter) 110px;background:#080808;color:#fff}
 .publication-header{max-width:1040px;margin:0 auto;padding:50px 0 72px;border-bottom:1px solid var(--ink)}
