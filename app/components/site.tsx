@@ -46,7 +46,12 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
       <div className="header-actions">
         <label className="language-picker">
           <span className="sr-only">{locale === 'ko' ? '언어 선택' : 'Select language'}</span>
-          <select aria-label={locale === 'ko' ? '언어 선택' : 'Select language'} value={locale} onChange={(event) => { window.location.href = `${event.target.value === 'ko' ? koreanPath : englishPath}${window.location.hash}`; }}>
+          <select aria-label={locale === 'ko' ? '언어 선택' : 'Select language'} value={locale} onChange={(event) => {
+            const currentUrl = new URL(document.URL);
+            const destination = new URL(event.target.value === 'ko' ? koreanPath : englishPath, currentUrl);
+            destination.hash = currentUrl.hash;
+            window.location.assign(destination.href);
+          }}>
             <option value="en">{locale === 'ko' ? '영어' : 'English'}</option>
             <option value="ko">{locale === 'ko' ? '한국어' : 'Korean'}</option>
           </select>
