@@ -94,7 +94,7 @@ export function ProjectCard({ project, locale, compact=false }: { project: Proje
   return (
     <a className="project-card-link" href={localizedPath(locale, `/projects/${project.slug}`)} aria-label={locale==='ko'?(project.titleKo??project.title):project.title}>
       <article className={`project-card${compact?' is-compact':''}`}>
-        <div className="project-media"><Image src={project.image} alt="" width={1200} height={800} loading="lazy" /></div>
+        <div className={`project-media${project.slug==='listening-tool-ci'?' ensemble-thumbnail':''}`}><Image src={project.image} alt="" width={1200} height={800} loading="lazy" /></div>
         <div className="project-copy">
           <div className="project-meta"><span>{project.year}</span><span>{locale === 'ko' ? (koreanCategories[project.category] ?? project.category) : project.category}</span></div>
           <h3>{locale==='ko'?(project.titleKo??project.title):project.title}</h3>

@@ -71,6 +71,8 @@ p,h1,h2,h3,strong,span,a{overflow-wrap:break-word}
 .project-media:after{content:'VIEW PROJECT →';position:absolute;right:14px;bottom:14px;padding:8px 10px;background:rgba(0,0,0,.82);color:#fff;font-size:10px;font-weight:600;letter-spacing:.1em;opacity:0;transform:translateY(8px);transition:.25s}
 .project-media img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease,filter .55s ease}
 .project-card-link:hover .project-media img{transform:scale(1.025);filter:grayscale(.25)}
+.project-media.ensemble-thumbnail img{transform:scale(1.8);transform-origin:49.4% 50%}
+.project-card-link:hover .project-media.ensemble-thumbnail img{transform:scale(1.845)}
 .project-card-link:hover .project-media:after{opacity:1;transform:none}
 .project-copy{padding-top:18px}
 .project-meta{display:flex;gap:22px;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
