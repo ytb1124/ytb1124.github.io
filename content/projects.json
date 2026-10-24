@@ -256,7 +256,7 @@
     "category": "Technology",
     "title": "Audio-to-MIDI Editor",
     "ongoing": true,
-    "description": "A working transcription and editing prototype; accuracy and rehearsal value remain to be evaluated.",
+    "description": "A working transcription and editing prototype with reference-MIDI scoring, error diagnostics, and recorded stem-separation baselines.",
     "question": "Can AI ease live preparation while artists keep control?",
     "image": "/framer/projects/audio-to-midi-system/cover.png",
     "gallery": [
@@ -266,14 +266,16 @@
     "body": [
       "Preparing a recording for a live performance often involves transcribing parts and editing them in a DAW. I am building Trackform to make the first draft easier to create and revise.",
       "The prototype supports piano, general audio, bass, and drum transcription, plus Demucs stem separation. Piano mode uses Transkun and an audio-based sustain correction step. Users can move, resize, audition, and export notes in a browser piano roll.",
-      "The Next.js interface and FastAPI processing pipeline can also be packaged with Tauri. These are implemented features; transcription accuracy and time savings have not yet been evaluated.",
-      "I plan to compare one to three songs with manually prepared reference MIDI, document errors, and test the editing workflow. BPM, key, song structure, lyric cues, and rehearsal playback remain areas for further development and testing."
+      "The Next.js interface and FastAPI processing pipeline can also be packaged with Tauri. Alongside the editor, I built an evaluation pipeline with six bass and eight drum WAV/MIDI reference pairs. Bass scoring uses mir_eval precision, recall, and F1 with 50 ms onset and 50 cent pitch tolerances, without requiring offset matches; separate diagnostics cover octave shifts, timing, and duration. Drum scoring matches instrument classes and onsets with a 50 ms tolerance.",
+      "To locate the bottleneck between separation and transcription, I compare three inputs to the same transcriber: the mixture, the Demucs-separated stem, and the reference stem. Saved baselines cover seven synthetic drum mixtures and a second set with the accompaniment separated again to reduce residual drums. The baseline records artifact hashes, the model and device, and deterministic processing assumptions for regression checks.",
+      "I also implemented synthetic-mix generation, leave-one-song-out (LOSO) evaluation configurations and models, and training scripts for octave-error, fragmented-note, and joint note models. These separate error analysis from feature implementation and support comparisons on songs excluded from training.",
+      "The saved synthetic baseline uses a drum classifier trained on the evaluated songs, so it is an initial path comparison rather than evidence of performance on unfamiliar music. The next step is to report held-out song results separately and measure correction effort and rehearsal preparation time. BPM, key, song structure, lyric cues, and rehearsal playback remain areas for further development and testing."
     ],
     "status": "Working prototype",
     "titleKo": "오디오 MIDI 변환·편집 도구",
     "summary": {
-      "en": "Implemented transcription, stem separation, and MIDI editing. Accuracy testing is the next step.",
-      "ko": "음원 변환, 악기별 음원 분리, MIDI 편집을 구현했습니다. 변환 정확도는 앞으로 평가할 예정입니다."
+      "en": "Built transcription, separation, and MIDI editing, plus reference-MIDI scoring and a recorded seven-song synthetic drum baseline.",
+      "ko": "음원 변환·분리·MIDI 편집과 정답 MIDI 기반 채점을 구현했고, 합성 드럼 7곡의 분리 비교 기준선을 기록했습니다."
     },
     "progress": [
       {
@@ -289,13 +291,24 @@
       },
       {
         "label": {
-          "en": "Accuracy test",
-          "ko": "정확도 테스트"
+          "en": "Evaluation infrastructure",
+          "ko": "평가 인프라"
         },
-        "state": "planned",
+        "state": "done",
         "detail": {
-          "en": "Reference-MIDI comparison for 1–3 songs planned.",
-          "ko": "1–3곡의 기준 MIDI와 비교 예정."
+          "en": "6 bass / 8 drum reference pairs, P/R/F1 scoring, error diagnostics, and LOSO evaluation setup.",
+          "ko": "베이스 6곡·드럼 8곡의 정답 쌍, P/R/F1 채점·오류 진단·LOSO 평가 환경 구축."
+        }
+      },
+      {
+        "label": {
+          "en": "Initial baseline",
+          "ko": "초기 비교 기준선"
+        },
+        "state": "done",
+        "detail": {
+          "en": "Saved three-path F1 comparisons on 7 synthetic drum mixtures, with hashes and environment notes.",
+          "ko": "합성 드럼 7곡의 3경로 F1 비교 결과와 해시·실행 환경 기록."
         }
       },
       {
@@ -307,6 +320,22 @@
         "detail": {
           "en": "Editing and rehearsal workflow evaluation planned.",
           "ko": "편집·리허설 작업 흐름 평가 예정."
+        }
+      }
+    ],
+    "resources": [
+      {
+        "href": "https://github.com/ytb1124/audio-to-midi/tree/main/eval",
+        "label": {
+          "en": "Evaluation code ↗",
+          "ko": "평가 코드 ↗"
+        }
+      },
+      {
+        "href": "https://github.com/ytb1124/audio-to-midi/blob/main/eval/separation_baseline.json",
+        "label": {
+          "en": "Recorded baseline ↗",
+          "ko": "기록된 기준선 ↗"
         }
       }
     ]

@@ -123,24 +123,24 @@
     "en": {
       "question": "Can AI ease live preparation while artists keep control?",
       "system": "Trackform: a browser-based transcription and MIDI editing prototype.",
-      "methods": "Connect existing transcription models and stem separation to an editable piano roll.",
-      "result": "Audio-to-MIDI conversion, stem separation, note editing, and export are working. I have not yet measured conversion accuracy or how much rehearsal preparation time the tool saves.",
-      "next": "Compare outputs with reference MIDI for one to three songs and test the editing and rehearsal workflow.",
-      "limitation": "Transcription accuracy, editing effort, and rehearsal time savings have not been measured. Implemented features do not yet demonstrate workflow improvement.",
-      "lesson": "An editable output leaves musical decisions with the performer. The next question is how much correction it needs before it becomes useful in rehearsal.",
-      "build": "Built Trackform by connecting existing transcription models and stem separation to a browser piano roll with note editing, audition, and MIDI export.",
-      "findOut": "Transcription, separation, editing, and export work. Accuracy, correction effort, and rehearsal time savings remain unmeasured, so workflow improvement is not yet established."
+      "methods": "Reference-MIDI scoring with mir_eval and class-aware drum onset F1; three-path separation comparisons, error diagnostics, and LOSO evaluation setup.",
+      "result": "Transcription, separation, editing, and export work. Evaluation includes 6 bass and 8 drum reference pairs, with saved three-path F1 baselines for 7 synthetic drum mixtures.",
+      "next": "Report LOSO results on songs excluded from training separately from the saved baseline, then measure MIDI correction effort and rehearsal preparation time.",
+      "limitation": "The saved synthetic baseline uses a classifier trained on the evaluated songs. It does not establish generalization to unfamiliar recordings; correction effort and rehearsal time savings remain unmeasured.",
+      "lesson": "Scoring the mixture, separated stem, and reference stem through the same transcriber helps locate separation versus transcription errors. Usability still needs direct evaluation.",
+      "build": "Built Trackform with an editable piano roll, audition, and MIDI export, plus reference-MIDI scoring, octave and timing diagnostics, synthetic mixtures, LOSO evaluation setup, and classifier training scripts.",
+      "findOut": "Saved seven-song synthetic baselines show higher drum F1 after Demucs separation than direct mixture transcription. These are comparisons on training songs; held-out performance and workflow benefits need separate evaluation."
     },
     "ko": {
       "question": "아티스트의 음악적 표현을 유지하면서 AI로 공연 준비를 줄일 수 있을까?",
       "system": "음원을 MIDI로 변환하고 브라우저에서 수정하는 Trackform 프로토타입입니다.",
-      "methods": "기존 변환 모델과 악기별 음원 분리를 피아노 롤 편집 화면에 연결했습니다.",
-      "result": "오디오를 MIDI로 변환하고, 악기별 음원을 분리하고, 음표를 편집해 내보내는 기능을 구현했습니다. 변환 정확도와 공연 준비 시간을 얼마나 줄이는지는 아직 평가하지 않았습니다.",
-      "next": "테스트곡 1~3곡의 기준 MIDI와 출력을 비교하고 편집·리허설 과정을 시험할 예정입니다.",
-      "limitation": "변환 정확도, 수정에 드는 노력, 리허설 준비 시간의 절감은 아직 측정하지 않았습니다. 기능 구현만으로 작업 흐름이 개선됐다고 말할 수는 없습니다.",
-      "lesson": "출력을 직접 고칠 수 있게 하여 연주자가 음악적 선택을 유지하도록 했습니다. 다음 질문은 리허설에 쓰기까지 얼마나 수정해야 하는가입니다.",
-      "build": "기존 변환 모델과 악기별 음원 분리를 브라우저 피아노 롤에 연결한 Trackform을 만들었습니다. 음표 편집·미리 듣기·MIDI 내보내기를 구현했습니다.",
-      "findOut": "변환·분리·편집·내보내기는 동작합니다. 정확도, 수정에 드는 노력, 리허설 준비 시간 절감은 아직 측정하지 않아 작업 흐름의 개선까지 확인한 단계는 아닙니다."
+      "methods": "정답 MIDI와 mir_eval·드럼 클래스별 onset F1로 비교하고, 분리 3경로 비교·오류 진단·LOSO 평가 환경을 구축했습니다.",
+      "result": "변환·분리·편집·내보내기와 베이스 6곡·드럼 8곡의 정답 기반 평가 환경을 구현했습니다. 합성 드럼 7곡의 3경로 F1 비교 기준선도 저장했습니다.",
+      "next": "저장된 기준선과 구분해 학습에서 제외한 곡의 LOSO 결과를 정리하고, MIDI 수정에 드는 노력과 리허설 준비 시간 절감을 평가할 예정입니다.",
+      "limitation": "저장된 합성 기준선은 평가곡을 학습에 사용한 분류기의 결과입니다. 새로운 녹음에 대한 일반화 성능, 수정 부담과 리허설 준비 시간 절감은 별도 검증이 필요합니다.",
+      "lesson": "같은 전사기로 믹스·분리 스템·정답 스템을 채점하면 분리와 전사의 병목을 나눠 볼 수 있습니다. 실제 편집과 리허설의 효용은 사용자 평가가 필요합니다.",
+      "build": "피아노 롤 편집·미리 듣기·MIDI 내보내기를 갖춘 Trackform과 정답 MIDI 채점, 옥타브·타이밍 진단, 합성 믹스, LOSO 평가 환경, 분류기 학습 스크립트를 만들었습니다.",
+      "findOut": "저장된 합성 드럼 7곡의 기준선에서는 믹스를 바로 전사할 때보다 Demucs 분리 후 F1이 높았습니다. 학습에 사용한 곡의 비교 결과이며, 미학습곡 성능과 작업 흐름의 효용은 별도 평가가 필요합니다."
     }
   },
   "listening-tool-ci": {

@@ -1,0 +1,88 @@
+{
+  "source": "https://github.com/ytb1124/audio-to-midi/blob/main/eval/separation_baseline.json",
+  "group": "synthetic drum mixtures; classifier trained on evaluated songs",
+  "aggregation": "arithmetic mean of per-song class-aware micro F1",
+  "environment": {
+    "demucs_model": "htdemucs",
+    "device": "mps",
+    "bed_gain": 1.0,
+    "sr": 44100,
+    "onset_tol_sec": 0.05
+  },
+  "headline_f1": {
+    "synth": {
+      "drums_sample4_synth": {
+        "A": 0.4713,
+        "B": 0.8035,
+        "C": 0.9151
+      },
+      "drums_sample5_synth": {
+        "A": 0.2991,
+        "B": 0.7154,
+        "C": 0.7303
+      },
+      "drums_sample6_synth": {
+        "A": 0.476,
+        "B": 0.9889,
+        "C": 1.0
+      },
+      "drums_sample7_synth": {
+        "A": 0.4818,
+        "B": 0.8986,
+        "C": 0.9209
+      },
+      "drums_sample8_synth": {
+        "A": 0.4232,
+        "B": 0.7452,
+        "C": 0.9755
+      },
+      "drums_sample9_synth": {
+        "A": 0.4375,
+        "B": 0.9146,
+        "C": 0.9241
+      },
+      "drums_sample11_synth": {
+        "A": 0.3977,
+        "B": 0.8326,
+        "C": 0.9348
+      }
+    },
+    "synth_clean": {
+      "drums_sample4_synth": {
+        "A": 0.4769,
+        "B": 0.8198,
+        "C": 0.9151
+      },
+      "drums_sample5_synth": {
+        "A": 0.3218,
+        "B": 0.7186,
+        "C": 0.7303
+      },
+      "drums_sample6_synth": {
+        "A": 0.4752,
+        "B": 0.9874,
+        "C": 1.0
+      },
+      "drums_sample7_synth": {
+        "A": 0.4913,
+        "B": 0.9004,
+        "C": 0.9209
+      },
+      "drums_sample8_synth": {
+        "A": 0.4336,
+        "B": 0.7624,
+        "C": 0.9755
+      },
+      "drums_sample9_synth": {
+        "A": 0.4407,
+        "B": 0.9179,
+        "C": 0.9241
+      },
+      "drums_sample11_synth": {
+        "A": 0.4136,
+        "B": 0.8657,
+        "C": 0.9348
+      }
+    }
+  }
+}
