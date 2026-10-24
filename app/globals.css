@@ -558,7 +558,9 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .writing-list .writing-award{color:#ffb29f;font-size:12px}
 .writing-list>.text-link{display:inline-block;margin-top:18px}
 .site-frame.locale-ko :is(h1,h2,h3,h4,p,strong,span,a,summary,dt,dd,button,select,input,label,figcaption,small,td,th,time,li){font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif!important}
-.locale-ko .home-hero h1{line-height:1.45;letter-spacing:-.035em;font-weight:400}
+/* The opening hero uses the same English typography in both locales. */
+.site-frame .home-hero :is(h1,h1 span){font-family:Jersey,'Inter Display',sans-serif!important}
+.site-frame .home-hero :is(.hero-caption,.hero-caption span,.hero-caption a){font-family:'Inter Display',sans-serif!important}
 .locale-ko :is(.overview-header h1,.compact-section-head h2,.research-map-step strong,.research-heading h3){line-height:1.4;letter-spacing:-.025em}
 @media(min-width:761px) and (max-width:1050px){.site-header{padding-inline:20px}.desktop-nav{display:flex;gap:18px}.desktop-nav a{font-size:12px;white-space:nowrap}.brand{font-size:21px}.header-actions{margin-left:20px}.menu-toggle{display:none}}
 @media(max-width:760px){
@@ -584,7 +586,6 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .is-home .site-header:not(.is-scrolled){background:transparent;backdrop-filter:none}
 .is-home .site-header.is-scrolled{background:rgba(8,8,8,.88);backdrop-filter:blur(14px)}
 .home-hero>.hero-caption{position:absolute;top:calc(50% + clamp(90px,7vw,115px));left:0;width:100%;margin:0;padding:0 16px;font-size:11px}
-.locale-ko .home-hero>.hero-caption{top:calc(50% + clamp(115px,8.5vw,155px))}
 
 /* Each research question sits directly above its projects. All groups share a grid. */
 .catalog-intro{display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px;align-items:center;margin-bottom:26px}
@@ -642,7 +643,7 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 
 .experience-organized .overview-header{margin-bottom:20px}
 .experience-organized .section-jumps{border:0;padding:0 0 16px;margin:0}
-@media(max-height:500px){.home-hero>.hero-caption,.locale-ko .home-hero>.hero-caption{top:auto;bottom:60px}}
+@media(max-height:500px){.home-hero>.hero-caption{top:auto;bottom:60px}}
 
 /* The home follows the original portrait, personal quotation, and project layout. */
 .home-at-a-glance{padding:32px var(--gutter);background:#080808}
