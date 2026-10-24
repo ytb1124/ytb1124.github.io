@@ -38,7 +38,10 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <a className="brand" href={localizedPath(locale, '/')}>{locale==='ko'?'유태빈':'Taebin Yoo'}</a>
       <nav className="desktop-nav" aria-label={locale === 'ko' ? '주요 메뉴' : 'Primary navigation'}>
-        {navigation.filter(item => !item.external).map(item=><a className={path===item.path?'is-active':''} key={item.label} href={item.external?item.path:localizedPath(locale,item.path)} {...(item.external?{target:'_blank',rel:'noopener noreferrer'}:{})}>{locale === 'ko' ? item.koreanLabel : item.label}</a>)}
+        {navigation.filter(item => !item.external).map(item=>{
+          const active = path === item.path || path?.startsWith(`${item.path}/`);
+          return <a className={active?'is-active':''} aria-current={active?'page':undefined} key={item.label} href={localizedPath(locale,item.path)}>{locale === 'ko' ? item.koreanLabel : item.label}</a>;
+        })}
       </nav>
       <div className="header-actions">
         <label className="language-picker">

@@ -1,10 +1,19 @@
 import studyDocument from '../../content/sound-xr-image-study.json';
 import { PageShell } from './site';
 import type { Locale } from '../data/site';
+import type { ReactNode } from 'react';
 
 const projectPath='/projects/spatial-renderer-system-identification';
 
 function localizedPath(locale:Locale,path:string){return locale==='ko'?`/ko${path}`:path}
+
+function ScrollableTable({locale, children}:{locale:Locale; children:ReactNode}) {
+  const hint = locale==='ko' ? '표는 좌우로 밀어서 전체 열을 볼 수 있습니다.' : 'Swipe horizontally to see all table columns.';
+  return <div className="publication-table">
+    <p className="table-scroll-hint">{hint}</p>
+    <div className="dataset-table-wrap" role="region" tabIndex={0} aria-label={hint}>{children}</div>
+  </div>;
+}
 
 function PublicationLinks({locale,current}:{locale:Locale;current:'report'|'data'}) {
   const labels=locale==='ko'?{
@@ -45,7 +54,7 @@ export function SoundXrReport({locale}:{locale:Locale}) {
             <section className="publication-equation-scroll" tabIndex={0} aria-label={equation.alt}><picture><img src={equation.src} alt={equation.alt} /></picture></section>
             <figcaption>({Number(equation.id)})</figcaption>
           </figure>)}</div>}
-          {section.tables.map(table=><div className="dataset-table-wrap" key={table.caption}><table><caption>{table.caption}</caption><thead><tr>{table.columns.map(column=><th scope="col" key={column}>{column}</th>)}</tr></thead><tbody>{table.rows.map((row,index)=><tr key={index}>{row.map((value,col)=><td key={col}>{value}</td>)}</tr>)}</tbody></table></div>)}
+          {section.tables.map(table=><ScrollableTable locale={locale} key={table.caption}><table><caption>{table.caption}</caption><thead><tr>{table.columns.map(column=><th scope="col" key={column}>{column}</th>)}</tr></thead><tbody>{table.rows.map((row,index)=><tr key={index}>{row.map((value,col)=><td key={col}>{value}</td>)}</tr>)}</tbody></table></ScrollableTable>)}
         </section>)}
         <section className="publication-note">
           <h2>{locale==='ko'?'자료 범위':'Data scope'}</h2>
@@ -77,7 +86,7 @@ export function SoundXrDataPreview({locale}:{locale:Locale}) {
         {data.tables.map(table=><section className="publication-section dataset-section" key={table.id}>
           <h2>{locale==='ko'?table.titleKo:table.titleEn}</h2>
           <p className="dataset-note">{locale==='ko'?table.noteKo:table.noteEn}</p>
-          <div className="dataset-table-wrap"><table><thead><tr>{table.columns.map(column=><th key={column}>{column}</th>)}</tr></thead><tbody>{table.rows.map((row,rowIndex)=><tr key={rowIndex}>{row.map((value,columnIndex)=><td key={`${rowIndex}-${columnIndex}`}>{value}</td>)}</tr>)}</tbody></table></div>
+          <ScrollableTable locale={locale}><table><thead><tr>{table.columns.map(column=><th scope="col" key={column}>{column}</th>)}</tr></thead><tbody>{table.rows.map((row,rowIndex)=><tr key={rowIndex}>{row.map((value,columnIndex)=><td key={`${rowIndex}-${columnIndex}`}>{value}</td>)}</tr>)}</tbody></table></ScrollableTable>
         </section>)}
         <section className="publication-note">
           <h2>{locale==='ko'?'해석 범위':'Interpretation limits'}</h2>
