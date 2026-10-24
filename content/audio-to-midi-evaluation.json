@@ -84,5 +84,50 @@
         "C": 0.9348
       }
     }
+  },
+  "loso": {
+    "source": "/reports/audio-to-midi-loso-results.json",
+    "manifest": "/reports/audio-to-midi-loso-manifest.json",
+    "sourcePath": "eval/runs/separation/synth_loso/results.json",
+    "sha256": "59614ddfd7432e87d99e3e03101c767c9843aee150f44d108a628e35e85deaad",
+    "folds": 7,
+    "trainingSongsPerFold": 6,
+    "headline_f1": {
+      "drums_sample4_synth": {
+        "A": 0.28720899816897727,
+        "B": 0.6005917159763314,
+        "C": 0.5726577437858509
+      },
+      "drums_sample5_synth": {
+        "A": 0.317990457479652,
+        "B": 0.6485641726899785,
+        "C": 0.6388467374810319
+      },
+      "drums_sample6_synth": {
+        "A": 0.4095723813260102,
+        "B": 0.9211669770328988,
+        "C": 0.9803439803439804
+      },
+      "drums_sample7_synth": {
+        "A": 0.47952345495160087,
+        "B": 0.86125746399719,
+        "C": 0.843547224224946
+      },
+      "drums_sample8_synth": {
+        "A": 0.40194489465153965,
+        "B": 0.5782608695652174,
+        "C": 0.596167494677076
+      },
+      "drums_sample9_synth": {
+        "A": 0.39280958721704395,
+        "B": 0.8868880135059088,
+        "C": 0.9049008168028005
+      },
+      "drums_sample11_synth": {
+        "A": 0.401183970856102,
+        "B": 0.7647246099968162,
+        "C": 0.8040907638223074
+      }
+    }
   }
 }

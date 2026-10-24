@@ -40,9 +40,9 @@
     ],
     "repository": "https://github.com/ytb1124/drama-space-max",
     "body": [
-      "Playing a target hall’s impulse response (IR) in another venue adds the current venue’s acoustics to the sound. I wanted to reduce that extra coloration before adding the target hall’s reverberation.",
-      "I measured six loudspeaker-to-microphone paths and used Python to align them with the target IR. I created a corrective FIR filter for each channel, focusing on the first 40 ms and the 125 Hz–4 kHz band. The filters use regularization to limit excessive gain.",
-      "Max/MSP applies the six filters in real time. Convology XT adds the target hall’s reverberation from about 200 ms onward. The main PA carries the direct sound.",
+      "Playing a target hall’s impulse response (IR) in another venue also adds the current venue’s response. I wanted to correct the current room’s coloration before adding the target hall’s reverberation.",
+      "I measured six surround-loudspeaker-to-microphone paths and used Python to align them with the target IR. I created a corrective FIR filter for each channel, focusing on the first 40 ms and the 125 Hz–4 kHz band. The filters use regularization to limit excessive gain.",
+      "Max/MSP applies a separate corrective filter to each of the six surround speakers in real time. Convology XT adds the target hall’s reverberation from about 200 ms onward. The main PA carries the direct sound.",
       "At the fourth-row center, mean spectral error fell from 2.69 to 2.24 dB across six channels. This comparison uses the same path measurements that were used to create the filters. It does not establish improvement at other seats or a perceptual match to the target hall."
     ],
     "plannedSubmission": {
@@ -69,7 +69,7 @@
         "ko": "공연장에서 다른 공연장의 IR을 컨볼루션할 때 현재 공연장의 IR이 다시 더해지는 문제를 다뤘습니다."
       },
       "design": {
-        "en": "I measured six speaker paths and built a live system that corrects the early response and adds the target reverberation separately.",
+        "en": "I captured six surround-speaker responses and built a live system that corrects the early response and adds the target reverberation separately.",
         "ko": "여섯 개의 서라운드 스피커 경로를 캡처하고 초기 응답 보정과 목표 잔향을 따로 처리하는 실시간 시스템을 만들었습니다."
       },
       "analysis": {
@@ -167,7 +167,7 @@
       "en": "/reports/multichannel-en.pdf"
     },
     "body": [
-      "I tested whether speaker placement and console routing could make the direction of sound better match what the audience sees on stage.",
+      "I tested whether speaker placement and console routing could align the perceived direction of sound with what the audience sees on stage.",
       "I built a 3.1 system with additional rear-stage speakers. Vocals, kick, snare, and bass went to the center; other instruments and reverberation were spread across the left, right, and rear speakers.",
       "The sources were clearly separated, but informal audience feedback suggested they sounded disconnected. This led me to consider how listeners combine sounds into one scene. A structured listening test is still needed."
     ],
@@ -182,7 +182,7 @@
     "slug": "wan-audio-transmission",
     "year": "2025",
     "category": "Technology",
-    "title": "Remote Multichannel Audio",
+    "title": "Real-Time Remote Multichannel Audio",
     "description": "Exploring real-time networked audio systems for remote musical interaction and collaboration.",
     "question": "Can musicians collaborate across distance?",
     "image": "/framer/projects/wan-audio-transmission/cover.png",
@@ -195,7 +195,7 @@
       "en": "/reports/wan-en.pdf"
     },
     "body": [
-      "I tested multichannel audio transmission between two remote DAWs for recording, mixing, and performance.",
+      "I tested real-time multichannel audio transmission between two remote DAWs for recording, mixing, and performance.",
       "I explored commercial network-audio approaches and tested relay and peer-to-peer tools, including ffmpeg, JACK Audio, and JackTrip. Audio could be sent, but playback did not remain sample-accurate over time.",
       "The tests pointed to clock drift between the two systems as a key limitation. Over time, this was associated with buffer errors and audible clicks. Synchronization and adaptive resampling are next steps to investigate."
     ],
@@ -210,7 +210,7 @@
     "slug": "electronic-drums",
     "year": "2025",
     "category": "Instrument",
-    "title": "Personalized Electronic Drums",
+    "title": "Performer-Tailored Electronic Drum Module",
     "description": "A Max/MSP drum module with velocity zones and sample layers shaped around an individual performer’s dynamic range.",
     "question": "Can electronic drums adapt to each player’s touch?",
     "image": "/framer/projects/electronic-drums/cover.png",
@@ -221,8 +221,8 @@
     ],
     "repository": "https://github.com/ytb1124/performer-tailored-electronic-drums",
     "body": [
-      "A fixed velocity map may not match how a particular drummer plays. I built a Max/MSP module to adjust sample choice and playback level to one player’s striking range.",
-      "The patch routes MIDI notes to drum sounds and uses custom velocity ranges for snare and ride samples. MIDI velocity sets playback level, CC4 controls hi-hat openness, and each drum has its own gain, pan, and output settings.",
+      "The fixed response of a commercial electronic drum module may not match how a particular drummer plays. I built a Max/MSP module to adjust sample choice and playback level to one player’s striking range.",
+      "The patch routes MIDI notes to drum sounds and uses custom velocity ranges for snare and ride samples. MIDI velocity sets playback level, CC4 controls hi-hat openness, and the player can set gain, pan, and output for each drum.",
       "The mapping is adjusted manually for one player. It does not learn automatically. Recorded velocity distributions and a controlled comparison with a fixed mapping are still needed."
     ],
     "status": "Working prototype",
@@ -233,7 +233,7 @@
     },
     "contribution": {
       "problem": {
-        "en": "I wanted the drum’s response to match one player’s striking range more closely.",
+        "en": "I wanted the electronic drum module’s response to match one player’s dynamics more closely.",
         "ko": "전자드럼의 소리 반응을 한 연주자의 연주 다이나믹에 맞추고 싶었습니다."
       },
       "design": {
@@ -245,7 +245,7 @@
         "ko": "한 연주자에 맞춰 소리 반응을 수동으로 조절했습니다. 타격 세기 분포와 조절 전후 비교는 추후 확인해야 합니다."
       },
       "tools": {
-        "en": "I used Max/MSP and recorded drum samples. The project record does not specify the extent of AI assistance.",
+        "en": "I used Max/MSP and recorded drum audio samples. I used AI to gather information about Max/MSP objects.",
         "ko": "Max/MSP와 녹음된 드럼 오디오 샘플을 사용했습니다. Max/MSP Object 정보 수집에 AI를 사용했습니다."
       }
     }
@@ -256,8 +256,8 @@
     "category": "Technology",
     "title": "Audio-to-MIDI Editor",
     "ongoing": true,
-    "description": "A working transcription and editing prototype with reference-MIDI scoring, error diagnostics, and recorded stem-separation baselines.",
-    "question": "Can AI ease live preparation while artists keep control?",
+    "description": "A transcription and MIDI editing prototype with reference-MIDI scoring and recorded seven-song leave-one-song-out drum evaluations.",
+    "question": "Can AI ease live preparation while preserving the artist’s musical expression?",
     "image": "/framer/projects/audio-to-midi-system/cover.png",
     "gallery": [
       "/framer/projects/audio-to-midi-system/cover.png"
@@ -269,13 +269,13 @@
       "The Next.js interface and FastAPI processing pipeline can also be packaged with Tauri. Alongside the editor, I built an evaluation pipeline with six bass and eight drum WAV/MIDI reference pairs. Bass scoring uses mir_eval precision, recall, and F1 with 50 ms onset and 50 cent pitch tolerances, without requiring offset matches; separate diagnostics cover octave shifts, timing, and duration. Drum scoring matches instrument classes and onsets with a 50 ms tolerance.",
       "To locate the bottleneck between separation and transcription, I compare three inputs to the same transcriber: the mixture, the Demucs-separated stem, and the reference stem. Saved baselines cover seven synthetic drum mixtures and a second set with the accompaniment separated again to reduce residual drums. The baseline records artifact hashes, the model and device, and deterministic processing assumptions for regression checks.",
       "I also implemented synthetic-mix generation, leave-one-song-out (LOSO) evaluation configurations and models, and training scripts for octave-error, fragmented-note, and joint note models. These separate error analysis from feature implementation and support comparisons on songs excluded from training.",
-      "The saved synthetic baseline uses a drum classifier trained on the evaluated songs, so it is an initial path comparison rather than evidence of performance on unfamiliar music. The next step is to report held-out song results separately and measure correction effort and rehearsal preparation time. BPM, key, song structure, lyric cues, and rehearsal playback remain areas for further development and testing."
+      "A saved seven-fold leave-one-song-out run evaluates each synthetic drum mixture with a classifier trained on the other six songs. Mean class-aware onset micro F1 is 0.384 for the mixture, 0.752 after Demucs separation, and 0.763 for the reference stem. The separated-stem F1 ranges from 0.578 to 0.921 across songs, showing substantial variation. These are held-out song results within a small synthetic dataset; real production recordings, MIDI correction effort, and rehearsal preparation time still need evaluation. BPM, key, song structure, lyric cues, and rehearsal playback remain areas for further development and testing."
     ],
     "status": "Working prototype",
     "titleKo": "오디오 MIDI 변환·편집 도구",
     "summary": {
-      "en": "Built transcription, separation, and MIDI editing, plus reference-MIDI scoring and a recorded seven-song synthetic drum baseline.",
-      "ko": "음원 변환·분리·MIDI 편집과 정답 MIDI 기반 채점을 구현했고, 합성 드럼 7곡의 분리 비교 기준선을 기록했습니다."
+      "en": "Built transcription, separation, and MIDI editing; seven-song LOSO drum evaluation records mean F1 of 0.384 for mixtures and 0.752 after separation.",
+      "ko": "변환·분리·MIDI 편집을 구현했습니다. 드럼 7곡 LOSO 평가에서 믹스의 평균 F1은 0.384, 분리 후는 0.752였습니다."
     },
     "progress": [
       {
@@ -302,13 +302,13 @@
       },
       {
         "label": {
-          "en": "Initial baseline",
-          "ko": "초기 비교 기준선"
+          "en": "Baseline & LOSO evaluation",
+          "ko": "기준선·LOSO 평가"
         },
         "state": "done",
         "detail": {
-          "en": "Saved three-path F1 comparisons on 7 synthetic drum mixtures, with hashes and environment notes.",
-          "ko": "합성 드럼 7곡의 3경로 F1 비교 결과와 해시·실행 환경 기록."
+          "en": "Recorded three-path F1 for 7 synthetic drum mixtures, including 7 folds excluding each evaluation song from classifier training.",
+          "ko": "합성 드럼 7곡의 3경로 F1과 평가곡을 분류기 학습에서 제외한 7폴드 LOSO 결과 기록."
         }
       },
       {
@@ -332,6 +332,13 @@
         }
       },
       {
+        "href": "/reports/audio-to-midi-loso-results.json",
+        "label": {
+          "en": "LOSO results ↗",
+          "ko": "LOSO 평가 결과 ↗"
+        }
+      },
+      {
         "href": "https://github.com/ytb1124/audio-to-midi/blob/main/eval/separation_baseline.json",
         "label": {
           "en": "Recorded baseline ↗",
@@ -351,7 +358,7 @@
     "image": "/framer/projects/adaptive-monitor-system/cover.jpeg",
     "gallery": [],
     "body": [
-      "This project changes the direction of Adaptive Musical Partner: from performance monitoring to a Korean-language music listening website for cochlear implant (CI) users. The working title is Cue Listening Room.",
+      "This project changes the direction of Adaptive Musical Partner: from performance monitoring to a Korean-language music listening website for cochlear implant (CI) users. The working title is Cue Ensemble Room.",
       "The proposed experience starts with two songs. Listeners would explore rhythm, timbre, pitch direction, and melody separately, then return to a song studio to isolate or raise individual stems. Personal listening notes would record cues they noticed and mixes they liked.",
       "The six-week plan narrows the first build to five main screens: setup, home, element practice, song studio, and listening notes. It proposes dry recordings and a listen-with-guidance → practice → reflection flow. Adaptive algorithms, haptic feedback, and long-term training programmes are outside this first scope.",
       "The current outputs are design documents, not a working product. Recordings, mobile playback checks, a prototype, and participant sessions remain planned. The six-week schedule is a proposed build sequence, not six weeks of completed work.",

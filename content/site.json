@@ -31,8 +31,8 @@
   ],
   "home": {
     "hero": "Why was I born?\nWho am I?\nWhat will I have to do?",
-    "intro": "I’m a live sound engineer exploring how music technology can adapt to spaces and people. My work spans spatial audio, interactive instruments, and tools that help people experience and express music in their own ways.",
-    "credentials": "DIMA · Department of Audio Production\nNational Technical Qualification for Theatrical Arts (Audio), · Ministry of Culture, Sports and Tourism\nOutstanding Paper Presentation Award · The 5th Electroacoustics & Stage Sound Conference, The Acoustical Society of Korea",
+    "intro": "Hello, I’m Taebin Yoo. I work as a live sound engineer and research music technology that adapts to spaces and people. Through spatial audio, electronic instruments, and audio software, I build tools that help people experience and express music in their own ways.",
+    "credentials": "DIMA · Department of Audio Production\nNational Technical Qualification for Theatrical Arts (Audio, Level 3) · Ministry of Culture, Sports and Tourism\nOutstanding Paper Presentation Award · The 5th Electroacoustics & Stage Sound Conference, The Acoustical Society of Korea",
     "role": "Sound Engineer & Music Technology Researcher",
     "disciplines": "Immersive Audio · Music Technology",
     "quote": "That's why I was born.\n\nTo experience whatever I can imagine\n\n—slowly, but steadily.",
@@ -50,21 +50,21 @@
   "profile": {
     "title": "About me",
     "paragraphs": [
-      "My mother is a classical composer and my father is a mathematics teacher. Growing up with both music and mathematics taught me to listen closely and ask how things work. I bring both habits to my sound engineering and research.",
-      "As a child, I sang in the CTS Children’s Choir under conductor Hakwon Yoon and performed at Goyang Aram Nuri and Seoul Arts Center. I kept making music at school, at church, and in bands with friends.",
-      "My faith and church community have shaped how I think about caring for others. This is part of why I want to understand the different ways people hear, perform, and take part in music.",
-      "I also attend Chulhyun Bae’s writing class at The Chora. Writing helps me reflect on my experiences and understand myself better."
+      "My mother is a classical composer and my father is a mathematics teacher. I grew up with music and technology close at hand. The habit of listening closely to instruments and music, and connecting with what I hear, continues to shape my sound work and research.",
+      "As a child, I sang in the CTS Children’s Choir under conductor Hakwon Yoon and performed at Goyang Aram Nuri and Seoul Arts Center. I kept making music at school, at church, and in bands with friends, including performing as the drummer in The Swan.",
+      "My conscience prompts me to think about how to care for others and live well together. This is also where my wish to understand each person’s way of hearing and playing began.",
+      "Outside my sound work, I attend Professor Chulhyun Bae’s writing class at The Chora. Writing gives me time to reflect on my feelings and understand myself better."
     ],
-    "education": "After middle school, I took the high school equivalency exam instead of attending high school. At 16, I entered DIMA’s Audio Production department as the top-ranked applicant in the early admissions track. During the pandemic, I ran an online shop. I then completed my military service at the Blue House / Presidential Security Service. Before returning to college, I spent two months in Vancouver and travelled by train to New York. Meeting people from different backgrounds broadened my outlook. I now also teach Korean on Preply.",
+    "education": "After middle school, I took the high school equivalency exam instead of attending high school. At 16, I entered DIMA’s Audio Production department as the top-ranked applicant in the early admissions track. During the pandemic, I ran an online shop. I then completed my military service at the Blue House / Presidential Security Service. After completing my military service, I spent two months in Vancouver and travelled across North America by train to New York. Meeting people from different backgrounds and cultures continues to broaden my outlook. I now also teach Korean on the online platform Preply.",
     "educationParagraphs": [
       "After middle school, I took the high school equivalency exam instead of attending high school. At 16, I entered DIMA’s Audio Production department as the top-ranked applicant in the early admissions track.",
       "During the pandemic, I ran an online shop. I then completed my military service at the Blue House / Presidential Security Service.",
-      "Before returning to college, I spent two months in Vancouver and travelled by train to New York. Meeting people from different backgrounds broadened my outlook. I now also teach Korean on Preply."
+      "After completing my military service, I spent two months in Vancouver and travelled across North America by train to New York. Meeting people from different backgrounds and cultures continues to broaden my outlook. I now also teach Korean on the online platform Preply."
     ]
   },
   "experience": {
-    "title": "Experience",
-    "cvTitle": "Education & work",
+    "title": "Education & experience",
+    "cvTitle": "Education & experience",
     "cvDescription": "My education, live sound work, and selected writing.",
     "entries": [
       [
@@ -79,7 +79,7 @@
       ],
       [
         "Audio Engineer – House of Worship",
-        "Youngkwang Church, Seongseok Church, Jamsildong Church, Ministry of National Defense, Republic of Korea",
+        "Youngkwang Church, Armed Forces Central Church, Seongseok Church, Jamsildong Church",
         "2023 ~ Current"
       ],
       [
@@ -95,7 +95,7 @@
     ],
     "licenses": [
       [
-        "National Technical Qualification for Theatrical Arts (Audio)",
+        "National Technical Qualification for Theatrical Arts (Audio, Level 3)",
         "Ministry of Culture, Sports and Tourism",
         "2023"
       ],
@@ -224,9 +224,9 @@
       "pastLabel": "Past",
       "past": "I handled live sound for over 200 performances. Seeing how music brings people together sparked my interest in music technology research.",
       "nowLabel": "Present",
-      "now": "I measure spatial audio systems and build personalized electronic drums and audio-to-MIDI tools, testing ideas from live sound work.",
+      "now": "I design spatial audio systems and build electronic instruments and audio software.",
       "nextLabel": "Future",
-      "next": "I want to help anyone express themselves through music, through responsive AI accompaniment, gesture-based instruments, and audience participation.",
+      "next": "I want to research AI-supported participatory performances where anyone can express themselves through music and share the experience with others.",
       "visionLabel": "Long-term goal",
       "vision": "Help more people make and enjoy music with tools that fit their needs.",
       "education": "Audio Production, DIMA · GPA 4.01 / 4.5",
@@ -248,26 +248,26 @@
   "pageContent": {
     "en": {
       "profile": {
-        "intro": "I work as a live sound engineer and study music technology. My interest in music and mathematics grew into a desire to understand the problems I encounter at live performances and build tools to address them.",
-        "originTitle": "How live sound led me to research",
-        "origin": "The same music can sound different depending on the venue and the listener. Mixing performances and tuning systems made me want to measure why this happens and build tools that better suit the people using them.",
+        "intro": "I work as a live sound engineer and research music technology. A childhood interest in music and technology has grown into experiments and tools that address questions from live sound work.",
+        "originTitle": "What led me to research",
+        "origin": "The same music can be heard differently from one space to another, and from one listener to another. Mixing performances and tuning systems made me want to understand why people experience sound differently and build tools that suit them.",
         "futureTitle": "What I want to study next",
-        "future": "In graduate school, I want to study sound through both measurements and listening experiences. Building room correction and performer-tailored instruments led me to ask how CI users might discover and choose musical cues that work for them. This direction is at the literature and design stage; participant interviews and prototype evaluation are planned.",
+        "future": "In graduate school, I want to study acoustic measurements alongside people’s listening experiences. Building room correction systems and instruments tailored to individual performers has led me to an interest in tools that let people who are deaf or hard of hearing share in the experience of music.",
         "storyTitle": "My story",
         "storySections": [
-          "Music & mathematics",
-          "People & reflection",
-          "Education & experiences"
+          "Background",
+          "Values",
+          "Learning & experiences"
         ]
       },
       "projects": {
         "eyebrow": "SELECTED WORK / 2025—2026",
         "title": "Projects",
-        "intro": "My questions began with sound in live venues, then grew to musical expression and participation.",
+        "intro": "My questions began with live performance and have grown to include musicians’ expression and participation in music.",
         "progressionTitle": "How my questions have grown",
         "stages": [
           "Immersive Audio",
-          "Musical Experience",
+          "Musical Expression",
           "Musical Participation"
         ]
       },
@@ -294,13 +294,13 @@
             "2023–Present",
             "Audio research & development",
             "Independent projects",
-            "Spatial audio measurements, corrective IR filters, electronic drums, and audio-to-MIDI tools."
+            "Researching and developing tools that help people experience and express music in their own ways."
           ],
           [
             "Jun–Jul 2025",
             "Technical intern",
             "BLS · System Design Division",
-            "Waves LV1 demonstration preparation and technical support."
+            "Helped prepare Waves SuperRack and LV1 product demonstrations and provided technical support."
           ],
           [
             "2023–2024",
@@ -310,7 +310,7 @@
           ]
         ],
         "churchRole": "Church sound engineer · 2023–Present",
-        "churchDescription": "Includes one year part-time at Armed Forces Central Church, Seoul.",
+        "churchDescription": "One year of part-time work at Armed Forces Central Church, Seoul.",
         "tutorRole": "Korean tutor, Preply · 2023–Present",
         "tutorDescription": "Teaching Korean to learners from different backgrounds.",
         "militaryRole": "Republic of Korea Army · 2021–2022",
@@ -319,7 +319,7 @@
       "contact": {
         "eyebrow": "LET’S TALK ABOUT SOUND & MUSIC",
         "title": "Contact",
-        "intro": "If you’d like to discuss research or work together on a sound project, please email me.",
+        "intro": "Feel free to get in touch if you’d like to talk about research or sound projects.",
         "location": "Seoul, South Korea"
       },
       "music": {

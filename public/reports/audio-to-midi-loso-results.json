@@ -1,0 +1,467 @@
+{
+  "model": "htdemucs",
+  "device": "mps",
+  "paths": [
+    "A",
+    "B",
+    "C"
+  ],
+  "results": {
+    "drums_sample4_synth": {
+      "_meta": {
+        "separation_sec": 0.0,
+        "separable_ratio": 0.7
+      },
+      "A": {
+        "f1": 0.28720899816897727,
+        "precision": 0.2026578073089701,
+        "recall": 0.49281867145421904,
+        "f1_adjusted": 0.28720899816897727,
+        "onset_only_f1": 0.4975150405440754,
+        "per_class": {
+          "kick": 0.6716,
+          "snare": 0.1874,
+          "hihat_closed": 0.5886,
+          "hihat_open": 0.4696,
+          "tom": 0.1499,
+          "crash": 0.0,
+          "ride": 0.0139,
+          "triangle": 0.0
+        },
+        "n_est": 2709,
+        "n_ref": 1114,
+        "transcribe_sec": 9.1,
+        "audio": "eval/synthetic_mixes_clean/drums_sample4_mix.wav"
+      },
+      "B": {
+        "f1": 0.6005917159763314,
+        "precision": 0.6663019693654267,
+        "recall": 0.5466786355475763,
+        "f1_adjusted": 0.6005917159763314,
+        "onset_only_f1": 0.76232741617357,
+        "per_class": {
+          "kick": 0.8251,
+          "snare": 0.9527,
+          "hihat_closed": 0.5635,
+          "hihat_open": 0.5195,
+          "tom": 0.6707,
+          "crash": 0.044,
+          "ride": 0.0,
+          "triangle": 0.0
+        },
+        "n_est": 914,
+        "n_ref": 1114,
+        "transcribe_sec": 8.7,
+        "audio": "eval/_sep_cache/htdemucs/drums_sample4_synth_93a2a00c/drums.wav"
+      },
+      "C": {
+        "f1": 0.5726577437858509,
+        "precision": 0.6124744376278118,
+        "recall": 0.5377019748653501,
+        "f1_adjusted": 0.5726577437858509,
+        "onset_only_f1": 0.7552581261950286,
+        "per_class": {
+          "kick": 0.7857,
+          "snare": 0.859,
+          "hihat_closed": 0.5765,
+          "hihat_open": 0.4292,
+          "tom": 0.6422,
+          "crash": 0.1359,
+          "ride": 0.0,
+          "triangle": 0.0
+        },
+        "n_est": 978,
+        "n_ref": 1114,
+        "transcribe_sec": 8.1,
+        "audio": "eval/synthetic_mixes_clean/drums_sample4_gtstem.wav"
+      }
+    },
+    "drums_sample5_synth": {
+      "_meta": {
+        "separation_sec": 0.0,
+        "separable_ratio": 0.7
+      },
+      "A": {
+        "f1": 0.317990457479652,
+        "precision": 0.2728805394990366,
+        "recall": 0.38096839273705446,
+        "f1_adjusted": 0.317990457479652,
+        "onset_only_f1": 0.6480493965759192,
+        "per_class": {
+          "kick": 0.9695,
+          "snare": 0.234,
+          "hihat_closed": 0.6585,
+          "hihat_open": 0.5455,
+          "tom": 0.0254,
+          "crash": 0.0,
+          "ride": 0.0,
+          "shaker": 0.0
+        },
+        "n_est": 4152,
+        "n_ref": 2974,
+        "transcribe_sec": 12.2,
+        "audio": "eval/synthetic_mixes_clean/drums_sample5_mix.wav"
+      },
+      "B": {
+        "f1": 0.6485641726899785,
+        "precision": 0.7738927738927739,
+        "recall": 0.5581708137188971,
+        "f1_adjusted": 0.6485641726899785,
+        "onset_only_f1": 0.8204727485837078,
+        "per_class": {
+          "kick": 0.9858,
+          "snare": 0.4931,
+          "hihat_closed": 0.9721,
+          "hihat_open": 0.9259,
+          "tom": 0.5882,
+          "crash": 0.0,
+          "shaker": 0.0
+        },
+        "n_est": 2145,
+        "n_ref": 2974,
+        "transcribe_sec": 10.7,
+        "audio": "eval/_sep_cache/htdemucs/drums_sample5_synth_e761558e/drums.wav"
+      },
+      "C": {
+        "f1": 0.6388467374810319,
+        "precision": 0.7328111401218451,
+        "recall": 0.5662407531943511,
+        "f1_adjusted": 0.6388467374810319,
+        "onset_only_f1": 0.8687405159332322,
+        "per_class": {
+          "kick": 0.9947,
+          "snare": 0.4276,
+          "hihat_closed": 0.9963,
+          "hihat_open": 0.9643,
+          "tom": 0.6667,
+          "crash": 0.0,
+          "shaker": 0.0
+        },
+        "n_est": 2298,
+        "n_ref": 2974,
+        "transcribe_sec": 10.5,
+        "audio": "eval/synthetic_mixes_clean/drums_sample5_gtstem.wav"
+      }
+    },
+    "drums_sample6_synth": {
+      "_meta": {
+        "separation_sec": 0.0,
+        "separable_ratio": 0.7016
+      },
+      "A": {
+        "f1": 0.4095723813260102,
+        "precision": 0.30199595024587794,
+        "recall": 0.6361974405850092,
+        "f1_adjusted": 0.4095723813260102,
+        "onset_only_f1": 0.5986661435857199,
+        "per_class": {
+          "kick": 0.8397,
+          "snare": 0.3263,
+          "hihat_closed": 0.6226,
+          "hihat_open": 0.0,
+          "tom": 0.0,
+          "crash": 0.0,
+          "ride": 0.0
+        },
+        "n_est": 3457,
+        "n_ref": 1641,
+        "transcribe_sec": 9.5,
+        "audio": "eval/synthetic_mixes_clean/drums_sample6_mix.wav"
+      },
+      "B": {
+        "f1": 0.9211669770328988,
+        "precision": 0.9386464263124604,
+        "recall": 0.9043266301035954,
+        "f1_adjusted": 0.9211669770328988,
+        "onset_only_f1": 0.9546865301055245,
+        "per_class": {
+          "kick": 0.918,
+          "snare": 0.8962,
+          "hihat_closed": 0.9981,
+          "tom": 0.0,
+          "crash": 0.0
+        },
+        "n_est": 1581,
+        "n_ref": 1641,
+        "transcribe_sec": 8.2,
+        "audio": "eval/_sep_cache/htdemucs/drums_sample6_synth_a73d307d/drums.wav"
+      },
+      "C": {
+        "f1": 0.9803439803439804,
+        "precision": 0.9882352941176471,
+        "recall": 0.9725776965265083,
+        "f1_adjusted": 0.9803439803439804,
+        "onset_only_f1": 0.9815724815724816,
+        "per_class": {
+          "kick": 0.99,
+          "snare": 0.9967,
+          "hihat_closed": 0.9956,
+          "tom": 0.0,
+          "crash": 0.0
+        },
+        "n_est": 1615,
+        "n_ref": 1641,
+        "transcribe_sec": 8.4,
+        "audio": "eval/synthetic_mixes_clean/drums_sample6_gtstem.wav"
+      }
+    },
+    "drums_sample7_synth": {
+      "_meta": {
+        "separation_sec": 0.0,
+        "separable_ratio": 0.7037
+      },
+      "A": {
+        "f1": 0.47952345495160087,
+        "precision": 0.3973673385438091,
+        "recall": 0.60450563204005,
+        "f1_adjusted": 0.47952345495160087,
+        "onset_only_f1": 0.6458178207992058,
+        "per_class": {
+          "kick": 0.9878,
+          "snare": 0.3307,
+          "hihat_closed": 0.803,
+          "hihat_open": 0.1223,
+          "tom": 0.2799,
+          "crash": 0.0,
+          "ride": 0.0
+        },
+        "n_est": 2431,
+        "n_ref": 1598,
+        "transcribe_sec": 9.7,
+        "audio": "eval/synthetic_mixes_clean/drums_sample7_mix.wav"
+      },
+      "B": {
+        "f1": 0.86125746399719,
+        "precision": 0.9815852682145717,
+        "recall": 0.7672090112640801,
+        "f1_adjusted": 0.86125746399719,
+        "onset_only_f1": 0.8661749209694415,
+        "per_class": {
+          "kick": 1.0,
+          "snare": 0.6498,
+          "hihat_closed": 0.9744,
+          "hihat_open": 0.9193,
+          "tom": 0.3111,
+          "ride": 0.0
+        },
+        "n_est": 1249,
+        "n_ref": 1598,
+        "transcribe_sec": 9.2,
+        "audio": "eval/_sep_cache/htdemucs/drums_sample7_synth_3f9afffb/drums.wav"
+      },
+      "C": {
+        "f1": 0.843547224224946,
+        "precision": 0.9948979591836735,
+        "recall": 0.7321652065081352,
+        "f1_adjusted": 0.843547224224946,
+        "onset_only_f1": 0.8464311463590483,
+        "per_class": {
+          "kick": 1.0,
+          "snare": 0.6411,
+          "hihat_closed": 0.9218,
+          "hihat_open": 0.8882,
+          "tom": 0.631,
+          "ride": 0.0
+        },
+        "n_est": 1176,
+        "n_ref": 1598,
+        "transcribe_sec": 9.4,
+        "audio": "eval/synthetic_mixes_clean/drums_sample7_gtstem.wav"
+      }
+    },
+    "drums_sample8_synth": {
+      "_meta": {
+        "separation_sec": 0.0,
+        "separable_ratio": 0.6985
+      },
+      "A": {
+        "f1": 0.40194489465153965,
+        "precision": 0.33604336043360433,
+        "recall": 0.5,
+        "f1_adjusted": 0.40194489465153965,
+        "onset_only_f1": 0.5391680172879524,
+        "per_class": {
+          "kick": 0.9836,
+          "snare": 0.6058,
+          "hihat_closed": 0.498,
+          "tom": 0.0725,
+          "crash": 0.1,
+          "ride": 0.0
+        },
+        "n_est": 1107,
+        "n_ref": 744,
+        "transcribe_sec": 7.1,
+        "audio": "eval/synthetic_mixes_clean/drums_sample8_mix.wav"
+      },
+      "B": {
+        "f1": 0.5782608695652174,
+        "precision": 0.6273584905660378,
+        "recall": 0.5362903225806451,
+        "f1_adjusted": 0.5782608695652174,
+        "onset_only_f1": 0.6826086956521739,
+        "per_class": {
+          "kick": 0.9839,
+          "snare": 0.7601,
+          "hihat_closed": 0.499,
+          "tom": 0.6557,
+          "crash": 0.0,
+          "ride": 0.0
+        },
+        "n_est": 636,
+        "n_ref": 744,
+        "transcribe_sec": 6.5,
+        "audio": "eval/_sep_cache/htdemucs/drums_sample8_synth_c426691a/drums.wav"
+      },
+      "C": {
+        "f1": 0.596167494677076,
+        "precision": 0.631578947368421,
+        "recall": 0.5645161290322581,
+        "f1_adjusted": 0.596167494677076,
+        "onset_only_f1": 0.694109297374024,
+        "per_class": {
+          "kick": 1.0,
+          "snare": 0.8195,
+          "hihat_closed": 0.4737,
+          "tom": 0.7059,
+          "crash": 0.0,
+          "ride": 0.0
+        },
+        "n_est": 665,
+        "n_ref": 744,
+        "transcribe_sec": 6.4,
+        "audio": "eval/synthetic_mixes_clean/drums_sample8_gtstem.wav"
+      }
+    },
+    "drums_sample9_synth": {
+      "_meta": {
+        "separation_sec": 0.0,
+        "separable_ratio": 0.6993
+      },
+      "A": {
+        "f1": 0.39280958721704395,
+        "precision": 0.28310940499040305,
+        "recall": 0.6413043478260869,
+        "f1_adjusted": 0.39280958721704395,
+        "onset_only_f1": 0.5329560585885486,
+        "per_class": {
+          "kick": 0.9364,
+          "snare": 0.237,
+          "hihat_closed": 0.7111,
+          "hihat_open": 0.0,
+          "tom": 0.0,
+          "crash": 0.0,
+          "ride": 0.0,
+          "shaker": 0.0
+        },
+        "n_est": 4168,
+        "n_ref": 1840,
+        "transcribe_sec": 13.1,
+        "audio": "eval/synthetic_mixes_clean/drums_sample9_mix.wav"
+      },
+      "B": {
+        "f1": 0.8868880135059088,
+        "precision": 0.9194865810968494,
+        "recall": 0.8565217391304348,
+        "f1_adjusted": 0.8868880135059088,
+        "onset_only_f1": 0.9009566685424872,
+        "per_class": {
+          "kick": 0.941,
+          "snare": 0.749,
+          "hihat_closed": 0.9416,
+          "hihat_open": 0.0,
+          "crash": 0.0,
+          "ride": 0.0,
+          "shaker": 0.0
+        },
+        "n_est": 1714,
+        "n_ref": 1840,
+        "transcribe_sec": 13.1,
+        "audio": "eval/_sep_cache/htdemucs/drums_sample9_synth_f9863511/drums.wav"
+      },
+      "C": {
+        "f1": 0.9049008168028005,
+        "precision": 0.9767002518891688,
+        "recall": 0.8429347826086957,
+        "f1_adjusted": 0.9049008168028005,
+        "onset_only_f1": 0.9206534422403734,
+        "per_class": {
+          "kick": 0.948,
+          "snare": 0.7827,
+          "hihat_closed": 0.9584,
+          "hihat_open": 0.0,
+          "crash": 0.0,
+          "ride": 0.0,
+          "shaker": 0.0
+        },
+        "n_est": 1588,
+        "n_ref": 1840,
+        "transcribe_sec": 12.9,
+        "audio": "eval/synthetic_mixes_clean/drums_sample9_gtstem.wav"
+      }
+    },
+    "drums_sample11_synth": {
+      "_meta": {
+        "separation_sec": 0.0,
+        "separable_ratio": 0.7036
+      },
+      "A": {
+        "f1": 0.401183970856102,
+        "precision": 0.3457613814756672,
+        "recall": 0.477765726681128,
+        "f1_adjusted": 0.401183970856102,
+        "onset_only_f1": 0.6334244080145719,
+        "per_class": {
+          "kick": 0.9457,
+          "snare": 0.281,
+          "hihat_closed": 0.482,
+          "hihat_open": 0.023,
+          "tom": 0.0038,
+          "crash": 0.0,
+          "ride": 0.0
+        },
+        "n_est": 2548,
+        "n_ref": 1844,
+        "transcribe_sec": 12.4,
+        "audio": "eval/synthetic_mixes_clean/drums_sample11_mix.wav"
+      },
+      "B": {
+        "f1": 0.7647246099968162,
+        "precision": 0.9259830377794911,
+        "recall": 0.6513015184381779,
+        "f1_adjusted": 0.7647246099968162,
+        "onset_only_f1": 0.773002228589621,
+        "per_class": {
+          "kick": 0.9631,
+          "snare": 0.856,
+          "hihat_closed": 0.7214,
+          "hihat_open": 0.0,
+          "tom": 0.0,
+          "crash": 0.0
+        },
+        "n_est": 1297,
+        "n_ref": 1844,
+        "transcribe_sec": 10.5,
+        "audio": "eval/_sep_cache/htdemucs/drums_sample11_synth_b449f610/drums.wav"
+      },
+      "C": {
+        "f1": 0.8040907638223074,
+        "precision": 0.978988326848249,
+        "recall": 0.6822125813449024,
+        "f1_adjusted": 0.8040907638223074,
+        "onset_only_f1": 0.8072866730584852,
+        "per_class": {
+          "kick": 0.9897,
+          "snare": 0.905,
+          "hihat_closed": 0.7613,
+          "hihat_open": 0.023,
+          "tom": 0.2857,
+          "crash": 0.0
+        },
+        "n_est": 1285,
+        "n_ref": 1844,
+        "transcribe_sec": 10.1,
+        "audio": "eval/synthetic_mixes_clean/drums_sample11_gtstem.wav"
+      }
+    }
+  }
+}

@@ -73,7 +73,7 @@
   },
   "wan-audio-transmission": {
     "en": {
-      "question": "Can musicians collaborate across distance?",
+      "question": "Can musicians make music together in real time across distance?",
       "system": "Two remote DAWs connected with relay and peer-to-peer audio tools.",
       "methods": "Test ffmpeg, JACK, and JackTrip while checking delay, buffer errors, and playback over time.",
       "result": "Audio transmission worked, but clock drift limited stable playback over time.",
@@ -97,7 +97,7 @@
   },
   "electronic-drums": {
     "en": {
-      "question": "Can electronic drums adapt to each player’s touch?",
+      "question": "Can a drum module adapt to a player’s striking habits?",
       "system": "A Max/MSP drum module with adjustable sample selection, level, pan, and hi-hat control.",
       "methods": "Manually adjust MIDI velocity ranges and sample choices for one drummer.",
       "result": "The module works with custom snare and ride mappings and CC4 hi-hat control. Its benefit to playing has not yet been measured.",
@@ -105,7 +105,7 @@
       "limitation": "No velocity-distribution study or controlled before/after evaluation has been completed. Automatic adaptation and benefits across players are unverified.",
       "lesson": "Building adjustable mappings made individual touch a concrete design variable. The next step is to test whether that control helps players, rather than assume that customization is better.",
       "build": "Built a Max/MSP drum module with manually tailored snare and ride velocity mappings, CC4 hi-hat control, and individual gain, pan, and output settings.",
-      "findOut": "Manual mappings and hi-hat control work for one player. Whether tailored responses improve playing remains unmeasured; a comparison with fixed mappings is still needed."
+      "findOut": "Manual mappings and hi-hat control work for one player. The effect of tailored responses on playing has not yet been measured."
     },
     "ko": {
       "question": "전자드럼 모듈을 연주자의 타격 습관에 맞출 수 있을까?",
@@ -121,26 +121,26 @@
   },
   "audio-to-midi-system": {
     "en": {
-      "question": "Can AI ease live preparation while artists keep control?",
+      "question": "Can AI ease live preparation while preserving the artist’s musical expression?",
       "system": "Trackform: a browser-based transcription and MIDI editing prototype.",
       "methods": "Reference-MIDI scoring with mir_eval and class-aware drum onset F1; three-path separation comparisons, error diagnostics, and LOSO evaluation setup.",
-      "result": "Transcription, separation, editing, and export work. Evaluation includes 6 bass and 8 drum reference pairs, with saved three-path F1 baselines for 7 synthetic drum mixtures.",
-      "next": "Report LOSO results on songs excluded from training separately from the saved baseline, then measure MIDI correction effort and rehearsal preparation time.",
-      "limitation": "The saved synthetic baseline uses a classifier trained on the evaluated songs. It does not establish generalization to unfamiliar recordings; correction effort and rehearsal time savings remain unmeasured.",
+      "result": "Transcription, separation, editing, and export work. A saved seven-song LOSO evaluation reports mean drum F1 of 0.384 for mixtures, 0.752 after Demucs separation, and 0.763 for reference stems.",
+      "next": "Evaluate a wider range of real production recordings, then measure MIDI correction effort and rehearsal preparation time.",
+      "limitation": "Each evaluated song is excluded from classifier training, but the dataset has only seven synthetic mixtures. Separated-stem F1 varies from 0.578 to 0.921; performance on real production recordings and workflow benefits remain unverified.",
       "lesson": "Scoring the mixture, separated stem, and reference stem through the same transcriber helps locate separation versus transcription errors. Usability still needs direct evaluation.",
       "build": "Built Trackform with an editable piano roll, audition, and MIDI export, plus reference-MIDI scoring, octave and timing diagnostics, synthetic mixtures, LOSO evaluation setup, and classifier training scripts.",
-      "findOut": "Saved seven-song synthetic baselines show higher drum F1 after Demucs separation than direct mixture transcription. These are comparisons on training songs; held-out performance and workflow benefits need separate evaluation."
+      "findOut": "On seven held-out synthetic drum songs, mean F1 rose from 0.384 for mixture transcription to 0.752 after Demucs separation; reference stems scored 0.763. Performance varies considerably across songs, so a wider evaluation is still needed."
     },
     "ko": {
       "question": "아티스트의 음악적 표현을 유지하면서 AI로 공연 준비를 줄일 수 있을까?",
       "system": "음원을 MIDI로 변환하고 브라우저에서 수정하는 Trackform 프로토타입입니다.",
       "methods": "정답 MIDI와 mir_eval·드럼 클래스별 onset F1로 비교하고, 분리 3경로 비교·오류 진단·LOSO 평가 환경을 구축했습니다.",
-      "result": "변환·분리·편집·내보내기와 베이스 6곡·드럼 8곡의 정답 기반 평가 환경을 구현했습니다. 합성 드럼 7곡의 3경로 F1 비교 기준선도 저장했습니다.",
-      "next": "저장된 기준선과 구분해 학습에서 제외한 곡의 LOSO 결과를 정리하고, MIDI 수정에 드는 노력과 리허설 준비 시간 절감을 평가할 예정입니다.",
-      "limitation": "저장된 합성 기준선은 평가곡을 학습에 사용한 분류기의 결과입니다. 새로운 녹음에 대한 일반화 성능, 수정 부담과 리허설 준비 시간 절감은 별도 검증이 필요합니다.",
+      "result": "변환·분리·편집·내보내기와 정답 기반 평가 환경을 구현했습니다. 드럼 7곡 LOSO 평균 F1은 믹스 0.384, Demucs 분리 후 0.752, 정답 스템 0.763이었습니다.",
+      "next": "더 다양한 실제 제작 음원으로 평가를 넓히고, MIDI 수정에 드는 노력과 리허설 준비 시간 절감을 측정할 예정입니다.",
+      "limitation": "평가곡을 분류기 학습에서 제외했지만, 합성 믹스 7곡의 결과입니다. 분리 후 F1은 곡별 0.578~0.921로 차이가 크며, 실제 제작 음원의 성능과 작업 시간 절감은 별도 검증이 필요합니다.",
       "lesson": "같은 전사기로 믹스·분리 스템·정답 스템을 채점하면 분리와 전사의 병목을 나눠 볼 수 있습니다. 실제 편집과 리허설의 효용은 사용자 평가가 필요합니다.",
       "build": "피아노 롤 편집·미리 듣기·MIDI 내보내기를 갖춘 Trackform과 정답 MIDI 채점, 옥타브·타이밍 진단, 합성 믹스, LOSO 평가 환경, 분류기 학습 스크립트를 만들었습니다.",
-      "findOut": "저장된 합성 드럼 7곡의 기준선에서는 믹스를 바로 전사할 때보다 Demucs 분리 후 F1이 높았습니다. 학습에 사용한 곡의 비교 결과이며, 미학습곡 성능과 작업 흐름의 효용은 별도 평가가 필요합니다."
+      "findOut": "드럼 7곡을 각각 학습에서 제외한 LOSO에서 평균 F1은 믹스 0.384에서 Demucs 분리 후 0.752로 높아졌고, 정답 스템은 0.763이었습니다. 곡별 차이가 커 더 넓은 평가가 필요합니다."
     }
   },
   "listening-tool-ci": {
