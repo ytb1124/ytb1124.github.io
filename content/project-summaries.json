@@ -146,25 +146,25 @@
   "listening-tool-ci": {
     "en": {
       "question": "Can listeners discover their own musical cues—and find them again in a song?",
-      "system": "A planned Korean-language music listening website for cochlear implant (CI) users.",
-      "methods": "Design scope: two songs, four listening exercises, stem mixing, and personal listening notes.",
-      "result": "Prepared a literature-based system design, a website specification, and a six-week implementation plan. No prototype has been built.",
-      "next": "Confirm the two-song scope, prepare recordings, and test mobile stem playback; then build the first prototype and plan usability sessions with 2–5 CI users.",
-      "limitation": "No prototype, participant interviews, or user tests have been completed. Cue discovery, enjoyment, and learning outcomes remain hypotheses.",
+      "system": "A Korean-language interactive listening prototype for cochlear implant (CI) users.",
+      "methods": "Six-step sound setup, instrument solo/mute and mixing, section loops, optional audio visualizations, and two cue-comparison sets without scores.",
+      "result": "Implemented a browser prototype with an ensemble room, cue comparisons, personal listening reports, and JSON/CSV export. Audio uses pink-noise placeholders.",
+      "next": "Select the second song, record real stems and comparison clips, check phone/Bluetooth/CI playback and latency, then run initial usability sessions with 2–5 CI users.",
+      "limitation": "Real recordings and pitched melody are absent; the second song is undecided. Participant interviews, real-device checks, and user evaluation remain planned. Listening and learning benefits are untested.",
       "lesson": "Adjusting sound for a room and a drum response for a player led to a new question: can listeners choose the musical cues that work for them? This is a design motivation from earlier work, not evidence of benefit for CI users.",
-      "build": "Design only; no prototype yet. Documented a two-song listening experience with four element exercises, stem mixing, and listening notes, alongside a six-week implementation plan.",
-      "findOut": "No participant findings yet: interviews, a prototype, and user tests have not started. Whether cue exploration helps listeners discover sounds or enjoy music remains a question for evaluation."
+      "build": "Built a React/TypeScript and Web Audio prototype: six-step sound setup, an interactive ensemble room, two cue-question sets, reflection, listening reports, and browser-local JSON/CSV export.",
+      "findOut": "The interface and audio controls are implemented; the repository records browser and audio-node checks. Pink-noise placeholders support testing the flow, but do not establish musical pitch perception or benefits for CI users. No participant findings yet."
     },
     "ko": {
       "question": "나에게 들리는 음악 단서를 발견하고, 노래 안에서 다시 찾을 수 있을까?",
-      "system": "인공와우(CI) 사용자를 위한 한국어 음악 청취 웹사이트 구상입니다.",
-      "methods": "두 곡을 바탕으로 네 가지 요소 연습, 스템 믹싱, 청취 노트를 설계했습니다.",
-      "result": "문헌 기반 학습시스템 설계, 웹사이트 구성안, 6주 실행안을 문서로 정리했습니다. 프로토타입은 아직 만들지 않았습니다.",
-      "next": "두 곡의 범위를 확정하고 녹음 준비와 모바일 스템 재생 시험을 진행한 뒤, 첫 프로토타입과 CI 사용자 2–5명의 사용성 평가를 준비할 계획입니다.",
-      "limitation": "프로토타입, 참여자 인터뷰, 사용자 테스트는 아직 진행하지 않았습니다. 단서 발견, 즐거움, 학습 효과는 모두 검증할 가설입니다.",
+      "system": "인공와우(CI) 사용자를 위한 한국어 인터랙티브 청취 프로토타입입니다.",
+      "methods": "6단계 소리 맞춤, 악기 솔로·켜고 끄기·믹싱, 구간 반복, 선택형 오디오 시각화, 채점 없는 단서 비교 두 세트를 구현했습니다.",
+      "result": "합주실·단서 질문·청취 리포트·JSON/CSV 내보내기를 갖춘 브라우저 프로토타입을 구현했습니다. 소리는 핑크노이즈 자리표시입니다.",
+      "next": "두 번째 곡을 정하고 실제 스템과 비교 클립을 녹음한 뒤, 휴대전화·블루투스·CI 재생과 지연을 확인하고 CI 사용자 2–5명의 초기 사용성 평가를 진행할 예정입니다.",
+      "limitation": "실제 녹음과 음높이 있는 멜로디는 없고 두 번째 곡은 미정입니다. 참여자 인터뷰·실기기 검증·사용자 평가는 앞으로 할 일이며, 청취와 학습 효과는 검증하지 않았습니다.",
       "lesson": "공간에 맞춘 소리 보정과 연주자에 맞춘 드럼 반응을 만들며, 이제 듣는 사람도 자신에게 유효한 음악 단서를 선택할 수 있을지 묻게 됐습니다. 이는 이전 경험에서 나온 설계 동기이며 CI 사용자에게 효과가 있다는 증거는 아닙니다.",
-      "build": "아직 구현 전입니다. 두 곡 기반의 네 가지 요소 연습·스템 믹싱·청취 노트를 설계하고, 문헌 기반 설계안과 6주 실행안을 문서로 정리했습니다.",
-      "findOut": "아직 참여자에게서 확인한 결과는 없습니다. 인터뷰·프로토타입·사용자 테스트는 진행 전이며, 단서 탐색이 소리의 발견과 음악 감상에 도움이 되는지 검증할 계획입니다."
+      "build": "React·TypeScript·Web Audio로 6단계 소리 맞춤, 인터랙티브 합주실, 단서 질문 두 세트, 성찰, 청취 리포트, 브라우저 내 저장과 JSON/CSV 내보내기를 구현했습니다.",
+      "findOut": "화면과 오디오 조작을 구현했고 저장소에 브라우저·오디오 노드 검증 기록을 남겼습니다. 핑크노이즈로 동작 흐름을 확인하는 단계이며, 음악적 음높이 지각이나 CI 사용자의 청취 효과를 확인한 결과는 아직 없습니다."
     }
   }
 }

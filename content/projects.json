@@ -351,24 +351,25 @@
     "slug": "listening-tool-ci",
     "year": "2026",
     "category": "Music accessibility",
-    "title": "Finding the Music: A Listening Tool for CI Users",
+    "title": "CI Interactive Ensemble Room",
     "ongoing": true,
-    "description": "A literature-based design for exploring musical cues through two songs. Design documents prepared; prototype and user testing not started.",
+    "description": "A Korean-language interactive listening prototype for CI users, with sound setup, stem mixing, cue comparisons, and personal reports. Uses pink-noise placeholders; user evaluation is still planned.",
     "question": "Can listeners discover their own musical cues—and find them again in a song?",
     "image": "/framer/projects/adaptive-monitor-system/cover.jpeg",
     "gallery": [],
     "body": [
-      "This project changes the direction of Adaptive Musical Partner: from performance monitoring to a Korean-language music listening website for cochlear implant (CI) users. The working title is Cue Ensemble Room.",
-      "The proposed experience starts with two songs. Listeners would explore rhythm, timbre, pitch direction, and melody separately, then return to a song studio to isolate or raise individual stems. Personal listening notes would record cues they noticed and mixes they liked.",
-      "The six-week plan narrows the first build to five main screens: setup, home, element practice, song studio, and listening notes. It proposes dry recordings and a listen-with-guidance → practice → reflection flow. Adaptive algorithms, haptic feedback, and long-term training programmes are outside this first scope.",
-      "The current outputs are design documents, not a working product. Recordings, mobile playback checks, a prototype, and participant sessions remain planned. The six-week schedule is a proposed build sequence, not six weeks of completed work.",
-      "The proposed first evaluation is usability with 2–5 CI users: can they complete tasks, discover a cue, and choose a mix they enjoy? It cannot establish improved music perception. Longer-term learning and transfer to unfamiliar music would require a separate study."
+      "What should listeners be able to choose for themselves? Building sound systems for venues and a drum response for one performer led to a Korean-language interactive listening prototype for cochlear implant (CI) users: CI Interactive Ensemble Room. The project has moved from design documents to a clickable browser prototype.",
+      "The implemented flow runs from sound activation through six sound-setup steps, an ensemble room, cue questions, reflection, and a personal listening report. Setup covers listening equipment and connection, comfortable volume, left–right balance, tone, instrument levels, and optional bass support. Listeners can revisit these choices from the ensemble room.",
+      "In the ensemble room, listeners can solo or mute cajon, double bass, and trumpet, change their levels, loop a section, or alternate between sounds. Optional lanes, waveforms, spectra, and performer animations follow audio timing. A listen-first sequence moves from sound alone to visual guidance and back to listening.",
+      "Two cue-question sets use comparisons and reflections without correct answers or scores. The report describes patterns in the current session and lets listeners revise their own explanations. Settings, interaction logs, and responses are stored in the browser; JSON and CSV export and full data deletion are implemented. The prototype uses React, TypeScript, Web Audio, and Canvas 2D.",
+      "The audio is still a placeholder: each instrument uses independent pink noise, with no real recordings or pitched melody. The first song structure follows Happy Birthday to You; the second song is undecided. The pitch comparison substitutes a change of noise frequency band, so it cannot yet test musical pitch perception. The interface and audio controls are implemented, but music-listening benefits remain untested.",
+      "The repository records browser checks on 23 October 2026 for the main flow, audio-node levels, mobile and desktop layouts, and automated accessibility checks. These are implementation checks, not results from CI participants. Next steps are selecting the second song, recording stems and comparison clips, checking real-device playback and latency including Bluetooth and CI streaming, and conducting initial usability sessions with 2–5 CI users. Longer-term learning and transfer to unfamiliar music require a separate study."
     ],
-    "status": "Research concept",
-    "titleKo": "인공와우 사용자를 위한 음악 청취",
+    "status": "Working prototype",
+    "titleKo": "인공와우 인터랙티브 합주실",
     "summary": {
-      "en": "System design and a six-week plan prepared. No prototype or user study yet.",
-      "ko": "학습시스템 설계와 6주 실행안을 정리했습니다. 프로토타입과 사용자 연구는 아직 진행 전입니다."
+      "en": "Built sound setup, an interactive ensemble room, cue comparisons, and listening reports. Pink-noise prototype; CI user evaluation is still planned.",
+      "ko": "소리 맞춤·합주실·단서 질문·청취 리포트를 구현했습니다. 핑크노이즈 시험판이며 CI 사용자 평가는 앞으로 진행합니다."
     },
     "progress": [
       {
@@ -378,41 +379,76 @@
         },
         "state": "done",
         "detail": {
-          "en": "System design, website scope, and six-week plan documented.",
-          "ko": "학습시스템 설계·웹 구성·6주 실행안 문서화."
+          "en": "Literature-based system design and website scope documented; the first browser prototype is implemented.",
+          "ko": "문헌 기반 시스템 설계와 웹 구성안을 정리하고 첫 브라우저 프로토타입으로 구현했습니다."
         }
       },
       {
         "label": {
-          "en": "User interviews",
-          "ko": "사용자 인터뷰"
+          "en": "Browser prototype",
+          "ko": "브라우저 프로토타입"
         },
-        "state": "planned",
+        "state": "done",
         "detail": {
-          "en": "Participant conversations remain to be conducted.",
-          "ko": "참여자 인터뷰 진행 전."
+          "en": "Sound setup, ensemble controls, cue questions, reports, and local export implemented with pink-noise audio.",
+          "ko": "핑크노이즈로 소리 맞춤·합주실 조작·단서 질문·리포트·데이터 내보내기를 구현했습니다."
         }
       },
       {
         "label": {
-          "en": "Prototype",
-          "ko": "프로토타입"
+          "en": "Recordings & song selection",
+          "ko": "녹음·곡 선정"
         },
         "state": "planned",
         "detail": {
-          "en": "Two-song listening website; no build yet.",
-          "ko": "두 곡 기반 청취 웹사이트 제작 전."
+          "en": "Select the second song and replace placeholder stems and comparison clips with real recordings.",
+          "ko": "두 번째 곡을 정하고 자리표시 스템과 비교 클립을 실제 녹음으로 교체할 예정입니다."
         }
       },
       {
         "label": {
-          "en": "Usability test",
-          "ko": "사용성 테스트"
+          "en": "Real-device checks",
+          "ko": "실기기 검증"
         },
         "state": "planned",
         "detail": {
-          "en": "Sessions with 2–5 CI users proposed; no results yet.",
-          "ko": "CI 사용자 2–5명 평가 계획. 결과 없음."
+          "en": "Check playback, decoding, latency, and screen-reader use on phones, Bluetooth, and CI streaming.",
+          "ko": "휴대전화·블루투스·CI 스트리밍의 재생·디코딩·지연과 화면 낭독기 사용을 확인할 예정입니다."
+        }
+      },
+      {
+        "label": {
+          "en": "Interviews & usability",
+          "ko": "인터뷰·사용성 평가"
+        },
+        "state": "planned",
+        "detail": {
+          "en": "Participant interviews and usability sessions with 2–5 CI users remain planned; no user findings yet.",
+          "ko": "참여자 인터뷰와 CI 사용자 2–5명의 사용성 평가를 계획하고 있습니다. 사용자 결과는 아직 없습니다."
+        }
+      }
+    ],
+    "repository": "https://github.com/ytb1124/ci-ensemble-room",
+    "resources": [
+      {
+        "href": "https://taebin.link/ci-ensemble-room/",
+        "label": {
+          "en": "Try the prototype ↗",
+          "ko": "프로토타입 체험 ↗"
+        }
+      },
+      {
+        "href": "https://github.com/ytb1124/ci-ensemble-room/blob/main/README.md",
+        "label": {
+          "en": "Implementation notes ↗",
+          "ko": "구현 내용과 한계 ↗"
+        }
+      },
+      {
+        "href": "https://github.com/ytb1124/ci-ensemble-room/blob/main/CHECKLIST.md",
+        "label": {
+          "en": "Implementation checklist ↗",
+          "ko": "구현 체크리스트 ↗"
         }
       }
     ]
