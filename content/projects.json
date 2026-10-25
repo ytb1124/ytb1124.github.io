@@ -258,9 +258,12 @@
     "ongoing": true,
     "description": "An audio-to-MIDI workspace exploring model adaptation, held-out evaluation, and the gap between rendered music and real recordings.",
     "question": "Can AI ease live preparation while preserving the artist’s musical expression?",
-    "image": "/framer/projects/audio-to-midi-system/cover.png",
+    "image": "/images/trackform/piano-editor.png",
     "gallery": [
-      "/framer/projects/audio-to-midi-system/cover.png"
+      "/images/trackform/piano-editor.png",
+      "/images/trackform/start.png",
+      "/images/trackform/piano-transcription.png",
+      "/images/trackform/drum-editor.png"
     ],
     "repository": "https://github.com/ytb1124/audio-to-midi",
     "body": [
@@ -363,6 +366,36 @@
       "tools": {
         "en": "AI-assisted development using existing Transkun, Basic Pitch, ADTOF, and Demucs models. Training and evaluation code, settings, and results are linked for inspection.",
         "ko": "Transkun·Basic Pitch·ADTOF·Demucs 등 기존 모델을 활용한 AI-assisted development입니다. 학습·평가 코드와 설정·결과를 링크로 공개합니다."
+      }
+    },
+    "galleryCaptions": [
+      {
+        "en": "Piano roll: inspect generated notes and adjust timing, pitch, length, and velocity. Captured from the Trackform macOS app.",
+        "ko": "피아노 롤: 생성된 음표를 확인하고 타이밍·음높이·길이·벨로시티를 수정하는 화면입니다. Trackform macOS 앱에서 캡처했습니다."
+      },
+      {
+        "en": "Start a session: upload a full song for stem separation, or choose an instrument workspace for MIDI conversion.",
+        "ko": "시작 화면: 전체 곡의 스템 분리를 시작하거나, 악기별 MIDI 변환 작업 공간을 선택합니다."
+      },
+      {
+        "en": "Piano transcription: a 30-second audio fixture was converted in the app, producing 514 MIDI events. This screenshot predates the conversion update shown in the demo.",
+        "ko": "피아노 전사: 앱에서 30초 오디오를 변환해 514개 MIDI 이벤트를 생성한 화면입니다. 사진은 데모 영상의 변환 업데이트 이전에 촬영했습니다."
+      },
+      {
+        "en": "Drum editing: a saved ADTOF result for MDB MusicDelta_FunkJazz opened as MIDI in the app. The screenshot shows an imported evaluation artifact.",
+        "ko": "드럼 편집: MDB MusicDelta_FunkJazz의 저장된 ADTOF 결과를 앱에서 MIDI로 연 화면입니다. 평가 산출물을 불러온 장면입니다."
+      }
+    ],
+    "demo": {
+      "src": "/videos/trackform-bass-demo.mp4",
+      "poster": "/images/trackform/demo-poster.jpg",
+      "captions": {
+        "en": "/videos/trackform-demo-en.vtt",
+        "ko": "/videos/trackform-demo-ko.vtt"
+      },
+      "description": {
+        "en": "Recorded in the updated macOS app on 25 October 2026: a 20-second bass recording is converted, inspected, edited, and previewed. Silent demo; file selection and processing waits are shortened.",
+        "ko": "2026년 10월 25일 업데이트된 macOS 앱에서 촬영했습니다. 20초 베이스 오디오의 변환·결과 확인·편집·미리 듣기 과정입니다. 무음 영상이며 파일 선택과 처리 대기 구간을 단축했습니다."
       }
     }
   },

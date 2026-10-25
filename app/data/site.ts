@@ -17,6 +17,7 @@ export type Project = {
   galleryCaptions?: Record<Locale, string>[];
   body: string[];
   video?: string;
+  demo?: { src: string; poster: string; captions: Record<Locale, string>; description: Record<Locale, string> };
   reports?: { ko: string; en: string };
   resources?: ProjectResource[];
   repository?: string;

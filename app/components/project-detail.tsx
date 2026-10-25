@@ -26,6 +26,15 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
           return <a href={href} {...(!resource.localized?{target:'_blank',rel:'noopener noreferrer'}:{})} key={resource.href}>{resource.label[locale]}</a>;
         })}{project.repository&&<a href={project.repository} target="_blank" rel="noopener noreferrer">{ko?'코드 보기 ↗':'View code ↗'}</a>}</div>}
       </header>
+      {project.demo && <section className="project-demo" aria-labelledby="demo-title">
+        <h2 id="demo-title">{ko ? 'Trackform 사용 데모' : 'Trackform in use'}</h2>
+        <video controls playsInline preload="none" poster={project.demo.poster} aria-label={ko ? '오디오 변환과 MIDI 편집 데모' : 'Audio conversion and MIDI editing demo'}>
+          <source src={project.demo.src} type="video/mp4"/>
+          <track kind="captions" src={project.demo.captions[locale]} srcLang={locale} label={ko ? '한국어' : 'English'} default/>
+          <a href={project.demo.src}>{ko ? '데모 영상 보기' : 'Watch demo'}</a>
+        </video>
+        <p>{project.demo.description[locale]}</p>
+      </section>}
       {project.plannedSubmission && <section className="project-next-step">
         <h2>{project.plannedSubmission.label[locale]}</h2>
         <p><a href={project.plannedSubmission.href} target="_blank" rel="noopener noreferrer">{project.plannedSubmission.venue} ↗</a><br/>{project.plannedSubmission.description[locale]}</p>
@@ -44,7 +53,7 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
         <div className="detail-gallery">{project.gallery.map((src,i)=>{
           const caption = project.galleryCaptions?.[i]?.[locale];
           return caption ? <figure className="gallery-frame screenshot-frame" key={src}>
-            <Image src={src} alt={caption} width={1265} height={712} loading="lazy"/>
+            <a href={src} target="_blank" rel="noopener noreferrer" aria-label={ko ? `원본 확대: ${caption}` : `View full size: ${caption}`}><Image src={src} alt={caption} width={1265} height={712} loading="lazy"/></a>
             <figcaption>{caption}</figcaption>
           </figure> : <div className="gallery-frame" key={src}><Image src={src} alt={`${title} ${i+1}`} width={1800} height={1200} loading="lazy"/></div>;
         })}</div>
