@@ -254,9 +254,9 @@
     "slug": "audio-to-midi-system",
     "year": "2026",
     "category": "Technology",
-    "title": "Audio-to-MIDI Editor",
+    "title": "Trackform — Audio-to-MIDI & ML Evaluation",
     "ongoing": true,
-    "description": "A transcription and MIDI editing prototype with reference-MIDI scoring and recorded seven-song leave-one-song-out drum evaluations.",
+    "description": "An audio-to-MIDI workspace exploring model adaptation, held-out evaluation, and the gap between rendered music and real recordings.",
     "question": "Can AI ease live preparation while preserving the artist’s musical expression?",
     "image": "/framer/projects/audio-to-midi-system/cover.png",
     "gallery": [
@@ -264,88 +264,107 @@
     ],
     "repository": "https://github.com/ytb1124/audio-to-midi",
     "body": [
-      "Preparing a recording for a live performance often involves transcribing parts and editing them in a DAW. I am building Trackform to make the first draft easier to create and revise.",
-      "The prototype supports piano, general audio, bass, and drum transcription, plus Demucs stem separation. Piano mode uses Transkun and an audio-based sustain correction step. Users can move, resize, audition, and export notes in a browser piano roll.",
-      "The Next.js interface and FastAPI processing pipeline can also be packaged with Tauri. Alongside the editor, I built an evaluation pipeline with six bass and eight drum WAV/MIDI reference pairs. Bass scoring uses mir_eval precision, recall, and F1 with 50 ms onset and 50 cent pitch tolerances, without requiring offset matches; separate diagnostics cover octave shifts, timing, and duration. Drum scoring matches instrument classes and onsets with a 50 ms tolerance.",
-      "To locate the bottleneck between separation and transcription, I compare three inputs to the same transcriber: the mixture, the Demucs-separated stem, and the reference stem. Saved baselines cover seven synthetic drum mixtures and a second set with the accompaniment separated again to reduce residual drums. The baseline records artifact hashes, the model and device, and deterministic processing assumptions for regression checks.",
-      "I also implemented synthetic-mix generation, leave-one-song-out (LOSO) evaluation configurations and models, and training scripts for octave-error, fragmented-note, and joint note models. These separate error analysis from feature implementation and support comparisons on songs excluded from training.",
-      "A saved seven-fold leave-one-song-out run evaluates each synthetic drum mixture with a classifier trained on the other six songs. Mean class-aware onset micro F1 is 0.384 for the mixture, 0.752 after Demucs separation, and 0.763 for the reference stem. The separated-stem F1 ranges from 0.578 to 0.921 across songs, showing substantial variation. These are held-out song results within a small synthetic dataset; real production recordings, MIDI correction effort, and rehearsal preparation time still need evaluation. BPM, key, song structure, lyric cues, and rehearsal playback remain areas for further development and testing."
+      "Trackform turns recorded music into editable MIDI for performance preparation. It combines specialist transcription models, Demucs stem separation, a piano-roll editor, audition, and MIDI export. The Next.js interface and FastAPI processing pipeline also support a local Tauri desktop application.",
+      "The ML question is whether adapting a pretrained model to the actual processing path improves transcription on unfamiliar recordings. Piano uses Transkun, bass uses Basic Pitch with hybrid post-processing, and drums use ADTOF on HT-Demucs stems. These are existing models integrated into an assistive editing workflow; generated notes remain open to correction.",
+      "ADTOF fine-tuning targeted separation artifacts and weak drum classes. Slakh supplies paired rendered audio and MIDI labels, making supervised adaptation to separated stems possible. The reduced experiment used 40 Slakh train songs for training and a separate 16 for validation. MDB Drums, 23 real recordings, was reserved for test evaluation. The original plan included real-recording training and rehearsal data; ADTOF data required access approval and the ENST download was too slow, so those conditions were not run.",
+      "The experiment compared pretrained weights (A0), full fine-tuning (A1), and a frozen convolutional/batch-normalization block with trainable GRU and output layers (A4f). The initial learning rate was 1e-4, one fifth of the original setting. A smaller update and frozen feature extractor were conservative adaptation choices, not a demonstrated optimum from a learning-rate sweep. The implementation uses Adam, binary cross-entropy, seed 0, validation-loss early stopping (patience 3), and learning-rate reduction. Candidate selection then uses validation F1.",
+      "A4f led rendered validation: F1 rose from 0.695 to 0.786. On MDB, it fell from 0.859 to 0.816; the paired difference was −0.043 with a 95% bootstrap interval of [−0.066, −0.022]. Hi-hat and tom performance declined despite gains for kick and cymbal. The candidate was rejected and pretrained ADTOF remained the default. A1 also scored 0.816 on MDB, but that additional test was recorded outside the planned single-candidate selection rule.",
+      "This reversal is consistent with domain shift and loss of useful pretrained behavior, but it does not isolate the cause. A proposed follow-up would compare rendered-only training, real-recording training, and mixed training with rehearsal, each with frozen and unfrozen feature blocks. Data access, matched training budgets, multiple seeds, real-recording validation, and a fresh untouched final test set would be needed. Per-class errors and paired intervals would determine adoption; repeated inspection of MDB should not become test-set tuning.",
+      "This is AI-assisted development with documented model integration, fine-tuning code, and evaluation records. The research contribution presented here is the question, experimental comparison, and evidence-based adoption decision. The project does not claim a new foundation model or proven workflow benefit. MIDI correction effort and rehearsal preparation time still require user evaluation."
     ],
     "status": "Working prototype",
-    "titleKo": "오디오 MIDI 변환·편집 도구",
+    "titleKo": "Trackform — 오디오 MIDI 변환과 ML 실험",
     "summary": {
-      "en": "Built transcription, separation, and MIDI editing; seven-song LOSO drum evaluation records mean F1 of 0.384 for mixtures and 0.752 after separation.",
-      "ko": "변환·분리·MIDI 편집을 구현했습니다. 드럼 7곡 LOSO 평가에서 믹스의 평균 F1은 0.384, 분리 후는 0.752였습니다."
+      "en": "ADTOF fine-tuning improved rendered validation F1 (0.695 → 0.786) but reduced real-recording F1 (0.859 → 0.816). The pretrained model was retained.",
+      "ko": "ADTOF 파인튜닝으로 렌더링 검증 F1은 0.695 → 0.786, 실제 녹음 F1은 0.859 → 0.816이었습니다. 평가 결과에 따라 기존 모델을 유지했습니다."
     },
     "progress": [
       {
         "label": {
-          "en": "Prototype",
-          "ko": "프로토타입"
+          "en": "Music workflow",
+          "ko": "음악 작업 도구"
         },
         "state": "done",
         "detail": {
-          "en": "Transcription, separation, editing, and export implemented.",
-          "ko": "음원 변환·분리·편집·내보내기 구현."
+          "en": "Transcription, separation, piano-roll editing, audition, and export.",
+          "ko": "전사·음원 분리·피아노 롤 편집·미리 듣기·내보내기 구현."
         }
       },
       {
         "label": {
-          "en": "Evaluation infrastructure",
-          "ko": "평가 인프라"
+          "en": "Held-out evaluation",
+          "ko": "홀드아웃 평가"
         },
         "state": "done",
         "detail": {
-          "en": "6 bass / 8 drum reference pairs, P/R/F1 scoring, error diagnostics, and LOSO evaluation setup.",
-          "ko": "베이스 6곡·드럼 8곡의 정답 쌍, P/R/F1 채점·오류 진단·LOSO 평가 환경 구축."
+          "en": "Slakh test 20 rendered mixes and MDB 23 real recordings; per-song and per-class scoring.",
+          "ko": "Slakh test 렌더링 믹스 20곡·MDB 실제 녹음 23곡, 곡별·클래스별 채점."
         }
       },
       {
         "label": {
-          "en": "Baseline & LOSO evaluation",
-          "ko": "기준선·LOSO 평가"
+          "en": "Fine-tuning & decision",
+          "ko": "파인튜닝과 채택 판단"
         },
         "state": "done",
         "detail": {
-          "en": "Recorded three-path F1 for 7 synthetic drum mixtures, including 7 folds excluding each evaluation song from classifier training.",
-          "ko": "합성 드럼 7곡의 3경로 F1과 평가곡을 분류기 학습에서 제외한 7폴드 LOSO 결과 기록."
+          "en": "Full and frozen-block adaptation compared; rejected after real-recording regression.",
+          "ko": "전체·합성곱 블록 동결 조건 비교, 실제 녹음 성능 하락에 따라 기각."
         }
       },
       {
         "label": {
-          "en": "User evaluation",
-          "ko": "사용자 평가"
+          "en": "Generalization & usability",
+          "ko": "일반화·사용성 후속 검증"
         },
         "state": "planned",
         "detail": {
-          "en": "Editing and rehearsal workflow evaluation planned.",
-          "ko": "편집·리허설 작업 흐름 평가 예정."
+          "en": "Secure real-recording training data, test rehearsal, and measure MIDI correction effort.",
+          "ko": "실제 녹음 학습 데이터 확보, 되새김 학습 비교, MIDI 수정 노력 측정."
         }
       }
     ],
     "resources": [
       {
-        "href": "https://github.com/ytb1124/audio-to-midi/tree/main/eval",
+        "href": "https://github.com/ytb1124/audio-to-midi/blob/main/eval/BEST_RESULTS.md",
         "label": {
-          "en": "Evaluation code ↗",
-          "ko": "평가 코드 ↗"
+          "en": "Experiment report ↗",
+          "ko": "실험 보고서 ↗"
         }
       },
       {
-        "href": "/reports/audio-to-midi-loso-results.json",
+        "href": "https://github.com/ytb1124/audio-to-midi/blob/main/eval/ADTOF_FINETUNE_PLAN.md",
         "label": {
-          "en": "LOSO results ↗",
-          "ko": "LOSO 평가 결과 ↗"
+          "en": "Fine-tuning plan ↗",
+          "ko": "파인튜닝 계획 ↗"
         }
       },
       {
-        "href": "https://github.com/ytb1124/audio-to-midi/blob/main/eval/separation_baseline.json",
+        "href": "https://github.com/ytb1124/audio-to-midi/tree/main/eval/adtof_finetune",
         "label": {
-          "en": "Recorded baseline ↗",
-          "ko": "기록된 기준선 ↗"
+          "en": "Training code & results ↗",
+          "ko": "학습 코드·결과 ↗"
         }
       }
-    ]
+    ],
+    "contribution": {
+      "problem": {
+        "en": "The ML question is whether adapting a pretrained model to the actual processing path improves transcription on unfamiliar recordings. Piano uses Transkun, bass uses Basic Pitch with hybrid post-processing, and drums use ADTOF on HT-Demucs stems. These are existing models integrated into an assistive editing workflow; generated notes remain open to correction.",
+        "ko": "ML 관점의 질문은 사전학습 모델을 실제 처리 경로에 맞춰 적응시키면 처음 보는 녹음에서도 전사가 좋아지는가입니다. 피아노는 Transkun, 베이스는 Basic Pitch와 하이브리드 후처리, 드럼은 HT-Demucs 분리 스템과 ADTOF를 사용합니다. 기존 모델을 편집 흐름에 통합했으며, 생성된 음표는 사용자가 확인하고 수정할 수 있습니다."
+      },
+      "design": {
+        "en": "The experiment compared pretrained weights (A0), full fine-tuning (A1), and a frozen convolutional/batch-normalization block with trainable GRU and output layers (A4f). The initial learning rate was 1e-4, one fifth of the original setting. A smaller update and frozen feature extractor were conservative adaptation choices, not a demonstrated optimum from a learning-rate sweep. The implementation uses Adam, binary cross-entropy, seed 0, validation-loss early stopping (patience 3), and learning-rate reduction. Candidate selection then uses validation F1.",
+        "ko": "공개 가중치 A0, 전체 파인튜닝 A1, 합성곱·배치정규화 블록을 동결하고 GRU·출력층을 학습하는 A4f를 비교했습니다. 초기 학습률은 원래 설정의 1/5인 1e-4입니다. 작은 업데이트와 특징 추출기 동결은 보수적 적응을 위한 선택이며, 학습률 탐색으로 최적임을 입증한 값은 아닙니다. 코드는 Adam, 이진 교차 엔트로피, seed 0, 검증 손실 기반 조기 종료(patience 3), 학습률 감소를 사용합니다. 이후 검증 F1으로 후보를 선택했습니다."
+      },
+      "analysis": {
+        "en": "A4f led rendered validation: F1 rose from 0.695 to 0.786. On MDB, it fell from 0.859 to 0.816; the paired difference was −0.043 with a 95% bootstrap interval of [−0.066, −0.022]. Hi-hat and tom performance declined despite gains for kick and cymbal. The candidate was rejected and pretrained ADTOF remained the default. A1 also scored 0.816 on MDB, but that additional test was recorded outside the planned single-candidate selection rule.",
+        "ko": "검증 1위 A4f의 F1은 렌더링 검증에서 0.695 → 0.786으로 높아졌지만, MDB 실제 녹음에서는 0.859 → 0.816으로 떨어졌습니다. 곡별 대응 차이는 −0.043, 95% 부트스트랩 신뢰구간은 [−0.066, −0.022]였습니다. 킥·심벌은 개선됐지만 하이햇·톰은 악화됐습니다. 따라서 파인튜닝 모델을 기각하고 기존 ADTOF를 유지했습니다. 전체 파인튜닝 A1도 MDB에서 0.816이었으나, 이 추가 평가는 계획된 단일 후보 선택 규칙 밖의 참고 결과입니다."
+      },
+      "tools": {
+        "en": "AI-assisted development using existing Transkun, Basic Pitch, ADTOF, and Demucs models. Training and evaluation code, settings, and results are linked for inspection.",
+        "ko": "Transkun·Basic Pitch·ADTOF·Demucs 등 기존 모델을 활용한 AI-assisted development입니다. 학습·평가 코드와 설정·결과를 링크로 공개합니다."
+      }
+    }
   },
   {
     "slug": "listening-tool-ci",

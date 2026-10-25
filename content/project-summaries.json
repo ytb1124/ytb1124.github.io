@@ -122,25 +122,25 @@
   "audio-to-midi-system": {
     "en": {
       "question": "Can AI ease live preparation while preserving the artist’s musical expression?",
-      "system": "Trackform: a browser-based transcription and MIDI editing prototype.",
-      "methods": "Reference-MIDI scoring with mir_eval and class-aware drum onset F1; three-path separation comparisons, error diagnostics, and LOSO evaluation setup.",
-      "result": "Transcription, separation, editing, and export work. A saved seven-song LOSO evaluation reports mean drum F1 of 0.384 for mixtures, 0.752 after Demucs separation, and 0.763 for reference stems.",
-      "next": "Evaluate a wider range of real production recordings, then measure MIDI correction effort and rehearsal preparation time.",
-      "limitation": "Each evaluated song is excluded from classifier training, but the dataset has only seven synthetic mixtures. Separated-stem F1 varies from 0.578 to 0.921; performance on real production recordings and workflow benefits remain unverified.",
-      "lesson": "Scoring the mixture, separated stem, and reference stem through the same transcriber helps locate separation versus transcription errors. Usability still needs direct evaluation.",
-      "build": "Built Trackform with an editable piano roll, audition, and MIDI export, plus reference-MIDI scoring, octave and timing diagnostics, synthetic mixtures, LOSO evaluation setup, and classifier training scripts.",
-      "findOut": "On seven held-out synthetic drum songs, mean F1 rose from 0.384 for mixture transcription to 0.752 after Demucs separation; reference stems scored 0.763. Performance varies considerably across songs, so a wider evaluation is still needed."
+      "system": "Trackform: an audio-to-MIDI workspace and a testbed for model adaptation.",
+      "methods": "ADTOF full versus frozen-block fine-tuning, separate validation and real-recording evaluation, per-class error analysis, and paired bootstrap intervals.",
+      "result": "ADTOF fine-tuning improved rendered validation F1 (0.695 → 0.786) but reduced real-recording F1 (0.859 → 0.816). The pretrained model was retained.",
+      "next": "Secure real-recording training data; compare rehearsal and layer freezing on fresh held-out recordings, then measure MIDI correction effort.",
+      "limitation": "Rendered-only fine-tuning did not generalize to MDB. Rehearsal was not run; domain shift and forgetting remain hypotheses. Workflow benefits are untested.",
+      "lesson": "A validation gain is insufficient for adoption when performance falls on the recordings the system is meant to serve.",
+      "build": "Integrated specialist transcription models and an editable MIDI workspace; implemented fine-tuning comparisons and reproducible scoring across rendered and real recordings with AI assistance.",
+      "findOut": "ADTOF fine-tuning improved rendered validation F1 (0.695 → 0.786) but reduced real-recording F1 (0.859 → 0.816). The pretrained model was retained."
     },
     "ko": {
       "question": "아티스트의 음악적 표현을 유지하면서 AI로 공연 준비를 줄일 수 있을까?",
-      "system": "음원을 MIDI로 변환하고 브라우저에서 수정하는 Trackform 프로토타입입니다.",
-      "methods": "정답 MIDI와 mir_eval·드럼 클래스별 onset F1로 비교하고, 분리 3경로 비교·오류 진단·LOSO 평가 환경을 구축했습니다.",
-      "result": "변환·분리·편집·내보내기와 정답 기반 평가 환경을 구현했습니다. 드럼 7곡 LOSO 평균 F1은 믹스 0.384, Demucs 분리 후 0.752, 정답 스템 0.763이었습니다.",
-      "next": "더 다양한 실제 제작 음원으로 평가를 넓히고, MIDI 수정에 드는 노력과 리허설 준비 시간 절감을 측정할 예정입니다.",
-      "limitation": "평가곡을 분류기 학습에서 제외했지만, 합성 믹스 7곡의 결과입니다. 분리 후 F1은 곡별 0.578~0.921로 차이가 크며, 실제 제작 음원의 성능과 작업 시간 절감은 별도 검증이 필요합니다.",
-      "lesson": "같은 전사기로 믹스·분리 스템·정답 스템을 채점하면 분리와 전사의 병목을 나눠 볼 수 있습니다. 실제 편집과 리허설의 효용은 사용자 평가가 필요합니다.",
-      "build": "피아노 롤 편집·미리 듣기·MIDI 내보내기를 갖춘 Trackform과 정답 MIDI 채점, 옥타브·타이밍 진단, 합성 믹스, LOSO 평가 환경, 분류기 학습 스크립트를 만들었습니다.",
-      "findOut": "드럼 7곡을 각각 학습에서 제외한 LOSO에서 평균 F1은 믹스 0.384에서 Demucs 분리 후 0.752로 높아졌고, 정답 스템은 0.763이었습니다. 곡별 차이가 커 더 넓은 평가가 필요합니다."
+      "system": "음원을 MIDI로 변환·편집하며 모델 적응을 실험하는 Trackform입니다.",
+      "methods": "ADTOF 전체·합성곱 블록 동결 파인튜닝, 검증·실제 녹음 평가 분리, 클래스별 오류 분석, 곡별 대응 부트스트랩 신뢰구간.",
+      "result": "ADTOF 파인튜닝으로 렌더링 검증 F1은 0.695 → 0.786, 실제 녹음 F1은 0.859 → 0.816이었습니다. 평가 결과에 따라 기존 모델을 유지했습니다.",
+      "next": "실제 녹음 학습 데이터를 확보하고 되새김·층 동결 조건을 새로운 홀드아웃 녹음으로 비교한 뒤, MIDI 수정 노력을 측정할 예정입니다.",
+      "limitation": "렌더링 전용 파인튜닝은 MDB로 일반화되지 않았습니다. 되새김 학습은 미실행이며, 도메인 차이와 망각은 원인 가설입니다. 작업 효율은 미검증입니다.",
+      "lesson": "검증 성능이 올라도 실제 사용 대상 녹음에서 성능이 떨어지면 모델 채택 근거가 되지 않습니다.",
+      "build": "AI의 도움으로 악기별 전사 모델과 MIDI 편집 도구를 통합하고, 파인튜닝 조건 비교와 렌더링·실제 녹음의 재현 가능한 평가를 구현했습니다.",
+      "findOut": "ADTOF 파인튜닝으로 렌더링 검증 F1은 0.695 → 0.786, 실제 녹음 F1은 0.859 → 0.816이었습니다. 평가 결과에 따라 기존 모델을 유지했습니다."
     }
   },
   "listening-tool-ci": {
