@@ -87,12 +87,13 @@
     "year": "2026",
     "category": "Live Immersive Audio Research",
     "title": "Live Immersive Audio Processor Studies",
-    "description": "Measuring how Sound xR Image and L-ISA turn sound position and width into loudspeaker outputs, then testing models against new speaker layouts.",
+    "description": "Measuring how Sound xR Image and L-ISA Studio turn sound position and width into loudspeaker outputs, then testing models against new speaker layouts.",
     "question": "What changes at the speakers when we move a sound?",
     "image": "/framer/projects/spatial-renderer-system-identification/01.jpeg",
     "gallery": [
       "/framer/projects/spatial-renderer-system-identification/01.jpeg",
-      "/framer/projects/spatial-renderer-system-identification/02.jpeg"
+      "/framer/projects/spatial-renderer-system-identification/02.jpeg",
+      "/images/projects/l-isa-studio-soundscape.png"
     ],
     "resources": [
       {
@@ -112,8 +113,15 @@
       {
         "href": "/reports/l-isa-renderer-report-ko.pdf",
         "label": {
-          "en": "L-ISA report (Korean) ↗",
-          "ko": "L-ISA 보고서 · 한국어 ↗"
+          "en": "L-ISA Studio report (Korean) ↗",
+          "ko": "L-ISA Studio 보고서 · 한국어 ↗"
+        }
+      },
+      {
+        "href": "/reports/l-isa-renderer-report-en.pdf",
+        "label": {
+          "en": "L-ISA Studio report (English) ↗",
+          "ko": "L-ISA Studio 보고서 · 영어 ↗"
         }
       },
       {
@@ -126,14 +134,14 @@
       }
     ],
     "body": [
-      "This study began after using Sound xR Image for an outdoor performance. I wanted to connect the controls on screen with what each speaker actually receives. The photos below show the Sound xR work that started the project.",
-      "I extended the investigation to L-ISA with digital loopback measurements. Both studies compare measured outputs with mathematical models; they describe the tested software and settings. Listening tests and measurements across audience seats remain future work."
+      "This study began after using Sound xR Image for an outdoor performance. I wanted to connect the controls on screen with what each speaker actually receives. The images below show the Sound xR work and the L-ISA Studio Soundscape interface.",
+      "I extended the investigation to L-ISA Studio with digital loopback measurements. Both studies compare measured outputs with mathematical models; they describe the tested software and settings. Listening tests and measurements across audience seats remain future work."
     ],
     "status": "Measured study",
     "titleKo": "라이브 이머시브 오디오 프로세서 연구",
     "summary": {
-      "en": "Measured Sound xR Image and L-ISA to understand how position and width affect speaker outputs. Tested the models on new layouts.",
-      "ko": "Sound xR Image와 L-ISA에서 위치와 폭에 따른 스피커 출력 변화를 측정하고, 새로운 배치에서 모델을 검증했습니다."
+      "en": "Measured Sound xR Image and L-ISA Studio to understand how position and width affect speaker outputs. Tested the models on new layouts.",
+      "ko": "Sound xR Image와 L-ISA Studio에서 위치와 폭에 따른 스피커 출력 변화를 측정하고, 새로운 배치에서 모델을 검증했습니다."
     },
     "contribution": {
       "problem": {
@@ -141,8 +149,8 @@
         "ko": "위치와 폭 조절이 각 스피커로 보내는 신호를 어떻게 바꾸는지 알고 싶었습니다."
       },
       "design": {
-        "en": "Measured Sound xR output levels with DME7 and Smaart, and L-ISA level, frequency response, and delay with digital loopback sweeps.",
-        "ko": "DME7과 Smaart로 Sound xR의 출력 레벨을, 디지털 루프백 스윕으로 L-ISA의 레벨·주파수 응답·지연을 측정했습니다."
+        "en": "Measured Sound xR output levels with DME7 and Smaart, and L-ISA Studio level, frequency response, and delay with digital loopback sweeps.",
+        "ko": "DME7과 Smaart로 Sound xR의 출력 레벨을, 디지털 루프백 스윕으로 L-ISA Studio의 레벨·주파수 응답·지연을 측정했습니다."
       },
       "analysis": {
         "en": "Compared candidate models, tested predictions on new layouts, and used controlled changes to investigate failures.",
@@ -152,7 +160,21 @@
         "en": "The report’s “supplied materials” are experiment.xlsx (366 rows), the AFC validation and revised technical review DOCX files, and testing result.rtf and final result.rtf. I used these records to write the analysis and report; the records do not specify the extent of AI assistance.",
         "ko": "보고서의 “supplied materials”는 experiment.xlsx(366행), AFC 검증·수정 기술 검토 DOCX 두 파일, testing result.rtf와 final result.rtf입니다. 이 기록을 바탕으로 분석과 보고서를 작성했으며, AI 지원 범위는 기록에서 확인되지 않습니다."
       }
-    }
+    },
+    "galleryCaptions": [
+      {
+        "en": "Sound xR Image study: measurement setup.",
+        "ko": "Sound xR Image 연구의 측정 환경."
+      },
+      {
+        "en": "Sound xR Image signal routing in the DME7 configuration.",
+        "ko": "DME7 구성에서의 Sound xR Image 신호 라우팅."
+      },
+      {
+        "en": "L-ISA Studio: the Soundscape view in L-ISA Controller v3.2.2.12429, showing the speaker layout and source position.",
+        "ko": "L-ISA Studio의 Soundscape 화면. L-ISA Controller v3.2.2.12429에서 스피커 배치와 음원 위치를 보여줍니다."
+      }
+    ]
   },
   {
     "slug": "multicannel-mixing-system",

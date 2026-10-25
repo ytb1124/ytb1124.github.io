@@ -749,6 +749,12 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .renderer-reports>p,.renderer-next>p{max-width:850px}
 .renderer-study .report-links{margin-top:16px}
 .renderer-next>p{margin-bottom:0}
+.project-spatial-renderer-system-identification .renderer-gallery-frame{margin:0;aspect-ratio:auto;overflow:visible;background:transparent}
+.project-spatial-renderer-system-identification .renderer-gallery-frame:first-child{grid-column:auto;aspect-ratio:auto}
+.renderer-gallery-frame img{display:block;height:360px;object-fit:contain;background:#101112}
+.renderer-gallery-frame figcaption{margin-top:10px;color:var(--muted);font-size:13px;line-height:1.6}
+.renderer-gallery-frame:last-child{grid-column:1/-1}
+.renderer-gallery-frame:last-child img{height:auto}
 @media(max-width:700px){.renderer-studies{grid-template-columns:1fr;gap:22px;margin-bottom:24px}.renderer-study .renderer-intro{font-size:16px;margin-bottom:28px}.renderer-study h2{font-size:22px}.renderer-study p{font-size:15px}.renderer-study .report-links{flex-direction:column;align-items:stretch}.renderer-study .report-links a{text-align:left}.renderer-study{padding-bottom:28px}}
 .production-depth>.always-visible-heading{font-family:'Inter Display',Arial,sans-serif;font-size:14px;color:#eee}
 .album-track-details>.always-visible-heading{font-family:'Inter Display',Arial,sans-serif;font-size:13px;color:#ddd}

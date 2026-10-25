@@ -26,25 +26,25 @@
   "spatial-renderer-system-identification": {
     "en": {
       "question": "What changes at the speakers when we move a sound?",
-      "system": "Sound xR Image on DME7 and L-ISA Processor Desktop, measured through electrical outputs.",
+      "system": "Sound xR Image on DME7 and L-ISA Studio (Processor Desktop), measured through electrical outputs.",
       "methods": "Vary position, width, and speaker layout; compare measured outputs with model predictions.",
-      "result": "Sound xR measurements supported a distance-based model in selected conditions. L-ISA measurements revealed direction-based panning and frequency-dependent processing; width remains partly explained.",
-      "next": "Test L-ISA width on more layouts and investigate how both systems respond to moving sources.",
-      "limitation": "Results describe tested versions and settings. Sound xR boundary behavior and L-ISA width remain unresolved; perceptual performance has not been evaluated.",
+      "result": "Sound xR measurements supported a distance-based model in selected conditions. L-ISA Studio measurements revealed direction-based panning and frequency-dependent processing; width remains partly explained.",
+      "next": "Test L-ISA Studio width on more layouts and investigate how both systems respond to moving sources.",
+      "limitation": "Results describe tested versions and settings. Sound xR boundary behavior and L-ISA Studio width remain unresolved; perceptual performance has not been evaluated.",
       "lesson": "New layouts expose limits that a close fit to existing measurements can hide.",
-      "build": "Measured Sound xR with DME7 and Smaart, and L-ISA with digital loopback sweeps. Compared mathematical models with output levels, frequency responses, and delays.",
-      "findOut": "The systems distribute sound differently. L-ISA also changes frequency response and uses a delayed component when spreading sound. Predictions worked within defined conditions, with open questions in both systems."
+      "build": "Measured Sound xR with DME7 and Smaart, and L-ISA Studio with digital loopback sweeps. Compared mathematical models with output levels, frequency responses, and delays.",
+      "findOut": "The systems distribute sound differently. L-ISA Studio also changes frequency response and uses a delayed component when spreading sound. Predictions worked within defined conditions, with open questions in both systems."
     },
     "ko": {
       "question": "소리의 위치를 옮기면 스피커 출력은 어떻게 달라질까?",
-      "system": "DME7의 Sound xR Image와 L-ISA Processor Desktop의 전기적 출력을 측정했습니다.",
+      "system": "DME7의 Sound xR Image와 L-ISA Studio (Processor Desktop)의 전기적 출력을 측정했습니다.",
       "methods": "위치·폭·스피커 배치를 바꾸며 측정한 출력을 모델의 예측과 비교했습니다.",
-      "result": "Sound xR은 일부 조건에서 거리 기반 모델로 설명됐습니다. L-ISA에서는 방향 기반 패닝과 주파수별 처리를 확인했으며, 폭 조절은 일부만 설명됐습니다.",
-      "next": "더 다양한 배치에서 L-ISA의 폭 조절을 시험하고, 두 시스템에서 소리가 움직일 때의 응답을 확인할 예정입니다.",
-      "limitation": "결과는 시험한 버전과 설정에 한정됩니다. Sound xR의 경계 동작과 L-ISA의 폭 조절은 미해결이며, 청감 성능은 평가하지 않았습니다.",
+      "result": "Sound xR은 일부 조건에서 거리 기반 모델로 설명됐습니다. L-ISA Studio에서는 방향 기반 패닝과 주파수별 처리를 확인했으며, 폭 조절은 일부만 설명됐습니다.",
+      "next": "더 다양한 배치에서 L-ISA Studio의 폭 조절을 시험하고, 두 시스템에서 소리가 움직일 때의 응답을 확인할 예정입니다.",
+      "limitation": "결과는 시험한 버전과 설정에 한정됩니다. Sound xR의 경계 동작과 L-ISA Studio의 폭 조절은 미해결이며, 청감 성능은 평가하지 않았습니다.",
       "lesson": "이미 측정한 값에 잘 맞는 모델도 새로운 배치에서는 한계가 드러날 수 있었습니다.",
-      "build": "DME7·Smaart로 Sound xR을, 디지털 루프백 스윕으로 L-ISA를 측정했습니다. 수학적 모델과 출력 레벨·주파수 응답·지연을 비교했습니다.",
-      "findOut": "두 시스템은 스피커에 소리를 나누는 방식이 달랐습니다. L-ISA는 주파수 응답도 바꾸고 폭을 넓힐 때 지연 성분을 사용했습니다. 예측이 맞는 조건과 아직 설명하지 못한 동작을 구분했습니다."
+      "build": "DME7·Smaart로 Sound xR을, 디지털 루프백 스윕으로 L-ISA Studio를 측정했습니다. 수학적 모델과 출력 레벨·주파수 응답·지연을 비교했습니다.",
+      "findOut": "두 시스템은 스피커에 소리를 나누는 방식이 달랐습니다. L-ISA Studio는 주파수 응답도 바꾸고 폭을 넓힐 때 지연 성분을 사용했습니다. 예측이 맞는 조건과 아직 설명하지 못한 동작을 구분했습니다."
     }
   },
   "multicannel-mixing-system": {

@@ -54,7 +54,7 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
         </div>
         <div className="detail-gallery">{project.gallery.map((src,i)=>{
           const caption = project.galleryCaptions?.[i]?.[locale];
-          return caption ? <figure className="gallery-frame screenshot-frame" key={src}>
+          return caption ? <figure className={`gallery-frame ${isRendererStudy?'renderer-gallery-frame':'screenshot-frame'}`} key={src}>
             <a href={src} target="_blank" rel="noopener noreferrer" aria-label={ko ? `원본 확대: ${caption}` : `View full size: ${caption}`}><Image src={src} alt={caption} width={1265} height={712} loading="lazy"/></a>
             <figcaption>{caption}</figcaption>
           </figure> : <div className="gallery-frame" key={src}><Image src={src} alt={`${title} ${i+1}`} width={1800} height={1200} loading="lazy"/></div>;
