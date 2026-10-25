@@ -327,3 +327,33 @@
   .site-frame .dataset-table-wrap table { font-size: 13px; }
   .site-frame .dataset-table-wrap th { font-size: 11px; }
 }
+
+/* Keep the requested card counts at narrow widths as well. */
+.site-frame .live-credits-section .credits-gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 920px) {
+  .site-frame .live-credits-section .credits-gallery { gap: 28px 16px; }
+  .site-frame .live-credits-section .activity-meta { display: block; margin-top: 10px; }
+  .site-frame .live-credits-section .activity-meta p { max-width: none; margin-top: 7px; text-align: left; }
+}
+@media (max-width: 760px) {
+  .site-frame .research-catalog .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
+  .site-frame .research-catalog .catalog-grid .project-card { display: block; padding: 0; }
+  .site-frame .research-catalog .catalog-grid .project-media { aspect-ratio: 16/10; }
+  .site-frame .research-catalog .catalog-grid .project-copy { display: block; padding-top: 10px; }
+  .site-frame .research-catalog .catalog-grid .project-meta { display: flex; font-size: 10px; }
+  .site-frame .research-catalog .catalog-grid .project-copy h3 { font-size: clamp(13px, 3.6vw, 16px); line-height: 1.45; margin: 8px 0 10px; }
+  .site-frame .research-catalog .catalog-grid .project-status { display: inline-flex; max-width: 100%; white-space: normal; font-size: 8.5px; line-height: 1.4; padding: 4px 6px; margin: 0; }
+  .site-frame .research-catalog .catalog-grid .project-question { font-size: 12px!important; line-height: 1.6!important; margin: 10px 0 0!important; }
+  .site-frame .research-catalog .catalog-grid .project-result { font-size: 12px; line-height: 1.7; margin-top: 12px; }
+  .site-frame .live-credits-section .credits-gallery { gap: 24px 10px; }
+  .site-frame .live-credits-section .credits-gallery h3 { font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; word-break: normal; }
+  .site-frame .live-credits-section .activity-title-group > span,
+  .site-frame .live-credits-section .activity-meta p { font-size: 10px; line-height: 1.5; overflow-wrap: anywhere; word-break: normal; }
+}
+@media (max-width: 370px) {
+  .site-frame .research-catalog .catalog-grid { column-gap: 12px; }
+  .site-frame .live-credits-section .credits-gallery { column-gap: 8px; }
+  .site-frame .live-credits-section .credits-gallery h3 { font-size: 11px; }
+}
