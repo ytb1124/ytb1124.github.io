@@ -157,8 +157,8 @@
         "ko": "후보 모델을 비교하고 새로운 배치에서 예측을 검증했으며, 조건을 하나씩 바꾸며 실패 원인을 조사했습니다."
       },
       "tools": {
-        "en": "The report’s “supplied materials” are experiment.xlsx (366 rows), the AFC validation and revised technical review DOCX files, and testing result.rtf and final result.rtf. I used these records to write the analysis and report; the records do not specify the extent of AI assistance.",
-        "ko": "보고서의 “supplied materials”는 experiment.xlsx(366행), AFC 검증·수정 기술 검토 DOCX 두 파일, testing result.rtf와 final result.rtf입니다. 이 기록을 바탕으로 분석과 보고서를 작성했으며, AI 지원 범위는 기록에서 확인되지 않습니다."
+        "en": "Sound xR Image: Yamaha DME7 and Smaart. L-ISA Studio: Audio Bridge, BlackHole, and Python with NumPy, SciPy, and OSC control for loopback measurements and model comparisons.",
+        "ko": "Sound xR Image는 Yamaha DME7과 Smaart를 사용했습니다. L-ISA Studio는 Audio Bridge·BlackHole과 Python의 NumPy·SciPy·OSC 제어로 루프백 측정과 모델 비교를 진행했습니다."
       }
     },
     "galleryCaptions": [

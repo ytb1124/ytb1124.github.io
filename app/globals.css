@@ -734,6 +734,15 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .renderer-study{padding-bottom:32px}
 .renderer-study p{font-size:16px;line-height:1.8;color:#bbb;margin:0 0 18px;overflow-wrap:break-word}
 .renderer-study .renderer-intro{max-width:850px;font-size:18px;color:#ddd;margin:0 0 38px}
+.renderer-contribution .contribution-box{max-width:none;margin:0 0 34px;padding:24px}
+.renderer-comparison{width:100%;table-layout:fixed;border-collapse:collapse;font-size:14px;line-height:1.65;margin:0 0 12px}
+.renderer-comparison th,.renderer-comparison td{padding:15px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;overflow-wrap:break-word}
+.renderer-comparison thead th{font-weight:500;color:#eee;border-top:1px solid var(--line)}
+.renderer-comparison th:first-child{width:25%;padding-left:0}
+.renderer-comparison tbody th{font-weight:400;color:#ff9c87}
+.renderer-comparison td{color:#ccc}
+.renderer-study .renderer-comparison-note{font-size:12px;line-height:1.65;color:#999;margin-bottom:30px}
+@media(max-width:540px){.renderer-contribution .contribution-box{padding:18px}.renderer-comparison{font-size:12px}.renderer-comparison th,.renderer-comparison td{padding:12px 7px}.renderer-comparison th:first-child{width:23%}.renderer-study .renderer-comparison-note{font-size:11px}}
 .renderer-studies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;margin-bottom:34px}
 .renderer-study-item{border-top:1px solid var(--line);padding-top:24px}
 .renderer-study .renderer-study-name{font-size:12px;letter-spacing:.04em;color:#ff9c87;margin-bottom:12px}

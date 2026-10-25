@@ -1,4 +1,5 @@
 import { localizedPath, type Locale, type ProjectResource } from '../data/site';
+import { ContributionBox } from './project-evidence';
 
 const copy = {
   en: {
@@ -18,7 +19,13 @@ const copy = {
       },
     ],
     comparisonTitle: 'What the two studies revealed',
-    comparison: 'In the tested conditions, Sound xR output levels followed a distance-based model, while L-ISA Studio shared sound between neighboring speaker directions. L-ISA Studio also changed the balance of frequencies and introduced a short delayed component when widening a sound. Understanding those controls required looking beyond a single output-level reading.',
+    comparisonLabel: 'Aspect',
+    comparisonRows: [
+      ['Panning model', 'DBAP · distance-based', 'VBAP · direction-based'],
+      ['Speaker distribution', 'Distance-weighted levels across multiple speakers', 'Up to 2 speakers in 2D / 3 in 3D, with Width = 0'],
+      ['Size / width', 'Size changes the level distribution', 'Width adds angular spread and a short delayed component'],
+    ],
+    comparisonNote: 'Summary of the tested conditions. DBAP = Distance-Based Amplitude Panning; VBAP = Vector Base Amplitude Panning.',
     methodTitle: 'How I checked the explanations',
     method: 'I compared competing models and recorded predictions before testing new conditions. When a prediction failed, I changed one factor at a time to investigate why. The reports distinguish models fitted after measurement from predictions tested on new conditions.',
     detailsTitle: 'Measurement details and limits',
@@ -51,7 +58,13 @@ const copy = {
       },
     ],
     comparisonTitle: '두 연구에서 알게 된 점',
-    comparison: '시험한 조건에서 Sound xR의 출력 레벨은 거리 기반 모델을 따랐고, L-ISA Studio는 이웃한 스피커의 방향 사이에 소리를 나눴습니다. L-ISA Studio는 주파수별 소리 크기도 바꾸고, 폭을 넓힐 때 짧은 지연 성분을 더했습니다. 이런 조절 기능을 이해하려면 출력 레벨 하나만 보는 것보다 주파수와 시간 변화까지 살펴봐야 했습니다.',
+    comparisonLabel: '비교 항목',
+    comparisonRows: [
+      ['패닝 모델', 'DBAP · 거리 기반', 'VBAP · 방향 기반'],
+      ['스피커에 소리 분배', '여러 스피커에 거리별 가중치 적용', 'Width = 0에서 2D는 최대 2개, 3D는 최대 3개'],
+      ['크기 / 폭 조절', 'Size로 레벨 분포 변경', 'Width로 각도 퍼짐과 짧은 지연 성분 추가'],
+    ],
+    comparisonNote: '측정한 조건의 요약입니다. DBAP는 거리 기반 진폭 패닝, VBAP는 방향 벡터 기반 진폭 패닝을 뜻합니다.',
     methodTitle: '설명이 맞는지 확인한 방법',
     method: '여러 후보 모델을 비교하고, 새로운 조건을 측정하기 전에 예측값을 기록했습니다. 예측이 실패하면 조건을 하나씩 바꾸며 원인을 좁혔습니다. 보고서에는 측정 뒤 맞춘 모델과 새로운 조건에서 검증한 예측을 구분해 기록했습니다.',
     detailsTitle: '측정 수치와 검증 범위 자세히 보기',
@@ -73,6 +86,7 @@ export function RendererStudy({ locale, resources }: { locale: Locale; resources
   const text = copy[locale];
   return <div className="renderer-study">
     <p className="renderer-intro">{text.intro}</p>
+    <div className="renderer-contribution"><ContributionBox slug="spatial-renderer-system-identification" locale={locale}/></div>
     <div className="renderer-studies">
       {text.studies.map(study => <section className="renderer-study-item" key={study.name}>
         <p className="renderer-study-name">{study.name}</p>
@@ -82,7 +96,12 @@ export function RendererStudy({ locale, resources }: { locale: Locale; resources
       </section>)}
     </div>
     <section className="renderer-explanation">
-      <h2>{text.comparisonTitle}</h2><p>{text.comparison}</p>
+      <h2 id="renderer-comparison-title">{text.comparisonTitle}</h2>
+      <table className="renderer-comparison" aria-labelledby="renderer-comparison-title">
+        <thead><tr><th scope="col">{text.comparisonLabel}</th><th scope="col">Sound xR Image</th><th scope="col">L-ISA Studio</th></tr></thead>
+        <tbody>{text.comparisonRows.map(([label,soundxr,lisa])=><tr key={label}><th scope="row">{label}</th><td>{soundxr}</td><td>{lisa}</td></tr>)}</tbody>
+      </table>
+      <p className="renderer-comparison-note">{text.comparisonNote}</p>
       <h2>{text.methodTitle}</h2><p>{text.method}</p>
       <details className="renderer-details">
         <summary>{text.detailsTitle}</summary>
