@@ -85,8 +85,8 @@
   {
     "slug": "spatial-renderer-system-identification",
     "year": "2026",
-    "category": "Spatial Audio Research",
-    "title": "Spatial Audio Renderer Studies",
+    "category": "Live Immersive Audio Research",
+    "title": "Live Immersive Audio Processor Studies",
     "description": "Measuring how Sound xR Image and L-ISA turn sound position and width into loudspeaker outputs, then testing models against new speaker layouts.",
     "question": "What changes at the speakers when we move a sound?",
     "image": "/framer/projects/spatial-renderer-system-identification/01.jpeg",
@@ -130,7 +130,7 @@
       "I extended the investigation to L-ISA with digital loopback measurements. Both studies compare measured outputs with mathematical models; they describe the tested software and settings. Listening tests and measurements across audience seats remain future work."
     ],
     "status": "Measured study",
-    "titleKo": "공간 오디오 렌더러 연구",
+    "titleKo": "라이브 이머시브 오디오 프로세서 연구",
     "summary": {
       "en": "Measured Sound xR Image and L-ISA to understand how position and width affect speaker outputs. Tested the models on new layouts.",
       "ko": "Sound xR Image와 L-ISA에서 위치와 폭에 따른 스피커 출력 변화를 측정하고, 새로운 배치에서 모델을 검증했습니다."

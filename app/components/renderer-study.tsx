@@ -2,7 +2,7 @@ import { localizedPath, type Locale, type ProjectResource } from '../data/site';
 
 const copy = {
   en: {
-    intro: 'Spatial audio software places a sound between speakers by changing the signals sent to each one. I measured Sound xR Image and L-ISA to understand what their position and width controls actually do, then tested whether mathematical models could predict the outputs in new speaker layouts.',
+    intro: 'Live immersive audio processors place a sound between speakers by changing the signals sent to each one. I measured Sound xR Image and L-ISA to understand what their position and width controls actually do, then tested whether mathematical models could predict the outputs in new speaker layouts.',
     studies: [
       {
         name: 'Sound xR Image',
@@ -35,7 +35,7 @@ const copy = {
     next: 'How does L-ISA distribute a wide sound in less regular speaker layouts? How do both systems respond while a sound is moving?',
   },
   ko: {
-    intro: '공간 오디오 소프트웨어는 각 스피커에 보내는 신호를 조절해 스피커 사이에 소리를 배치합니다. Sound xR Image와 L-ISA의 위치·폭 조절이 실제 출력에 어떤 변화를 만드는지 측정하고, 수학적 모델이 새로운 스피커 배치에서도 출력을 예측할 수 있는지 시험했습니다.',
+    intro: '라이브 이머시브 오디오 프로세서는 각 스피커에 보내는 신호를 조절해 스피커 사이에 소리를 배치합니다. Sound xR Image와 L-ISA의 위치·폭 조절이 실제 출력에 어떤 변화를 만드는지 측정하고, 수학적 모델이 새로운 스피커 배치에서도 출력을 예측할 수 있는지 시험했습니다.',
     studies: [
       {
         name: 'Sound xR Image',
