@@ -1,6 +1,7 @@
 import { PageIntro } from '../components/page-intro';
 import { PageShell, ProjectCard } from '../components/site';
 import { site } from '../data/site';
+import { SingleLineQuestion } from '../components/single-line-question';
 
 export const dynamic = 'force-static';
 
@@ -17,7 +18,7 @@ export default function ProjectsPage({ locale = 'en' as const }: { locale?: 'en'
           {site.sections.map((section,index) => <li key={section.number}>
             <a href={`#research-${index + 1}`}>
               <span className="question-stage"><span>{section.number}</span>{questionSteps[index]}</span>
-              <p>{ko ? section.koreanQuestion : section.question}</p>
+              <SingleLineQuestion>{ko ? section.koreanQuestion : section.question}</SingleLineQuestion>
             </a>
             {index < 2 && <span className="question-next" aria-hidden="true">→</span>}
           </li>)}
