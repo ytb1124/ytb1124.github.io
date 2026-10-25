@@ -729,6 +729,27 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .always-visible-heading{margin:0;font-family:Sentient,Georgia,serif;font-weight:400;line-height:1.4}
 .about-overview .profile-story-details>.always-visible-heading{font-size:22px;margin-bottom:20px}
 .project-depth>.always-visible-heading{padding-top:24px;font-size:23px}
+
+/* Explain the renderer studies before introducing detailed measurements. */
+.renderer-study{padding-bottom:32px}
+.renderer-study p{font-size:16px;line-height:1.8;color:#bbb;margin:0 0 18px;overflow-wrap:break-word}
+.renderer-study .renderer-intro{max-width:850px;font-size:18px;color:#ddd;margin:0 0 38px}
+.renderer-studies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;margin-bottom:34px}
+.renderer-study-item{border-top:1px solid var(--line);padding-top:24px}
+.renderer-study .renderer-study-name{font-size:12px;letter-spacing:.04em;color:#ff9c87;margin-bottom:12px}
+.renderer-study h2{font-family:Sentient,Georgia,serif;font-size:24px;line-height:1.4;font-weight:400;margin:0 0 16px}
+.renderer-explanation{max-width:850px}
+.renderer-explanation>h2:not(:first-child){margin-top:30px}
+.renderer-details{border-block:1px solid var(--line);margin:26px 0 34px}
+.renderer-details>summary{padding:18px 0;cursor:pointer;color:#ddd;font-size:14px;line-height:1.5}
+.renderer-details>summary:focus-visible{outline:2px solid #ff9c87;outline-offset:4px}
+.renderer-details>div{padding:4px 0 8px}
+.renderer-details>div>p{font-size:14px}
+.renderer-reports{padding-bottom:32px}
+.renderer-reports>p,.renderer-next>p{max-width:850px}
+.renderer-study .report-links{margin-top:16px}
+.renderer-next>p{margin-bottom:0}
+@media(max-width:700px){.renderer-studies{grid-template-columns:1fr;gap:22px;margin-bottom:24px}.renderer-study .renderer-intro{font-size:16px;margin-bottom:28px}.renderer-study h2{font-size:22px}.renderer-study p{font-size:15px}.renderer-study .report-links{flex-direction:column;align-items:stretch}.renderer-study .report-links a{text-align:left}.renderer-study{padding-bottom:28px}}
 .production-depth>.always-visible-heading{font-family:'Inter Display',Arial,sans-serif;font-size:14px;color:#eee}
 .album-track-details>.always-visible-heading{font-family:'Inter Display',Arial,sans-serif;font-size:13px;color:#ddd}
 .experience-essential .experience-extra>.always-visible-heading{font-size:22px;margin:22px 0 18px}

@@ -85,10 +85,10 @@
   {
     "slug": "spatial-renderer-system-identification",
     "year": "2026",
-    "category": "Yamaha Spatial Audio Research",
-    "title": "Sound xR Image Renderer Study",
-    "description": "A black-box measurement study of how Sound xR Image maps loudspeaker geometry, Object position, and renderer parameters to output gains.",
-    "question": "How does Sound xR turn position into speaker levels?",
+    "category": "Spatial Audio Research",
+    "title": "Spatial Audio Renderer Studies",
+    "description": "Measuring how Sound xR Image and L-ISA turn sound position and width into loudspeaker outputs, then testing models against new speaker layouts.",
+    "question": "What changes at the speakers when we move a sound?",
     "image": "/framer/projects/spatial-renderer-system-identification/01.jpeg",
     "gallery": [
       "/framer/projects/spatial-renderer-system-identification/01.jpeg",
@@ -98,50 +98,55 @@
       {
         "href": "/reports/sound-xr-image-renderer-report-ko.pdf",
         "label": {
-          "en": "Report (KO) ↗",
-          "ko": "한글 보고서 ↗"
+          "en": "Sound xR report (Korean) ↗",
+          "ko": "Sound xR 보고서 · 한국어 ↗"
         }
       },
       {
         "href": "/reports/sound-xr-image-renderer-report-en.pdf",
         "label": {
-          "en": "Report (EN) ↗",
-          "ko": "영문 보고서 ↗"
+          "en": "Sound xR report (English) ↗",
+          "ko": "Sound xR 보고서 · 영어 ↗"
+        }
+      },
+      {
+        "href": "/reports/l-isa-renderer-report-ko.pdf",
+        "label": {
+          "en": "L-ISA report (Korean) ↗",
+          "ko": "L-ISA 보고서 · 한국어 ↗"
         }
       },
       {
         "href": "/projects/spatial-renderer-system-identification/data",
         "localized": true,
         "label": {
-          "en": "Measurement data →",
-          "ko": "측정 데이터 →"
+          "en": "Sound xR measurement data →",
+          "ko": "Sound xR 측정 데이터 →"
         }
       }
     ],
     "body": [
-      "After using Sound xR Image for an outdoor performance, I wanted to understand how its settings affect the output level of each speaker. I changed speaker coordinates and IDs, Object position, XY mode, Size, Precision, and Distance Attenuation, and recorded the electrical output gains.",
-      "I compared the recorded gains with possible mathematical models. In the tested normal-output regions, inverse-distance weighting and power normalization matched representative data within about 0.005 dB. This describes observed behavior; it does not identify Yamaha’s internal implementation.",
-      "A fixed-segment model failed to predict the new five-speaker N/T tests. A different segment fitted N after I saw the measurements, but did not provide a general rule for T. That failure changed how I interpreted boundary behavior.",
-      "The next step is to fix a prediction rule before testing new layouts, and to investigate mode-dependent height control, Distance Attenuation, and moving sound sources."
+      "This study began after using Sound xR Image for an outdoor performance. I wanted to connect the controls on screen with what each speaker actually receives. The photos below show the Sound xR work that started the project.",
+      "I extended the investigation to L-ISA with digital loopback measurements. Both studies compare measured outputs with mathematical models; they describe the tested software and settings. Listening tests and measurements across audience seats remain future work."
     ],
     "status": "Measured study",
-    "titleKo": "Sound xR Image 렌더러 분석",
+    "titleKo": "공간 오디오 렌더러 연구",
     "summary": {
-      "en": "Tested how settings affect speaker gains. The distance model fits some conditions; boundary predictions failed.",
-      "ko": "설정에 따른 스피커 출력 변화를 분석했습니다. 거리 모델은 일부 조건에 맞았지만 경계 구간의 예측은 실패했습니다."
+      "en": "Measured Sound xR Image and L-ISA to understand how position and width affect speaker outputs. Tested the models on new layouts.",
+      "ko": "Sound xR Image와 L-ISA에서 위치와 폭에 따른 스피커 출력 변화를 측정하고, 새로운 배치에서 모델을 검증했습니다."
     },
     "contribution": {
       "problem": {
-        "en": "I investigated why speaker ID assignment and some boundary settings changed the output in ways a simple distance model could not explain.",
-        "ko": "스피커 ID와 경계 구간의 출력이 단순 거리 모델의 예상과 달라지는 이유를 살펴봤습니다."
+        "en": "I wanted to understand how position and width controls change the signals sent to speakers.",
+        "ko": "위치와 폭 조절이 각 스피커로 보내는 신호를 어떻게 바꾸는지 알고 싶었습니다."
       },
       "design": {
-        "en": "I changed coordinates, IDs, Object position, and renderer settings on a DME7 system, then recorded speaker output levels with Smaart.",
-        "ko": "DME7에서 좌표·ID·Object 위치와 렌더러 설정을 바꾸고 Smaart로 스피커별 출력 레벨을 기록했습니다."
+        "en": "Measured Sound xR output levels with DME7 and Smaart, and L-ISA level, frequency response, and delay with digital loopback sweeps.",
+        "ko": "DME7과 Smaart로 Sound xR의 출력 레벨을, 디지털 루프백 스윕으로 L-ISA의 레벨·주파수 응답·지연을 측정했습니다."
       },
       "analysis": {
-        "en": "I compared the measurements with model predictions and revised my explanation after the five-speaker test failed.",
-        "ko": "측정값을 모델 예측과 비교했고, 5스피커 실험에서 예측이 실패한 뒤 해석을 수정했습니다."
+        "en": "Compared candidate models, tested predictions on new layouts, and used controlled changes to investigate failures.",
+        "ko": "후보 모델을 비교하고 새로운 배치에서 예측을 검증했으며, 조건을 하나씩 바꾸며 실패 원인을 조사했습니다."
       },
       "tools": {
         "en": "The report’s “supplied materials” are experiment.xlsx (366 rows), the AFC validation and revised technical review DOCX files, and testing result.rtf and final result.rtf. I used these records to write the analysis and report; the records do not specify the extent of AI assistance.",
