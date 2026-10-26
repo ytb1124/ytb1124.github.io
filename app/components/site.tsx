@@ -11,7 +11,7 @@ const navigation = [
   { label: 'Music Production', koreanLabel: '음악 제작', path: '/music-production' },
   { label: 'Experience', koreanLabel: '경력', path: '/experience' },
   { label: 'Contact', koreanLabel: '연락처', path: '/contact' },
-  { label: 'CV ↗', koreanLabel: 'CV ↗', path: '/reports/taebin-yoo-cv.pdf', external: true },
+  { label: 'CV ↗', koreanLabel: 'CV ↗', path: site.socials.cv, external: true },
 ];
 
 const koreanCategories: Record<string, string> = {

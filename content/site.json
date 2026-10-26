@@ -5,7 +5,7 @@
     "instagram": "https://www.instagram.com/brightlight_more",
     "linkedin": "https://www.linkedin.com/in/taebin-yoo-414177389",
     "youtube": "https://youtube.com/playlist?list=PL_kWYUD-HpqlcTCfJSD_4k87kQdzyD4DZ&si=rZomAf1jsF4kKa-S",
-    "cv": "/reports/taebin-yoo-cv.pdf"
+    "cv": "/reports/taebin-yoo-cv.pdf?v=20261026"
   },
   "nav": [
     {
@@ -169,9 +169,7 @@
       "koreanQuestion": "소리가 공간에 맞춰 달라질 수 있을까?",
       "projectSlugs": [
         "corrective-impulse-response",
-        "spatial-renderer-system-identification",
-        "multicannel-mixing-system",
-        "wan-audio-transmission"
+        "spatial-renderer-system-identification"
       ]
     },
     {
