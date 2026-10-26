@@ -178,6 +178,7 @@
   },
   {
     "slug": "multicannel-mixing-system",
+    "hidden": true,
     "year": "2025",
     "category": "Audio",
     "title": "Multichannel Live Mixing",
@@ -207,6 +208,7 @@
   },
   {
     "slug": "wan-audio-transmission",
+    "hidden": true,
     "year": "2025",
     "category": "Technology",
     "title": "Real-Time Remote Multichannel Audio",

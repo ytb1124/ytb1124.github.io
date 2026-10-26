@@ -5,6 +5,7 @@ export type Locale = 'en' | 'ko';
 export type ProjectResource = { href: string; label: { en: string; ko: string }; localized?: boolean };
 export type Project = {
   slug: string;
+  hidden?: boolean;
   year: string;
   category: string;
   title: string;
@@ -55,7 +56,7 @@ type SiteData = Omit<typeof siteDocument, 'sections' | 'experience'> & {
   experience: ExperienceData;
 };
 
-export const allProjects = projectsDocument as Project[];
+export const allProjects = (projectsDocument as Project[]).filter(project => !project.hidden);
 
 export function projectStatusLabel(status: Project['status'], locale: Locale) {
   if (!status) return '';

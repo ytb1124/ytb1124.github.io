@@ -6,6 +6,10 @@ This is a code-based recreation of the public Framer portfolio at https://taebin
 
 Text, links, project metadata, and image paths live in the JSON files under `content/`. Replace a file in `public/images/` or use the private admin screen to change a photo. Layout and responsive behavior live in `app/components/` and `app/globals.css`.
 
+Set `hidden: true` on a project in `content/projects.json` to exclude it from public listings and both language versions of its detail page while retaining its source content.
+
+The editable CV source is `content/taebin-yoo-cv.docx`. After editing, export and visually check the PDF, then replace `public/reports/taebin-yoo-cv.pdf`.
+
 ## Run locally
 
 ```bash
