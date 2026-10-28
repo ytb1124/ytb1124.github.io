@@ -10,6 +10,8 @@ Set `hidden: true` on a project in `content/projects.json` to exclude it from pu
 
 The editable CV source is `content/taebin-yoo-cv.docx`. After editing, export and visually check the PDF, then replace `public/reports/taebin-yoo-cv.pdf`.
 
+The English single-page portfolio is available at `/simple`. Its layout and introductory copy live in `app/simple/`; project summaries, technical roles, resource links, and biographical details reuse the existing `content/` documents. Hidden projects are excluded automatically.
+
 ## Run locally
 
 ```bash
