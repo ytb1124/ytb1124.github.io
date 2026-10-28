@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import Image from 'next/image';
 import { projectSummaries } from '../data/project-summaries';
 import { allProjects, type Project, site } from '../data/site';
 import './simple.css';
@@ -37,36 +38,36 @@ export default function SimplePage() {
   const plannedSubmission = allProjects.find(project => project.slug === 'corrective-impulse-response')?.plannedSubmission;
 
   return (
-    <div className="simple-page" id="top">
+    <div className="site-frame simple-page" id="top">
       <a className="simple-skip" href="#main-content">Skip to content</a>
-      <header className="simple-header">
-        <div className="simple-header-inner">
-          <a className="simple-name" href="#top">{site.name}<span aria-hidden="true">.</span></a>
-          <nav aria-label="Primary navigation">
+      <header className="site-header simple-header">
+          <a className="brand" href="#top">{site.name}</a>
+          <nav className="desktop-nav simple-nav" aria-label="Primary navigation">
             <a href="#projects">Projects</a>
             <a href="#research">Research</a>
             <a href="#bio">Bio</a>
             <ResourceLink href={site.socials.cv}>CV (PDF)</ResourceLink>
           </nav>
-        </div>
       </header>
 
       <main className="simple-main" id="main-content">
         <section className="simple-hero" aria-labelledby="hero-heading">
-          <p className="simple-eyebrow">Sound engineering & music technology</p>
-          <h1 id="hero-heading">Building intelligent music tools, expressive instruments, <span>& spatial audio systems.</span></h1>
-          <p className="simple-intro">I’m Taebin Yoo, a live sound engineer and music technology researcher based in Seoul. My work connects spatial audio, musical interaction, and machine learning to explore how sound can adapt to spaces and people.</p>
-          <div className="simple-hero-bottom">
-            <p>Selected work <span aria-hidden="true">/</span> 2025–2026</p>
-            <a href="#projects">Explore projects <span aria-hidden="true">↓</span></a>
+          <div className="simple-hero-copy">
+            <p className="simple-eyebrow">Sound engineer & music technology researcher</p>
+            <h1 id="hero-heading">Building intelligent music tools, expressive instruments, & spatial audio systems.</h1>
+            <p className="simple-intro">I’m Taebin Yoo, a live sound engineer and music technology researcher based in Seoul. My work connects spatial audio, musical interaction, and machine learning to explore how sound can adapt to spaces and people.</p>
+            <p className="simple-intro">Questions from more than 200 live performances have led me to build room correction systems, performer-tailored instruments, and audio software. I’m currently exploring tools that help people with different ways of hearing take part in music.</p>
+            <ul className="simple-links simple-intro-links"><li><a href={site.contact.emailHref}>Email <span aria-hidden="true">↗</span></a></li><li><ResourceLink href="https://github.com/ytb1124">GitHub</ResourceLink></li><li><ResourceLink href={site.socials.cv}>CV (PDF)</ResourceLink></li></ul>
           </div>
+          <Image className="simple-portrait" src={site.assets.homePortrait} alt="Taebin Yoo" width={300} height={400} priority data-no-lightbox />
         </section>
 
         <section className="simple-section" id="projects" aria-labelledby="projects-heading">
-          <div className="simple-section-heading"><span className="simple-number" aria-hidden="true">01</span><h2 id="projects-heading">Featured projects</h2></div>
-          <div className="simple-section-content">
+          <div className="simple-section-heading"><div><span className="simple-number">Selected work / 2025–2026</span><h2 id="projects-heading">Featured projects</h2></div><a href="#research">Research & publications <span aria-hidden="true">↓</span></a></div>
+          <div className="simple-section-content simple-project-grid">
             {allProjects.map(project => (
               <article className="simple-project" id={project.slug} key={project.slug}>
+                <a className={`simple-project-image${project.slug === 'listening-tool-ci' ? ' simple-ensemble-image' : ''}`} href={`/projects/${project.slug}`} aria-label={`Read more about ${project.title}`}><Image src={project.image} alt={project.title} width={1200} height={750} loading="lazy" /></a>
                 <div className="simple-project-meta"><span>{project.category}</span><span>{project.year}{project.ongoing ? ' · Ongoing' : ''}</span></div>
                 <h3>{project.title}</h3>
                 <p className="simple-project-summary">{project.slug === 'listening-tool-ci' ? projectSummaries[project.slug].en.system : project.description}</p>
@@ -81,8 +82,8 @@ export default function SimplePage() {
         </section>
 
         <section className="simple-section" id="research" aria-labelledby="research-heading">
-          <div className="simple-section-heading"><span className="simple-number" aria-hidden="true">02</span><h2 id="research-heading">Research & publications</h2></div>
-          <div className="simple-section-content">
+          <div className="simple-section-heading"><div><span className="simple-number">Papers, writing & technical studies</span><h2 id="research-heading">Research & publications</h2></div></div>
+          <div className="simple-section-content simple-research-list">
             <article className="simple-publication">
               <p className="simple-eyebrow">Conference paper · 2026</p>
               <h3>{writing.paperTitle}</h3>
@@ -112,12 +113,12 @@ export default function SimplePage() {
         </section>
 
         <section className="simple-section" id="bio" aria-labelledby="bio-heading">
-          <div className="simple-section-heading"><span className="simple-number" aria-hidden="true">03</span><h2 id="bio-heading">About / CV / contact</h2></div>
+          <div className="simple-section-heading"><div><span className="simple-number">Background & experience</span><h2 id="bio-heading">About / CV / contact</h2></div></div>
           <div className="simple-section-content">
             <div className="simple-bio">
               <h3>A practice shaped by listening.</h3>
-              <p>{site.home.intro}</p>
-              <p>Working on sound for more than 200 performances led me from tuning rooms to building tools for performers and listeners. My current interests include spatial sound reproduction, performer-tailored instruments, audio-to-MIDI workflows, and accessible music experiences.</p>
+              <p>{site.profile.paragraphs[0]}</p>
+              <p>{site.pageContent.en.profile.future}</p>
               <dl className="simple-facts">
                 <div><dt>Based in</dt><dd>{site.contact.address}</dd></div>
                 <div><dt>Education</dt><dd>{writing.degree}, {writing.school}<br />{writing.period} · {writing.gpa}</dd></div>
