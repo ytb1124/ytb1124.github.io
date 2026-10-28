@@ -40,6 +40,9 @@
 .simple-section-heading > a { flex-shrink: 0; font-size: 12px; border-bottom: 1px solid #656565; }
 .simple-section-heading > a span { margin-left: 8px; color: var(--simple-accent); }
 .simple-section-content { min-width: 0; }
+.simple-section-description { margin: 0 0 16px !important; color: var(--simple-muted); font-size: 13px; line-height: 1.7; }
+.simple-career { display: block; margin-bottom: 8px; }
+.simple-career:last-child { margin-bottom: 0; }
 .simple-project-grid, .simple-music-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 22px; }
 .simple-project, .simple-music-project { min-width: 0; border-bottom: 1px solid var(--line); padding-bottom: 18px; }
 .simple-project-image { display: block; aspect-ratio: 16/9; overflow: hidden; background: #151515; }

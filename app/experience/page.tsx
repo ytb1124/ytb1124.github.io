@@ -2,6 +2,7 @@ import { PageIntro } from '../components/page-intro';
 import { PageShell } from '../components/site';
 import { allProjects, localizedPath, site } from '../data/site';
 import { koreanExperience } from '../data/korean';
+import { getSelectedWriting } from '../data/writing';
 
 export const dynamic = 'force-static';
 
@@ -25,8 +26,10 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
         <h2>{ko ? '발표와 기고' : 'Selected Writing & Presentations'}</h2>
         <div className="writing-project"><a href={localizedPath(locale,'/projects/corrective-impulse-response')}>{copy.writingProject}</a><span>{copy.writingAward}</span></div>
         {plannedSubmission && <article><span className="writing-type">{plannedSubmission.label[locale]}</span><div><a href={plannedSubmission.href} target="_blank" rel="noopener noreferrer">{plannedSubmission.venue} ↗</a><p>{plannedSubmission.description[locale]}</p></div></article>}
-        <article><span className="writing-type">{ko ? '학회 발표' : 'Conference paper'}</span><div><a href={ko ? '/reports/corrective-ir-paper-ko.pdf' : '/reports/corrective-ir-paper-en.pdf'} target="_blank" rel="noopener noreferrer">{copy.paperTitle} ↗</a><p>{copy.paperCitation}</p></div></article>
-        <article><span className="writing-type">{ko ? '매거진 기고' : 'Magazine article'}</span><div><a lang="ko" href="/reports/corrective-ir-ssm-vol19-ko.pdf" target="_blank" rel="noopener noreferrer">{copy.magazineTitle}</a><p>{copy.magazineCitation}</p></div></article>
+        {getSelectedWriting(locale).map(publication => {
+          const primaryLink = publication.links.find(link => locale === 'ko' ? link.label.en.includes('(KO)') : link.label.en.includes('(EN)')) ?? publication.links[0];
+          return <article key={publication.id}><span className="writing-type">{publication.kind}</span><div>{primaryLink ? <a lang={publication.lang} href={primaryLink.href} target="_blank" rel="noopener noreferrer">{publication.title} ↗</a> : <span lang={publication.lang}>{publication.title}</span>}<p>{publication.citation}</p></div></article>;
+        })}
       </section>
       <section className="experience-extra"><h2 className="always-visible-heading">{ko ? '기타 경력 · 장학금 · 자격' : 'Other experience, scholarships & qualifications'}</h2>
         <div className="extra-columns"><section><h3>{ko ? '기타 경력' : 'Other experience'}</h3><ul>

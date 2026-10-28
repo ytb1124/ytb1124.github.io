@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "vinext dev",
-    "build": "vinext build && node scripts/prepare-github-pages.mjs",
+    "build": "vinext build && node scripts/prepare-github-pages.mjs && npm run validate:simple",
+    "validate:simple": "node scripts/validate-simple-content.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
     "format": "oxfmt"

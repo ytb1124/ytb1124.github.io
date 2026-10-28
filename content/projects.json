@@ -18,6 +18,7 @@
     "resources": [
       {
         "href": "/reports/corrective-ir-paper-ko.pdf",
+        "kind": "paper",
         "label": {
           "en": "Paper (KO) ↗",
           "ko": "발표 논문 ↗"
@@ -25,6 +26,7 @@
       },
       {
         "href": "/reports/corrective-ir-paper-en.pdf",
+        "kind": "paper",
         "label": {
           "en": "Paper (EN) ↗",
           "ko": "영문 논문 ↗"
@@ -32,6 +34,7 @@
       },
       {
         "href": "/reports/corrective-ir-ssm-vol19-ko.pdf",
+        "kind": "article",
         "label": {
           "en": "Magazine article (KO) ↗",
           "ko": "관련 기고문 ↗"

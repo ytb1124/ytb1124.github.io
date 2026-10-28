@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { projectSummaries } from '../data/project-summaries';
-import { Locale, localizedPath, Project, site, projectStatusLabel } from '../data/site';
+import { getProjectSummary, Locale, localizedPath, Project, site, projectStatusLabel } from '../data/site';
 
 const navigation = [
   { label: 'About', koreanLabel: '소개', path: '/profile' },
@@ -36,7 +36,7 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
   const koreanPath = `/ko${englishPath === '/' ? '/' : englishPath}`;
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
-      <a className="brand" href={localizedPath(locale, '/')}>{locale==='ko'?'유태빈':'Taebin Yoo'}</a>
+      <a className="brand" href={localizedPath(locale, '/')}>{locale==='ko'?'유태빈':site.name}</a>
       <nav className="desktop-nav" aria-label={locale === 'ko' ? '주요 메뉴' : 'Primary navigation'}>
         {navigation.filter(item => !item.external).map(item=>{
           const active = path === item.path || path?.startsWith(`${item.path}/`);
@@ -90,6 +90,7 @@ export function HeroTitle({ children, className = '', locale = 'en' }: { childre
 
 export function ProjectCard({ project, locale, compact=false }: { project: Project; locale: Locale; compact?:boolean; minimal?:boolean }) {
   const localizedQuestion = locale === 'ko' ? projectSummaries[project.slug]?.ko?.question ?? project.question : project.question;
+  const summary = getProjectSummary(project, locale);
 
   return (
     <a className="project-card-link" href={localizedPath(locale, `/projects/${project.slug}`)} aria-label={locale==='ko'?(project.titleKo??project.title):project.title}>
@@ -100,7 +101,7 @@ export function ProjectCard({ project, locale, compact=false }: { project: Proje
           <h3>{locale==='ko'?(project.titleKo??project.title):project.title}</h3>
           {project.status && <span className="project-status">{projectStatusLabel(project.status,locale)}</span>}
           <p className="project-question">{localizedQuestion}</p>
-          {project.summary && <p className="project-result">{project.summary[locale]}</p>}
+          {summary && <p className="project-result">{summary}</p>}
         </div>
       </article>
     </a>

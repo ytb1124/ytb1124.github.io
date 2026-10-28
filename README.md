@@ -10,7 +10,16 @@ Set `hidden: true` on a project in `content/projects.json` to exclude it from pu
 
 The editable CV source is `content/taebin-yoo-cv.docx`. After editing, export and visually check the PDF, then replace `public/reports/taebin-yoo-cv.pdf`.
 
-The English single-page portfolio is available at `/simple`. Its layout and introductory copy live in `app/simple/`; project summaries, technical roles, resource links, and biographical details reuse the existing `content/` documents. Hidden projects are excluded automatically.
+The English single-page portfolio is available at `/simple`. Its layout lives in `app/simple/`; its copy reads the same content as the main site rather than maintaining a separate draft:
+
+- Introduction, name, portrait, education, career highlights, contact, and CV: `content/site.json`.
+- Project order: `site.json` section lists. Titles, card summaries, images, visibility, and resources: `content/projects.json`. Technical roles: `content/project-summaries.json` (`en.build`), as on the original project detail pages.
+- Music production titles, summaries, first process paragraph, recording credit, photos, and media links: `content/music-production.json`.
+- Writing titles and citations: `site.json` (`pageContent.en.experience`). Paper and article URLs: the original project's resources, classified by `kind: "paper"` or `kind: "article"`. Both writing lists use `app/data/writing.ts`.
+
+Edit these shared fields, including through `/admin`, then save and deploy normally. The same GitHub Pages build regenerates the original pages and `/simple`; no separate sync, scheduled task, or second save is needed. Personal story sections are intentionally omitted from `/simple`. Page-specific navigation and section labels remain in the layout.
+
+`npm run build` also runs `npm run validate:simple`, which compares the exported pages with the current source content and checks catalog order, shared copy, resources, music highlights, and CV links. This fails deployment if a copied sentence drifts from its source.
 
 ## Run locally
 
