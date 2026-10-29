@@ -12,7 +12,7 @@
         "body": "The same music changes from one venue to another. I measure those differences and build systems to shape the sound around them.",
         "links": [
           {
-            "label": "Corrective IR",
+            "label": "Compensation Filter",
             "slug": "corrective-impulse-response"
           },
           {
@@ -70,7 +70,7 @@
         "body": "같은 음악도 공연장이 바뀌면 다르게 들립니다. 그 차이를 측정하고, 공간에 맞게 소리를 조정하는 시스템을 만듭니다.",
         "links": [
           {
-            "label": "보정 IR 시스템",
+            "label": "보상 필터 시스템",
             "slug": "corrective-impulse-response"
           },
           {

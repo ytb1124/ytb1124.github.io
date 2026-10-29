@@ -3,9 +3,9 @@
     "slug": "corrective-impulse-response",
     "year": "2025",
     "category": "Acoustics system",
-    "title": "Corrective IR for Live Venues",
-    "description": "A live six-channel hybrid system combining per-channel corrective FIRs for the initial response with a separately applied target-hall reverberation tail.",
-    "question": "Can corrective IR make one venue sound like another?",
+    "title": "Compensation Filter for Live Venues",
+    "description": "A live six-channel hybrid system combining per-channel FIR compensation filters for the initial response with a separately applied target-hall reverberation tail.",
+    "question": "Can a compensation filter make one venue sound like another?",
     "image": "/framer/projects/corrective-impulse-response/04.jpg",
     "gallery": [
       "/framer/projects/corrective-impulse-response/04.jpg",
@@ -44,8 +44,8 @@
     "repository": "https://github.com/ytb1124/drama-space-max",
     "body": [
       "Playing a target hall’s impulse response (IR) in another venue also adds the current venue’s response. I wanted to correct the current room’s coloration before adding the target hall’s reverberation.",
-      "I measured six surround-loudspeaker-to-microphone paths and used Python to align them with the target IR. I created a corrective FIR filter for each channel, focusing on the first 40 ms and the 125 Hz–4 kHz band. The filters use regularization to limit excessive gain.",
-      "Max/MSP applies a separate corrective filter to each of the six surround speakers in real time. Convology XT adds the target hall’s reverberation from about 200 ms onward. The main PA carries the direct sound.",
+      "I measured six surround-loudspeaker-to-microphone paths and used Python to align them with the target IR. I created an FIR compensation filter for each channel, focusing on the first 40 ms and the 125 Hz–4 kHz band. The filters use regularization to limit excessive gain.",
+      "Max/MSP applies a separate compensation filter to each of the six surround speakers in real time. Convology XT adds the target hall’s reverberation from about 200 ms onward. The main PA carries the direct sound.",
       "At the fourth-row center, mean spectral error fell from 2.69 to 2.24 dB across six channels. This comparison uses the same path measurements that were used to create the filters. It does not establish improvement at other seats or a perceptual match to the target hall."
     ],
     "plannedSubmission": {
@@ -56,12 +56,12 @@
         "ko": "논문 제출 예정"
       },
       "description": {
-        "en": "I plan to submit a paper on this Corrective IR project to SA4ME at IEEE VR 2027. The paper has not yet been submitted or accepted. If accepted, it is expected to be published in the IEEE Xplore Digital Library.",
-        "ko": "이 보정 IR 프로젝트를 IEEE VR 2027의 SA4ME 워크숍에 논문으로 제출할 예정입니다. 아직 제출·채택 전이며, 채택될 경우 IEEE Xplore Digital Library에 출판될 예정입니다."
+        "en": "I plan to submit a paper on this Compensation Filter project to SA4ME at IEEE VR 2027. The paper has not yet been submitted or accepted. If accepted, it is expected to be published in the IEEE Xplore Digital Library.",
+        "ko": "이 보상 필터 프로젝트를 IEEE VR 2027의 SA4ME 워크숍에 논문으로 제출할 예정입니다. 아직 제출·채택 전이며, 채택될 경우 IEEE Xplore Digital Library에 출판될 예정입니다."
       }
     },
     "status": "Working prototype",
-    "titleKo": "공연장 보정 IR 시스템",
+    "titleKo": "공연장 보상 필터 시스템",
     "summary": {
       "en": "Built a six-channel correction system. At one position, mean spectral error fell from 2.69 to 2.24 dB.",
       "ko": "6채널 보정 시스템을 만들었고, 한 측정 위치에서 평균 스펙트럼 오차가 2.69→2.24 dB로 줄었습니다."

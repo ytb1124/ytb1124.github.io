@@ -2,24 +2,24 @@
   "corrective-impulse-response": {
     "en": {
       "question": "Can the acoustic character of another venue be reproduced in the current space?",
-      "system": "Six corrective FIR filters in Max/MSP, with the target hall’s late reverberation added through Convology XT.",
+      "system": "Six FIR compensation filters in Max/MSP, with the target hall’s late reverberation added through Convology XT.",
       "methods": "Measure six speaker paths, align the IRs with GCC-PHAT, and create gain-limited filters for 0–40 ms and 125 Hz–4 kHz.",
       "result": "At one measurement position, mean spectral error fell from 2.69 to 2.24 dB. This comparison used the same measurements that were used to design the filters.",
       "next": "Measure other seats with new data, compare uncorrected sound, direct target-IR convolution, and this method, then run listening tests.",
       "limitation": "Improvement at other seats, repeatability with new measurements, and a perceptual match to the target hall remain unverified.",
       "lesson": "A smaller spectral error at one position is only a first step toward reproducing a space. The next question is whether the correction survives a change of seat and is audible to listeners.",
-      "build": "Analysed and aligned six speaker-path IRs in Python, generated corrective FIR filters, and implemented real-time multichannel convolution in Max/MSP. Convology XT adds the target hall’s late reverberation separately.",
+      "build": "Analysed and aligned six speaker-path IRs in Python, generated FIR compensation filters, and implemented real-time multichannel convolution in Max/MSP. Convology XT adds the target hall’s late reverberation separately.",
       "findOut": "At fourth-row center, mean spectral error fell from 2.69 to 2.24 dB on the measurements used to design the filters. Improvement at other seats and a perceptual match to the target hall remain unverified."
     },
     "ko": {
       "question": "다른 공연장의 공간 음향 특성을 현재 공연장에 재현할 수 있을까?",
-      "system": "Max/MSP에서 채널별 보정 FIR을 적용하고 Convology XT로 목표 홀의 잔향을 더한 6채널 시스템입니다.",
-      "methods": "여섯 스피커 경로를 측정하고 GCC-PHAT으로 IR을 정렬한 뒤, 초기 0–40 ms·125 Hz–4 kHz 구간의 보정 필터를 만들었습니다.",
+      "system": "Max/MSP에서 채널별 보상 필터를 적용하고 Convology XT로 목표 홀의 잔향을 더한 6채널 시스템입니다.",
+      "methods": "여섯 스피커 경로를 측정하고 GCC-PHAT으로 IR을 정렬한 뒤, 초기 0–40 ms·125 Hz–4 kHz 구간의 보상 필터를 만들었습니다.",
       "result": "한 측정 위치에서 평균 스펙트럼 오차가 2.69 dB에서 2.24 dB로 줄었습니다. 필터를 만들 때 쓴 측정 자료로 비교한 결과입니다.",
       "next": "새로 측정한 자료로 여러 좌석에서 무보정·목표 IR 직접 적용·제안 방식을 비교하고 청취 평가를 진행할 예정입니다.",
       "limitation": "다른 좌석에서의 개선, 새 측정 자료에서의 재현성, 목표 홀과 청감상 같은지 여부는 아직 확인하지 못했습니다.",
       "lesson": "한 지점의 스펙트럼 오차 감소만으로 공간을 재현했다고 할 수는 없습니다. 다음 질문은 좌석이 바뀌어도 보정이 유지되고, 청취자도 그 차이를 느끼는가입니다.",
-      "build": "Python으로 여섯 스피커 경로의 IR을 분석·정렬하고 보정 FIR 필터를 생성했습니다. Max/MSP에서 실시간 멀티채널 컨볼루션을 구현하고, Convology XT로 목표 홀의 후기 잔향을 따로 더했습니다.",
+      "build": "Python으로 여섯 스피커 경로의 IR을 분석·정렬하고 보상 필터를 생성했습니다. Max/MSP에서 실시간 멀티채널 컨볼루션을 구현하고, Convology XT로 목표 홀의 후기 잔향을 따로 더했습니다.",
       "findOut": "4열 중앙에서 필터 생성에 쓴 측정 자료의 평균 스펙트럼 오차가 2.69→2.24 dB로 줄었습니다. 다른 좌석에서도 개선되는지, 목표 홀과 청감상 같은지는 아직 확인하지 못했습니다."
     }
   },
