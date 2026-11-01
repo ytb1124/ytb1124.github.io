@@ -794,16 +794,16 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .research-catalog .catalog-intro{grid-template-columns:240px minmax(0,1fr);gap:50px;align-items:center;margin-bottom:32px}
 .research-catalog .catalog-intro p{max-width:700px;margin:0;font-size:16px;line-height:1.65;color:#c8c8c8}
 .research-catalog .catalog-intro .section-eyebrow{font-size:11px}
-.question-progression{padding:25px 0 30px;border-block:1px solid var(--line);margin-bottom:38px}
+.question-progression{text-align:center;padding:25px 0 30px;border-block:1px solid var(--line);margin-bottom:38px}
 .question-progression>h2{margin:0 0 23px;font-family:'Inter Display',Arial,sans-serif;font-size:13px;font-weight:400;line-height:1.5;color:#aaa}
 .question-progression ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px;list-style:none;margin:0;padding:0}
 .question-progression li{position:relative;min-width:0}
 .question-progression a{display:block;height:100%;padding:2px 0 4px}
 .question-progression a:hover p{color:#ffb29f}
 .question-progression a:focus-visible{outline:1px solid var(--orange);outline-offset:8px}
-.question-stage{display:flex;align-items:baseline;gap:10px;font-size:12px;line-height:1.5;color:#aaa}
+.question-stage{display:flex;justify-content:center;align-items:baseline;gap:10px;font-size:12px;line-height:1.5;color:#aaa}
 .question-stage>span{font-size:16px;color:var(--orange)}
-.question-progression p{margin:14px 0 0;font-family:Sentient,Georgia,serif;font-size:clamp(19px,1.7vw,22px);font-weight:400;line-height:1.4;letter-spacing:-.015em;color:#eee;transition:color .15s}
+.question-progression p{margin:14px auto 0;font-family:Sentient,Georgia,serif;font-size:clamp(19px,1.7vw,22px);font-weight:400;line-height:1.4;letter-spacing:-.015em;color:#eee;transition:color .15s}
 .question-next{position:absolute;left:calc(100% + 16px);top:52%;width:24px;color:#999;font-size:24px;line-height:1;transform:translateY(-50%);text-align:center}
 @media(max-width:1000px){
  .research-catalog .catalog-intro{grid-template-columns:180px minmax(0,1fr);gap:28px}
@@ -818,7 +818,7 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
  .question-progression ol{grid-template-columns:1fr;gap:36px}
  .question-stage{font-size:12px}
  .question-progression p{margin-top:8px;font-size:19px;max-width:28ch}
- .question-next{left:0;top:calc(100% + 6px);width:18px;height:20px;font-size:20px;line-height:20px;transform:rotate(90deg)}
+ .question-next{left:50%;top:calc(100% + 6px);width:18px;height:20px;font-size:20px;line-height:20px;transform:translateX(-50%) rotate(90deg)}
  .about-overview .profile-story-details>.always-visible-heading{font-size:20px}
 }
 
