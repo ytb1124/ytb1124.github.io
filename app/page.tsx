@@ -54,6 +54,7 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
           ))}
         </ol>
         <p className="research-motto">Unity without Uniformity.</p>
+        <p className="research-motto-copy"><span>Different ways of experiencing and expressing music.</span><span>One shared musical experience.</span></p>
       </section>
 
       <section className="home-closing" aria-labelledby="home-story-title">

@@ -361,3 +361,7 @@
 /* Shared direction beneath the three research questions. */
 .site-frame .home-inquiry .research-motto,
 .site-frame .question-progression .research-motto { margin: 36px 0 0; padding-top: 28px; border-top: 1px solid var(--line); color: var(--orange); font-family: 'Inter Display', Arial, sans-serif; font-size: clamp(24px, 3vw, 36px); font-weight: 500; line-height: 1.3; letter-spacing: -.02em; text-align: center; text-wrap: balance; }
+
+.site-frame .home-inquiry .research-motto-copy,
+.site-frame .question-progression .research-motto-copy { margin: 18px 0 0; color: #aaa; font-family: inherit; font-size: clamp(14px, 1.5vw, 17px); line-height: 1.65; letter-spacing: 0; text-align: center; }
+.research-motto-copy > span { display: block; }
