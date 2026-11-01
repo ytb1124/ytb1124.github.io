@@ -32,7 +32,7 @@
       "next": "Test L-ISA Studio width on more layouts and investigate how both systems respond to moving sources.",
       "limitation": "Results describe tested versions and settings. Sound xR boundary behavior and L-ISA Studio width remain unresolved; perceptual performance has not been evaluated.",
       "lesson": "New layouts expose limits that a close fit to existing measurements can hide.",
-      "build": "Measured Sound xR with DME7 and Smaart, and L-ISA Studio with digital loopback sweeps. Compared mathematical models with output levels, frequency responses, and delays. Developed TUTTI from this research, with a browser-based session editor.",
+      "build": "Investigated the operating principles of Sound xR Image and L-ISA Studio through measurement and analysis, then applied the findings to develop TUTTI, an immersive audio program.",
       "findOut": "The systems distribute sound differently. L-ISA Studio also changes frequency response and uses a delayed component when spreading sound. Predictions worked within defined conditions, with open questions in both systems."
     },
     "ko": {
@@ -43,7 +43,7 @@
       "next": "더 다양한 배치에서 L-ISA Studio의 폭 조절을 시험하고, 두 시스템에서 소리가 움직일 때의 응답을 확인할 예정입니다.",
       "limitation": "결과는 시험한 버전과 설정에 한정됩니다. Sound xR의 경계 동작과 L-ISA Studio의 폭 조절은 미해결이며, 청감 성능은 평가하지 않았습니다.",
       "lesson": "이미 측정한 값에 잘 맞는 모델도 새로운 배치에서는 한계가 드러날 수 있었습니다.",
-      "build": "DME7·Smaart로 Sound xR을, 디지털 루프백 스윕으로 L-ISA Studio를 측정했습니다. 수학적 모델과 출력 레벨·주파수 응답·지연을 비교했습니다. 이 연구를 바탕으로 브라우저 세션 편집기를 갖춘 TUTTI를 만들었습니다.",
+      "build": "Sound xR Image와 L-ISA Studio의 동작 원리를 측정·분석하고, 이를 바탕으로 자체 이머시브 오디오 프로그램 TUTTI를 개발했습니다.",
       "findOut": "두 시스템은 스피커에 소리를 나누는 방식이 달랐습니다. L-ISA Studio는 주파수 응답도 바꾸고 폭을 넓힐 때 지연 성분을 사용했습니다. 예측이 맞는 조건과 아직 설명하지 못한 동작을 구분했습니다."
     }
   },

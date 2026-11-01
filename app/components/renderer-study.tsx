@@ -5,16 +5,16 @@ import { ContributionBox } from './project-evidence';
 const copy = {
   en: {
     outcomeLabel: 'From research to a working program',
-    outcomeTitle: 'TUTTI · Spatial audio',
-    outcomeDescription: 'I developed TUTTI from these studies of how spatial audio processors distribute sound.',
-    outcomeWorkflow: 'Place speakers and sound objects in the browser, adjust pan, width, distance, and elevation, and prepare snapshots. The Session Editor works without installation; live audio on a Mac requires the TUTTI Bridge app.',
+    outcomeTitle: 'TUTTI · Immersive audio',
+    outcomeDescription: 'Investigated the operating principles of Sound xR Image and L-ISA Studio through measurement and analysis, then applied the findings to develop TUTTI, an immersive audio program.',
+    outcomeWorkflow: 'The browser-based Session Editor works without installation; live audio on a Mac requires the TUTTI Bridge app.',
     outcomeLink: 'Open TUTTI ↗',
     outcomeImage: 'TUTTI Session Editor: eight speakers and three sound objects in the Soundscape view.',
-    intro: 'Live immersive audio processors place a sound between speakers by changing the signals sent to each one. I measured Sound xR Image and L-ISA Studio to understand what their position and width controls actually do, then tested whether mathematical models could predict the outputs in new speaker layouts.',
+    intro: 'I measured Sound xR Image and L-ISA Studio to investigate their operating principles, then tested whether mathematical models could predict their behaviour in new speaker layouts.',
     studies: [
       {
         name: 'Sound xR Image',
-        title: 'How is the sound shared across speakers?',
+        title: 'How does Sound xR Image work?',
         method: 'I changed sound position, speaker layout, and renderer settings on a Yamaha DME7, and measured each output level with Smaart.',
         finding: 'A model based on distance explained selected measurements well. Changing the layout and speaker IDs exposed behavior the model could not yet predict.',
       },
@@ -50,16 +50,16 @@ const copy = {
   },
   ko: {
     outcomeLabel: '연구에서 프로그램으로',
-    outcomeTitle: 'TUTTI · 공간 오디오',
-    outcomeDescription: '공간 오디오 프로세서의 소리 분배 방식을 연구한 뒤, 이를 바탕으로 TUTTI를 만들었습니다.',
-    outcomeWorkflow: '브라우저에서 스피커와 음원을 배치하고 팬·폭·거리·높이를 조절하며 스냅샷을 준비할 수 있습니다. Session Editor는 설치 없이 사용할 수 있고, Mac에서 실제 오디오를 출력하려면 TUTTI Bridge 앱이 필요합니다.',
+    outcomeTitle: 'TUTTI · 이머시브 오디오',
+    outcomeDescription: 'Sound xR Image와 L-ISA Studio의 동작 원리를 측정·분석하고, 이를 바탕으로 자체 이머시브 오디오 프로그램 TUTTI를 개발했습니다.',
+    outcomeWorkflow: '브라우저의 Session Editor는 설치 없이 사용할 수 있고, Mac에서 실제 오디오를 출력하려면 TUTTI Bridge 앱이 필요합니다.',
     outcomeLink: 'TUTTI 실행하기 ↗',
     outcomeImage: 'TUTTI Session Editor의 Soundscape 화면. 스피커 8개와 음원 3개를 배치한 예시 세션입니다.',
-    intro: '라이브 이머시브 오디오 프로세서는 각 스피커에 보내는 신호를 조절해 스피커 사이에 소리를 배치합니다. Sound xR Image와 L-ISA Studio의 위치·폭 조절이 실제 출력에 어떤 변화를 만드는지 측정하고, 수학적 모델이 새로운 스피커 배치에서도 출력을 예측할 수 있는지 시험했습니다.',
+    intro: 'Sound xR Image와 L-ISA Studio의 동작 원리를 알아보기 위해 출력을 측정하고, 수학적 모델이 새로운 스피커 배치에서도 동작을 예측할 수 있는지 시험했습니다.',
     studies: [
       {
         name: 'Sound xR Image',
-        title: '여러 스피커에 소리를 어떻게 나눌까?',
+        title: 'Sound xR Image는 어떤 원리로 동작할까?',
         method: 'Yamaha DME7에서 소리의 위치, 스피커 배치, 렌더러 설정을 바꾸고 Smaart로 각 출력의 레벨을 측정했습니다.',
         finding: '거리 기반 모델이 일부 조건의 측정값을 잘 설명했습니다. 하지만 배치와 스피커 ID를 바꾸자 모델이 예측하지 못하는 동작이 나타났습니다.',
       },
