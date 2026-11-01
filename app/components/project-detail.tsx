@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { PageShell } from './site';
-import { getProjectResources, localizedPath, projectStatusLabel, type Locale, type Project } from '../data/site';
+import { getProjectImage, getProjectResources, localizedPath, projectStatusLabel, type Locale, type Project } from '../data/site';
 import { koreanProjectBodies } from '../data/korean';
 import { projectSummaries } from '../data/project-summaries';
 import { ContributionBox, ProjectEvidence } from './project-evidence';
@@ -49,7 +49,7 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
           {project.sources&&<p className="detail-sources">{ko?'참고 자료':'Sources'}{project.sources.map(source=><span key={source.href}><br/><a href={source.href}>{source.label} ↗</a></span>)}</p>}
           {project.video&&<div className="detail-video"><iframe src={project.video} title={title} loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen/></div>}
         </div>
-        <div className="detail-gallery">{project.gallery.map((src,i)=>{
+        <div className="detail-gallery">{project.imageKo && <div className="gallery-frame"><Image src={getProjectImage(project,locale)} alt={ko ? '현재 홀과 목표 홀의 IR 비교: DIMA Concert Hall의 대중음악 밴드 공연장과 Sir Jack Lyons Concert Hall의 클래식 공연장' : 'Current and target IRs: DIMA Concert Hall, a live band venue, and Sir Jack Lyons Concert Hall, a classical concert venue'} width={1672} height={941} loading="lazy"/></div>}{project.gallery.map((src,i)=>{
           const caption = project.galleryCaptions?.[i]?.[locale];
           return caption ? <figure className={`gallery-frame ${isRendererStudy?'renderer-gallery-frame':'screenshot-frame'}`} key={src}>
             <a href={src} target="_blank" rel="noopener noreferrer" aria-label={ko ? `원본 확대: ${caption}` : `View full size: ${caption}`}><Image src={src} alt={caption} width={1265} height={712} loading="lazy"/></a>

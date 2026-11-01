@@ -14,6 +14,7 @@ export type Project = {
   description: string;
   question: string;
   image: string;
+  imageKo?: string;
   gallery: string[];
   galleryCaptions?: Record<Locale, string>[];
   body: string[];
@@ -61,6 +62,10 @@ export const allProjects = (projectsDocument as Project[]).filter(project => !pr
 /** Shared card copy for the main catalog and the single-page portfolio. */
 export function getProjectSummary(project: Project, locale: Locale) {
   return project.summary?.[locale] ?? (locale === 'en' ? project.description : undefined);
+}
+
+export function getProjectImage(project: Project, locale: Locale) {
+  return locale === 'ko' ? project.imageKo ?? project.image : project.image;
 }
 
 export function getProjectResources(project: Project): ProjectResource[] {

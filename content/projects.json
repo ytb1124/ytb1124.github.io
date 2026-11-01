@@ -6,7 +6,7 @@
     "title": "Compensation Filter for Live Venues",
     "description": "A live six-channel hybrid system combining per-channel FIR compensation filters for the initial response with a separately applied target-hall reverberation tail.",
     "question": "Can a compensation filter make one venue sound like another?",
-    "image": "/framer/projects/corrective-impulse-response/04.jpg",
+    "image": "/images/projects/corrective-ir-thumbnail-en.png",
     "gallery": [
       "/framer/projects/corrective-impulse-response/04.jpg",
       "/framer/projects/corrective-impulse-response/05.jpg",
@@ -44,7 +44,7 @@
     "repository": "https://github.com/ytb1124/drama-space-max",
     "body": [
       "Playing a target hall’s impulse response (IR) in another venue also adds the current venue’s response. I wanted to correct the current room’s coloration before adding the target hall’s reverberation.",
-      "I measured six surround-loudspeaker-to-microphone paths and used Python to align them with the target IR. I created an FIR compensation filter for each channel, focusing on the first 40 ms and the 125 Hz–4 kHz band. The filters use regularization to limit excessive gain.",
+      "I measured six surround-loudspeaker-to-microphone paths and used Python to align them with the target IR. For each channel I designed a Tikhonov-regularized inverse filter, G = A·B* / (|B|² + λ), where A is the target hall IR and B is the current venue’s path. The regularization limits gain where the venue’s response is weak. I aligned the IRs with GCC-PHAT and fractional-delay correction, applied correction only in the 125 Hz–4 kHz band, smoothed the response, and capped the gain. The final filter is a 226 ms FIR.",
       "Max/MSP applies a separate compensation filter to each of the six surround speakers in real time. Convology XT adds the target hall’s reverberation from about 200 ms onward. The main PA carries the direct sound.",
       "At the fourth-row center, mean spectral error fell from 2.69 to 2.24 dB across six channels. This comparison uses the same path measurements that were used to create the filters. It does not establish improvement at other seats or a perceptual match to the target hall."
     ],
@@ -83,7 +83,8 @@
         "en": "I used Python for IR alignment and filter generation, and Max/MSP and Convology XT for playback. AI helped me write the Python code.",
         "ko": "Python으로 IR 정렬과 필터 생성을, Max/MSP와 Convology XT로 실시간 처리를 했습니다. Python 코드 작성에는 AI의 도움을 받았습니다."
       }
-    }
+    },
+    "imageKo": "/images/projects/corrective-ir-thumbnail-ko.png"
   },
   {
     "slug": "spatial-renderer-system-identification",
