@@ -37,7 +37,6 @@ function projectLinks(project: Project) {
 
 export default function SimplePage() {
   const writing = site.pageContent.en.experience;
-  const rendererStudy = catalogProjects.find(project => project.slug === 'spatial-renderer-system-identification');
   const plannedSubmissions = catalogProjects.filter(project => project.plannedSubmission);
 
   return (
@@ -119,12 +118,6 @@ export default function SimplePage() {
               {publication.award && <p className="simple-award">{publication.award}</p>}
               <ul className="simple-links">{publication.links.map(link => <li key={link.href}><ResourceLink href={link.href}>{link.label.en.replace(/\s*↗$/, '')}</ResourceLink></li>)}</ul>
             </article>)}
-            {rendererStudy && <article className="simple-publication">
-              <p className="simple-eyebrow">{rendererStudy.category} · {rendererStudy.year}</p>
-              <h3>{rendererStudy.title}</h3>
-              <p>{getProjectSummary(rendererStudy, 'en')}</p>
-              <ul className="simple-links">{getProjectResources(rendererStudy).map(link => <li key={link.href}><ResourceLink href={link.href}>{link.label.en.replace(/\s*[↗→]$/, '')}</ResourceLink></li>)}</ul>
-            </article>}
             {plannedSubmissions.map(project => {
               const submission = project.plannedSubmission!;
               return <article className="simple-publication simple-planned" key={project.slug}>
