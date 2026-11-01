@@ -40,13 +40,7 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
         <div className="project-grid">{featured.map(project => <ProjectCard key={project.slug} project={project} locale={locale} compact />)}</div>
       </section>
 
-      <section className="home-inquiry" aria-labelledby="home-inquiry-title">
-        <header className="home-inquiry-heading">
-          <div>
-            <h2 id="home-inquiry-title">{copy.directionTitle}</h2>
-          </div>
-          <p>{copy.directionIntro}</p>
-        </header>
+      <section className="home-inquiry" aria-label={locale === 'ko' ? '연구 질문' : 'Research questions'}>
         <ol className="home-inquiry-path">
           {copy.steps.map((step, index) => (
             <li key={step.title}>

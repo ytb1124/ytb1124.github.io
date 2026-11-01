@@ -2,13 +2,13 @@
   "en": {
     "experience": "Questions shaped by more than 200 live performances.",
     "workIntro": "Built systems, measured outcomes, and the questions their limits left open.",
-    "directionTitle": "From spaces, to performers, to participation.",
+    "directionTitle": "From immersive audio, to musical expression, to musical participation.",
     "directionIntro": "Live sound taught me to listen to a room. Building instruments led me to listen to the performer. Now I want to understand what helps more people take part.",
     "steps": [
       {
-        "title": "Spaces",
+        "title": "Immersive Audio",
         "focus": "How we hear",
-        "question": "How can sound adapt to a space?",
+        "question": "How can sound reshape space?",
         "body": "The same music changes from one venue to another. I measure those differences and build systems to shape the sound around them.",
         "links": [
           {
@@ -22,9 +22,9 @@
         ]
       },
       {
-        "title": "Performers",
+        "title": "Musical Expression",
         "focus": "How we express",
-        "question": "How can tools follow the musician?",
+        "question": "How can music reflect individuality?",
         "body": "Working with performers shifted my attention from the room to the person. I build instruments and editing tools that leave room for individual touch and musical decisions.",
         "links": [
           {
@@ -38,9 +38,9 @@
         ]
       },
       {
-        "title": "Participation",
+        "title": "Musical Participation",
         "focus": "How we join in",
-        "question": "How can different ways of hearing become ways of making music?",
+        "question": "How can we be different, yet together?",
         "body": "Adjusting sound for a venue and drum response for one player led me to ask what listeners should be able to choose. I built CI Interactive Ensemble Room to explore that question through sound setup, mixing, and cue comparisons. It currently uses pink-noise placeholders; real recordings and CI user evaluation are next.",
         "links": [
           {
@@ -60,17 +60,17 @@
   "ko": {
     "experience": "200회 이상의 공연 현장에서 시작된 질문들.",
     "workIntro": "직접 만든 시스템, 측정한 결과, 그리고 그 한계에서 이어진 질문들입니다.",
-    "directionTitle": "공간에서 연주자로, 연주자에서 함께하는 음악으로.",
+    "directionTitle": "이머시브 오디오에서 음악적 표현으로, 그리고 음악적 참여로.",
     "directionIntro": "공연 음향을 하며 공간의 소리를 듣게 됐고, 악기를 만들며 연주자에게 귀를 기울이게 됐습니다. 이제는 더 많은 사람이 음악에 참여하려면 무엇이 필요한지 묻고 싶습니다.",
     "steps": [
       {
-        "title": "공간",
+        "title": "이머시브 오디오",
         "focus": "어떻게 듣는가",
-        "question": "소리가 공간에 맞춰 달라질 수 있을까?",
+        "question": "소리는 공간을 어떻게 재구성할 수 있을까?",
         "body": "같은 음악도 공연장이 바뀌면 다르게 들립니다. 그 차이를 측정하고, 공간에 맞게 소리를 조정하는 시스템을 만듭니다.",
         "links": [
           {
-            "label": "보상 필터 시스템",
+            "label": "보정 필터 시스템",
             "slug": "corrective-impulse-response"
           },
           {
@@ -80,9 +80,9 @@
         ]
       },
       {
-        "title": "연주자",
+        "title": "음악적 표현",
         "focus": "어떻게 표현하는가",
-        "question": "음악 도구가 연주자를 따라갈 수 있을까?",
+        "question": "음악은 각자의 개성을 어떻게 담아낼 수 있을까?",
         "body": "연주자와 함께 일하며 관심은 공간에서 사람으로 옮겨갔습니다. 각자의 타격 습관과 음악적 선택을 담을 수 있는 악기와 편집 도구를 만듭니다.",
         "links": [
           {
@@ -96,9 +96,9 @@
         ]
       },
       {
-        "title": "참여",
+        "title": "음악적 참여",
         "focus": "어떻게 함께하는가",
-        "question": "서로 다르게 듣는 사람도 자기 방식으로 음악을 만들 수 있을까?",
+        "question": "우리는 어떻게 서로 다르면서도 함께할 수 있을까?",
         "body": "공간에 맞춘 소리 보정과 한 연주자에 맞춘 드럼 반응을 만들며, 듣는 사람은 무엇을 직접 선택할 수 있어야 할지 묻게 됐습니다. 소리 맞춤·믹싱·단서 비교를 직접 해보는 인공와우 인터랙티브 합주실을 구현했습니다. 현재는 핑크노이즈 시험판이며, 실제 녹음과 CI 사용자 평가를 준비할 단계입니다.",
         "links": [
           {

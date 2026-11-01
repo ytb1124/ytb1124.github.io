@@ -163,10 +163,10 @@
   "sections": [
     {
       "number": "01.",
-      "title": "Immersive Experience",
-      "koreanTitle": "몰입형 경험",
-      "question": "How can sound adapt to a space?",
-      "koreanQuestion": "소리가 공간에 맞춰 달라질 수 있을까?",
+      "title": "Immersive Audio",
+      "koreanTitle": "이머시브 오디오",
+      "question": "How can sound reshape space?",
+      "koreanQuestion": "소리는 공간을 어떻게 재구성할 수 있을까?",
       "projectSlugs": [
         "corrective-impulse-response",
         "spatial-renderer-system-identification"
@@ -176,8 +176,8 @@
       "number": "02.",
       "title": "Musical Expression",
       "koreanTitle": "음악적 표현",
-      "question": "How can instruments adapt to the performer?",
-      "koreanQuestion": "악기가 연주자를 따라가게 하려면?",
+      "question": "How can music reflect individuality?",
+      "koreanQuestion": "음악은 각자의 개성을 어떻게 담아낼 수 있을까?",
       "projectSlugs": [
         "electronic-drums",
         "audio-to-midi-system"
@@ -187,8 +187,8 @@
       "number": "03.",
       "title": "Musical Participation",
       "koreanTitle": "음악적 참여",
-      "question": "How can everyone make music in their own way?",
-      "koreanQuestion": "누구나 자기 방식으로 음악에 참여할 수 있을까?",
+      "question": "How can we be different, yet together?",
+      "koreanQuestion": "우리는 어떻게 서로 다르면서도 함께할 수 있을까?",
       "projectSlugs": [
         "listening-tool-ci"
       ]
@@ -355,9 +355,9 @@
         "degree": "음향제작과 전문학사",
         "period": "2020–2026",
         "gpa": "GPA 4.01 / 4.5",
-        "writingProject": "보상 필터 연구 →",
+        "writingProject": "보정 필터 연구 →",
         "writingAward": "우수 논문 발표상 · 2026",
-        "paperTitle": "공간 재현을 위한 보상 필터 생성 및 실시간 컨볼루션 시스템",
+        "paperTitle": "공간 재현을 위한 보정 필터 생성 및 실시간 컨볼루션 시스템",
         "paperCitation": "유태빈 · 한국음향학회 제5회 전기음향&무대음향 학술대회 · 2026",
         "magazineTitle": "현재 공연장, 다른 홀처럼 들리게 할 수 있을까 — 공간 재현 시스템 구축기 ↗",
         "magazineCitation": "유태빈 · (사)무대음향협회 · Stage Sound Magazine 19호 · 2026",
