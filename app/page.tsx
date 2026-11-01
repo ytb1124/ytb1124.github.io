@@ -53,6 +53,7 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
             </li>
           ))}
         </ol>
+        <p className="research-motto">Unity without Uniformity.</p>
       </section>
 
       <section className="home-closing" aria-labelledby="home-story-title">

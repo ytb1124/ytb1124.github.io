@@ -357,3 +357,7 @@
   .site-frame .live-credits-section .credits-gallery { column-gap: 8px; }
   .site-frame .live-credits-section .credits-gallery h3 { font-size: 11px; }
 }
+
+/* Shared direction beneath the three research questions. */
+.site-frame .home-inquiry .research-motto,
+.site-frame .question-progression .research-motto { margin: 36px 0 0; padding-top: 28px; border-top: 1px solid var(--line); color: var(--orange); font-family: 'Inter Display', Arial, sans-serif; font-size: clamp(24px, 3vw, 36px); font-weight: 500; line-height: 1.3; letter-spacing: -.02em; text-align: center; text-wrap: balance; }
