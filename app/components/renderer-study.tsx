@@ -6,7 +6,7 @@ const copy = {
   en: {
     outcomeLabel: 'From research to a working program',
     outcomeTitle: 'TUTTI · Spatial audio',
-    outcomeDescription: 'I developed TUTTI from these studies of how spatial audio processors distribute sound. ELIZA uses direction-based VBAP, while SONORA uses distance-based DBAP.',
+    outcomeDescription: 'I developed TUTTI from these studies of how spatial audio processors distribute sound.',
     outcomeWorkflow: 'Place speakers and sound objects in the browser, adjust pan, width, distance, and elevation, and prepare snapshots. The Session Editor works without installation; live audio on a Mac requires the TUTTI Bridge app.',
     outcomeLink: 'Open TUTTI ↗',
     outcomeImage: 'TUTTI Session Editor: eight speakers and three sound objects in the Soundscape view.',
@@ -51,7 +51,7 @@ const copy = {
   ko: {
     outcomeLabel: '연구에서 프로그램으로',
     outcomeTitle: 'TUTTI · 공간 오디오',
-    outcomeDescription: '공간 오디오 프로세서의 소리 분배 방식을 연구한 뒤, 이를 바탕으로 TUTTI를 만들었습니다. 방향 기반 VBAP를 사용하는 ELIZA와 거리 기반 DBAP를 사용하는 SONORA를 제공합니다.',
+    outcomeDescription: '공간 오디오 프로세서의 소리 분배 방식을 연구한 뒤, 이를 바탕으로 TUTTI를 만들었습니다.',
     outcomeWorkflow: '브라우저에서 스피커와 음원을 배치하고 팬·폭·거리·높이를 조절하며 스냅샷을 준비할 수 있습니다. Session Editor는 설치 없이 사용할 수 있고, Mac에서 실제 오디오를 출력하려면 TUTTI Bridge 앱이 필요합니다.',
     outcomeLink: 'TUTTI 실행하기 ↗',
     outcomeImage: 'TUTTI Session Editor의 Soundscape 화면. 스피커 8개와 음원 3개를 배치한 예시 세션입니다.',
