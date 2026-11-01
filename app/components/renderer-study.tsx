@@ -1,8 +1,15 @@
+import Image from 'next/image';
 import { localizedPath, type Locale, type ProjectResource } from '../data/site';
 import { ContributionBox } from './project-evidence';
 
 const copy = {
   en: {
+    outcomeLabel: 'From research to a working program',
+    outcomeTitle: 'TUTTI · Spatial audio',
+    outcomeDescription: 'I developed TUTTI from these studies of how spatial audio processors distribute sound. ELIZA uses direction-based VBAP, while SONORA uses distance-based DBAP.',
+    outcomeWorkflow: 'Place speakers and sound objects in the browser, adjust pan, width, distance, and elevation, and prepare snapshots. The Session Editor works without installation; live audio on a Mac requires the TUTTI Bridge app.',
+    outcomeLink: 'Open TUTTI ↗',
+    outcomeImage: 'TUTTI Session Editor: eight speakers and three sound objects in the Soundscape view.',
     intro: 'Live immersive audio processors place a sound between speakers by changing the signals sent to each one. I measured Sound xR Image and L-ISA Studio to understand what their position and width controls actually do, then tested whether mathematical models could predict the outputs in new speaker layouts.',
     studies: [
       {
@@ -42,6 +49,12 @@ const copy = {
     next: 'How does L-ISA Studio distribute a wide sound in less regular speaker layouts? How do both systems respond while a sound is moving?',
   },
   ko: {
+    outcomeLabel: '연구에서 프로그램으로',
+    outcomeTitle: 'TUTTI · 공간 오디오',
+    outcomeDescription: '공간 오디오 프로세서의 소리 분배 방식을 연구한 뒤, 이를 바탕으로 TUTTI를 만들었습니다. 방향 기반 VBAP를 사용하는 ELIZA와 거리 기반 DBAP를 사용하는 SONORA를 제공합니다.',
+    outcomeWorkflow: '브라우저에서 스피커와 음원을 배치하고 팬·폭·거리·높이를 조절하며 스냅샷을 준비할 수 있습니다. Session Editor는 설치 없이 사용할 수 있고, Mac에서 실제 오디오를 출력하려면 TUTTI Bridge 앱이 필요합니다.',
+    outcomeLink: 'TUTTI 실행하기 ↗',
+    outcomeImage: 'TUTTI Session Editor의 Soundscape 화면. 스피커 8개와 음원 3개를 배치한 예시 세션입니다.',
     intro: '라이브 이머시브 오디오 프로세서는 각 스피커에 보내는 신호를 조절해 스피커 사이에 소리를 배치합니다. Sound xR Image와 L-ISA Studio의 위치·폭 조절이 실제 출력에 어떤 변화를 만드는지 측정하고, 수학적 모델이 새로운 스피커 배치에서도 출력을 예측할 수 있는지 시험했습니다.',
     studies: [
       {
@@ -86,6 +99,19 @@ export function RendererStudy({ locale, resources }: { locale: Locale; resources
   const text = copy[locale];
   return <div className="renderer-study">
     <p className="renderer-intro">{text.intro}</p>
+    <section className="renderer-outcome" aria-labelledby="renderer-outcome-title">
+      <p className="renderer-outcome-label">{text.outcomeLabel}</p>
+      <h2 id="renderer-outcome-title">{text.outcomeTitle}</h2>
+      <p>{text.outcomeDescription}</p>
+      <figure>
+        <a href="https://taebin.link/tutti/" target="_blank" rel="noopener noreferrer" aria-label={text.outcomeLink}>
+          <Image src="/images/projects/tutti-soundscape.jpg" alt={text.outcomeImage} width={1600} height={1000} priority/>
+        </a>
+        <figcaption>{text.outcomeImage}</figcaption>
+      </figure>
+      <p>{text.outcomeWorkflow}</p>
+      <div className="report-links"><a href="https://taebin.link/tutti/" target="_blank" rel="noopener noreferrer">{text.outcomeLink}</a></div>
+    </section>
     <div className="renderer-contribution"><ContributionBox slug="spatial-renderer-system-identification" locale={locale}/></div>
     <div className="renderer-studies">
       {text.studies.map(study => <section className="renderer-study-item" key={study.name}>

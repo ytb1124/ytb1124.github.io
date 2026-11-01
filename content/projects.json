@@ -90,15 +90,22 @@
     "year": "2026",
     "category": "Live Immersive Audio Research",
     "title": "Live Immersive Audio Processor Studies",
-    "description": "Measuring how Sound xR Image and L-ISA Studio turn sound position and width into loudspeaker outputs, then testing models against new speaker layouts.",
+    "description": "Measuring how Sound xR Image and L-ISA Studio distribute sound across speakers, then developing TUTTI, a spatial audio program informed by the research.",
     "question": "What changes at the speakers when we move a sound?",
-    "image": "/framer/projects/spatial-renderer-system-identification/01.jpeg",
+    "image": "/images/projects/tutti-soundscape.jpg",
     "gallery": [
       "/framer/projects/spatial-renderer-system-identification/01.jpeg",
       "/framer/projects/spatial-renderer-system-identification/02.jpeg",
       "/images/projects/l-isa-studio-soundscape.png"
     ],
     "resources": [
+      {
+        "href": "https://taebin.link/tutti/",
+        "label": {
+          "en": "Open TUTTI ↗",
+          "ko": "TUTTI 실행하기 ↗"
+        }
+      },
       {
         "href": "/reports/sound-xr-image-renderer-report-ko.pdf",
         "label": {
@@ -138,13 +145,14 @@
     ],
     "body": [
       "This study began after using Sound xR Image for an outdoor performance. I wanted to connect the controls on screen with what each speaker actually receives. The images below show the Sound xR work and the L-ISA Studio Soundscape interface.",
-      "I extended the investigation to L-ISA Studio with digital loopback measurements. Both studies compare measured outputs with mathematical models; they describe the tested software and settings. Listening tests and measurements across audience seats remain future work."
+      "I extended the investigation to L-ISA Studio with digital loopback measurements. Both studies compare measured outputs with mathematical models; they describe the tested software and settings. Listening tests and measurements across audience seats remain future work.",
+      "This research led to TUTTI, a spatial audio program with ELIZA (VBAP, direction-based) and SONORA (DBAP, distance-based) processors. Its browser-based Session Editor lets users place speakers and sound objects and prepare sessions; live audio requires the TUTTI Bridge app on a Mac."
     ],
     "status": "Measured study",
     "titleKo": "라이브 이머시브 오디오 프로세서 연구",
     "summary": {
-      "en": "Measured Sound xR Image and L-ISA Studio to understand how position and width affect speaker outputs. Tested the models on new layouts.",
-      "ko": "Sound xR Image와 L-ISA Studio에서 위치와 폭에 따른 스피커 출력 변화를 측정하고, 새로운 배치에서 모델을 검증했습니다."
+      "en": "Measured Sound xR Image and L-ISA Studio, tested panning models on new layouts, and developed TUTTI from the research.",
+      "ko": "Sound xR Image와 L-ISA Studio를 측정하고 새 배치에서 패닝 모델을 검증한 뒤, 연구를 바탕으로 공간 오디오 프로그램 TUTTI를 만들었습니다."
     },
     "contribution": {
       "problem": {
@@ -152,8 +160,8 @@
         "ko": "위치와 폭 조절이 각 스피커로 보내는 신호를 어떻게 바꾸는지 알고 싶었습니다."
       },
       "design": {
-        "en": "Measured Sound xR output levels with DME7 and Smaart, and L-ISA Studio level, frequency response, and delay with digital loopback sweeps.",
-        "ko": "DME7과 Smaart로 Sound xR의 출력 레벨을, 디지털 루프백 스윕으로 L-ISA Studio의 레벨·주파수 응답·지연을 측정했습니다."
+        "en": "Measured Sound xR output levels with DME7 and Smaart, and L-ISA Studio level, frequency response, and delay with digital loopback sweeps. Used the research to develop TUTTI, with ELIZA (VBAP) and SONORA (DBAP) processors and a browser-based session editor.",
+        "ko": "DME7과 Smaart로 Sound xR의 출력 레벨을, 디지털 루프백 스윕으로 L-ISA Studio의 레벨·주파수 응답·지연을 측정했습니다. 이 연구를 바탕으로 ELIZA(VBAP)·SONORA(DBAP) 프로세서와 브라우저 세션 편집기를 갖춘 TUTTI를 만들었습니다."
       },
       "analysis": {
         "en": "Compared candidate models, tested predictions on new layouts, and used controlled changes to investigate failures.",

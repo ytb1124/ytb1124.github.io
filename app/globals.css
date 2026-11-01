@@ -845,3 +845,12 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .project-demo p{max-width:850px;margin:14px 0 0;color:var(--muted);font-size:13px;line-height:1.7}
 .project-audio-to-midi-system .screenshot-frame img{aspect-ratio:8/5;background:#eaf0f6}
 .project-audio-to-midi-system .screenshot-frame:last-child{grid-column:1/-1}
+
+/* Spatial renderer research outcome. */
+.renderer-outcome{border-top:1px solid var(--line);padding-top:24px;margin-bottom:40px}
+.renderer-study .renderer-outcome-label{font-size:12px;letter-spacing:.04em;color:#ff9c87;margin-bottom:12px}
+.renderer-outcome>p{max-width:850px}
+.renderer-outcome figure{margin:24px 0}
+.renderer-outcome figure a{display:block}
+.renderer-outcome img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px}
+.renderer-outcome figcaption{margin-top:10px;color:var(--muted);font-size:13px;line-height:1.6}
