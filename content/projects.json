@@ -3,9 +3,9 @@
     "slug": "corrective-impulse-response",
     "year": "2025",
     "category": "Acoustics system",
-    "title": "Corrective IR for Live Venues",
-    "description": "A live six-channel hybrid system combining per-channel corrective FIRs for the initial response with a separately applied target-hall reverberation tail.",
-    "question": "Can corrective IR make one venue sound like another?",
+    "title": "Compensation Filter for Live Venues",
+    "description": "A live six-channel hybrid system combining per-channel FIR compensation filters for the initial response with a separately applied target-hall reverberation tail.",
+    "question": "Can a compensation filter make one venue sound like another?",
     "image": "/framer/projects/corrective-impulse-response/04.jpg",
     "gallery": [
       "/framer/projects/corrective-impulse-response/04.jpg",
@@ -17,7 +17,7 @@
     "video": "https://www.youtube.com/embed/SuaV7_M-J1U?si=JWv59QuBB7qCeOs0&iv_load_policy=3&rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1",
     "resources": [
       {
-        "href": "/reports/corrective-ir-paper-ko.pdf",
+        "href": "/reports/corrective-ir-paper-ko.pdf?v=20261101-original",
         "label": {
           "en": "Paper (KO) ↗",
           "ko": "발표 논문 ↗"
@@ -31,7 +31,7 @@
         }
       },
       {
-        "href": "/reports/corrective-ir-ssm-vol19-ko.pdf",
+        "href": "/reports/corrective-ir-ssm-vol19-ko.pdf?v=20261101-original",
         "label": {
           "en": "Magazine article (KO) ↗",
           "ko": "관련 기고문 ↗"
@@ -41,24 +41,24 @@
     "repository": "https://github.com/ytb1124/drama-space-max",
     "body": [
       "Playing a target hall’s impulse response (IR) in another venue also adds the current venue’s response. I wanted to correct the current room’s coloration before adding the target hall’s reverberation.",
-      "I measured six surround-loudspeaker-to-microphone paths and used Python to align them with the target IR. I created a corrective FIR filter for each channel, focusing on the first 40 ms and the 125 Hz–4 kHz band. The filters use regularization to limit excessive gain.",
-      "Max/MSP applies a separate corrective filter to each of the six surround speakers in real time. Convology XT adds the target hall’s reverberation from about 200 ms onward. The main PA carries the direct sound.",
+      "I measured six surround-loudspeaker-to-microphone paths and used Python to align them with the target IR. I created an FIR compensation filter for each channel, focusing on the first 40 ms and the 125 Hz–4 kHz band. The filters use regularization to limit excessive gain.",
+      "Max/MSP applies a separate compensation filter to each of the six surround speakers in real time. Convology XT adds the target hall’s reverberation from about 200 ms onward. The main PA carries the direct sound.",
       "At the fourth-row center, mean spectral error fell from 2.69 to 2.24 dB across six channels. This comparison uses the same path measurements that were used to create the filters. It does not establish improvement at other seats or a perceptual match to the target hall."
     ],
     "plannedSubmission": {
       "venue": "SA4ME: International Workshop on Spatial Audio for Multisensory Experiences · IEEE VR 2027",
       "href": "https://sites.google.com/view/sa4me/home",
       "label": {
-        "en": "Planned submission",
-        "ko": "논문 제출 예정"
+        "en": "Preparing submission",
+        "ko": "논문 제출 준비 중"
       },
       "description": {
-        "en": "I plan to submit a paper on this Corrective IR project to SA4ME at IEEE VR 2027. The paper has not yet been submitted or accepted. If accepted, it is expected to be published in the IEEE Xplore Digital Library.",
-        "ko": "이 보정 IR 프로젝트를 IEEE VR 2027의 SA4ME 워크숍에 논문으로 제출할 예정입니다. 아직 제출·채택 전이며, 채택될 경우 IEEE Xplore Digital Library에 출판될 예정입니다."
+        "en": "I am preparing a paper for submission to the IEEE VR 2027 SA4ME workshop, analysing how the effectiveness of spatial audio compensation varies across listening positions and how those differences relate to acoustic measures.",
+        "ko": "공간 음향 보정이 청취 위치에 따라 얼마나 효과적인지, 그 차이가 음향 지표와 어떤 관계가 있는지 분석하는 논문을 IEEE VR 2027 SA4ME 워크숍에 제출하기 위해 준비하고 있습니다."
       }
     },
     "status": "Working prototype",
-    "titleKo": "공연장 보정 IR 시스템",
+    "titleKo": "공연장 보정 필터 시스템",
     "summary": {
       "en": "Built a six-channel correction system. At one position, mean spectral error fell from 2.69 to 2.24 dB.",
       "ko": "6채널 보정 시스템을 만들었고, 한 측정 위치에서 평균 스펙트럼 오차가 2.69→2.24 dB로 줄었습니다."
@@ -86,16 +86,23 @@
     "slug": "spatial-renderer-system-identification",
     "year": "2026",
     "category": "Live Immersive Audio Research",
-    "title": "Live Immersive Audio Processor Studies",
-    "description": "Measuring how Sound xR Image and L-ISA Studio turn sound position and width into loudspeaker outputs, then testing models against new speaker layouts.",
+    "title": "TUTTI · From Spatial Audio Research to Software",
+    "description": "Developing TUTTI, a spatial audio program, from measurements and panning-model studies of Sound xR Image and L-ISA Studio.",
     "question": "What changes at the speakers when we move a sound?",
-    "image": "/framer/projects/spatial-renderer-system-identification/01.jpeg",
+    "image": "/images/projects/tutti-soundscape.jpg",
     "gallery": [
       "/framer/projects/spatial-renderer-system-identification/01.jpeg",
       "/framer/projects/spatial-renderer-system-identification/02.jpeg",
       "/images/projects/l-isa-studio-soundscape.png"
     ],
     "resources": [
+      {
+        "href": "https://taebin.link/tutti/",
+        "label": {
+          "en": "Open TUTTI ↗",
+          "ko": "TUTTI 실행하기 ↗"
+        }
+      },
       {
         "href": "/reports/sound-xr-image-renderer-report-ko.pdf",
         "label": {
@@ -135,13 +142,14 @@
     ],
     "body": [
       "This study began after using Sound xR Image for an outdoor performance. I wanted to connect the controls on screen with what each speaker actually receives. The images below show the Sound xR work and the L-ISA Studio Soundscape interface.",
-      "I extended the investigation to L-ISA Studio with digital loopback measurements. Both studies compare measured outputs with mathematical models; they describe the tested software and settings. Listening tests and measurements across audience seats remain future work."
+      "I extended the investigation to L-ISA Studio with digital loopback measurements. Both studies compare measured outputs with mathematical models; they describe the tested software and settings. Listening tests and measurements across audience seats remain future work.",
+      "This research led to TUTTI, a spatial audio program. Its browser-based Session Editor lets users place speakers and sound objects and prepare sessions; live audio requires the TUTTI Bridge app on a Mac."
     ],
     "status": "Measured study",
-    "titleKo": "라이브 이머시브 오디오 프로세서 연구",
+    "titleKo": "TUTTI · 공간 오디오 연구에서 프로그램으로",
     "summary": {
-      "en": "Measured Sound xR Image and L-ISA Studio to understand how position and width affect speaker outputs. Tested the models on new layouts.",
-      "ko": "Sound xR Image와 L-ISA Studio에서 위치와 폭에 따른 스피커 출력 변화를 측정하고, 새로운 배치에서 모델을 검증했습니다."
+      "en": "Developed TUTTI, a spatial audio program, from output measurements and panning-model studies of Sound xR Image and L-ISA Studio.",
+      "ko": "Sound xR Image와 L-ISA Studio의 출력 측정·패닝 모델 연구를 공간 오디오 프로그램 TUTTI 개발로 이어갔습니다."
     },
     "contribution": {
       "problem": {
@@ -149,8 +157,8 @@
         "ko": "위치와 폭 조절이 각 스피커로 보내는 신호를 어떻게 바꾸는지 알고 싶었습니다."
       },
       "design": {
-        "en": "Measured Sound xR output levels with DME7 and Smaart, and L-ISA Studio level, frequency response, and delay with digital loopback sweeps.",
-        "ko": "DME7과 Smaart로 Sound xR의 출력 레벨을, 디지털 루프백 스윕으로 L-ISA Studio의 레벨·주파수 응답·지연을 측정했습니다."
+        "en": "Measured Sound xR output levels with DME7 and Smaart, and L-ISA Studio level, frequency response, and delay with digital loopback sweeps. Used the research to develop TUTTI, with a browser-based session editor.",
+        "ko": "DME7과 Smaart로 Sound xR의 출력 레벨을, 디지털 루프백 스윕으로 L-ISA Studio의 레벨·주파수 응답·지연을 측정했습니다. 이 연구를 바탕으로 브라우저 세션 편집기를 갖춘 TUTTI를 만들었습니다."
       },
       "analysis": {
         "en": "Compared candidate models, tested predictions on new layouts, and used controlled changes to investigate failures.",

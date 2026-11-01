@@ -197,23 +197,40 @@ export function HeroShader() {
       }
     };
 
-    const observer = new ResizeObserver(resize);
-    observer.observe(canvas);
-    resize();
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let frame = 0;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let visible = true;
+    let frame: number | null = null;
     const start = performance.now();
     const render = (now: number) => {
-      gl.uniform1f(uniform('u_time'), reduceMotion ? 0 : 2 * (now - start) / 1000);
+      frame = null;
+      if (!visible || document.hidden) return;
+      gl.uniform1f(uniform('u_time'), motion.matches ? 0 : 2 * (now - start) / 1000);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
-      if (!reduceMotion) frame = requestAnimationFrame(render);
+      if (!motion.matches) frame = requestAnimationFrame(render);
     };
-    render(start);
+    const refresh = () => {
+      if (frame !== null) cancelAnimationFrame(frame);
+      frame = null;
+      resize();
+      render(performance.now());
+    };
+    const observer = new ResizeObserver(refresh);
+    observer.observe(canvas);
+    const visibility = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      refresh();
+    });
+    visibility.observe(canvas);
+    motion.addEventListener('change', refresh);
+    document.addEventListener('visibilitychange', refresh);
+    refresh();
 
     return () => {
       observer.disconnect();
-      cancelAnimationFrame(frame);
+      visibility.disconnect();
+      motion.removeEventListener('change', refresh);
+      document.removeEventListener('visibilitychange', refresh);
+      if (frame !== null) cancelAnimationFrame(frame);
       gl.deleteBuffer(buffer);
       gl.deleteProgram(program);
       gl.deleteShader(vertex);

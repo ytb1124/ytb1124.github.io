@@ -5,7 +5,7 @@ import './reading.css';
 
 export const metadata: Metadata = {
   title: 'Taebin Yoo',
-  description: 'Taebin Yoo · Live sound engineering, spatial audio research, and music technology',
+  description: 'Taebin Yoo · Music Technology & Sound Engineer · Spatial audio research',
 };
 
 export default function RootLayout({

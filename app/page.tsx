@@ -14,7 +14,7 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
       <section className="home-hero">
         <HeroShader />
         <h1>{home.hero.split('\n').map(line => <span key={line}>{line}</span>)}</h1>
-        <p className="hero-caption"><span>Music Technology</span><span aria-hidden="true">·</span><span>Sound Engineer</span><span aria-hidden="true">·</span><a href={site.socials.cv} target="_blank" rel="noopener noreferrer">View CV ↗</a></p>
+        <p className="hero-caption"><span>{home.role}</span><span aria-hidden="true">·</span><a href={site.socials.cv} target="_blank" rel="noopener noreferrer">View CV ↗</a></p>
         <a className="hero-orb" href="#at-a-glance" aria-label={locale === 'ko' ? '짧은 소개 보기' : 'A little about me'} />
       </section>
       <section className="home-brief" id="at-a-glance" aria-labelledby="home-intro-title">
@@ -40,13 +40,7 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
         <div className="project-grid">{featured.map(project => <ProjectCard key={project.slug} project={project} locale={locale} compact />)}</div>
       </section>
 
-      <section className="home-inquiry" aria-labelledby="home-inquiry-title">
-        <header className="home-inquiry-heading">
-          <div>
-            <h2 id="home-inquiry-title">{copy.directionTitle}</h2>
-          </div>
-          <p>{copy.directionIntro}</p>
-        </header>
+      <section className="home-inquiry" aria-label={locale === 'ko' ? '연구 질문' : 'Research questions'}>
         <ol className="home-inquiry-path">
           {copy.steps.map((step, index) => (
             <li key={step.title}>
@@ -59,6 +53,8 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
             </li>
           ))}
         </ol>
+        <p className="research-motto">Unity without Uniformity.</p>
+        <p className="research-motto-copy"><span>Different ways of experiencing and expressing music.</span><span>One shared musical experience.</span></p>
       </section>
 
       <section className="home-closing" aria-labelledby="home-story-title">

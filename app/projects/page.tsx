@@ -23,6 +23,8 @@ export default function ProjectsPage({ locale = 'en' as const }: { locale?: 'en'
             {index < 2 && <span className="question-next" aria-hidden="true">→</span>}
           </li>)}
         </ol>
+        <p className="research-motto">Unity without Uniformity.</p>
+        <p className="research-motto-copy"><span>Different ways of experiencing and expressing music.</span><span>One shared musical experience.</span></p>
       </nav>
       {site.sections.map((section, index) => <section className="catalog-group" id={`research-${index + 1}`} key={section.number}>
         <header className="catalog-group-head">

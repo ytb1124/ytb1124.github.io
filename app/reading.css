@@ -94,7 +94,7 @@
 }
 @media (max-width: 1100px) {
   .site-frame .question-progression ol { grid-template-columns: minmax(0, 1fr); gap: 30px; }
-  .site-frame .question-next { left: 0; top: calc(100% + 3px); width: 18px; height: 20px; font-size: 20px; line-height: 20px; transform: rotate(90deg); }
+  .site-frame .question-next { left: 50%; top: calc(100% + 3px); width: 18px; height: 20px; font-size: 20px; line-height: 20px; transform: translateX(-50%) rotate(90deg); }
 }
 .site-frame .catalog-group-head { padding: 16px 0; border: 0; border-top: 1px solid var(--line); }
 .site-frame .catalog-group-head h2 { font-size: 20px; line-height: 1.5; }
@@ -357,3 +357,11 @@
   .site-frame .live-credits-section .credits-gallery { column-gap: 8px; }
   .site-frame .live-credits-section .credits-gallery h3 { font-size: 11px; }
 }
+
+/* Shared direction beneath the three research questions. */
+.site-frame .home-inquiry .research-motto,
+.site-frame .question-progression .research-motto { margin: 36px 0 0; padding-top: 28px; border-top: 1px solid var(--line); color: var(--orange); font-family: 'Inter Display', Arial, sans-serif; font-size: clamp(24px, 3vw, 36px); font-weight: 500; line-height: 1.3; letter-spacing: -.02em; text-align: center; text-wrap: balance; }
+
+.site-frame .home-inquiry .research-motto-copy,
+.site-frame .question-progression .research-motto-copy { margin: 18px 0 0; color: #aaa; font-family: inherit; font-size: clamp(14px, 1.5vw, 17px); line-height: 1.65; letter-spacing: 0; text-align: center; }
+.research-motto-copy > span { display: block; }

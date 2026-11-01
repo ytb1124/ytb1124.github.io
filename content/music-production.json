@@ -102,6 +102,43 @@
           }
         ],
         "titleKo": "아리랑: 소리로 다시 해석하기"
+      },
+      {
+        "id": "matrix",
+        "year": "2026",
+        "category": {
+          "en": "Live Production Platform",
+          "ko": "공연 제작 플랫폼"
+        },
+        "title": "MATRIX",
+        "question": {
+          "en": "A nonprofit platform connecting venue information, technical specifications, and engineers for live performance.",
+          "ko": "공연장 정보와 기술 사양, 엔지니어를 연결해 공연 준비를 돕는 비영리 플랫폼입니다."
+        },
+        "image": "/images/music-production/matrix-logo.png",
+        "gallery": [
+          "/images/music-production/matrix-logo.png"
+        ],
+        "websiteUrl": "https://stagematrix.site",
+        "body": {
+          "en": [
+            "Within the team project, I independently designed the interface and user flows, developed the frontend and backend, and set up the server.",
+            "MATRIX brings together venue rental, sound, lighting, stage, and backline information that is often scattered across websites, documents, and direct inquiries. It organizes this information into consistent fields to help engineers and artists compare production conditions.",
+            "Started by four Audio Production students at Dong-ah Institute of Media and Arts, the nonprofit project also connects users with public engineer profiles. Sources and verification dates help users assess the information before contacting venues and engineers directly."
+          ],
+          "ko": [
+            "팀 프로젝트에서 서비스의 화면과 사용자 흐름을 설계하고, 프론트엔드·백엔드 개발과 서버 구축까지 혼자 맡았습니다.",
+            "홈페이지와 문서, 개별 문의에 흩어진 공연장의 대관·음향·조명·무대·백라인 정보를 한곳에 모았습니다. 공연장마다 다른 정보를 같은 항목으로 정리해 엔지니어와 아티스트가 제작 조건을 비교할 수 있도록 돕습니다.",
+            "동아방송예술대학교 음향제작학과 학생 네 명이 시작한 비영리 프로젝트로, 공연장 탐색과 함께 공개 엔지니어 프로필을 제공합니다. 정보의 출처와 확인일을 함께 관리하며, 실제 대관과 섭외는 각 공연장과 엔지니어에게 직접 문의하는 방식입니다."
+          ]
+        },
+        "videoLabel": {
+          "en": "",
+          "ko": ""
+        },
+        "reports": null,
+        "reportLabel": null,
+        "sources": []
       }
     ]
   },

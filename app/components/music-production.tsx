@@ -24,20 +24,21 @@ export function MusicProduction({ locale }: { locale: Locale }) {
               </div>
             </div>
             <p>{project.question[locale]}</p>
-            <span className="production-toggle">{ko ? '작업 과정과 사진' : 'Process & photos'}<span aria-hidden="true">＋</span></span>
+            <span className="production-toggle">{project.websiteUrl ? (ko ? '프로젝트 소개' : 'About the project') : (ko ? '작업 과정과 사진' : 'Process & photos')}<span aria-hidden="true">＋</span></span>
           </summary>
           <div className="production-pick-details">
             {project.body[locale].map(paragraph => <p key={paragraph}>{paragraph}</p>)}
             <div className="production-resource-links">
-              <a className="text-link" href={project.videoUrl} target="_blank" rel="noopener noreferrer">{ko ? '영상 보기 ↗' : 'Watch video ↗'}</a>
+              {project.websiteUrl && <a className="text-link" href={project.websiteUrl} target="_blank" rel="noopener noreferrer">{ko ? 'MATRIX 사이트 방문 ↗' : 'Visit MATRIX ↗'}</a>}
+              {project.videoUrl && <a className="text-link" href={project.videoUrl} target="_blank" rel="noopener noreferrer">{ko ? '영상 보기 ↗' : 'Watch video ↗'}</a>}
               {project.reports && <a className="text-link" href={project.reports[locale]} target="_blank" rel="noopener noreferrer">{ko ? '보고서 읽기 ↗' : 'Read report ↗'}</a>}
             </div>
-            <YoutubeEmbed url={project.videoUrl} locale={locale}/>
+            {project.videoUrl && <YoutubeEmbed url={project.videoUrl} locale={locale}/>}
             {!!project.sources.length && <div className="selected-project-sources">
               <span>{ko ? '참고 자료' : 'Sources'}</span>
               {project.sources.map(source => <a href={source.href} target="_blank" rel="noopener noreferrer" key={source.href}>{ko ? (source.label.startsWith('Byeonsa') ? '변사 음성·음원 자료' : '영상 자료') : source.label} ↗</a>)}
             </div>}
-            <div className="production-photos">{project.gallery.slice(1).map(src => <Image key={src} src={src} alt="" width={600} height={400} loading="lazy"/>)}</div>
+            {project.gallery.length > 1 && <div className="production-photos">{project.gallery.slice(1).map(src => <Image key={src} src={src} alt="" width={600} height={400} loading="lazy"/>)}</div>}
           </div>
         </details>)}
       </div>
