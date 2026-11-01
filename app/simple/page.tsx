@@ -89,12 +89,12 @@ export default function SimplePage() {
           <p className="simple-section-description">{site.pageContent.en.music.intro}</p>
           <div className="simple-section-content simple-music-grid">
             {musicProduction.selectedProjects.projects.map(project => <article className="simple-music-project" key={project.id}>
-              <a className="simple-project-image" href={project.videoUrl} target="_blank" rel="noopener noreferrer" aria-label={`Watch ${project.title}`}><Image src={project.image} alt={project.title} width={1200} height={675} loading="lazy" /></a>
+              <a className="simple-project-image" href={project.websiteUrl ?? project.videoUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.websiteUrl ? 'Visit' : 'Watch'} ${project.title}`}><Image src={project.image} alt={project.title} width={1200} height={675} loading="lazy" /></a>
               <div className="simple-project-meta"><span>{project.category.en}</span><span>{project.year}</span></div>
               <h3>{project.title}</h3>
               <p className="simple-project-summary">{project.question.en}</p>
               <div className="simple-role"><h4>My role</h4><p>{project.body.en[0]}</p></div>
-              <ul className="simple-links"><li><ResourceLink href={project.videoUrl}>{project.videoLabel.en.replace(/\s*→$/, '')}</ResourceLink></li>{project.reports && <li><ResourceLink href={project.reports.en}>{project.reportLabel?.en.replace(/\s*→$/, '') ?? 'Read report'}</ResourceLink></li>}</ul>
+              <ul className="simple-links">{project.websiteUrl && <li><ResourceLink href={project.websiteUrl}>Visit {project.title}</ResourceLink></li>}{project.videoUrl && <li><ResourceLink href={project.videoUrl}>{project.videoLabel.en.replace(/\s*→$/, '')}</ResourceLink></li>}{project.reports && <li><ResourceLink href={project.reports.en}>{project.reportLabel?.en.replace(/\s*→$/, '') ?? 'Read report'}</ResourceLink></li>}</ul>
             </article>)}
             <article className="simple-music-project">
               <a className="simple-project-image simple-album-image" href={musicProduction.studio.playlistUrl} target="_blank" rel="noopener noreferrer" aria-label={`Listen to ${musicProduction.studio.albumTitle}`}><Image src={musicProduction.studio.cover} alt={musicProduction.studio.coverAlt} width={800} height={800} loading="lazy" /></a>

@@ -63,7 +63,8 @@ for (const project of production.selectedProjects.projects) {
   copied(project.title, 'music-production');
   copied(project.question.en, 'music-production');
   copied(project.body.en[0], 'music-production');
-  assert.ok(simple.links.includes(project.videoUrl), `Missing production video: ${project.id}`);
+  if (project.videoUrl) assert.ok(simple.links.includes(project.videoUrl), `Missing production video: ${project.id}`);
+  if (project.websiteUrl) assert.ok(simple.links.includes(project.websiteUrl), `Missing production website: ${project.id}`);
 }
 copied(production.studio.albumTitle, 'music-production');
 copied(production.studio.note.en, 'music-production');

@@ -15,7 +15,8 @@ export type MusicProductionContent = {
       question: LocalizedText;
       image: string;
       gallery: string[];
-      videoUrl: string;
+      videoUrl?: string;
+      websiteUrl?: string;
       body: { en: string[]; ko: string[] };
       videoLabel: LocalizedText;
       reports: LocalizedText | null;
