@@ -17,7 +17,7 @@
     "video": "https://www.youtube.com/embed/SuaV7_M-J1U?si=JWv59QuBB7qCeOs0&iv_load_policy=3&rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1",
     "resources": [
       {
-        "href": "/reports/corrective-ir-paper-ko.pdf",
+        "href": "/reports/corrective-ir-paper-ko.pdf?v=20261101-original",
         "kind": "paper",
         "label": {
           "en": "Paper (KO) ↗",
@@ -33,7 +33,7 @@
         }
       },
       {
-        "href": "/reports/corrective-ir-ssm-vol19-ko.pdf",
+        "href": "/reports/corrective-ir-ssm-vol19-ko.pdf?v=20261101-original",
         "kind": "article",
         "label": {
           "en": "Magazine article (KO) ↗",
