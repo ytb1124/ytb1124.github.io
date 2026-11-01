@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { PageShell } from './site';
-import { localizedPath, projectStatusLabel, type Locale, type Project } from '../data/site';
+import { getProjectResources, localizedPath, projectStatusLabel, type Locale, type Project } from '../data/site';
 import { koreanProjectBodies } from '../data/korean';
 import { projectSummaries } from '../data/project-summaries';
 import { ContributionBox, ProjectEvidence } from './project-evidence';
@@ -12,10 +12,7 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
   const title = ko ? project.titleKo ?? project.title : project.title;
   const body = ko ? koreanProjectBodies[project.slug] ?? project.body : project.body;
   const summary = projectSummaries[project.slug]?.[locale];
-  const resources = project.resources ?? (project.reports ? [
-    {href:project.reports.ko,label:{en:'Report (KO) ↗',ko:'한글 보고서 ↗'}},
-    {href:project.reports.en,label:{en:'Report (EN) ↗',ko:'영문 보고서 ↗'}},
-  ] : []);
+  const resources = getProjectResources(project);
   return <PageShell locale={locale} path={`/projects/${project.slug}`}>
     <article className={`project-detail detail-review project-${project.slug} locale-${locale}`}>
       <header className="detail-title">

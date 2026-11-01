@@ -2,7 +2,7 @@ import projectsDocument from '../../content/projects.json';
 import siteDocument from '../../content/site.json';
 
 export type Locale = 'en' | 'ko';
-export type ProjectResource = { href: string; label: { en: string; ko: string }; localized?: boolean };
+export type ProjectResource = { href: string; label: { en: string; ko: string }; localized?: boolean; kind?: 'paper' | 'article' };
 export type Project = {
   slug: string;
   hidden?: boolean;
@@ -58,6 +58,18 @@ type SiteData = Omit<typeof siteDocument, 'sections' | 'experience'> & {
 
 export const allProjects = (projectsDocument as Project[]).filter(project => !project.hidden);
 
+/** Shared card copy for the main catalog and the single-page portfolio. */
+export function getProjectSummary(project: Project, locale: Locale) {
+  return project.summary?.[locale] ?? (locale === 'en' ? project.description : undefined);
+}
+
+export function getProjectResources(project: Project): ProjectResource[] {
+  return project.resources ?? (project.reports ? [
+    { href: project.reports.ko, label: { en: 'Report (KO) ↗', ko: '한글 보고서 ↗' } },
+    { href: project.reports.en, label: { en: 'Report (EN) ↗', ko: '영문 보고서 ↗' } },
+  ] : []);
+}
+
 export function projectStatusLabel(status: Project['status'], locale: Locale) {
   if (!status) return '';
   const ko = { 'Measured study': '측정·분석', 'Working prototype': '프로토타입', 'Research concept': '구상 단계', 'Field experiment': '현장 실험', 'Technical experiment': '기술 실험' };
@@ -70,6 +82,8 @@ const sections = (siteDocument.sections as SiteSectionDocument[]).map(({ project
 }));
 
 export const site = { ...siteDocument, sections } as unknown as SiteData;
+
+export const catalogProjects = [...new Map(sections.flatMap(section => section.projects).map(project => [project.slug, project])).values()];
 
 export function localizedPath(locale: Locale, path: string) {
   return locale === 'ko' ? `/ko${path === '/' ? '/' : path}` : path;
