@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { localizedPath, type Locale, type ProjectResource } from '../data/site';
 import { ContributionBox } from './project-evidence';
 
@@ -9,7 +8,7 @@ const copy = {
     outcomeDescription: 'Investigated the operating principles of Sound xR Image and L-ISA Studio through measurement and analysis, then applied the findings to develop TUTTI, an immersive audio program.',
     outcomeWorkflow: 'The browser-based Session Editor works without installation; live audio on a Mac requires the TUTTI Bridge app.',
     outcomeLink: 'Open TUTTI ↗',
-    outcomeImage: 'TUTTI Session Editor: eight speakers and three sound objects in the Soundscape view.',
+    outcomeVideo: 'TUTTI walkthrough · English',
     intro: 'I measured Sound xR Image and L-ISA Studio to investigate their operating principles, then tested whether mathematical models could predict their behaviour in new speaker layouts.',
     studies: [
       {
@@ -54,7 +53,7 @@ const copy = {
     outcomeDescription: 'Sound xR Image와 L-ISA Studio의 동작 원리를 측정·분석하고, 이를 바탕으로 자체 이머시브 오디오 프로그램 TUTTI를 개발했습니다.',
     outcomeWorkflow: '브라우저의 Session Editor는 설치 없이 사용할 수 있고, Mac에서 실제 오디오를 출력하려면 TUTTI Bridge 앱이 필요합니다.',
     outcomeLink: 'TUTTI 실행하기 ↗',
-    outcomeImage: 'TUTTI Session Editor의 Soundscape 화면. 스피커 8개와 음원 3개를 배치한 예시 세션입니다.',
+    outcomeVideo: 'TUTTI 사용 안내 · 한국어',
     intro: 'Sound xR Image와 L-ISA Studio의 동작 원리를 알아보기 위해 출력을 측정하고, 수학적 모델이 새로운 스피커 배치에서도 동작을 예측할 수 있는지 시험했습니다.',
     studies: [
       {
@@ -104,10 +103,11 @@ export function RendererStudy({ locale, resources }: { locale: Locale; resources
       <h2 id="renderer-outcome-title">{text.outcomeTitle}</h2>
       <p>{text.outcomeDescription}</p>
       <figure>
-        <a href="https://taebin.link/tutti/" target="_blank" rel="noopener noreferrer" aria-label={text.outcomeLink}>
-          <Image src="/images/projects/tutti-soundscape.jpg" alt={text.outcomeImage} width={1600} height={1000} priority/>
-        </a>
-        <figcaption>{text.outcomeImage}</figcaption>
+        <video controls playsInline preload="none" poster={`/images/projects/tutti-demo-${locale}.jpg`} aria-label={text.outcomeVideo}>
+          <source src={`/videos/tutti-demo-${locale}.mp4`} type="video/mp4"/>
+          <a href={`/videos/tutti-demo-${locale}.mp4`}>{text.outcomeVideo}</a>
+        </video>
+        <figcaption>{text.outcomeVideo}</figcaption>
       </figure>
       <p>{text.outcomeWorkflow}</p>
       <div className="report-links"><a href="https://taebin.link/tutti/" target="_blank" rel="noopener noreferrer">{text.outcomeLink}</a></div>
