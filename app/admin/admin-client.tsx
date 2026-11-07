@@ -78,7 +78,7 @@ const contentLabels: Record<string, string> = {
   intro: '소개 문장', originTitle: '연구 계기 제목', origin: '연구 계기', futureTitle: '앞으로의 연구 제목', future: '앞으로의 연구',
   storyTitle: 'My story 제목', storySections: '이야기 소제목', eyebrow: '상단 작은 문구', title: '제목', progressionTitle: '질문 흐름 제목', stages: '질문별 라벨',
   school: '학교', degree: '학위·전공', period: '기간', gpa: '학점', highlights: '주요 경력 — 기간 / 역할 / 소속 / 설명',
-  writingProject: '발표 연구 이름', writingAward: '수상', paperTitle: '논문 제목', paperCitation: '논문 저자·학회·연도',
+  writingAward: '논문 수상', paperTitle: '논문 제목', paperCitation: '논문 저자·학회·연도',
   magazineTitle: '매거진 글 제목', magazineCitation: '매거진 저자·매체·연도',
   churchRole: '교회 음향 경력', churchDescription: '교회 음향 경력 설명', tutorRole: '교육 경력', tutorDescription: '교육 경력 설명',
   militaryRole: '군 복무 경력', militaryDescription: '군 복무 설명', location: '활동 지역',

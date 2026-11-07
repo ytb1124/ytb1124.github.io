@@ -694,8 +694,7 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .career-line h3{margin:0;font-family:'Inter Display',sans-serif;font-size:15px;font-weight:600;line-height:1.5}
 .career-line>div>span{display:block;font-size:12px;color:#aaa;margin-top:3px;line-height:1.5}
 .career-line p{margin:0;color:#bbb;font-size:14px;line-height:1.6}.career-work-link{margin-top:14px}
-.writing-essential{margin-top:28px;scroll-margin-top:110px}.writing-project{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px 20px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.writing-project>a{font-size:14px}.writing-project>span{color:#ffb29f;font-size:12px}
+.writing-essential{margin-top:28px;scroll-margin-top:110px}
 .writing-essential article{display:grid;grid-template-columns:105px minmax(0,1fr);gap:22px;padding:13px 0;border-bottom:1px solid var(--line)}
 .writing-type{font-size:12px;color:#aaa;line-height:1.5}.writing-essential article a{font-size:14px;line-height:1.6;text-underline-offset:4px}.writing-essential article a:hover{text-decoration:underline}
 .writing-essential article a[lang="ko"]{font-family:'Noto Sans KR','Apple SD Gothic Neo',sans-serif}

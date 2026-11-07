@@ -24,11 +24,17 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
       </section>
       <section id="selected-writing" className="writing-essential">
         <h2>{ko ? '발표와 기고' : 'Selected Writing & Presentations'}</h2>
-        <div className="writing-project"><a href={localizedPath(locale,'/projects/corrective-impulse-response')}>{copy.writingProject}</a><span>{copy.writingAward}</span></div>
         {plannedSubmission && <article><span className="writing-type">{plannedSubmission.label[locale]}</span><div><a href={plannedSubmission.href} target="_blank" rel="noopener noreferrer">{plannedSubmission.venue} ↗</a><p>{plannedSubmission.description[locale]}</p></div></article>}
         {getSelectedWriting(locale).map(publication => {
           const primaryLink = publication.links.find(link => locale === 'ko' ? link.label.en.includes('(KO)') : link.label.en.includes('(EN)')) ?? publication.links[0];
-          return <article key={publication.id}><span className="writing-type">{publication.kind}</span><div>{primaryLink ? <a lang={publication.lang} href={primaryLink.href} target="_blank" rel="noopener noreferrer">{publication.title} ↗</a> : <span lang={publication.lang}>{publication.title}</span>}<p>{publication.citation}</p></div></article>;
+          return <article key={publication.id}>
+            <span className="writing-type">{publication.kind}</span>
+            <div>
+              {primaryLink ? <a lang={publication.lang} href={primaryLink.href} target="_blank" rel="noopener noreferrer">{publication.title} ↗</a> : <span lang={publication.lang}>{publication.title}</span>}
+              <p>{publication.citation}</p>
+              {publication.award && <p className="writing-award">{publication.award}</p>}
+            </div>
+          </article>;
         })}
       </section>
       <section className="experience-extra"><h2 className="always-visible-heading">{ko ? '기타 경력 · 장학금 · 자격' : 'Other experience, scholarships & qualifications'}</h2>
