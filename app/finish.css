@@ -137,7 +137,7 @@ body { background-image: none; background-color: #0a0a09; color: #ecebe6; }
    project pages. Orange stays only inside data figures (e.g. evidence bars). */
 .site-frame :is(
   .production-focus, .production-heading > span, .album-credit,
-  .writing-list .writing-award, .writing-essential .writing-award, .writing-type, .writing-grid article > span,
+  .writing-list .writing-award, .writing-type, .writing-grid article > span,
   .experience-facts > div > span, .section-jumps span, .overview-path dt,
   .selected-projects-heading p, .selected-project-index, .dataset-index span,
   .interest-step > a > span, .story-section h3, .detail-takeaways h2, .project-next-step h2,
@@ -145,7 +145,8 @@ body { background-image: none; background-color: #0a0a09; color: #ecebe6; }
   .midi-baseline-table caption, .card-progress span[data-state=done], .concept-cover > span,
   .question-stage > span
 ) { color: var(--soft); }
-.site-frame :is(.production-focus, .writing-list .writing-award, .writing-essential .writing-award) { font-weight: 500; }
+.site-frame :is(.production-focus, .writing-list .writing-award) { font-weight: 500; }
+.site-frame .writing-essential .writing-award { color: var(--ink); font-weight: 600; }
 .site-frame .midi-baseline-table td { color: var(--ink); }
 .site-frame .publication-equations { border-left-color: var(--line); }
 

@@ -26,7 +26,7 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
         <h2>{ko ? '발표와 기고' : 'Selected Writing & Presentations'}</h2>
         {plannedSubmission && <article><span className="writing-type">{plannedSubmission.label[locale]}</span><div><a href={plannedSubmission.href} target="_blank" rel="noopener noreferrer">{plannedSubmission.venue} ↗</a><p>{plannedSubmission.description[locale]}</p></div></article>}
         {getSelectedWriting(locale).map(publication => {
-          const primaryLink = publication.links.find(link => locale === 'ko' ? link.label.en.includes('(KO)') : link.label.en.includes('(EN)')) ?? publication.links[0];
+          const primaryLink = publication.links.find(link => link.label.en.includes('(KO)')) ?? publication.links[0];
           return <article key={publication.id}>
             <span className="writing-type">{publication.kind}</span>
             <div>
