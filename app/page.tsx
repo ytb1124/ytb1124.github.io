@@ -26,7 +26,7 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
           <p>{home.intro}</p>
           <div className="home-brief-bottom">
             <span>{copy.experience}</span>
-            <a href={localizedPath(locale, '/profile')}>{copy.aboutLink} <span aria-hidden="true">↗</span></a>
+            <a href={localizedPath(locale, '/profile')}>{copy.aboutLink}</a>
           </div>
         </div>
       </section>
@@ -49,7 +49,7 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
               <h3>{step.title}</h3>
               <h4>{step.question}</h4>
               <p className="home-inquiry-body">{step.body}</p>
-              <div className="home-inquiry-links">{step.links.map(link => <a key={link.slug} href={localizedPath(locale, `/projects/${link.slug}`)}>{link.label} <span aria-hidden="true">↗</span></a>)}</div>
+              <div className="home-inquiry-links">{step.links.map(link => <a key={link.slug} href={localizedPath(locale, `/projects/${link.slug}`)}>{link.label}</a>)}</div>
             </li>
           ))}
         </ol>
@@ -63,12 +63,12 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
           <div className="home-story-copy">
             <h2 id="home-story-title">{home.quote.split('\n').filter(Boolean).map((line, index) => <span key={index}>{line}</span>)}</h2>
             <p>{copy.story}</p>
-            <a className="home-inline-link" href={localizedPath(locale, '/profile')}>{copy.storyLink} <span aria-hidden="true">↗</span></a>
+            <a className="home-inline-link" href={localizedPath(locale, '/profile')}>{copy.storyLink}</a>
           </div>
         </div>
         <div className="home-contact">
           <div><h3>{copy.contactTitle}</h3><p>{copy.contactCopy}</p></div>
-          <div className="home-contact-links"><a className="home-email" href={site.contact.emailHref}>{site.contact.email} <span aria-hidden="true">↗</span></a><a className="home-inline-link" href={localizedPath(locale, '/contact')}>{copy.contactLink} <span aria-hidden="true">→</span></a></div>
+          <div className="home-contact-links"><a className="home-email" href={site.contact.emailHref}>{site.contact.email}</a><a className="home-inline-link" href={localizedPath(locale, '/contact')}>{copy.contactLink}</a></div>
         </div>
       </section>
     </PageShell>

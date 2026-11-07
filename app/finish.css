@@ -1,0 +1,153 @@
+/*
+  Finishing layer. Loaded last so it can quiet the template-like details
+  (tracked uppercase labels, pill badges, boxed buttons, glow/grid textures,
+  salmon accents on every label, hover overlays) without touching content,
+  links, the opening hero, or the order of the home page.
+*/
+
+.site-frame {
+  --ink: #ecebe6;
+  --muted: #9b9a95;
+  --soft: #c9c8c2;
+  --line: rgba(236, 235, 230, .14);
+  --accent: #d9583b;
+  color: var(--ink);
+}
+body { background-image: none; background-color: #0a0a09; color: #ecebe6; }
+.site-frame, .site-frame .home-brief, .site-frame .home-closing, .site-frame .selected-projects { background: #0a0a09; }
+.site-frame .home-inquiry { background: #11110f; border-color: #22221f; }
+::selection { background: #ecebe6; color: #0a0a09; }
+
+/* Labels: sentence case, no letter-spacing, one neutral tone. */
+.site-frame :is(
+  .section-eyebrow, .page-kicker, .project-meta, .detail-meta, .milestone-state,
+  .contribution-box strong, .evidence-heading > span, .contact-details span,
+  .detail-aside span, .experience-organization, .framework-row > span,
+  .merged-contribution dt, .production-heading p, .publication-meta,
+  .selected-project-sources span, .selected-projects-heading p, .home-inquiry-focus,
+  .dataset-table-wrap th
+) {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--muted);
+}
+.site-frame .page-intro .section-eyebrow { font-size: 13px; }
+.site-frame .project-meta { gap: 0; font-size: 12px; }
+.site-frame .project-meta > span + span::before { content: '/'; margin: 0 10px; opacity: .5; }
+
+/* Status: a plain italic note instead of an outlined pill. */
+.site-frame .project-status {
+  display: inline;
+  width: auto;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+  color: var(--muted);
+  font-family: Sentient, Georgia, serif;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: normal;
+}
+/* Older rules shrink the pill to 8–10px at several breakpoints; hold it at reading size. */
+.site-frame :is(.project-copy, .detail-meta) .project-status { font-size: 13px !important; padding: 0 !important; line-height: 1.5 !important; }
+.site-frame .project-copy .project-status { display: block; margin: 2px 0 0; }
+.site-frame .detail-meta { gap: 14px; align-items: baseline; }
+.locale-ko .project-status { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; font-style: normal; }
+
+/* Links: real underlines instead of bordered boxes and tracked caps. */
+.site-frame :is(.pill-link, .report-links a, .publication-links a, .section-head > a, .text-link, .home-inline-link, .home-brief-bottom > a, .intro-name > a, .intro-role > a) {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  min-height: 0;
+  background: none;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(236, 235, 230, .35);
+  text-underline-offset: 4px;
+  transition: text-decoration-color .15s, color .15s;
+}
+.site-frame :is(.pill-link, .report-links a, .publication-links a, .section-head > a, .text-link, .home-inline-link, .home-brief-bottom > a):hover {
+  background: none;
+  color: var(--ink);
+  text-decoration-color: currentColor;
+}
+.site-frame .report-links { gap: 10px 24px; }
+.site-frame .detail-review .report-links { margin-top: 18px; }
+
+/* Project cards: no hover badge, no zoom-and-desaturate. */
+.site-frame .project-media::after { content: none; }
+.site-frame .project-card-link:hover .project-media img { transform: none; filter: none; }
+.site-frame .project-card-link:hover .project-media.ensemble-thumbnail img { transform: scale(1.8); }
+.site-frame .project-card-link .project-copy h3 { transition: color .15s; }
+.site-frame .project-card-link:hover .project-copy h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.site-frame .project-question { color: var(--ink) !important; font-weight: 500; }
+
+/* Home: numbered research path without the arrow choreography. */
+.site-frame .home-inquiry-marker { border-top-color: #3a3a36; color: var(--muted); }
+.site-frame .home-inquiry-marker > span:last-child { display: none; }
+.site-frame .home-inquiry-links { border-top-color: #2a2a27; }
+.site-frame .home-inquiry-links a { color: var(--soft); }
+.site-frame :is(.home-brief, .home-inquiry, .home-closing) a:hover { color: var(--ink); }
+.site-frame .home-email span { color: inherit; }
+.site-frame .home-story-image img { filter: none; }
+
+/* Motto: set as a quiet line of type, not an orange slogan. */
+.site-frame :is(.home-inquiry, .question-progression) .research-motto {
+  color: var(--ink);
+  font-family: Sentient, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(22px, 2.4vw, 28px);
+  letter-spacing: -.01em;
+}
+.site-frame :is(.home-inquiry, .question-progression) .research-motto-copy { color: var(--muted); }
+
+/* Projects page: question sequence stays, numbers lose the accent. */
+.site-frame .question-stage > span:first-child { color: var(--muted); }
+.site-frame .question-progression a:hover p { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.site-frame .question-next { color: #5d5c58; }
+.site-frame :is(.research-heading > span, .research-map-step > a > span, .catalog-group-head > span) { color: var(--muted); }
+
+/* Detail page boxes: hairlines instead of tinted cards with coloured bars. */
+.site-frame .research-progress { background: none; border: 0; padding: 8px 0 0; }
+.site-frame .research-progress li,
+.site-frame .research-progress li[data-state=done] { border-top: 1px solid var(--line); }
+.site-frame .research-progress li[data-state=done] .milestone-state { color: var(--soft); }
+.site-frame .evidence-figure { background: none; border-color: var(--line); }
+.site-frame .contribution-box strong { font-size: 12px; }
+.site-frame :is(.evidence-arrow, .evidence-plan span:nth-child(even)) { color: var(--muted); }
+
+/* Kill the remaining salmon/orange label colour; keep orange only for selection-free accents in figures. */
+.site-frame :is(.production-heading p, .music-overview .section-eyebrow, .detail-sources) { color: var(--muted); }
+
+.site-frame .contact-details span { font-size: 12px; }
+
+/* Remaining orange/salmon text across Music Production, Experience, About and
+   project pages. Orange stays only inside data figures (e.g. evidence bars). */
+.site-frame :is(
+  .production-focus, .production-heading > span, .album-credit,
+  .writing-list .writing-award, .writing-project > span, .writing-type, .writing-grid article > span,
+  .experience-facts > div > span, .section-jumps span, .overview-path dt,
+  .selected-projects-heading p, .selected-project-index, .dataset-index span,
+  .interest-step > a > span, .story-section h3, .detail-takeaways h2, .project-next-step h2,
+  .renderer-comparison tbody th, .renderer-study .renderer-study-name, .renderer-study .renderer-outcome-label,
+  .midi-baseline-table caption, .card-progress span[data-state=done], .concept-cover > span,
+  .question-stage > span
+) { color: var(--soft); }
+.site-frame :is(.production-focus, .writing-list .writing-award, .writing-project > span) { font-weight: 500; }
+.site-frame .midi-baseline-table td { color: var(--ink); }
+.site-frame .publication-equations { border-left-color: var(--line); }
+
+/* Hover and keyboard focus: neutral instead of salmon. */
+.site-frame :is(a, summary, input, select, .dataset-table-wrap, .production-pick-summary):focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }

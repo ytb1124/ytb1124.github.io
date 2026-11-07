@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ImageLightbox } from './components/image-lightbox';
 import './globals.css';
 import './reading.css';
+import './finish.css';
 
 export const metadata: Metadata = {
   title: 'Taebin Yoo',
