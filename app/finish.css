@@ -152,3 +152,24 @@ body { background-image: none; background-color: #0a0a09; color: #ecebe6; }
 
 /* Hover and keyboard focus: neutral instead of salmon. */
 .site-frame :is(a, summary, input, select, .dataset-table-wrap, .production-pick-summary):focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+
+@font-face {
+  font-family: 'Maru Buri';
+  src: url('/fonts/maru-buri-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+.site-frame {
+  --heading-font: 'Maru Buri', Georgia, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', serif;
+}
+.site-frame :is(h1, h2, h3, h4, h5, h6, .home-reveal-name, .question-progression .single-line-question):not(.home-hero h1),
+.site-frame .site-header :is(.brand, .desktop-nav a, .language-picker select, .language-picker option) {
+  font-family: var(--heading-font) !important;
+  font-weight: 700;
+  font-synthesis: none;
+  font-style: normal;
+}
+.site-frame :is(h1, h2, h3, h4, h5, h6):not(.home-hero h1) :is(a, span, strong) {
+  font-family: var(--heading-font) !important;
+}
