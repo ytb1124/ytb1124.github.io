@@ -306,7 +306,7 @@
       "/images/passaggio/piano-transcription.png",
       "/images/passaggio/drum-editor.png"
     ],
-    "repository": "https://github.com/ytb1124/audio-to-midi",
+    "repository": "https://github.com/ytb1124/passaggio",
     "body": [
       "Passaggio turns recorded music into editable MIDI for performance preparation. It combines specialist transcription models, Demucs stem separation, a piano-roll editor, audition, and MIDI export. The Next.js interface and FastAPI processing pipeline also support a local Tauri desktop application.",
       "The ML question is whether adapting a pretrained model to the actual processing path improves transcription on unfamiliar recordings. Piano uses Transkun, bass uses Basic Pitch with hybrid post-processing, and drums use ADTOF on HT-Demucs stems. These are existing models integrated into an assistive editing workflow; generated notes remain open to correction.",
@@ -370,21 +370,21 @@
     ],
     "resources": [
       {
-        "href": "https://github.com/ytb1124/audio-to-midi/blob/main/eval/BEST_RESULTS.md",
+        "href": "https://github.com/ytb1124/passaggio/blob/main/eval/BEST_RESULTS.md",
         "label": {
           "en": "Experiment report ↗",
           "ko": "실험 보고서 ↗"
         }
       },
       {
-        "href": "https://github.com/ytb1124/audio-to-midi/blob/main/eval/ADTOF_FINETUNE_PLAN.md",
+        "href": "https://github.com/ytb1124/passaggio/blob/main/eval/ADTOF_FINETUNE_PLAN.md",
         "label": {
           "en": "Fine-tuning plan ↗",
           "ko": "파인튜닝 계획 ↗"
         }
       },
       {
-        "href": "https://github.com/ytb1124/audio-to-midi/tree/main/eval/adtof_finetune",
+        "href": "https://github.com/ytb1124/passaggio/tree/main/eval/adtof_finetune",
         "label": {
           "en": "Training code & results ↗",
           "ko": "학습 코드·결과 ↗"

@@ -1,5 +1,5 @@
 {
-  "source": "https://github.com/ytb1124/audio-to-midi/blob/main/eval/separation_baseline.json",
+  "source": "https://github.com/ytb1124/passaggio/blob/main/eval/separation_baseline.json",
   "group": "synthetic drum mixtures; classifier trained on evaluated songs",
   "aggregation": "arithmetic mean of per-song class-aware micro F1",
   "environment": {

@@ -1,8 +1,8 @@
 import baseline from '../../content/audio-to-midi-evaluation.json';
 import type { Locale } from '../data/site';
 
-const report = 'https://github.com/ytb1124/audio-to-midi/blob/main/eval/BEST_RESULTS.md';
-const results = 'https://github.com/ytb1124/audio-to-midi/blob/main/eval/adtof_finetune/';
+const report = 'https://github.com/ytb1124/passaggio/blob/main/eval/BEST_RESULTS.md';
+const results = 'https://github.com/ytb1124/passaggio/blob/main/eval/adtof_finetune/';
 
 export function AudioToMidiEvidence({ locale }: { locale: Locale }) {
   const ko = locale === 'ko';
