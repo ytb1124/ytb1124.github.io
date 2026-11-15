@@ -36,3 +36,5 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+/public/image-previews/
+/app/data/generated-image-previews.json

@@ -1,3 +1,4 @@
+import { imagePreview } from './portfolio-image';
 import { localizedPath, type Locale, type ProjectResource } from '../data/site';
 import { ContributionBox } from './project-evidence';
 
@@ -103,7 +104,7 @@ export function RendererStudy({ locale, resources }: { locale: Locale; resources
       <h2 id="renderer-outcome-title">{text.outcomeTitle}</h2>
       <p>{text.outcomeDescription}</p>
       <figure>
-        <video controls playsInline preload="none" poster={`/images/projects/tutti-demo-${locale}.jpg`} aria-label={text.outcomeVideo}>
+        <video controls playsInline preload="none" poster={imagePreview(`/images/projects/tutti-demo-${locale}.jpg`, 1200)} aria-label={text.outcomeVideo}>
           <source src={`/videos/tutti-demo-${locale}.mp4`} type="video/mp4"/>
           <a href={`/videos/tutti-demo-${locale}.mp4`}>{text.outcomeVideo}</a>
         </video>

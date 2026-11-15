@@ -24,7 +24,7 @@ export function ImageLightbox() {
       if (!element.closest('main') || element.closest('a[href], summary') || element.closest('.admin-shell') || element.closest('[data-no-lightbox]') || element.closest('.image-lightbox')) return false;
       lastFocused.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
       const locale = element.closest('[lang]')?.getAttribute('lang') === 'ko' ? 'ko' : 'en';
-      setImage({ src: element.currentSrc || element.src, alt: element.alt || (locale === 'ko' ? '확대 사진' : 'Enlarged photograph'), locale });
+      setImage({ src: element.dataset.originalSrc || element.currentSrc || element.src, alt: element.alt || (locale === 'ko' ? '확대 사진' : 'Enlarged photograph'), locale });
       return true;
     };
 

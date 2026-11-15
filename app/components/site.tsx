@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { PortfolioImage } from './portfolio-image';
 import { useEffect, useState } from 'react';
 import { projectSummaries } from '../data/project-summaries';
 import { getProjectImage, getProjectSummary, Locale, localizedPath, Project, site, projectStatusLabel } from '../data/site';
@@ -88,14 +88,16 @@ export function HeroTitle({ children, className = '', locale = 'en' }: { childre
   return <section className={`page-title ${projectClass} ${className}`}><span className="page-kicker">{locale === 'ko' ? '유태빈 / 포트폴리오' : 'TAEBIN YOO / PORTFOLIO'}</span><h1>{children}</h1></section>;
 }
 
-export function ProjectCard({ project, locale, compact=false }: { project: Project; locale: Locale; compact?:boolean; minimal?:boolean }) {
+export function ProjectCard({ project, locale, compact=false, eager=false }: { project: Project; locale: Locale; compact?:boolean; minimal?:boolean; eager?:boolean }) {
   const localizedQuestion = locale === 'ko' ? projectSummaries[project.slug]?.ko?.question ?? project.question : project.question;
   const summary = getProjectSummary(project, locale);
 
   return (
     <a className="project-card-link" href={localizedPath(locale, `/projects/${project.slug}`)} aria-label={locale==='ko'?(project.titleKo??project.title):project.title}>
       <article className={`project-card${compact?' is-compact':''}`}>
-        <div className={`project-media${project.slug==='sound-manna'?' ensemble-thumbnail':''}${project.imageKo?' localized-thumbnail':''}`}><Image src={getProjectImage(project,locale)} alt="" width={1200} height={800} loading="lazy" /></div>
+        <div className={`project-media${project.slug==='sound-manna'?' ensemble-thumbnail':''}${project.imageKo?' localized-thumbnail':''}`}><PortfolioImage src={getProjectImage(project,locale)} alt="" width={1200} height={800}
+          sizes={compact ? '(max-width: 480px) 96px, (max-width: 1100px) 45vw, 285px' : '(max-width: 1100px) 45vw, 560px'}
+          loading={compact || eager ? 'eager' : 'lazy'} fetchPriority={compact || eager ? 'low' : undefined} /></div>
         <div className="project-copy">
           <div className="project-meta"><span>{project.year}</span><span>{locale === 'ko' ? (koreanCategories[project.category] ?? project.category) : project.category}</span></div>
           <h3>{locale==='ko'?(project.titleKo??project.title):project.title}</h3>

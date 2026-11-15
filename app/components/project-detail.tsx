@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { PortfolioImage, imagePreview } from './portfolio-image';
 import { PageShell } from './site';
 import { getProjectImage, getProjectResources, localizedPath, projectStatusLabel, type Locale, type Project } from '../data/site';
 import { koreanProjectBodies } from '../data/korean';
@@ -27,7 +27,7 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
       </header>
       {project.demo && <section className="project-demo" aria-labelledby="demo-title">
         <h2 id="demo-title">{ko ? 'Passaggio 사용 데모' : 'Passaggio in use'}</h2>
-        <video controls playsInline preload="none" poster={project.demo.poster} aria-label={ko ? '오디오 변환과 MIDI 편집 데모' : 'Audio conversion and MIDI editing demo'}>
+        <video controls playsInline preload="none" poster={imagePreview(project.demo.poster, 1200)} aria-label={ko ? '오디오 변환과 MIDI 편집 데모' : 'Audio conversion and MIDI editing demo'}>
           <source src={project.demo.src} type="video/mp4"/>
           <track kind="captions" src={project.demo.captions[locale]} srcLang={locale} label={ko ? '한국어' : 'English'} default/>
           <a href={project.demo.src}>{ko ? '데모 영상 보기' : 'Watch demo'}</a>
@@ -49,12 +49,12 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
           {project.sources&&<p className="detail-sources">{ko?'참고 자료':'Sources'}{project.sources.map(source=><span key={source.href}><br/><a href={source.href}>{source.label} ↗</a></span>)}</p>}
           {project.video&&<div className="detail-video"><iframe src={project.video} title={title} loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen/></div>}
         </div>
-        <div className="detail-gallery">{project.imageKo && <div className="gallery-frame"><Image src={getProjectImage(project,locale)} alt={ko ? '현재 홀과 목표 홀의 IR 비교: DIMA Concert Hall의 대중음악 밴드 공연장과 Sir Jack Lyons Concert Hall의 클래식 공연장' : 'Current and target IRs: DIMA Concert Hall, a live band venue, and Sir Jack Lyons Concert Hall, a classical concert venue'} width={1672} height={941} loading="lazy"/></div>}{project.gallery.map((src,i)=>{
+        <div className="detail-gallery">{project.imageKo && <div className="gallery-frame"><PortfolioImage src={getProjectImage(project,locale)} alt={ko ? '현재 홀과 목표 홀의 IR 비교: DIMA Concert Hall의 대중음악 밴드 공연장과 Sir Jack Lyons Concert Hall의 클래식 공연장' : 'Current and target IRs: DIMA Concert Hall, a live band venue, and Sir Jack Lyons Concert Hall, a classical concert venue'} width={1672} height={941} sizes="(max-width: 760px) 92vw, 1100px"/></div>}{project.gallery.map((src,i)=>{
           const caption = project.galleryCaptions?.[i]?.[locale];
           return caption ? <figure className={`gallery-frame ${isRendererStudy?'renderer-gallery-frame':'screenshot-frame'}`} key={src}>
-            <a href={src} target="_blank" rel="noopener noreferrer" aria-label={ko ? `원본 확대: ${caption}` : `View full size: ${caption}`}><Image src={src} alt={caption} width={1265} height={712} loading="lazy"/></a>
+            <a href={src} target="_blank" rel="noopener noreferrer" aria-label={ko ? `원본 확대: ${caption}` : `View full size: ${caption}`}><PortfolioImage src={src} alt={caption} width={1265} height={712} sizes="auto, (max-width: 760px) 92vw, 1100px"/></a>
             <figcaption>{caption}</figcaption>
-          </figure> : <div className="gallery-frame" key={src}><Image src={src} alt={`${title} ${i+1}`} width={1800} height={1200} loading="lazy"/></div>;
+          </figure> : <div className="gallery-frame" key={src}><PortfolioImage src={src} alt={`${title} ${i+1}`} width={1800} height={1200} sizes="auto, (max-width: 760px) 92vw, 1100px"/></div>;
         })}</div>
       </section>
     </article>

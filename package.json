@@ -6,8 +6,11 @@
     "node": ">=22.13.0"
   },
   "scripts": {
+    "predev": "npm run prepare:images",
     "dev": "vinext dev",
+    "prebuild": "npm run prepare:images",
     "build": "vinext build && node scripts/prepare-github-pages.mjs && npm run validate:simple",
+    "prepare:images": "node scripts/prepare-image-previews.mjs",
     "validate:simple": "node scripts/validate-simple-content.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
@@ -47,6 +50,7 @@
     "oxfmt": "0.61.0",
     "oxlint": "1.76.0",
     "oxlint-tsgolint": "7.0.2001",
+    "sharp": "0.34.5",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "vite": "8.0.13",

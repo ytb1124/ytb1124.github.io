@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import Image from 'next/image';
+import { PortfolioImage } from '../components/portfolio-image';
 import { musicProduction } from '../data/music-production';
 import { projectSummaries } from '../data/project-summaries';
 import { catalogProjects, getProjectResources, getProjectSummary, type Project, site } from '../data/site';
@@ -70,7 +71,7 @@ export default function SimplePage() {
               const technicalRole = projectSummaries[project.slug]?.en?.build ?? project.contribution?.design.en;
               return (
               <article className="simple-project" id={project.slug} key={project.slug}>
-                <a className={`simple-project-image${project.slug === 'sound-manna' ? ' simple-ensemble-image' : ''}`} href={`/projects/${project.slug}`} aria-label={`Read more about ${project.title}`}><Image src={project.image} alt={project.title} width={1200} height={750} loading="lazy" /></a>
+                <a className={`simple-project-image${project.slug === 'sound-manna' ? ' simple-ensemble-image' : ''}`} href={`/projects/${project.slug}`} aria-label={`Read more about ${project.title}`}><PortfolioImage src={project.image} alt={project.title} width={1200} height={750} sizes="auto, (max-width: 900px) 45vw, 360px" /></a>
                 <div className="simple-project-meta"><span>{project.category}</span><span>{project.year}{project.ongoing ? ' · Ongoing' : ''}</span></div>
                 <h3>{project.title}</h3>
                 <p className="simple-project-summary">{getProjectSummary(project, 'en')}</p>
@@ -89,7 +90,7 @@ export default function SimplePage() {
           <p className="simple-section-description">{site.pageContent.en.music.intro}</p>
           <div className="simple-section-content simple-music-grid">
             {musicProduction.selectedProjects.projects.map(project => <article className="simple-music-project" key={project.id}>
-              <a className="simple-project-image" href={project.websiteUrl ?? project.videoUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.websiteUrl ? 'Visit' : 'Watch'} ${project.title}`}><Image src={project.image} alt={project.title} width={1200} height={675} loading="lazy" /></a>
+              <a className="simple-project-image" href={project.websiteUrl ?? project.videoUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.websiteUrl ? 'Visit' : 'Watch'} ${project.title}`}><PortfolioImage src={project.image} alt={project.title} width={1200} height={675} sizes="auto, (max-width: 900px) 45vw, 360px" /></a>
               <div className="simple-project-meta"><span>{project.category.en}</span><span>{project.year}</span></div>
               <h3>{project.title}</h3>
               <p className="simple-project-summary">{project.question.en}</p>
@@ -97,7 +98,7 @@ export default function SimplePage() {
               <ul className="simple-links">{project.websiteUrl && <li><ResourceLink href={project.websiteUrl}>Visit {project.title}</ResourceLink></li>}{project.videoUrl && <li><ResourceLink href={project.videoUrl}>{project.videoLabel.en.replace(/\s*→$/, '')}</ResourceLink></li>}{project.reports && <li><ResourceLink href={project.reports.en}>{project.reportLabel?.en.replace(/\s*→$/, '') ?? 'Read report'}</ResourceLink></li>}</ul>
             </article>)}
             <article className="simple-music-project">
-              <a className="simple-project-image simple-album-image" href={musicProduction.studio.playlistUrl} target="_blank" rel="noopener noreferrer" aria-label={`Listen to ${musicProduction.studio.albumTitle}`}><Image src={musicProduction.studio.cover} alt={musicProduction.studio.coverAlt} width={800} height={800} loading="lazy" /></a>
+              <a className="simple-project-image simple-album-image" href={musicProduction.studio.playlistUrl} target="_blank" rel="noopener noreferrer" aria-label={`Listen to ${musicProduction.studio.albumTitle}`}><PortfolioImage src={musicProduction.studio.cover} alt={musicProduction.studio.coverAlt} width={800} height={800} sizes="auto, (max-width: 900px) 45vw, 360px" /></a>
               <div className="simple-project-meta"><span>{musicProduction.studio.title}</span><span>{musicProduction.studio.eyebrow.en}</span></div>
               <h3>{musicProduction.studio.albumTitle}</h3>
               <p className="simple-project-summary">{musicProduction.studio.meta}</p>

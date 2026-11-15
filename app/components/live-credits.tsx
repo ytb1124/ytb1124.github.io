@@ -1,4 +1,4 @@
-/* oxlint-disable next/no-img-element */
+import { PortfolioImage } from './portfolio-image';
 import { activities } from '../data/activities';
 import type { Locale } from '../data/site';
 
@@ -25,7 +25,7 @@ export function LiveCredits({locale}:{locale:Locale}) {
   const ko = locale === 'ko';
   return <div className="activity-gallery credits-gallery" aria-label={ko ? '공연 참여 기록' : 'Live sound credits'}>
     {activities.map(item => <article className="activity-card" key={item.id}>
-      <div className="activity-media">{item.image ? <img src={item.image} alt="" width={600} height={450} loading="lazy"/> : <div className="activity-placeholder" aria-hidden="true">♪</div>}</div>
+      <div className="activity-media">{item.image ? <PortfolioImage src={item.image} alt="" width={600} height={450} sizes="auto, (max-width: 760px) 30vw, 360px"/> : <div className="activity-placeholder" aria-hidden="true">♪</div>}</div>
       <div className="activity-meta">
         <div className="activity-title-group">
           <h3>{ko ? item.title : item.englishTitle}</h3>

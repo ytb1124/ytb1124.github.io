@@ -31,7 +31,7 @@ export default function ProjectsPage({ locale = 'en' as const }: { locale?: 'en'
           <span>{section.number}</span>
           <div><h2>{ko ? section.koreanTitle : section.title}</h2><p>{ko ? section.koreanQuestion : section.question}</p></div>
         </header>
-        <div className="catalog-grid">{section.projects.map(project => <ProjectCard key={project.slug} project={project} locale={locale} />)}</div>
+        <div className="catalog-grid">{section.projects.map((project, projectIndex) => <ProjectCard key={project.slug} project={project} locale={locale} eager={index === 0 && projectIndex < 2} />)}</div>
       </section>)}
     </div>
   </PageShell>;

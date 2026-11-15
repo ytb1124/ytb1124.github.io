@@ -3,6 +3,7 @@ import { PageShell, YoutubeEmbed } from '../components/site';
 import { site, localizedPath } from '../data/site';
 import { koreanProfile } from '../data/korean';
 import Image from 'next/image';
+import { PortfolioImage } from '../components/portfolio-image';
 
 export const dynamic = 'force-static';
 
@@ -22,7 +23,7 @@ export default function ProfilePage({locale='en' as const}:{locale?:'en'|'ko'}) 
         aside={<Image src={site.assets.homePortrait} alt={ko ? '유태빈' : 'Taebin Yoo'} width={300} height={400} priority />}
       />
       <section className="about-research"><div><h2>{copy.originTitle}</h2><p>{copy.origin}</p></div><div><h2>{copy.futureTitle}</h2><p>{copy.future}</p></div></section>
-      <section className="profile-story-details"><h2 className="always-visible-heading">{copy.storyTitle}</h2><div className="story-reader">{storySections.map(section => <section className="story-section" key={section.title}><h3>{section.title}</h3><div className="story-copy">{section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div></section>)}</div><div className="profile-collage">{site.assets.profileGallery.map(src=><Image key={src} src={src} alt="" width={800} height={900} loading="lazy"/>)}</div><section className="profile-media"><YoutubeEmbed locale={locale}/><div><h2>{ko ? '팟캐스트' : 'Podcast'}</h2><a className="text-link" href="https://youtu.be/FkPcCPqDZV0?si=xatYoRNts6ZmmDDR">{ko ? '이야기 들어보기 ↗' : 'Watch the conversation ↗'}</a></div></section></section>
+      <section className="profile-story-details"><h2 className="always-visible-heading">{copy.storyTitle}</h2><div className="story-reader">{storySections.map(section => <section className="story-section" key={section.title}><h3>{section.title}</h3><div className="story-copy">{section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div></section>)}</div><div className="profile-collage">{site.assets.profileGallery.map(src=><PortfolioImage key={src} src={src} alt="" width={800} height={900} sizes="auto, (max-width: 760px) 45vw, 280px"/>)}</div><section className="profile-media"><YoutubeEmbed locale={locale}/><div><h2>{ko ? '팟캐스트' : 'Podcast'}</h2><a className="text-link" href="https://youtu.be/FkPcCPqDZV0?si=xatYoRNts6ZmmDDR">{ko ? '이야기 들어보기 ↗' : 'Watch the conversation ↗'}</a></div></section></section>
     </div>
   </PageShell>;
 }
