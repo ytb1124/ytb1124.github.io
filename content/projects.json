@@ -463,7 +463,7 @@
       "The repository records browser checks on 23 October 2026 for the main flow, audio-node levels, mobile and desktop layouts, and automated accessibility checks. These are implementation checks, not results from CI participants. Next steps are selecting the second song, recording stems and comparison clips, checking real-device playback and latency including Bluetooth and CI streaming, and conducting initial usability sessions with 2–5 CI users. Longer-term learning and transfer to unfamiliar music require a separate study."
     ],
     "status": "Working prototype",
-    "titleKo": "Sound Manna",
+    "titleKo": "소리와 만나",
     "summary": {
       "en": "Built sound setup, an interactive ensemble room, cue comparisons, and listening reports. Pink-noise prototype; CI user evaluation is still planned.",
       "ko": "소리 맞춤·합주실·단서 질문·청취 리포트를 구현했습니다. 핑크노이즈 시험판이며 CI 사용자 평가는 앞으로 진행합니다."
