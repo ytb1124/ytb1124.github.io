@@ -26,7 +26,7 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
         })}{project.repository&&<a href={project.repository} target="_blank" rel="noopener noreferrer">{ko?'코드 보기 ↗':'View code ↗'}</a>}</div>}
       </header>
       {project.demo && <section className="project-demo" aria-labelledby="demo-title">
-        <h2 id="demo-title">{ko ? 'Trackform 사용 데모' : 'Trackform in use'}</h2>
+        <h2 id="demo-title">{ko ? 'Passaggio 사용 데모' : 'Passaggio in use'}</h2>
         <video controls playsInline preload="none" poster={project.demo.poster} aria-label={ko ? '오디오 변환과 MIDI 편집 데모' : 'Audio conversion and MIDI editing demo'}>
           <source src={project.demo.src} type="video/mp4"/>
           <track kind="captions" src={project.demo.captions[locale]} srcLang={locale} label={ko ? '한국어' : 'English'} default/>

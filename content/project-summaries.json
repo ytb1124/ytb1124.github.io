@@ -122,7 +122,7 @@
   "audio-to-midi-system": {
     "en": {
       "question": "Can AI ease live preparation while preserving the artist’s musical expression?",
-      "system": "Trackform: an audio-to-MIDI workspace and a testbed for model adaptation.",
+      "system": "Passaggio: an audio-to-MIDI workspace and a testbed for model adaptation.",
       "methods": "ADTOF full versus frozen-block fine-tuning, separate validation and real-recording evaluation, per-class error analysis, and paired bootstrap intervals.",
       "result": "ADTOF fine-tuning improved rendered validation F1 (0.695 → 0.786) but reduced real-recording F1 (0.859 → 0.816). The pretrained model was retained.",
       "next": "Secure real-recording training data; compare rehearsal and layer freezing on fresh held-out recordings, then measure MIDI correction effort.",
@@ -133,7 +133,7 @@
     },
     "ko": {
       "question": "아티스트의 음악적 표현을 유지하면서 AI로 공연 준비를 줄일 수 있을까?",
-      "system": "음원을 MIDI로 변환·편집하며 모델 적응을 실험하는 Trackform입니다.",
+      "system": "음원을 MIDI로 변환·편집하며 모델 적응을 실험하는 Passaggio입니다.",
       "methods": "ADTOF 전체·합성곱 블록 동결 파인튜닝, 검증·실제 녹음 평가 분리, 클래스별 오류 분석, 곡별 대응 부트스트랩 신뢰구간.",
       "result": "ADTOF 파인튜닝으로 렌더링 검증 F1은 0.695 → 0.786, 실제 녹음 F1은 0.859 → 0.816이었습니다. 평가 결과에 따라 기존 모델을 유지했습니다.",
       "next": "실제 녹음 학습 데이터를 확보하고 되새김·층 동결 조건을 새로운 홀드아웃 녹음으로 비교한 뒤, MIDI 수정 노력을 측정할 예정입니다.",

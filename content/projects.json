@@ -295,20 +295,20 @@
     "slug": "audio-to-midi-system",
     "year": "2026",
     "category": "Technology",
-    "title": "Trackform — Audio-to-MIDI & ML Evaluation",
+    "title": "Passaggio — Audio-to-MIDI & ML Evaluation",
     "ongoing": true,
     "description": "An audio-to-MIDI workspace exploring model adaptation, held-out evaluation, and the gap between rendered music and real recordings.",
     "question": "Can AI ease live preparation while preserving the artist’s musical expression?",
-    "image": "/images/trackform/piano-editor.png",
+    "image": "/images/passaggio/piano-editor.png",
     "gallery": [
-      "/images/trackform/piano-editor.png",
-      "/images/trackform/start.png",
-      "/images/trackform/piano-transcription.png",
-      "/images/trackform/drum-editor.png"
+      "/images/passaggio/piano-editor.png",
+      "/images/passaggio/start.png",
+      "/images/passaggio/piano-transcription.png",
+      "/images/passaggio/drum-editor.png"
     ],
     "repository": "https://github.com/ytb1124/audio-to-midi",
     "body": [
-      "Trackform turns recorded music into editable MIDI for performance preparation. It combines specialist transcription models, Demucs stem separation, a piano-roll editor, audition, and MIDI export. The Next.js interface and FastAPI processing pipeline also support a local Tauri desktop application.",
+      "Passaggio turns recorded music into editable MIDI for performance preparation. It combines specialist transcription models, Demucs stem separation, a piano-roll editor, audition, and MIDI export. The Next.js interface and FastAPI processing pipeline also support a local Tauri desktop application.",
       "The ML question is whether adapting a pretrained model to the actual processing path improves transcription on unfamiliar recordings. Piano uses Transkun, bass uses Basic Pitch with hybrid post-processing, and drums use ADTOF on HT-Demucs stems. These are existing models integrated into an assistive editing workflow; generated notes remain open to correction.",
       "ADTOF fine-tuning targeted separation artifacts and weak drum classes. Slakh supplies paired rendered audio and MIDI labels, making supervised adaptation to separated stems possible. The reduced experiment used 40 Slakh train songs for training and a separate 16 for validation. MDB Drums, 23 real recordings, was reserved for test evaluation. The original plan included real-recording training and rehearsal data; ADTOF data required access approval and the ENST download was too slow, so those conditions were not run.",
       "The experiment compared pretrained weights (A0), full fine-tuning (A1), and a frozen convolutional/batch-normalization block with trainable GRU and output layers (A4f). The initial learning rate was 1e-4, one fifth of the original setting. A smaller update and frozen feature extractor were conservative adaptation choices, not a demonstrated optimum from a learning-rate sweep. The implementation uses Adam, binary cross-entropy, seed 0, validation-loss early stopping (patience 3), and learning-rate reduction. Candidate selection then uses validation F1.",
@@ -317,7 +317,7 @@
       "This is AI-assisted development with documented model integration, fine-tuning code, and evaluation records. The research contribution presented here is the question, experimental comparison, and evidence-based adoption decision. The project does not claim a new foundation model or proven workflow benefit. MIDI correction effort and rehearsal preparation time still require user evaluation."
     ],
     "status": "Working prototype",
-    "titleKo": "Trackform — 오디오 MIDI 변환과 ML 실험",
+    "titleKo": "Passaggio — 오디오 MIDI 변환과 ML 실험",
     "summary": {
       "en": "ADTOF fine-tuning improved rendered validation F1 (0.695 → 0.786) but reduced real-recording F1 (0.859 → 0.816). The pretrained model was retained.",
       "ko": "ADTOF 파인튜닝으로 렌더링 검증 F1은 0.695 → 0.786, 실제 녹음 F1은 0.859 → 0.816이었습니다. 평가 결과에 따라 기존 모델을 유지했습니다."
@@ -411,8 +411,8 @@
     },
     "galleryCaptions": [
       {
-        "en": "Piano roll: inspect generated notes and adjust timing, pitch, length, and velocity. Captured from the Trackform macOS app.",
-        "ko": "피아노 롤: 생성된 음표를 확인하고 타이밍·음높이·길이·벨로시티를 수정하는 화면입니다. Trackform macOS 앱에서 캡처했습니다."
+        "en": "Piano roll: inspect generated notes and adjust timing, pitch, length, and velocity. Captured from the Passaggio macOS app.",
+        "ko": "피아노 롤: 생성된 음표를 확인하고 타이밍·음높이·길이·벨로시티를 수정하는 화면입니다. Passaggio macOS 앱에서 캡처했습니다."
       },
       {
         "en": "Start a session: upload a full song for stem separation, or choose an instrument workspace for MIDI conversion.",
@@ -428,11 +428,11 @@
       }
     ],
     "demo": {
-      "src": "/videos/trackform-bass-demo.mp4",
-      "poster": "/images/trackform/demo-poster.jpg",
+      "src": "/videos/passaggio-bass-demo.mp4",
+      "poster": "/images/passaggio/demo-poster.jpg",
       "captions": {
-        "en": "/videos/trackform-demo-en.vtt",
-        "ko": "/videos/trackform-demo-ko.vtt"
+        "en": "/videos/passaggio-demo-en.vtt",
+        "ko": "/videos/passaggio-demo-ko.vtt"
       },
       "description": {
         "en": "Recorded in the updated macOS app on 25 October 2026: a 20-second bass recording is converted, inspected, edited, and previewed. Silent demo; file selection and processing waits are shortened.",
