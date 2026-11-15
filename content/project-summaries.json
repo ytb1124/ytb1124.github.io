@@ -119,7 +119,7 @@
       "findOut": "한 연주자에 맞춘 수동 매핑과 하이햇 제어는 동작합니다. 맞춤 반응이 연주에 주는 효과는 아직 측정하지 않았ㅅ니다."
     }
   },
-  "audio-to-midi-system": {
+  "passaggio": {
     "en": {
       "question": "Can AI ease live preparation while preserving the artist’s musical expression?",
       "system": "Passaggio: an audio-to-MIDI workspace and a testbed for model adaptation.",
@@ -143,7 +143,7 @@
       "findOut": "ADTOF 파인튜닝으로 렌더링 검증 F1은 0.695 → 0.786, 실제 녹음 F1은 0.859 → 0.816이었습니다. 평가 결과에 따라 기존 모델을 유지했습니다."
     }
   },
-  "listening-tool-ci": {
+  "sound-manna": {
     "en": {
       "question": "Can listeners discover their own musical cues—and find them again in a song?",
       "system": "A Korean-language interactive listening prototype for cochlear implant (CI) users.",

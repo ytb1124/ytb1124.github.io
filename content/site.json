@@ -5,7 +5,7 @@
     "instagram": "https://www.instagram.com/brightlight_more",
     "linkedin": "https://www.linkedin.com/in/taebin-yoo-414177389",
     "youtube": "https://youtube.com/playlist?list=PL_kWYUD-HpqlcTCfJSD_4k87kQdzyD4DZ&si=rZomAf1jsF4kKa-S",
-    "cv": "/reports/taebin-yoo-cv-20261113.pdf?v=sound-manna"
+    "cv": "/reports/taebin-yoo-cv-20261113.pdf?v=project-urls"
   },
   "nav": [
     {
@@ -180,7 +180,7 @@
       "koreanQuestion": "음악은 각자의 개성을 어떻게 담아낼 수 있을까?",
       "projectSlugs": [
         "electronic-drums",
-        "audio-to-midi-system"
+        "passaggio"
       ]
     },
     {
@@ -190,7 +190,7 @@
       "question": "How can we be different, yet together?",
       "koreanQuestion": "우리는 어떻게 서로 다르면서도 함께할 수 있을까?",
       "projectSlugs": [
-        "listening-tool-ci"
+        "sound-manna"
       ]
     }
   ],
@@ -214,8 +214,8 @@
   "featuredProjectSlugs": [
     "corrective-impulse-response",
     "electronic-drums",
-    "audio-to-midi-system",
-    "listening-tool-ci"
+    "passaggio",
+    "sound-manna"
   ],
   "overview": {
     "en": {

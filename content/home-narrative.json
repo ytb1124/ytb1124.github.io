@@ -62,7 +62,7 @@
           },
           {
             "label": "Passaggio · Audio-to-MIDI editor",
-            "slug": "audio-to-midi-system"
+            "slug": "passaggio"
           }
         ]
       },
@@ -74,7 +74,7 @@
         "links": [
           {
             "label": "Sound Manna · prototype",
-            "slug": "listening-tool-ci"
+            "slug": "sound-manna"
           }
         ]
       }
@@ -152,7 +152,7 @@
           },
           {
             "label": "Passaggio · 오디오 MIDI 편집 도구",
-            "slug": "audio-to-midi-system"
+            "slug": "passaggio"
           }
         ]
       },
@@ -164,7 +164,7 @@
         "links": [
           {
             "label": "Sound Manna · 프로토타입",
-            "slug": "listening-tool-ci"
+            "slug": "sound-manna"
           }
         ]
       }

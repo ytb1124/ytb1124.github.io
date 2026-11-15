@@ -70,7 +70,7 @@ export default function SimplePage() {
               const technicalRole = projectSummaries[project.slug]?.en?.build ?? project.contribution?.design.en;
               return (
               <article className="simple-project" id={project.slug} key={project.slug}>
-                <a className={`simple-project-image${project.slug === 'listening-tool-ci' ? ' simple-ensemble-image' : ''}`} href={`/projects/${project.slug}`} aria-label={`Read more about ${project.title}`}><Image src={project.image} alt={project.title} width={1200} height={750} loading="lazy" /></a>
+                <a className={`simple-project-image${project.slug === 'sound-manna' ? ' simple-ensemble-image' : ''}`} href={`/projects/${project.slug}`} aria-label={`Read more about ${project.title}`}><Image src={project.image} alt={project.title} width={1200} height={750} loading="lazy" /></a>
                 <div className="simple-project-meta"><span>{project.category}</span><span>{project.year}{project.ongoing ? ' · Ongoing' : ''}</span></div>
                 <h3>{project.title}</h3>
                 <p className="simple-project-summary">{getProjectSummary(project, 'en')}</p>
