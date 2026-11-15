@@ -59,7 +59,16 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
 
       <section className="home-closing" aria-labelledby="home-story-title">
         <div className="home-story">
-          <div className="home-story-image"><Image src={site.assets.homePortrait} alt={locale === 'ko' ? '유태빈' : 'Taebin Yoo'} width={756} height={1008} loading="lazy" /></div>
+          <div className="home-story-image">
+            <Image
+              src={site.assets.homePortrait}
+              alt={locale === 'ko' ? '유태빈' : 'Taebin Yoo'}
+              width={720}
+              height={960}
+              loading="eager"
+              fetchPriority="low"
+            />
+          </div>
           <div className="home-story-copy">
             <h2 id="home-story-title">{home.quote.split('\n').filter(Boolean).map((line, index) => <span key={index}>{line}</span>)}</h2>
             <p>{copy.story}</p>

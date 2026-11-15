@@ -195,7 +195,7 @@
     }
   ],
   "assets": {
-    "homePortrait": "/framer/home/portrait.png",
+    "homePortrait": "/framer/home/portrait.webp",
     "profileHero": "/framer/profile/01.jpeg",
     "profileGallery": [
       "/framer/profile/02.jpg",
