@@ -70,10 +70,10 @@
         "title": "Musical Participation",
         "focus": "How we join in",
         "question": "How can we be different, yet together?",
-        "body": "Adjusting sound for a venue and drum response for one player led me to ask what listeners should be able to choose. I built CI Interactive Ensemble Room to explore that question through sound setup, mixing, and cue comparisons. It currently uses pink-noise placeholders; real recordings and CI user evaluation are next.",
+        "body": "Adjusting sound for a venue and drum response for one player led me to ask what listeners should be able to choose. I built Sound Manna to explore that question through sound setup, mixing, and cue comparisons. It currently uses pink-noise placeholders; real recordings and CI user evaluation are next.",
         "links": [
           {
-            "label": "CI Ensemble Room · prototype",
+            "label": "Sound Manna · prototype",
             "slug": "listening-tool-ci"
           }
         ]
@@ -160,10 +160,10 @@
         "title": "음악적 참여",
         "focus": "어떻게 함께하는가",
         "question": "우리는 어떻게 서로 다르면서도 함께할 수 있을까?",
-        "body": "공간에 맞춘 소리 보정과 한 연주자에 맞춘 드럼 반응을 만들며, 듣는 사람은 무엇을 직접 선택할 수 있어야 할지 묻게 됐습니다. 소리 맞춤·믹싱·단서 비교를 직접 해보는 인공와우 인터랙티브 합주실을 구현했습니다. 현재는 핑크노이즈 시험판이며, 실제 녹음과 CI 사용자 평가를 준비할 단계입니다.",
+        "body": "공간에 맞춘 소리 보정과 한 연주자에 맞춘 드럼 반응을 만들며, 듣는 사람은 무엇을 직접 선택할 수 있어야 할지 묻게 됐습니다. 소리 맞춤·믹싱·단서 비교를 직접 해보는 Sound Manna를 구현했습니다. 현재는 핑크노이즈 시험판이며, 실제 녹음과 CI 사용자 평가를 준비할 단계입니다.",
         "links": [
           {
-            "label": "CI 인터랙티브 합주실 · 프로토타입",
+            "label": "Sound Manna · 프로토타입",
             "slug": "listening-tool-ci"
           }
         ]

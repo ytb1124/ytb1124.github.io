@@ -444,18 +444,18 @@
     "slug": "listening-tool-ci",
     "year": "2026",
     "category": "Music accessibility",
-    "title": "CI Interactive Ensemble Room",
+    "title": "Sound Manna",
     "ongoing": true,
     "description": "A Korean-language interactive listening prototype for CI users, with sound setup, stem mixing, cue comparisons, and personal reports. Uses pink-noise placeholders; user evaluation is still planned.",
     "question": "Can listeners discover their own musical cues—and find them again in a song?",
-    "image": "/images/ci-ensemble-room/ensemble-room.jpg",
+    "image": "/images/sound-manna/ensemble-room.jpg",
     "gallery": [
-      "/images/ci-ensemble-room/ensemble-room.jpg",
-      "/images/ci-ensemble-room/stem-mixing.jpg",
-      "/images/ci-ensemble-room/cue-comparison.jpg"
+      "/images/sound-manna/ensemble-room.jpg",
+      "/images/sound-manna/stem-mixing.jpg",
+      "/images/sound-manna/cue-comparison.jpg"
     ],
     "body": [
-      "What should listeners be able to choose for themselves? Building sound systems for venues and a drum response for one performer led to a Korean-language interactive listening prototype for cochlear implant (CI) users: CI Interactive Ensemble Room. The project has moved from design documents to a clickable browser prototype.",
+      "What should listeners be able to choose for themselves? Building sound systems for venues and a drum response for one performer led to a Korean-language interactive listening prototype for cochlear implant (CI) users: Sound Manna. The project has moved from design documents to a clickable browser prototype.",
       "The implemented flow runs from sound activation through six sound-setup steps, an ensemble room, cue questions, reflection, and a personal listening report. Setup covers listening equipment and connection, comfortable volume, left–right balance, tone, instrument levels, and optional bass support. Listeners can revisit these choices from the ensemble room.",
       "In the ensemble room, listeners can solo or mute cajon, double bass, and trumpet, change their levels, loop a section, or alternate between sounds. Optional lanes, waveforms, spectra, and performer animations follow audio timing. A listen-first sequence moves from sound alone to visual guidance and back to listening.",
       "Two cue-question sets use comparisons and reflections without correct answers or scores. The report describes patterns in the current session and lets listeners revise their own explanations. Settings, interaction logs, and responses are stored in the browser; JSON and CSV export and full data deletion are implemented. The prototype uses React, TypeScript, Web Audio, and Canvas 2D.",
@@ -463,7 +463,7 @@
       "The repository records browser checks on 23 October 2026 for the main flow, audio-node levels, mobile and desktop layouts, and automated accessibility checks. These are implementation checks, not results from CI participants. Next steps are selecting the second song, recording stems and comparison clips, checking real-device playback and latency including Bluetooth and CI streaming, and conducting initial usability sessions with 2–5 CI users. Longer-term learning and transfer to unfamiliar music require a separate study."
     ],
     "status": "Working prototype",
-    "titleKo": "인공와우 인터랙티브 합주실",
+    "titleKo": "Sound Manna",
     "summary": {
       "en": "Built sound setup, an interactive ensemble room, cue comparisons, and listening reports. Pink-noise prototype; CI user evaluation is still planned.",
       "ko": "소리 맞춤·합주실·단서 질문·청취 리포트를 구현했습니다. 핑크노이즈 시험판이며 CI 사용자 평가는 앞으로 진행합니다."
@@ -525,24 +525,24 @@
         }
       }
     ],
-    "repository": "https://github.com/ytb1124/ci-ensemble-room",
+    "repository": "https://github.com/ytb1124/sound-manna",
     "resources": [
       {
-        "href": "https://taebin.link/ci-ensemble-room/",
+        "href": "https://taebin.link/sound-manna/",
         "label": {
           "en": "Try the prototype ↗",
           "ko": "프로토타입 체험 ↗"
         }
       },
       {
-        "href": "https://github.com/ytb1124/ci-ensemble-room/blob/main/README.md",
+        "href": "https://github.com/ytb1124/sound-manna/blob/main/README.md",
         "label": {
           "en": "Implementation notes ↗",
           "ko": "구현 내용과 한계 ↗"
         }
       },
       {
-        "href": "https://github.com/ytb1124/ci-ensemble-room/blob/main/CHECKLIST.md",
+        "href": "https://github.com/ytb1124/sound-manna/blob/main/CHECKLIST.md",
         "label": {
           "en": "Implementation checklist ↗",
           "ko": "구현 체크리스트 ↗"
