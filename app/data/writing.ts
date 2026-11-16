@@ -1,9 +1,11 @@
 import { allProjects, getProjectResources, type Locale, site } from './site';
 
-/** Both writing lists read the original titles, citations, and project resources. */
+export const writingProjectSlug = 'corrective-impulse-response';
+
+/** Writing entries share the same citations and original project resources. */
 export function getSelectedWriting(locale: Locale) {
   const copy = site.pageContent[locale].experience;
-  const project = allProjects.find(item => item.slug === 'corrective-impulse-response');
+  const project = allProjects.find(item => item.slug === writingProjectSlug);
   const resources = project ? getProjectResources(project) : [];
   return [
     {

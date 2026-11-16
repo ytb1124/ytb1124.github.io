@@ -3,8 +3,10 @@ import { PageShell } from './site';
 import { getProjectImage, getProjectResources, localizedPath, projectStatusLabel, type Locale, type Project } from '../data/site';
 import { koreanProjectBodies } from '../data/korean';
 import { projectSummaries } from '../data/project-summaries';
+import { getSelectedWriting, writingProjectSlug } from '../data/writing';
 import { ContributionBox, ProjectEvidence } from './project-evidence';
 import { RendererStudy } from './renderer-study';
+import { WritingCitation } from './writing-citation';
 
 export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) {
   const ko = locale === 'ko';
@@ -13,6 +15,7 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
   const body = ko ? koreanProjectBodies[project.slug] ?? project.body : project.body;
   const summary = projectSummaries[project.slug]?.[locale];
   const resources = getProjectResources(project);
+  const publications = project.slug === writingProjectSlug ? getSelectedWriting(locale) : [];
   return <PageShell locale={locale} path={`/projects/${project.slug}`}>
     <article className={`project-detail detail-review project-${project.slug} locale-${locale}`}>
       <header className="detail-title">
@@ -24,6 +27,9 @@ export function ProjectDetail({project,locale}:{project:Project;locale:Locale}) 
           const href=resource.localized?localizedPath(locale,resource.href):resource.href;
           return <a href={href} {...(!resource.localized?{target:'_blank',rel:'noopener noreferrer'}:{})} key={resource.href}>{resource.label[locale]}</a>;
         })}{project.repository&&<a href={project.repository} target="_blank" rel="noopener noreferrer">{ko?'코드 보기 ↗':'View code ↗'}</a>}</div>}
+        {publications.length > 0 && <div className="project-citations">
+          {publications.map(publication => <WritingCitation key={publication.id} publication={publication} />)}
+        </div>}
       </header>
       {project.demo && <section className="project-demo" aria-labelledby="demo-title">
         <h2 id="demo-title">{ko ? 'Passaggio 사용 데모' : 'Passaggio in use'}</h2>
