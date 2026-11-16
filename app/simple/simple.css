@@ -66,8 +66,8 @@
 .simple-research-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 32px; }
 .simple-publication { padding-bottom: 18px; border-bottom: 1px solid var(--line); }
 .simple-publication h3 { margin: 7px 0 9px; font-size: 18px; }
-.simple-publication h3[lang="ko"] { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; font-size: 18px; font-weight: 400; letter-spacing: -.035em; }
 .simple-publication > p:not(.simple-eyebrow) { color: var(--simple-muted); font-size: 13px; }
+.simple-publication > p.writing-citation { margin: 7px 0 9px; color: var(--ink); font-size: 14px; }
 .simple-publication .simple-award { margin-top: 10px; color: var(--simple-accent) !important; font-size: 12px !important; }
 .simple-planned h3 { font-size: 18px; }
 

@@ -699,6 +699,8 @@ main [data-no-lightbox] img,.admin-shell img{cursor:default}
 .writing-type{font-size:12px;color:#aaa;line-height:1.5}.writing-essential article a{font-size:14px;line-height:1.6;text-underline-offset:4px}.writing-essential article a:hover{text-decoration:underline}
 .writing-essential article a[lang="ko"]{font-family:'Noto Sans KR','Apple SD Gothic Neo',sans-serif}
 .writing-essential article p{margin:4px 0 0;color:#aaa;font-size:12px;line-height:1.6}
+.writing-essential article .writing-citation{margin:0;color:var(--ink);font-size:14px}
+.writing-essential .writing-citation a{text-decoration:underline}
 .experience-extra{margin-top:24px;border-block:1px solid var(--line)}.experience-extra>summary{display:flex;justify-content:space-between;gap:12px;padding:15px 0;cursor:pointer;list-style:none;font-size:14px}.experience-extra>summary::-webkit-details-marker{display:none}
 .extra-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px;padding:10px 0 18px}.extra-columns h2{font-size:18px}.extra-columns ul{list-style:none;padding:0;margin:0}.extra-columns li{margin-bottom:14px}.extra-columns strong{display:block;font-size:13px;font-weight:500;line-height:1.6}.extra-columns li span{display:block;color:#aaa;font-size:12px;line-height:1.6;margin-top:3px}
 @media(max-width:1000px){.career-line{grid-template-columns:90px 185px minmax(0,1fr);gap:18px}.interest-step strong{font-size:15px}}

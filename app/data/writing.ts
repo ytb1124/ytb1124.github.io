@@ -9,6 +9,8 @@ export function getSelectedWriting(locale: Locale) {
     {
       id: 'conference-paper',
       kind: locale === 'ko' ? '학회 발표' : 'Conference paper',
+      author: copy.writingAuthor,
+      year: copy.paperYear,
       title: copy.paperTitle,
       citation: copy.paperCitation,
       award: copy.writingAward,
@@ -18,9 +20,11 @@ export function getSelectedWriting(locale: Locale) {
     {
       id: 'magazine-article',
       kind: locale === 'ko' ? '매거진 기고' : 'Magazine article',
+      author: copy.writingAuthor,
+      year: copy.magazineYear,
       title: copy.magazineTitle.replace(/\s*↗$/, ''),
       citation: copy.magazineCitation,
-      lang: 'ko',
+      lang: locale,
       links: resources.filter(resource => resource.kind === 'article'),
     },
   ].filter(item => project && item.title);

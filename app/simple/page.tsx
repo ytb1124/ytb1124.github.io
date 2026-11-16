@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import Image from 'next/image';
 import { PortfolioImage } from '../components/portfolio-image';
+import { WritingCitation } from '../components/writing-citation';
 import { musicProduction } from '../data/music-production';
 import { projectSummaries } from '../data/project-summaries';
 import { catalogProjects, getProjectResources, getProjectSummary, type Project, site } from '../data/site';
@@ -114,8 +115,7 @@ export default function SimplePage() {
           <div className="simple-section-content simple-research-list">
             {getSelectedWriting('en').map(publication => <article className="simple-publication" key={publication.id}>
               <p className="simple-eyebrow">{publication.kind}</p>
-              <h3 lang={publication.lang}>{publication.title}</h3>
-              <p>{publication.citation}</p>
+              <WritingCitation publication={publication} />
               {publication.award && <p className="simple-award">{publication.award}</p>}
               <ul className="simple-links">{publication.links.map(link => <li key={link.href}><ResourceLink href={link.href}>{link.label.en.replace(/\s*↗$/, '')}</ResourceLink></li>)}</ul>
             </article>)}

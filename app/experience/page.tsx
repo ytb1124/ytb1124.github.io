@@ -1,5 +1,6 @@
 import { PageIntro } from '../components/page-intro';
 import { PageShell } from '../components/site';
+import { WritingCitation } from '../components/writing-citation';
 import { allProjects, localizedPath, site } from '../data/site';
 import { koreanExperience } from '../data/korean';
 import { getSelectedWriting } from '../data/writing';
@@ -30,8 +31,7 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
           return <article key={publication.id}>
             <span className="writing-type">{publication.kind}</span>
             <div>
-              {primaryLink ? <a lang={publication.lang} href={primaryLink.href} target="_blank" rel="noopener noreferrer">{publication.title} ↗</a> : <span lang={publication.lang}>{publication.title}</span>}
-              <p>{publication.citation}</p>
+              <WritingCitation publication={publication} titleHref={primaryLink?.href} />
               {publication.award && <p className="writing-award">{publication.award}</p>}
             </div>
           </article>;
