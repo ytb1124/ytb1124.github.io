@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>콘홀 음향 셋업</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="house.css">
+<style>
+/* diagram */
+.flow svg { display: block; width: 100%; height: auto; }
+.flow .mobile { display: none; max-width: 420px; margin: 0 auto; }
+svg text { font-family: inherit; fill: var(--ink); }
+svg .box { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; }
+svg .box.pa { stroke: var(--pa); }
+svg .box.hp { stroke: var(--hp); }
+svg .box.spk { stroke: var(--spk); }
+svg .box.src { fill: var(--rule-soft); stroke: var(--rule); }
+svg .t { font-size: 17px; font-weight: 700; text-anchor: middle; }
+svg .t.sm { font-size: 14px; }
+svg .s { font-size: 12px; fill: var(--sub); text-anchor: middle; }
+svg .w { fill: none; stroke-width: 2.5; stroke-linejoin: round; }
+svg .w.ink { stroke: var(--ink); }
+svg .w.pa { stroke: var(--pa); }
+svg .w.hp { stroke: var(--hp); }
+svg .w.spk { stroke: var(--spk); stroke-width: 4; }
+svg .tag rect { stroke-width: 1; }
+svg .tag text { font-size: 12px; font-weight: 600; text-anchor: middle; }
+svg .tag.pa rect { fill: var(--pa-soft); stroke: var(--pa); }
+svg .tag.pa text { fill: var(--pa); }
+svg .tag.hp rect { fill: var(--hp-soft); stroke: var(--hp); }
+svg .tag.hp text { fill: var(--hp); }
+svg .tag.spk rect { fill: var(--spk-soft); stroke: var(--spk); }
+svg .tag.spk text { fill: var(--spk); }
+svg .tag.ink rect { fill: var(--paper); stroke: var(--rule); }
+svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
+
+/* numbering strips */
+.strip-title { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 0 0 10px; }
+.strip-title strong { font-size: 16px; }
+.strip-title span { font-size: 13px; color: var(--sub); }
+.strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; }
+.strip + .strip-title { margin-top: 26px; }
+.slot { border: 1.5px solid; border-radius: 4px; padding: 6px 4px 7px; text-align: center; min-height: 54px; }
+.slot b { display: block; font-size: 16px; line-height: 1.2; }
+.slot small { display: block; font-size: 11px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.slot.pa { border-color: var(--pa); background: var(--pa-soft); }
+.slot.pa b { color: var(--pa); }
+.slot.hp { border-color: var(--hp); background: var(--hp-soft); }
+.slot.hp b { color: var(--hp); }
+.slot.blank { border: 1.5px dashed var(--rule); background: transparent; }
+.slot.blank b { color: var(--faint); font-weight: 500; }
+.slot.blank small { color: var(--faint); }
+
+.filter { display: flex; gap: 6px; margin: 0 0 12px; flex-wrap: wrap; }
+.filter button {
+  font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--rule); background: var(--paper); color: var(--sub);
+}
+.filter button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+.snakes { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+.snake { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--ink); }
+.snake.pa { border-top-color: var(--pa); }
+.snake.hp { border-top-color: var(--hp); }
+.snake.spk { border-top-color: var(--spk); }
+.snake h3 { margin: 0; padding: 12px 14px 2px; font-size: 16px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.snake h3 small { font-size: 12px; font-weight: 500; color: var(--sub); }
+.snake p { margin: 0; padding: 0 14px 10px; font-size: 13px; color: var(--sub); }
+.snake th, .snake td { padding: 7px 14px; }
+.snake.wide { grid-column: 1 / -1; }
+#amp-snakes { grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
+.snake .table-scroll { border: 0; }
+
+.to-layout { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 14px; padding: 14px 18px; background: var(--paper); border: 1px solid var(--rule); text-decoration: none; }
+.to-layout span { color: var(--sub); font-size: 14px; }
+.to-layout b { white-space: nowrap; }
+
+@media (max-width: 720px) {
+  .flow .desktop { display: none; }
+  .flow .mobile { display: block; }
+  .strip { grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); }
+}
+@media print {
+  .filter { display: none; }
+  .flow .desktop { display: block !important; }
+  .flow .mobile { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="kicker">콘서트홀 하우스 음향 · 26.11.17 화요콘서트 6주차 기준</p>
+    <h1>콘홀 음향 셋업 가이드</h1>
+    <p class="lead">콘솔은 두 대입니다. 무대 소스는 전부 <b>DN1248 스플리터</b>로 모은 뒤 두 갈래로 나눠서, 한쪽은 <b>DL32 → M32R</b>로, 다른 쪽은 <b>벽패널 → Crest HP-8</b>로 보냅니다. HP-8에서 만든 소리는 다시 M32R로 들어가고, 스피커는 전부 DL32 출력에서 나갑니다.</p>
+    <div class="rules">
+      <div><strong>DL32는 스플리터 번호 그대로</strong><span>스플리터 9번은 DL32 9번. 안 쓰는 번호는 비워둡니다.</span></div>
+      <div><strong>벽패널은 1번부터 차례대로</strong><span>빈칸 없이 1~20번을 채웁니다. HP-8 채널도 같은 번호.</span></div>
+      <div><strong>케이블은 세 가지</strong><span>과사 멀티패치(16P), 랜 익스텐더(4P), TRS 멀티패치.</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="jump" aria-label="바로가기">
+  <div class="wrap">
+    <a href="#flow">시그널 플로우</a>
+    <a href="#numbering">번호 규칙</a>
+    <a href="#inputs">전체 인풋</a>
+    <a href="#wall">벽패널 · HP-8</a>
+    <a href="#dl32">DL32 인풋</a>
+    <a href="#amp">앰프</a>
+    <a href="#hp8">HP-8 → M32R</a>
+    <a class="page" href="layout/">스피커 배치</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="flow">
+  <h2><span class="num">01</span>시그널 플로우</h2>
+  <p class="desc">파란 줄은 M32R 쪽, 주황 줄은 HP-8 쪽입니다. 선 위에 그 구간에 쓰는 케이블을 적어뒀습니다.</p>
+  <div class="panel flow">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <marker id="aInk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--ink)"/></marker>
+        <marker id="aPa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--pa)"/></marker>
+        <marker id="aHp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--hp)"/></marker>
+        <marker id="aSpk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--spk)"/></marker>
+      </defs>
+    </svg>
+
+    <!-- desktop -->
+    <svg class="desktop" viewBox="0 0 1180 485" role="img" aria-label="시그널 플로우">
+      <path class="w ink" d="M140 250 H186" marker-end="url(#aInk)"/>
+      <path class="w pa" d="M330 238 H415 V178 H496" marker-end="url(#aPa)"/>
+      <path class="w hp" d="M330 262 H415 V358 H496" marker-end="url(#aHp)"/>
+      <path class="w pa" d="M575 150 V84" marker-start="url(#aPa)" marker-end="url(#aPa)"/>
+      <path class="w pa" d="M650 170 H720 V128 H786" marker-end="url(#aPa)"/>
+      <path class="w pa" d="M650 186 H720 V228 H786" marker-end="url(#aPa)"/>
+      <path class="w spk" d="M930 128 H984" marker-end="url(#aSpk)"/>
+      <path class="w spk" d="M930 228 H984" marker-end="url(#aSpk)"/>
+      <path class="w hp" d="M650 358 H786" marker-end="url(#aHp)"/>
+      <path class="w hp" d="M575 386 V443 H636" marker-end="url(#aHp)"/>
+      <path class="w hp" d="M770 443 H865 V394" marker-end="url(#aHp)"/>
+      <path class="w hp" d="M940 352 H1165 V40 H654" marker-end="url(#aHp)"/>
+
+      <rect class="box src" x="20" y="222" width="120" height="56" rx="4"/>
+      <text class="t" x="80" y="247">무대</text><text class="s" x="80" y="266">악기 · 마이크</text>
+
+      <rect class="box" x="190" y="222" width="140" height="56" rx="4"/>
+      <text class="t" x="260" y="247">DN1248</text><text class="s" x="260" y="266">스플리터</text>
+
+      <rect class="box pa" x="500" y="24" width="150" height="56" rx="4"/>
+      <text class="t" x="575" y="49">M32R</text><text class="s" x="575" y="68">디지털 콘솔</text>
+
+      <rect class="box pa" x="500" y="150" width="150" height="56" rx="4"/>
+      <text class="t" x="575" y="175">DL32</text><text class="s" x="575" y="194">스테이지박스</text>
+
+      <rect class="box hp" x="500" y="330" width="150" height="56" rx="4"/>
+      <text class="t" x="575" y="355">콘홀 벽패널</text><text class="s" x="575" y="374">무대 ↔ 부스</text>
+
+      <rect class="box hp" x="640" y="420" width="130" height="46" rx="4"/>
+      <text class="t sm" x="705" y="440">Focusrite</text><text class="s" x="705" y="457">채널스트립 · VOX</text>
+
+      <rect class="box hp" x="790" y="330" width="150" height="60" rx="4"/>
+      <text class="t" x="865" y="356">Crest HP-8</text><text class="s" x="865" y="375">아날로그 콘솔</text>
+
+      <rect class="box" x="790" y="100" width="140" height="56" rx="4"/>
+      <text class="t" x="860" y="125">E-PAC × 4</text><text class="s" x="860" y="144">MAX와 1:1</text>
+
+      <rect class="box" x="790" y="200" width="140" height="56" rx="4"/>
+      <text class="t" x="860" y="225">LA4X</text><text class="s" x="860" y="244">앰프 · SB18용</text>
+
+      <rect class="box spk" x="988" y="100" width="150" height="56" rx="4"/>
+      <text class="t" x="1063" y="125">MAX × 4</text><text class="s" x="1063" y="144">메인 · 4채널</text>
+
+      <rect class="box spk" x="988" y="200" width="150" height="56" rx="4"/>
+      <text class="t" x="1063" y="225">SB18 × 4</text><text class="s" x="1063" y="244">서브 · L / R</text>
+
+      <g class="tag ink"><rect x="143" y="218" width="42" height="20" rx="3"/><text x="164" y="232">XLR</text></g>
+      <g class="tag pa"><rect x="365" y="196" width="100" height="22" rx="3"/><text x="415" y="211">랜 익스텐더 × 4</text></g>
+      <g class="tag hp"><rect x="355" y="286" width="120" height="38" rx="3"/><text x="415" y="301">과사 멀티패치 16P</text><text x="415" y="317">+ 랜 익스텐더 4P</text></g>
+      <g class="tag hp"><rect x="658" y="300" width="120" height="38" rx="3"/><text x="718" y="315">과사 멀티패치 16P</text><text x="718" y="331">+ 랜 익스텐더 4P</text></g>
+      <g class="tag pa"><rect x="585" y="106" width="58" height="22" rx="3"/><text x="614" y="121">AES50</text></g>
+      <g class="tag pa"><rect x="670" y="167" width="100" height="22" rx="3"/><text x="720" y="182">랜 익스텐더 × 2</text></g>
+      <g class="tag spk"><rect x="924" y="167" width="72" height="22" rx="3"/><text x="960" y="182">speakON</text></g>
+      <g class="tag hp"><rect x="840" y="29" width="118" height="22" rx="3"/><text x="899" y="44">TRS 멀티패치 6ch</text></g>
+      <text class="lbl" x="899" y="70">HP-8 Aux 1–4 · Main L/R → M32R Aux In 1–6</text>
+      <text class="lbl" x="660" y="410" text-anchor="start" style="text-anchor:start">VOX(17번)만 거쳐감</text>
+    </svg>
+
+    <!-- mobile -->
+    <svg class="mobile" viewBox="0 0 360 650" role="img" aria-label="시그널 플로우">
+      <path class="w ink" d="M180 60 V92" marker-end="url(#aInk)"/>
+      <path class="w pa" d="M150 148 V178 H87 V206" marker-end="url(#aPa)"/>
+      <path class="w hp" d="M210 148 V178 H273 V206" marker-end="url(#aHp)"/>
+      <path class="w pa" d="M87 262 V368" marker-start="url(#aPa)" marker-end="url(#aPa)"/>
+      <path class="w hp" d="M232 262 V368" marker-end="url(#aHp)"/>
+      <path class="w hp" d="M310 262 V292" marker-end="url(#aHp)"/>
+      <path class="w hp" d="M310 336 V368" marker-end="url(#aHp)"/>
+      <path class="w hp" d="M202 398 H162" marker-end="url(#aHp)"/>
+      <path class="w pa" d="M16 236 H7 V460 H273 V486" marker-end="url(#aPa)"/>
+      <path class="w pa" d="M87 460 V486" marker-end="url(#aPa)"/>
+      <path class="w spk" d="M87 542 V580" marker-end="url(#aSpk)"/>
+      <path class="w spk" d="M273 542 V580" marker-end="url(#aSpk)"/>
+
+      <rect class="box src" x="105" y="8" width="150" height="52" rx="4"/>
+      <text class="t" x="180" y="31">무대</text><text class="s" x="180" y="49">악기 · 마이크</text>
+      <rect class="box" x="105" y="96" width="150" height="52" rx="4"/>
+      <text class="t" x="180" y="119">DN1248</text><text class="s" x="180" y="137">스플리터</text>
+
+      <rect class="box pa" x="16" y="210" width="142" height="52" rx="4"/>
+      <text class="t" x="87" y="233">DL32</text><text class="s" x="87" y="251">스테이지박스</text>
+      <rect class="box hp" x="202" y="210" width="142" height="52" rx="4"/>
+      <text class="t" x="273" y="233">콘홀 벽패널</text><text class="s" x="273" y="251">무대 ↔ 부스</text>
+
+      <rect class="box hp" x="276" y="296" width="68" height="40" rx="4"/>
+      <text class="t" x="310" y="313" style="font-size:12px">Focusrite</text><text class="s" x="310" y="328" style="font-size:11px">VOX</text>
+
+      <rect class="box pa" x="16" y="372" width="142" height="52" rx="4"/>
+      <text class="t" x="87" y="395">M32R</text><text class="s" x="87" y="413">디지털 콘솔</text>
+      <rect class="box hp" x="202" y="372" width="142" height="52" rx="4"/>
+      <text class="t" x="273" y="395">Crest HP-8</text><text class="s" x="273" y="413">아날로그 콘솔</text>
+
+      <rect class="box" x="16" y="490" width="142" height="52" rx="4"/>
+      <text class="t" x="87" y="513">E-PAC × 4</text><text class="s" x="87" y="531">MAX와 1:1</text>
+      <rect class="box" x="202" y="490" width="142" height="52" rx="4"/>
+      <text class="t" x="273" y="513">LA4X</text><text class="s" x="273" y="531">앰프 · SB18용</text>
+
+      <rect class="box spk" x="16" y="584" width="142" height="52" rx="4"/>
+      <text class="t" x="87" y="607">MAX × 4</text><text class="s" x="87" y="625">메인 · 4채널</text>
+      <rect class="box spk" x="202" y="584" width="142" height="52" rx="4"/>
+      <text class="t" x="273" y="607">SB18 × 4</text><text class="s" x="273" y="625">서브 · L / R</text>
+
+      <g class="tag ink"><rect x="188" y="66" width="40" height="20" rx="3"/><text x="208" y="80">XLR</text></g>
+      <g class="tag pa"><rect x="50" y="167" width="98" height="22" rx="3"/><text x="99" y="182">랜 익스텐더 × 4</text></g>
+      <g class="tag hp"><rect x="214" y="158" width="118" height="38" rx="3"/><text x="273" y="173">과사 멀티패치 16P</text><text x="273" y="189">+ 랜 익스텐더 4P</text></g>
+      <g class="tag pa"><rect x="94" y="304" width="52" height="20" rx="3"/><text x="120" y="318">AES50</text></g>
+      <g class="tag hp"><rect x="190" y="304" width="82" height="20" rx="3"/><text x="231" y="318">멀티+익스텐더</text></g>
+      <text class="lbl" x="180" y="390" style="font-size:10px">TRS</text>
+      <text class="lbl" x="180" y="414" style="font-size:10px">6ch</text>
+      <g class="tag pa"><rect x="132" y="449" width="98" height="22" rx="3"/><text x="181" y="464">랜 익스텐더 × 2</text></g>
+      <g class="tag spk"><rect x="144" y="551" width="72" height="20" rx="3"/><text x="180" y="565">speakON</text></g>
+    </svg>
+
+    <div class="legend">
+      <span class="pa"><i></i>M32R 계통</span>
+      <span class="hp"><i></i>HP-8 계통</span>
+      <span class="spk"><i></i>스피커 케이블 (speakON)</span>
+    </div>
+  </div>
+</section>
+
+<section id="numbering">
+  <h2><span class="num">02</span>번호 규칙</h2>
+  <p class="desc">DL32와 벽패널은 번호 매기는 방식이 다릅니다. 헷갈리기 쉬우니 꽂기 전에 한 번 보고 가세요.</p>
+  <div class="panel">
+    <div class="strip-title"><strong>DL32 인풋</strong><span>스플리터 번호 그대로 꽂고, 안 쓰는 번호는 비워둡니다</span></div>
+    <div class="strip" id="strip-dl"></div>
+    <div class="strip-title"><strong>벽패널 → HP-8</strong><span>1번부터 20번까지 빈칸 없이 차례대로</span></div>
+    <div class="strip" id="strip-wall"></div>
+  </div>
+</section>
+
+<section id="inputs">
+  <h2><span class="num">03</span>전체 인풋</h2>
+  <p class="desc">스플리터에 들어오는 27채널이 각각 어디로 가는지 정리한 표입니다. 회색 줄은 이번에 안 받는 채널입니다.</p>
+  <div class="filter" role="group" aria-label="보기">
+    <button type="button" data-f="all" aria-pressed="true">전체</button>
+    <button type="button" data-f="pa" aria-pressed="false">DL32로 가는 것</button>
+    <button type="button" data-f="hp" aria-pressed="false">벽패널로 가는 것</button>
+  </div>
+  <div class="table-scroll">
+    <table id="t-all">
+      <thead><tr><th>스플리터 CH</th><th>소스</th><th>스플리터 단자</th><th>DL32 인풋</th><th>벽패널 · HP-8</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="note">12번 BASS AMP는 이번엔 받지 않습니다. VOX는 벽패널 17번에서 Focusrite 채널스트립을 거친 뒤 HP-8 17번으로 들어갑니다.</p>
+</section>
+
+<section id="wall">
+  <h2><span class="num">04</span>벽패널 · HP-8 패치</h2>
+  <p class="desc">스플리터 → 벽패널, 벽패널 → HP-8 두 구간 모두 <b>과사 멀티패치 16P + 랜 익스텐더 4P</b>를 씁니다. 벽패널 번호와 HP-8 채널 번호가 같습니다.</p>
+  <div class="snakes" id="wall-snakes"></div>
+</section>
+
+<section id="dl32">
+  <h2><span class="num">05</span>DL32 인풋 패치</h2>
+  <p class="desc">스플리터 → DL32는 <b>랜 익스텐더 1~4번</b>을 씁니다. 받는 채널을 위에서부터 4개씩 묶었고, DL32 번호는 스플리터 번호와 같습니다.</p>
+  <div class="snakes" id="dl32-snakes"></div>
+</section>
+
+<section id="amp">
+  <h2><span class="num">06</span>앰프 패치</h2>
+  <p class="desc">4.2 시스템입니다. DL32 아웃 1~4는 MAX 네 대에 하나씩(E-PAC도 한 대씩), 아웃 5·6은 왼쪽·오른쪽 서브입니다. 연결은 <b>랜 익스텐더 5·6번</b>, 앰프에서 스피커까지는 speakON.</p>
+  <div class="snakes" id="amp-snakes"></div>
+  <a class="to-layout" href="layout/"><span>스피커가 무대 어디에 놓이는지는 배치 페이지에 그려뒀습니다.</span><b>스피커 배치 보기 →</b></a>
+</section>
+
+<section id="hp8">
+  <h2><span class="num">07</span>HP-8 → M32R</h2>
+  <p class="desc">HP-8에서 만든 믹스 6채널을 <b>TRS 멀티패치</b>로 M32R Aux In에 순서대로 꽂습니다.</p>
+  <div class="snakes" id="hp8-snakes"></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">마지막 수정 2026.11.16</div>
+</footer>
+
+<script>
+// [스플리터 CH, 소스, 스플리터 단자, DL32 인풋, 벽패널 번호(=HP-8 채널)]  null = 안 받음
+const CH = [
+  [1,  'OH L',       'A-1',  1,    1],
+  [2,  'OH R',       'A-2',  2,    2],
+  [3,  'KICK IN',    'A-3',  3,    3],
+  [4,  'KICK OUT',   'A-4',  4,    4],
+  [5,  'SNR TOP',    'A-5',  5,    5],
+  [6,  'SNR BTM',    'A-6',  6,    null],
+  [7,  'H.H',        'A-7',  7,    null],
+  [8,  'TOM 1',      'A-8',  null, 6],
+  [9,  'TOM 2',      'A-9',  9,    7],
+  [10, 'TOM 3',      'A-10', 10,   8],
+  [11, 'BASS',       'A-11', 11,   9],
+  [12, 'BASS AMP',   'A-12', null, null],
+  [13, 'AG (DI)',    'B-1',  13,   10],
+  [14, 'EG DI',      'B-2',  null, null],
+  [15, 'EG AMP 1',   'B-3',  15,   11],
+  [16, 'EG AMP 2',   'B-4',  null, 12],
+  [17, 'NORD L',     'B-5',  17,   13],
+  [18, 'NORD R',     'B-6',  18,   14],
+  [19, 'YAMAHIKO L', 'B-7',  null, 15],
+  [20, 'YAMAHIKO R', 'B-8',  null, 16],
+  [21, 'PF MIC',     'B-9',  null, null],
+  [22, 'VOX',        'B-10', 22,   17],
+  [23, 'MTR L',      'B-11', null, 19],
+  [24, 'MTR R',      'B-12', null, 20],
+  [25, 'CLK',        'C-1',  null, null],
+  [26, 'MENT',       'C-2',  26,   18],
+  [27, 'AG (MIC)',   'C-3',  null, null],
+];
+const FOCUSRITE = 17; // 이 벽패널 번호는 Focusrite 거쳐서 HP-8로
+
+// [DL32 Out, 시스템 이름, 역할, 앰프, 스피커]
+const OUTS = [
+  [1, '1_L',     '메인 좌측',     'E-PAC 1', 'MAX · 맨 왼쪽'],
+  [2, '2_CL',    '센터 좌측',     'E-PAC 2', 'MAX · 왼쪽 안'],
+  [3, '3_CR',    '센터 우측',     'E-PAC 3', 'MAX · 오른쪽 안'],
+  [4, '4_R',     '메인 우측',     'E-PAC 4', 'MAX · 맨 오른쪽'],
+  [5, '5_L SUB', '좌측 서브우퍼', 'LA4X',    'SB18 왼쪽 2대'],
+  [6, '6_R SUB', '우측 서브우퍼', 'LA4X',    'SB18 오른쪽 2대'],
+];
+
+// [TRS 멀티 번호, HP-8 출력, M32R 입력]
+const TRS = [
+  [1, 'Aux Out 1', 'Aux In 1'],
+  [2, 'Aux Out 2', 'Aux In 2'],
+  [3, 'Aux Out 3', 'Aux In 3'],
+  [4, 'Aux Out 4', 'Aux In 4'],
+  [5, 'Main L',    'Aux In 5'],
+  [6, 'Main R',    'Aux In 6'],
+];
+
+const dash = '<span class="dash">–</span>';
+const chip = (v, c) => v == null ? dash : `<span class="chip ${c}">${v}</span>`;
+const dlUsed = CH.filter(r => r[3] != null);
+const dlExt = n => Math.floor(dlUsed.findIndex(r => r[3] === n) / 4) + 1;
+const wallCable = n => n <= 16 ? `과사 멀티 ${n}번` : `익스텐더 7·8 - ${n - 16}번`;
+
+// 번호 규칙 스트립
+const maxDl = Math.max(...dlUsed.map(r => r[3]));
+let s = '';
+for (let n = 1; n <= maxDl; n++) {
+  const r = CH.find(x => x[3] === n);
+  s += r ? `<div class="slot pa"><b>${n}</b><small>${r[1]}</small></div>`
+         : `<div class="slot blank"><b>${n}</b><small>비움</small></div>`;
+}
+document.getElementById('strip-dl').innerHTML = s;
+document.getElementById('strip-wall').innerHTML = CH.filter(r => r[4] != null).sort((a, b) => a[4] - b[4])
+  .map(r => `<div class="slot hp"><b>${r[4]}</b><small>${r[1]}</small></div>`).join('');
+
+// 전체 인풋
+const tbody = document.querySelector('#t-all tbody');
+tbody.innerHTML = CH.map(([ch, src, sp, dl, w]) => {
+  const off = dl == null && w == null;
+  const dlCell = dl == null ? dash : `${chip(dl, 'pa')}<span class="via">익스텐더 ${dlExt(dl)}</span>`;
+  const wCell = w == null ? dash : `${chip(w, 'hp')}<span class="via">${wallCable(w)}${w === FOCUSRITE ? ' · Focusrite 경유' : ''}</span>`;
+  return `<tr class="${off ? 'off' : ''}" data-pa="${dl != null}" data-hp="${w != null}">
+    <td class="n">${ch}</td><td class="src">${src}</td><td>${sp}</td><td>${dlCell}</td><td>${wCell}</td></tr>`;
+}).join('');
+
+document.querySelectorAll('.filter button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.filter button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  const f = b.dataset.f;
+  tbody.querySelectorAll('tr').forEach(tr => { tr.hidden = f !== 'all' && tr.dataset[f] !== 'true'; });
+}));
+
+const card = ({ cls, title, sub, note, head, rows, wide, srcCol = 1 }) => `
+  <div class="snake ${cls}${wide ? ' wide' : ''}">
+    <h3>${title}<small>${sub}</small></h3>${note ? `<p>${note}</p>` : ''}
+    <div class="table-scroll"><table><thead><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+    <tbody>${rows.map(r => `<tr class="${r.empty ? 'empty' : ''}">${r.map((c, i) => `<td${i === srcCol ? ' class="src"' : ''}>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
+  </div>`;
+
+// 벽패널
+const wall = CH.filter(r => r[4] != null).sort((a, b) => a[4] - b[4]);
+const wallRows = list => list.map(([, src, sp, , w]) => [
+  w <= 16 ? w : w - 16, src, sp, chip(w, 'hp'),
+  w === FOCUSRITE ? `Focusrite → ${chip(w, 'hp')}` : chip(w, 'hp'),
+]);
+const wallHead = ['핀', '소스', '스플리터', '벽패널', 'HP-8'];
+document.getElementById('wall-snakes').innerHTML =
+  card({ cls: 'hp', title: '과사 멀티패치 16P', sub: '벽패널 1 ~ 16', head: wallHead, rows: wallRows(wall.filter(r => r[4] <= 16)), wide: true }) +
+  card({ cls: 'hp', title: '랜 익스텐더 7 · 8', sub: '벽패널 17 ~ 20', note: '7번은 스플리터 → 벽패널, 8번은 벽패널 → 부스. 8번 1번 핀(VOX)은 HP-8 말고 Focusrite에 꽂습니다.', head: wallHead, rows: wallRows(wall.filter(r => r[4] > 16)) });
+
+// DL32 인풋
+let html = '';
+for (let i = 0; i < dlUsed.length; i += 4) {
+  const g = dlUsed.slice(i, i + 4);
+  html += card({ cls: 'pa', title: `랜 익스텐더 ${i / 4 + 1}`, sub: `DL32 ${g.map(r => r[3]).join(' · ')}`,
+    head: ['핀', '소스', '스플리터', 'DL32'], rows: g.map(([, src, sp, n], k) => [k + 1, src, sp, chip(n, 'pa')]) });
+}
+document.getElementById('dl32-snakes').innerHTML = html;
+
+// 앰프
+const ampRows = g => {
+  const rows = g.map(([o, name, role, amp, spk], k) => [k + 1, `Out ${o}`, `<b>${name}</b> <span class="via">${role}</span>`, amp, chip(spk, 'spk')]);
+  while (rows.length < 4) { const r = [rows.length + 1, '비움', dash, dash, dash]; r.empty = true; rows.push(r); }
+  return rows;
+};
+const ampHead = ['핀', 'DL32', '이름', '앰프', '스피커'];
+document.getElementById('amp-snakes').innerHTML =
+  card({ cls: 'spk', title: '랜 익스텐더 5', sub: 'DL32 Out 1 ~ 4 → E-PAC × 4', note: 'E-PAC 한 대에 MAX 한 대씩, 1:1로 연결합니다.', head: ampHead, rows: ampRows(OUTS.slice(0, 4)), srcCol: -1 }) +
+  card({ cls: 'spk', title: '랜 익스텐더 6', sub: 'DL32 Out 5 · 6 → LA4X', note: '서브는 신호 두 개. 왼쪽 두 대가 L SUB, 오른쪽 두 대가 R SUB를 받습니다.', head: ampHead, rows: ampRows(OUTS.slice(4)), srcCol: -1 });
+
+// HP-8 → M32R
+document.getElementById('hp8-snakes').innerHTML =
+  card({ cls: 'hp', title: 'TRS 멀티패치', sub: 'HP-8 → M32R', head: ['멀티', 'HP-8 출력', 'M32R 입력'],
+    rows: TRS.map(([n, from, to]) => [n, from, chip(to, 'pa')]) });
+</script>
+</body>
+</html>
