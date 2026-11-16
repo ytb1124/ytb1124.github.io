@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>콘홀 음향 셋업</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="house.css?v=3">
+<link rel="stylesheet" href="house.css?v=4">
 <style>
 /* diagram */
 .flow svg { display: block; width: 100%; height: auto; }
@@ -41,10 +41,17 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
 .strip-title strong { font-size: 16px; }
 .strip-title span { font-size: 13px; color: var(--sub); }
 .strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; }
+.slot { min-width: 0; }
+.routes { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 6px; }
+.routes li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; padding-left: 12px; border-left: 3px solid; }
+.routes li.pa { border-color: var(--pa); }
+.routes li.hp { border-color: var(--hp); }
+.routes b { font-size: 15px; }
+.routes span { font-size: 14px; color: var(--sub); }
 .strip + .strip-title { margin-top: 26px; }
 .slot { border: 1.5px solid; border-radius: 4px; padding: 6px 4px 7px; text-align: center; min-height: 54px; }
 .slot b { display: block; font-size: 16px; line-height: 1.2; }
-.slot small { display: block; font-size: 11px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.slot small { display: block; font-size: 11px; line-height: 1.3; color: var(--sub); }
 .slot.pa { border-color: var(--pa); background: var(--pa-soft); }
 .slot.pa b { color: var(--pa); }
 .slot.hp { border-color: var(--hp); background: var(--hp-soft); }
@@ -91,7 +98,7 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
 @media (max-width: 720px) {
   .flow .desktop { display: none; }
   .flow .mobile { display: block; }
-  .strip { grid-template-columns: repeat(4, 1fr); }
+  .strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .teaser { grid-template-columns: 1fr; }
   .teaser-art { height: 150px; min-height: 0; }
   .teaser-body { padding: 16px; }
@@ -105,55 +112,12 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
 </style>
 </head>
 <body>
-
-<header class="top">
-  <div class="wrap">
-    <p class="kicker">콘서트홀 하우스 음향 · 26.11.17 화요콘서트 6주차 기준</p>
-    <h1>콘홀 음향 셋업 가이드</h1>
-    <p class="lead">콘솔은 두 대입니다. 무대 소스는 전부 <b>DN1248 스플리터</b>로 모은 뒤 두 갈래로 나눠서, 한쪽은 <b>DL32 → M32R</b>로, 다른 쪽은 <b>벽패널 → Crest HP-8</b>로 보냅니다. HP-8에서 만든 소리는 다시 M32R로 들어가고, 스피커는 전부 DL32 출력에서 나갑니다.</p>
-    <div class="rules">
-      <div><strong>DL32는 스플리터 번호 그대로</strong><span>스플리터 9번은 DL32 9번. 안 쓰는 번호는 비워둡니다.</span></div>
-      <div><strong>벽패널은 1번부터 차례대로</strong><span>빈칸 없이 1~20번을 채웁니다. HP-8 채널도 같은 번호.</span></div>
-      <div><strong>케이블은 세 가지</strong><span>과사 멀티패치(16P), 랜 익스텐더(4P), TRS 멀티패치.</span></div>
-    </div>
-    <a class="teaser" href="layout/">
-      <svg class="teaser-art" viewBox="135 215 760 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
-      <div class="teaser-body">
-        <span class="teaser-kicker">스피커 배치</span>
-        <strong>무대 앞 스피커 4세트, 어디에 어떻게 놓나</strong>
-        <span class="teaser-text">공연장 사진 위에 MAX와 SB18을 실제 크기로 그려뒀습니다. 세트마다 몇 번 아웃이 들어가는지도 같이 있습니다.</span>
-        <span class="teaser-go">배치 보러 가기 →</span>
-      </div>
-    </a>
-  </div>
-</header>
-
-<nav class="jump" aria-label="바로가기">
-  <div class="wrap">
-    <div class="anchors">
-      <a href="#flow">시그널 플로우</a>
-      <a href="#numbering">번호 규칙</a>
-      <a href="#inputs">전체 인풋</a>
-      <a href="#wall">벽패널 · HP-8</a>
-      <a href="#dl32">DL32 인풋</a>
-      <a href="#amp">앰프</a>
-      <a href="#hp8">HP-8 → M32R</a>
-    </div>
-    <a class="page" href="layout/">스피커 배치 →</a>
-  </div>
-</nav>
-
-<main class="wrap">
-
-<section id="flow">
-  <h2><span class="num">01</span>시그널 플로우</h2>
-  <p class="desc">파란 줄은 M32R 쪽, 주황 줄은 HP-8 쪽입니다. 선 위에 그 구간에 쓰는 케이블을 적어뒀습니다.</p>
-  <div class="panel flow">
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<svg class="svg-defs" aria-hidden="true">
       <defs>
         <marker id="aInk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--ink)"/></marker>
         <marker id="aPa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--pa)"/></marker>
         <marker id="aHp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--hp)"/></marker>
+    <clipPath id="seats" clipPathUnits="userSpaceOnUse"><polygon points="0,497 205,497 205,485 242,485 242,477 792,477 792,485 827,485 827,497 890,497 890,508 1024,508 1024,768 0,768"/></clipPath>
     <pattern id="perf" width="14" height="14" patternUnits="userSpaceOnUse">
       <rect width="14" height="14" fill="#242424"/>
       <circle cx="7" cy="7" r="3.6" fill="#0d0d0d"/>
@@ -179,7 +143,54 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
     </symbol>
         <marker id="aSpk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--spk)"/></marker>
       </defs>
-    </svg>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <p class="kicker">콘서트홀 하우스 음향 · 26.11.17 화요콘서트 6주차 기준</p>
+    <h1>콘홀 음향 셋업 가이드</h1>
+    <p class="lead">콘솔 두 대. 모든 소스는 <b>DN1248 스플리터</b>에서 두 갈래로 나뉩니다.</p>
+    <ul class="routes">
+      <li class="pa"><b>DL32 → M32R</b><span>스피커(PA)로 나가는 쪽</span></li>
+      <li class="hp"><b>벽패널 → HP-8</b><span>HP-8 믹스는 다시 M32R로</span></li>
+    </ul>
+    <div class="rules">
+      <div><strong>DL32 = 스플리터 번호</strong><span>9번은 9번에. 안 쓰는 번호는 비워두기</span></div>
+      <div><strong>벽패널 = 1번부터 차례로</strong><span>빈칸 없이 1~20. HP-8도 같은 번호</span></div>
+      <div><strong>케이블은 3종류</strong><span>과사 멀티패치 16P<br>랜 익스텐더 4P<br>TRS 멀티패치</span></div>
+    </div>
+    <a class="teaser" href="layout/">
+      <svg class="teaser-art" viewBox="135 215 760 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+      <div class="teaser-body">
+        <span class="teaser-kicker">스피커 배치</span>
+        <strong>스피커 4세트, 어디에 놓나</strong>
+        <span class="teaser-text">무대 바로 앞 객석 바닥에 SB18 + MAX.<br>사진 위에 실제 크기로 그려뒀습니다.</span>
+        <span class="teaser-go">배치 보러 가기 →</span>
+      </div>
+    </a>
+  </div>
+</header>
+
+<nav class="jump" aria-label="바로가기">
+  <div class="wrap">
+    <div class="anchors">
+      <a href="#flow">시그널 플로우</a>
+      <a href="#numbering">번호 규칙</a>
+      <a href="#inputs">전체 인풋</a>
+      <a href="#wall">벽패널 · HP-8</a>
+      <a href="#dl32">DL32 인풋</a>
+      <a href="#amp">앰프</a>
+      <a href="#hp8">HP-8 → M32R</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="flow">
+  <h2><span class="num">01</span>시그널 플로우</h2>
+  <p class="desc">파랑은 M32R 쪽, 주황은 HP-8 쪽.<br>선 위 글씨가 그 구간 케이블입니다.</p>
+  <div class="panel flow">
 
     <!-- desktop -->
     <svg class="desktop" viewBox="0 0 1180 485" role="img" aria-label="시그널 플로우">
@@ -305,18 +316,18 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
 
 <section id="numbering">
   <h2><span class="num">02</span>번호 규칙</h2>
-  <p class="desc">DL32와 벽패널은 번호 매기는 방식이 다릅니다. 헷갈리기 쉬우니 꽂기 전에 한 번 보고 가세요.</p>
+  <p class="desc">DL32와 벽패널은 번호 매기는 법이 다릅니다.<br>꽂기 전에 한 번 확인하세요.</p>
   <div class="panel">
-    <div class="strip-title"><strong>DL32 인풋</strong><span>스플리터 번호 그대로 꽂고, 안 쓰는 번호는 비워둡니다</span></div>
+    <div class="strip-title"><strong>DL32 인풋</strong><span>스플리터 번호 그대로, 빈 번호는 비움</span></div>
     <div class="strip" id="strip-dl"></div>
-    <div class="strip-title"><strong>벽패널 → HP-8</strong><span>1번부터 20번까지 빈칸 없이 차례대로</span></div>
+    <div class="strip-title"><strong>벽패널 → HP-8</strong><span>1~20 빈칸 없이 차례대로</span></div>
     <div class="strip" id="strip-wall"></div>
   </div>
 </section>
 
 <section id="inputs">
   <h2><span class="num">03</span>전체 인풋</h2>
-  <p class="desc">스플리터에 들어오는 27채널이 각각 어디로 가는지 정리한 표입니다. 회색 줄은 이번에 안 받는 채널입니다.</p>
+  <p class="desc">27채널이 각각 어디로 가는지.<br>회색 줄은 이번에 안 받는 채널입니다.</p>
   <div class="filter" role="group" aria-label="보기">
     <button type="button" data-f="all" aria-pressed="true">전체</button>
     <button type="button" data-f="pa" aria-pressed="false">DL32로 가는 것</button>
@@ -328,31 +339,31 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
       <tbody></tbody>
     </table>
   </div>
-  <p class="note">12번 BASS AMP는 이번엔 받지 않습니다. VOX는 벽패널 17번에서 Focusrite 채널스트립을 거친 뒤 HP-8 17번으로 들어갑니다.</p>
+  <p class="note">12번 BASS AMP는 이번엔 안 받습니다.<br>VOX는 벽패널 17 → Focusrite → HP-8 17.</p>
 </section>
 
 <section id="wall">
   <h2><span class="num">04</span>벽패널 · HP-8 패치</h2>
-  <p class="desc">스플리터 → 벽패널, 벽패널 → HP-8 두 구간 모두 <b>과사 멀티패치 16P + 랜 익스텐더 4P</b>를 씁니다. 벽패널 번호와 HP-8 채널 번호가 같습니다.</p>
+  <p class="desc">스플리터 → 벽패널, 벽패널 → HP-8<br>두 구간 모두 <b>과사 멀티패치 16P + 랜 익스텐더 4P</b>.</p>
   <div class="snakes" id="wall-snakes"></div>
 </section>
 
 <section id="dl32">
   <h2><span class="num">05</span>DL32 인풋 패치</h2>
-  <p class="desc">스플리터 → DL32는 <b>랜 익스텐더 1~4번</b>을 씁니다. 받는 채널을 위에서부터 4개씩 묶었고, DL32 번호는 스플리터 번호와 같습니다.</p>
+  <p class="desc"><b>랜 익스텐더 1~4번</b>, 4채널씩 묶었습니다.<br>DL32 번호는 스플리터 번호 그대로.</p>
   <div class="snakes" id="dl32-snakes"></div>
 </section>
 
 <section id="amp">
   <h2><span class="num">06</span>앰프 패치</h2>
-  <p class="desc">4.2 시스템입니다. DL32 아웃 1~4는 MAX 네 대에 하나씩(E-PAC도 한 대씩), 아웃 5·6은 왼쪽·오른쪽 서브입니다. 연결은 <b>랜 익스텐더 5·6번</b>, 앰프에서 스피커까지는 speakON.</p>
+  <p class="desc">DL32 아웃 1~4는 MAX, 5·6은 서브 L / R.<br>앰프까지 <b>랜 익스텐더 5·6번</b>, 스피커까지는 speakON.</p>
   <div class="snakes" id="amp-snakes"></div>
   <a class="teaser" href="layout/">
     <svg class="teaser-art" viewBox="135 215 760 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
     <div class="teaser-body">
       <span class="teaser-kicker">스피커 배치</span>
-      <strong>이 아웃들이 실제로 어디로 가는지</strong>
-      <span class="teaser-text">1_L부터 4_R, L SUB와 R SUB까지 무대 위치로 확인하세요.</span>
+      <strong>이 아웃들이 실제로 어디 있나</strong>
+      <span class="teaser-text">1_L ~ 4_R, L · R SUB 위치를<br>공연장 사진으로 확인하세요.</span>
       <span class="teaser-go">배치 보러 가기 →</span>
     </div>
   </a>
@@ -360,7 +371,7 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
 
 <section id="hp8">
   <h2><span class="num">07</span>HP-8 → M32R</h2>
-  <p class="desc">HP-8에서 만든 믹스 6채널을 <b>TRS 멀티패치</b>로 M32R Aux In에 순서대로 꽂습니다.</p>
+  <p class="desc">HP-8 믹스 6채널을 <b>TRS 멀티패치</b>로<br>M32R Aux In 1~6에 순서대로.</p>
   <div class="snakes" id="hp8-snakes"></div>
 </section>
 
@@ -473,7 +484,7 @@ const wallRows = list => list.map(([, src, sp, , w]) => [
 const wallHead = ['핀', '소스', '스플리터', '벽패널 = HP-8'];
 document.getElementById('wall-snakes').innerHTML =
   card({ cls: 'hp', title: '과사 멀티패치 16P', sub: '벽패널 1 ~ 16', head: wallHead, rows: wallRows(wall.filter(r => r[4] <= 16)), wide: true }) +
-  card({ cls: 'hp', title: '랜 익스텐더 7 · 8', sub: '벽패널 17 ~ 20', note: '7번은 스플리터 → 벽패널, 8번은 벽패널 → 부스. 8번 1번 핀(VOX)은 HP-8 말고 Focusrite에 꽂습니다.', head: wallHead, rows: wallRows(wall.filter(r => r[4] > 16)) });
+  card({ cls: 'hp', title: '랜 익스텐더 7 · 8', sub: '벽패널 17 ~ 20', note: '7번: 스플리터 → 벽패널<br>8번: 벽패널 → 부스<br>8번의 1번 핀(VOX)은 Focusrite로', head: wallHead, rows: wallRows(wall.filter(r => r[4] > 16)) });
 
 // DL32 인풋
 let html = '';
@@ -492,12 +503,12 @@ const ampRows = g => {
 };
 const ampHead = ['핀', 'DL32 아웃', '앰프 → 스피커'];
 document.getElementById('amp-snakes').innerHTML =
-  card({ cls: 'spk', title: '랜 익스텐더 5', sub: 'DL32 Out 1 ~ 4 → E-PAC × 4', note: 'E-PAC 한 대에 MAX 한 대씩, 1:1로 연결합니다.', head: ampHead, rows: ampRows(OUTS.slice(0, 4)), srcCol: -1 }) +
-  card({ cls: 'spk', title: '랜 익스텐더 6', sub: 'DL32 Out 5 · 6 → LA4X', note: '서브는 신호 두 개. 왼쪽 두 대가 L SUB, 오른쪽 두 대가 R SUB를 받습니다.', head: ampHead, rows: ampRows(OUTS.slice(4)), srcCol: -1 });
+  card({ cls: 'spk', title: '랜 익스텐더 5', sub: 'DL32 Out 1 ~ 4 → E-PAC × 4', note: 'E-PAC 한 대에 MAX 한 대', head: ampHead, rows: ampRows(OUTS.slice(0, 4)), srcCol: -1 }) +
+  card({ cls: 'spk', title: '랜 익스텐더 6', sub: 'DL32 Out 5 · 6 → LA4X', note: '왼쪽 두 대 = L SUB<br>오른쪽 두 대 = R SUB', head: ampHead, rows: ampRows(OUTS.slice(4)), srcCol: -1 });
 
 // 스피커 배치 미리보기
 const STK = [[225, '1_L', '#2fd3bd'], [412, '2_CL', '#2fd3bd'], [637, '3_CR', '#f2b13c'], [825, '4_R', '#f2b13c']];
-const k = 0.07, base = 494, sbW = 750 * k, sbH = 553 * k, mxW = 580 * k, mxH = 392 * k;
+const k = 0.075, base = 515, sbW = 750 * k, sbH = 553 * k, mxW = 580 * k, mxH = 392 * k;
 const face = (cx, y, w, d) => `<polygon points="${cx - w / 2},${y} ${cx + w / 2},${y} ${cx + w / 2 - 2},${y - d} ${cx - w / 2 + 2},${y - d}" fill="#2c2c2c" stroke="#3c3c3c" stroke-width=".6"/>`;
 const art = '<image href="layout/hall-front.jpg" width="1024" height="768"/>' + STK.map(([x, name, c]) => {
   const top = base - sbH - mxH - 1.5;
@@ -506,7 +517,7 @@ const art = '<image href="layout/hall-front.jpg" width="1024" height="768"/>' + 
     ${face(x, top, mxW, 3.5)}<use href="#max" x="${x - mxW / 2}" y="${top}" width="${mxW}" height="${mxH}"/>
     <g transform="translate(${x - 38} ${top - 50})"><rect width="76" height="34" rx="5" fill="#fff" opacity=".95"/><rect y="28" width="76" height="6" rx="2" fill="${c}"/>
     <text x="38" y="22" text-anchor="middle" font-size="18" font-weight="700" fill="#111" font-family="Pretendard, sans-serif">${name}</text></g>`;
-}).join('');
+}).join('') + `<image href="layout/hall-front.jpg" width="1024" height="768" clip-path="url(#seats)" opacity=".6"/>`;
 document.querySelectorAll('.teaser-art').forEach(el => { el.innerHTML = art; });
 
 // HP-8 → M32R

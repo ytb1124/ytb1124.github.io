@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>콘홀 스피커 배치</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="../house.css?v=3">
+<link rel="stylesheet" href="../house.css?v=4">
 <style>
 :root { --sub-l: #18a594; --sub-l-soft: #e1f5f2; --sub-r: #b7770a; --sub-r-soft: #fbf0d9; }
 @media (prefers-color-scheme: dark) {
@@ -19,6 +19,12 @@ svg text { font-family: inherit; }
 .photo-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; font-size: 13px; color: var(--sub); }
 .photo-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
 .cap { font-size: 13px; color: var(--faint); margin: 6px 0 0; }
+.back { display: inline-block; margin-bottom: 14px; font-size: 14px; color: var(--sub); text-decoration: none; }
+.back:hover { color: var(--ink); }
+.routes { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 6px; }
+.routes li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; padding-left: 12px; border-left: 3px solid var(--spk); }
+.routes b { font-size: 15px; }
+.routes span { font-size: 14px; color: var(--sub); }
 .spec-list { display: none; margin: 12px 0 0; padding: 0; list-style: none; font-size: 13px; color: var(--sub); }
 .spec-list li { padding: 8px 0; border-top: 1px solid var(--rule-soft); }
 .spec-list b { display: block; color: var(--ink); font-size: 14px; }
@@ -27,6 +33,7 @@ svg text { font-family: inherit; }
   .p-name { font-size: 28px; }
   .p-sub { font-size: 22px; }
   .p-zone { font-size: 24px; }
+  .p-floor { font-size: 18px; }
   .spec { display: none; }
   .spec-list { display: block; }
   .dims { font-size: 22px; }
@@ -52,8 +59,9 @@ svg text { font-family: inherit; }
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<svg class="svg-defs" aria-hidden="true">
   <defs>
+    <clipPath id="seats" clipPathUnits="userSpaceOnUse"><polygon points="0,497 205,497 205,485 242,485 242,477 792,477 792,485 827,485 827,497 890,497 890,508 1024,508 1024,768 0,768"/></clipPath>
     <pattern id="perf" width="14" height="14" patternUnits="userSpaceOnUse">
       <rect width="14" height="14" fill="#242424"/>
       <circle cx="7" cy="7" r="3.6" fill="#0d0d0d"/>
@@ -82,9 +90,14 @@ svg text { font-family: inherit; }
 
 <header class="top">
   <div class="wrap">
+    <a class="back" href="../">← 셋업 가이드</a>
     <p class="kicker">콘서트홀 하우스 음향 · 4.2 시스템</p>
     <h1>스피커 배치</h1>
-    <p class="lead">무대 앞에 <b>SB18</b>을 바닥에 놓고, 그 위에 <b>MAX</b>를 올립니다. 이렇게 쌓은 4세트를 무대 폭에 맞춰 나란히 둡니다. MAX는 네 대 모두 따로 신호를 받고(E-PAC도 한 대씩), SB18은 <b>왼쪽 두 대</b>가 L SUB, <b>오른쪽 두 대</b>가 R SUB를 받습니다.</p>
+    <p class="lead">스피커는 무대 위가 아니라 <b>무대 바로 앞 객석 바닥</b>에 둡니다. SB18을 놓고 그 위에 MAX를 올린 세트 4개를 나란히.</p>
+    <ul class="routes">
+      <li><b>MAX 4대</b><span>네 대 모두 따로 · E-PAC 1:1</span></li>
+      <li><b>SB18 4대</b><span>왼쪽 두 대 L SUB · 오른쪽 두 대 R SUB</span></li>
+    </ul>
   </div>
 </header>
 
@@ -96,7 +109,6 @@ svg text { font-family: inherit; }
       <a href="#gear">장비 모양</a>
       <a href="#list">출력 정리</a>
     </div>
-    <a class="page" href="../">← 셋업 가이드</a>
   </div>
 </nav>
 
@@ -104,7 +116,7 @@ svg text { font-family: inherit; }
 
 <section id="photo">
   <h2><span class="num">01</span>공연장에서 보기</h2>
-  <p class="desc">객석 뒤쪽에서 본 모습에 실제 크기 비율로 스피커를 그려 넣었습니다.</p>
+  <p class="desc">객석 뒤에서 본 모습, 스피커는 실제 크기 비율.<br>객석 바닥에 놓여서 아랫부분은 앞줄 의자에 가려 보입니다.</p>
   <div class="photo-frame">
     <svg viewBox="0 0 1024 768" id="overlay" role="img" aria-label="객석에서 본 무대와 스피커 4세트 위치"></svg>
   </div>
@@ -113,12 +125,12 @@ svg text { font-family: inherit; }
     <span><i style="background:#f2b13c"></i>R SUB · Out 6</span>
     <span>라벨 이름 = MAX 아웃 (1_L ~ 4_R)</span>
   </div>
-  <p class="cap">크기는 무대 폭을 약 10.7m로 잡고 맞췄습니다. 실제 놓는 위치는 현장에서 조금씩 조정해도 됩니다.</p>
+  <p class="cap">무대 폭을 약 10.7m로 잡고 맞춘 크기입니다.<br>정확한 위치는 현장에서 조정해도 됩니다.</p>
 </section>
 
 <section id="plan">
   <h2><span class="num">02</span>위에서 보기</h2>
-  <p class="desc">색이 같은 서브끼리 같은 신호입니다.</p>
+  <p class="desc">무대 앞 객석 바닥에 4세트.<br>색이 같은 서브끼리 같은 신호입니다.</p>
   <div class="panel">
     <svg viewBox="0 0 640 335" style="display:block;width:100%;height:auto" role="img" aria-label="위에서 본 스피커 배치">
       <rect x="40" y="16" width="560" height="152" rx="2" fill="var(--rule-soft)" stroke="var(--rule)"/>
@@ -128,6 +140,7 @@ svg text { font-family: inherit; }
       <text class="p-sub" x="166" y="268" text-anchor="middle" font-size="14" font-weight="700" fill="var(--sub-l)">L SUB · Out 5</text>
       <path d="M404 214 V244 H544 V214" fill="none" stroke="var(--sub-r)" stroke-width="2.5"/>
       <text class="p-sub" x="474" y="268" text-anchor="middle" font-size="14" font-weight="700" fill="var(--sub-r)">R SUB · Out 6</text>
+      <text class="p-floor" x="320" y="197" text-anchor="middle" font-size="12" fill="var(--sub)">객석 바닥</text>
       <text class="p-zone" x="320" y="320" text-anchor="middle" font-size="13" fill="var(--faint)">객석</text>
     </svg>
   </div>
@@ -135,7 +148,7 @@ svg text { font-family: inherit; }
 
 <section id="gear">
   <h2><span class="num">03</span>장비 모양</h2>
-  <p class="desc">한 세트를 정면에서 본 모습입니다. 서브 위에 MAX를 가운데 맞춰 올립니다.</p>
+  <p class="desc">한 세트 정면.<br>서브를 바닥에 놓고, 그 위 가운데에 MAX.</p>
   <div class="two">
     <div class="panel">
       <h3>한 세트 정면</h3>
@@ -172,7 +185,7 @@ svg text { font-family: inherit; }
     </div>
     <div class="panel">
       <h3>앰프</h3>
-      <p>MAX는 E-PAC 네 대가 1:1, SB18은 LA4X. 앰프 → 스피커는 전부 speakON.</p>
+      <p>MAX는 E-PAC 1:1, SB18은 LA4X.<br>앰프 → 스피커는 speakON.</p>
       <div class="table-scroll" style="border:0">
         <table>
           <thead><tr><th>앰프</th><th>받는 신호</th><th>나가는 곳</th></tr></thead>
@@ -189,7 +202,7 @@ svg text { font-family: inherit; }
 
 <section id="list">
   <h2><span class="num">04</span>출력 정리</h2>
-  <p class="desc">객석에서 무대를 바라볼 때 왼쪽부터 1, 2, 3, 4번 세트입니다.</p>
+  <p class="desc">객석에서 무대를 볼 때 왼쪽부터 1~4번.</p>
   <div class="table-scroll">
     <table class="stack-sm">
       <thead><tr><th>세트</th><th>MAX</th><th>SB18</th></tr></thead>
@@ -216,7 +229,7 @@ const SUB = { l: [5, 'L SUB', 'var(--sub-l)'], r: [6, 'R SUB', 'var(--sub-r)'] }
 const SUB_ON_PHOTO = { l: '#2fd3bd', r: '#f2b13c' };
 
 // 사진 위 스피커 (약 70 px/m)
-const k = 0.07, base = 494;
+const k = 0.075, base = 515; // 객석 바닥 (무대 끝보다 낮음)
 const sbW = 750 * k, sbH = 553 * k, mxW = 580 * k, mxH = 392 * k;
 // 위에서 내려다보는 각도라 윗면이 살짝 보임
 const topFace = (cx, y, w, d) => `<polygon points="${cx - w / 2},${y} ${cx + w / 2},${y} ${cx + w / 2 - 2},${y - d} ${cx - w / 2 + 2},${y - d}" fill="#2c2c2c" stroke="#3c3c3c" stroke-width=".6"/>`;
@@ -249,6 +262,8 @@ for (const s of STACKS) {
     <text x="154" y="45" font-size="12" fill="#666" text-anchor="end">SB18 · Out ${subOut}</text>
   </g>`}`;
 }
+// 앞줄 의자가 스피커 아랫부분을 가림
+o += '<image href="hall-front.jpg" width="1024" height="768" clip-path="url(#seats)" opacity=".6"/>';
 svg.innerHTML = o;
 }
 const narrow = matchMedia('(max-width: 720px)');
