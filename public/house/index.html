@@ -73,14 +73,29 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
 #amp-snakes { grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
 .snake .table-scroll { border: 0; }
 
-.to-layout { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 14px; padding: 14px 18px; background: var(--paper); border: 1px solid var(--rule); text-decoration: none; }
-.to-layout span { color: var(--sub); font-size: 14px; }
-.to-layout b { white-space: nowrap; }
+.meta { display: block; font-size: 12px; font-weight: 400; color: var(--sub); margin-top: 2px; }
+@media (min-width: 721px) { .meta { display: none; } }
+.meta2 { display: block; font-size: 12px; color: var(--sub); margin-top: 3px; }
+.meta2 .chip { font-size: 12px; }
+
+.teaser { display: grid; grid-template-columns: 1.35fr 1fr; margin-top: 16px; background: var(--paper); border: 1px solid var(--rule); text-decoration: none; overflow: hidden; color: var(--ink); }
+.teaser-art { display: block; width: 100%; height: 100%; min-height: 190px; background: #0b0b0b; }
+.teaser-body { display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 20px 22px; }
+.teaser-kicker { font-size: 12px; font-weight: 600; color: var(--spk); }
+.teaser strong { font-size: 18px; line-height: 1.35; letter-spacing: -0.01em; }
+.teaser-text { font-size: 14px; color: var(--sub); }
+.teaser-go { align-self: flex-start; margin-top: 8px; padding: 8px 14px; border-radius: 6px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; transition: transform .15s; }
+.teaser:hover .teaser-go { transform: translateX(3px); }
+.teaser:hover { border-color: var(--faint); }
 
 @media (max-width: 720px) {
   .flow .desktop { display: none; }
   .flow .mobile { display: block; }
-  .strip { grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); }
+  .strip { grid-template-columns: repeat(4, 1fr); }
+  .teaser { grid-template-columns: 1fr; }
+  .teaser-art { height: 150px; min-height: 0; }
+  .teaser-body { padding: 16px; }
+  .teaser strong { font-size: 17px; }
 }
 @media print {
   .filter { display: none; }
@@ -101,19 +116,30 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
       <div><strong>벽패널은 1번부터 차례대로</strong><span>빈칸 없이 1~20번을 채웁니다. HP-8 채널도 같은 번호.</span></div>
       <div><strong>케이블은 세 가지</strong><span>과사 멀티패치(16P), 랜 익스텐더(4P), TRS 멀티패치.</span></div>
     </div>
+    <a class="teaser" href="layout/">
+      <svg class="teaser-art" viewBox="135 215 760 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+      <div class="teaser-body">
+        <span class="teaser-kicker">스피커 배치</span>
+        <strong>무대 앞 스피커 4세트, 어디에 어떻게 놓나</strong>
+        <span class="teaser-text">공연장 사진 위에 MAX와 SB18을 실제 크기로 그려뒀습니다. 세트마다 몇 번 아웃이 들어가는지도 같이 있습니다.</span>
+        <span class="teaser-go">배치 보러 가기 →</span>
+      </div>
+    </a>
   </div>
 </header>
 
 <nav class="jump" aria-label="바로가기">
   <div class="wrap">
-    <a href="#flow">시그널 플로우</a>
-    <a href="#numbering">번호 규칙</a>
-    <a href="#inputs">전체 인풋</a>
-    <a href="#wall">벽패널 · HP-8</a>
-    <a href="#dl32">DL32 인풋</a>
-    <a href="#amp">앰프</a>
-    <a href="#hp8">HP-8 → M32R</a>
-    <a class="page" href="layout/">스피커 배치</a>
+    <div class="anchors">
+      <a href="#flow">시그널 플로우</a>
+      <a href="#numbering">번호 규칙</a>
+      <a href="#inputs">전체 인풋</a>
+      <a href="#wall">벽패널 · HP-8</a>
+      <a href="#dl32">DL32 인풋</a>
+      <a href="#amp">앰프</a>
+      <a href="#hp8">HP-8 → M32R</a>
+    </div>
+    <a class="page" href="layout/">스피커 배치 →</a>
   </div>
 </nav>
 
@@ -128,6 +154,29 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
         <marker id="aInk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--ink)"/></marker>
         <marker id="aPa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--pa)"/></marker>
         <marker id="aHp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--hp)"/></marker>
+    <pattern id="perf" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="#242424"/>
+      <circle cx="7" cy="7" r="3.6" fill="#0d0d0d"/>
+    </pattern>
+    <!-- L-Acoustics SB18, 정면 750 × 553 mm -->
+    <symbol id="sb18" viewBox="0 0 750 553">
+      <rect x="2" y="2" width="746" height="549" rx="10" fill="#151515" stroke="#3c3c3c" stroke-width="4"/>
+      <rect x="22" y="22" width="706" height="509" rx="4" fill="url(#perf)"/>
+      <circle cx="375" cy="276" r="212" fill="none" stroke="#0a0a0a" stroke-width="14" opacity=".55"/>
+      <circle cx="375" cy="276" r="72" fill="#0b0b0b" opacity=".45"/>
+      <rect x="22" y="22" width="706" height="509" rx="4" fill="none" stroke="#2f2f2f" stroke-width="3"/>
+      <rect x="640" y="502" width="70" height="16" rx="2" fill="#3a3a3a"/>
+    </symbol>
+    <!-- d&b MAX, 정면 580 × 392 mm (15" 동축) -->
+    <symbol id="max" viewBox="0 0 580 392">
+      <rect x="2" y="2" width="576" height="388" rx="20" fill="#151515" stroke="#3c3c3c" stroke-width="4"/>
+      <rect x="20" y="20" width="540" height="352" rx="12" fill="url(#perf)"/>
+      <circle cx="290" cy="196" r="160" fill="none" stroke="#0a0a0a" stroke-width="12" opacity=".55"/>
+      <circle cx="290" cy="196" r="46" fill="#0b0b0b" opacity=".6"/>
+      <circle cx="290" cy="196" r="46" fill="none" stroke="#333" stroke-width="3"/>
+      <rect x="20" y="20" width="540" height="352" rx="12" fill="none" stroke="#2f2f2f" stroke-width="3"/>
+      <rect x="40" y="34" width="54" height="14" rx="2" fill="#3a3a3a"/>
+    </symbol>
         <marker id="aSpk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" style="fill:var(--spk)"/></marker>
       </defs>
     </svg>
@@ -274,8 +323,8 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
     <button type="button" data-f="hp" aria-pressed="false">벽패널로 가는 것</button>
   </div>
   <div class="table-scroll">
-    <table id="t-all">
-      <thead><tr><th>스플리터 CH</th><th>소스</th><th>스플리터 단자</th><th>DL32 인풋</th><th>벽패널 · HP-8</th></tr></thead>
+    <table id="t-all" class="stack-sm">
+      <thead><tr><th class="wide-only">스플리터 CH</th><th>소스</th><th class="wide-only">스플리터 단자</th><th>DL32<span class="wide-only"> 인풋</span></th><th>벽패널<span class="wide-only"> · HP-8</span></th></tr></thead>
       <tbody></tbody>
     </table>
   </div>
@@ -298,7 +347,15 @@ svg .lbl { font-size: 12px; fill: var(--sub); text-anchor: middle; }
   <h2><span class="num">06</span>앰프 패치</h2>
   <p class="desc">4.2 시스템입니다. DL32 아웃 1~4는 MAX 네 대에 하나씩(E-PAC도 한 대씩), 아웃 5·6은 왼쪽·오른쪽 서브입니다. 연결은 <b>랜 익스텐더 5·6번</b>, 앰프에서 스피커까지는 speakON.</p>
   <div class="snakes" id="amp-snakes"></div>
-  <a class="to-layout" href="layout/"><span>스피커가 무대 어디에 놓이는지는 배치 페이지에 그려뒀습니다.</span><b>스피커 배치 보기 →</b></a>
+  <a class="teaser" href="layout/">
+    <svg class="teaser-art" viewBox="135 215 760 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+    <div class="teaser-body">
+      <span class="teaser-kicker">스피커 배치</span>
+      <strong>이 아웃들이 실제로 어디로 가는지</strong>
+      <span class="teaser-text">1_L부터 4_R, L SUB와 R SUB까지 무대 위치로 확인하세요.</span>
+      <span class="teaser-go">배치 보러 가기 →</span>
+    </div>
+  </a>
 </section>
 
 <section id="hp8">
@@ -389,9 +446,9 @@ const tbody = document.querySelector('#t-all tbody');
 tbody.innerHTML = CH.map(([ch, src, sp, dl, w]) => {
   const off = dl == null && w == null;
   const dlCell = dl == null ? dash : `${chip(dl, 'pa')}<span class="via">익스텐더 ${dlExt(dl)}</span>`;
-  const wCell = w == null ? dash : `${chip(w, 'hp')}<span class="via">${wallCable(w)}${w === FOCUSRITE ? ' · Focusrite 경유' : ''}</span>`;
+  const wCell = w == null ? dash : `${chip(w, 'hp')}<span class="via">${wallCable(w)}${w === FOCUSRITE ? ' · Focusrite' : ''}</span>`;
   return `<tr class="${off ? 'off' : ''}" data-pa="${dl != null}" data-hp="${w != null}">
-    <td class="n">${ch}</td><td class="src">${src}</td><td>${sp}</td><td>${dlCell}</td><td>${wCell}</td></tr>`;
+    <td class="n wide-only">${ch}</td><td class="src">${src}<span class="meta">CH ${ch} · ${sp}</span></td><td class="wide-only">${sp}</td><td>${dlCell}</td><td>${wCell}</td></tr>`;
 }).join('');
 
 document.querySelectorAll('.filter button').forEach(b => b.addEventListener('click', () => {
@@ -410,10 +467,10 @@ const card = ({ cls, title, sub, note, head, rows, wide, srcCol = 1 }) => `
 // 벽패널
 const wall = CH.filter(r => r[4] != null).sort((a, b) => a[4] - b[4]);
 const wallRows = list => list.map(([, src, sp, , w]) => [
-  w <= 16 ? w : w - 16, src, sp, chip(w, 'hp'),
-  w === FOCUSRITE ? `Focusrite → ${chip(w, 'hp')}` : chip(w, 'hp'),
+  w <= 16 ? w : w - 16, src, sp,
+  w === FOCUSRITE ? `${chip(w, 'hp')}<span class="meta2">Focusrite 거쳐서</span>` : chip(w, 'hp'),
 ]);
-const wallHead = ['핀', '소스', '스플리터', '벽패널', 'HP-8'];
+const wallHead = ['핀', '소스', '스플리터', '벽패널 = HP-8'];
 document.getElementById('wall-snakes').innerHTML =
   card({ cls: 'hp', title: '과사 멀티패치 16P', sub: '벽패널 1 ~ 16', head: wallHead, rows: wallRows(wall.filter(r => r[4] <= 16)), wide: true }) +
   card({ cls: 'hp', title: '랜 익스텐더 7 · 8', sub: '벽패널 17 ~ 20', note: '7번은 스플리터 → 벽패널, 8번은 벽패널 → 부스. 8번 1번 핀(VOX)은 HP-8 말고 Focusrite에 꽂습니다.', head: wallHead, rows: wallRows(wall.filter(r => r[4] > 16)) });
@@ -429,14 +486,28 @@ document.getElementById('dl32-snakes').innerHTML = html;
 
 // 앰프
 const ampRows = g => {
-  const rows = g.map(([o, name, role, amp, spk], k) => [k + 1, `Out ${o}`, `<b>${name}</b> <span class="via">${role}</span>`, amp, chip(spk, 'spk')]);
-  while (rows.length < 4) { const r = [rows.length + 1, '비움', dash, dash, dash]; r.empty = true; rows.push(r); }
+  const rows = g.map(([o, name, role, amp, spk], k) => [k + 1, `<b>${name}</b><span class="meta2">Out ${o} · ${role}</span>`, `${amp}<span class="meta2">${chip(spk, 'spk')}</span>`]);
+  while (rows.length < 4) { const r = [rows.length + 1, '비움', dash]; r.empty = true; rows.push(r); }
   return rows;
 };
-const ampHead = ['핀', 'DL32', '이름', '앰프', '스피커'];
+const ampHead = ['핀', 'DL32 아웃', '앰프 → 스피커'];
 document.getElementById('amp-snakes').innerHTML =
   card({ cls: 'spk', title: '랜 익스텐더 5', sub: 'DL32 Out 1 ~ 4 → E-PAC × 4', note: 'E-PAC 한 대에 MAX 한 대씩, 1:1로 연결합니다.', head: ampHead, rows: ampRows(OUTS.slice(0, 4)), srcCol: -1 }) +
   card({ cls: 'spk', title: '랜 익스텐더 6', sub: 'DL32 Out 5 · 6 → LA4X', note: '서브는 신호 두 개. 왼쪽 두 대가 L SUB, 오른쪽 두 대가 R SUB를 받습니다.', head: ampHead, rows: ampRows(OUTS.slice(4)), srcCol: -1 });
+
+// 스피커 배치 미리보기
+const STK = [[225, '1_L', '#2fd3bd'], [412, '2_CL', '#2fd3bd'], [637, '3_CR', '#f2b13c'], [825, '4_R', '#f2b13c']];
+const k = 0.07, base = 494, sbW = 750 * k, sbH = 553 * k, mxW = 580 * k, mxH = 392 * k;
+const face = (cx, y, w, d) => `<polygon points="${cx - w / 2},${y} ${cx + w / 2},${y} ${cx + w / 2 - 2},${y - d} ${cx - w / 2 + 2},${y - d}" fill="#2c2c2c" stroke="#3c3c3c" stroke-width=".6"/>`;
+const art = '<image href="layout/hall-front.jpg" width="1024" height="768"/>' + STK.map(([x, name, c]) => {
+  const top = base - sbH - mxH - 1.5;
+  return `<ellipse cx="${x}" cy="${base + 1}" rx="${sbW * 0.62}" ry="4" fill="#000" opacity=".45"/>
+    ${face(x, base - sbH, sbW, 4.5)}<use href="#sb18" x="${x - sbW / 2}" y="${base - sbH}" width="${sbW}" height="${sbH}"/>
+    ${face(x, top, mxW, 3.5)}<use href="#max" x="${x - mxW / 2}" y="${top}" width="${mxW}" height="${mxH}"/>
+    <g transform="translate(${x - 38} ${top - 50})"><rect width="76" height="34" rx="5" fill="#fff" opacity=".95"/><rect y="28" width="76" height="6" rx="2" fill="${c}"/>
+    <text x="38" y="22" text-anchor="middle" font-size="18" font-weight="700" fill="#111" font-family="Pretendard, sans-serif">${name}</text></g>`;
+}).join('');
+document.querySelectorAll('.teaser-art').forEach(el => { el.innerHTML = art; });
 
 // HP-8 → M32R
 document.getElementById('hp8-snakes').innerHTML =
