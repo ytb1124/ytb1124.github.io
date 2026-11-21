@@ -173,3 +173,44 @@ body { background-image: none; background-color: #0a0a09; color: #ecebe6; }
 .site-frame :is(h1, h2, h3, h4, h5, h6):not(.home-hero h1) :is(a, span, strong) {
   font-family: var(--heading-font) !important;
 }
+
+/* ---------- Project cards: small thumbnail beside the title ----------
+   Phones (≤480px) already use this layout in reading.css; extend it upward
+   so a row of cards is about one text block tall instead of image + text. */
+@media (min-width: 481px) {
+  .site-frame .catalog-grid .project-card {
+    display: grid;
+    grid-template-columns: var(--thumb, 168px) minmax(0, 1fr);
+    gap: 6px 20px;
+    align-items: start;
+  }
+  .site-frame .catalog-grid .project-media,
+  .site-frame .catalog-grid .project-media:has(.concept-cover) { grid-column: 1; grid-row: 1 / 4; aspect-ratio: 4/3; }
+  .site-frame .catalog-grid .project-copy { display: contents; }
+  .site-frame .catalog-grid .project-meta { grid-column: 2; grid-row: 1; }
+  .site-frame .catalog-grid .project-copy h3 { grid-column: 2; grid-row: 2; margin: 0; min-height: 0; }
+  .site-frame .catalog-grid .project-status { grid-column: 2; grid-row: 3; margin: 0; }
+  .site-frame .catalog-grid :is(.project-question, .project-result) { grid-column: 1 / -1; }
+  .site-frame .catalog-grid .project-question { margin-top: 14px !important; }
+  .site-frame .catalog-grid .concept-cover { justify-content: center; padding: 10px; }
+  .site-frame .catalog-grid .concept-cover > span,
+  .site-frame .catalog-grid .concept-cover small { display: none; }
+  .site-frame .catalog-grid .concept-cover strong { font-size: 15px; line-height: 1.3; margin: 0; }
+  .site-frame .catalog-grid { gap: 40px 36px; }
+}
+@media (min-width: 481px) and (max-width: 900px) { .site-frame { --thumb: 120px; } }
+
+/* Home keeps four image-on-top cards on desktop; trim the image height so the row stays short. */
+@media (min-width: 1101px) {
+  .site-frame .home-featured .project-media { aspect-ratio: 16/9; }
+}
+@media (min-width: 481px) and (max-width: 1100px) {
+  .site-frame .home-featured .project-card { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 6px 18px; align-items: start; }
+  .site-frame .home-featured .project-media { grid-column: 1; grid-row: 1 / 4; aspect-ratio: 4/3; }
+  .site-frame .home-featured .project-copy { display: contents; }
+  .site-frame .home-featured .project-meta { grid-column: 2; grid-row: 1; }
+  .site-frame .home-featured .project-copy h3 { grid-column: 2; grid-row: 2; margin: 0; min-height: 0; }
+  .site-frame .home-featured .project-status { grid-column: 2; grid-row: 3; margin: 0; }
+  .site-frame .home-featured :is(.project-question, .project-result) { grid-column: 1 / -1; }
+  .site-frame .home-featured .project-question { margin-top: 14px !important; }
+}

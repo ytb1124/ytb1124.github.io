@@ -8,6 +8,7 @@ import { projectSummaries } from '../data/project-summaries';
 import { catalogProjects, getProjectResources, getProjectSummary, type Project, site } from '../data/site';
 import { getSelectedWriting } from '../data/writing';
 import './simple.css';
+import './simple-finish.css';
 
 export const dynamic = 'force-static';
 

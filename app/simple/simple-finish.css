@@ -1,0 +1,50 @@
+/* Finishing layer for /simple, loaded after simple.css. Mirrors app/finish.css:
+   neutral labels, underlined links, no hover zoom, small side thumbnails. */
+.site-frame.simple-page { --simple-accent: var(--ink); --simple-muted: var(--muted); }
+.simple-page .simple-hero h1 span { color: var(--muted); }
+.simple-page :is(.simple-eyebrow, .simple-number) { color: var(--muted); font-size: 13px; }
+.simple-page .simple-role h4 { color: var(--soft); font-size: 12px; font-weight: 500; }
+.simple-page .simple-publication .simple-award { color: var(--soft) !important; font-weight: 500; }
+.simple-page :is(.simple-links a span, .simple-section-heading > a span, .simple-email span) { color: inherit; opacity: .55; }
+.simple-page :is(.simple-links a, .simple-section-heading > a, .simple-more a, .simple-cv > a) {
+  border: 0;
+  padding-block: 2px;
+  text-transform: none;
+  letter-spacing: 0;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(236, 235, 230, .35);
+  text-underline-offset: 4px;
+}
+.simple-page a:hover { color: var(--ink); text-decoration-color: currentColor; }
+.simple-page a:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+.simple-page .simple-project-image:hover img { transform: none; }
+.simple-page .simple-ensemble-image:hover img { transform: scale(1.8); }
+.simple-page .simple-project-meta { color: var(--muted); font-size: 12px; }
+.simple-page .simple-portrait { filter: none; }
+
+/* /simple cards: thumbnail beside meta and title. */
+@media (min-width: 501px) {
+  .simple-page :is(.simple-project, .simple-music-project) {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 4px 16px;
+    align-content: start;
+  }
+  .simple-page :is(.simple-project, .simple-music-project) > .simple-project-image { grid-column: 1; grid-row: 1 / 3; aspect-ratio: 4/3; align-self: start; }
+  .simple-page :is(.simple-project, .simple-music-project) > .simple-project-meta { grid-column: 2; grid-row: 1; margin-top: 0; flex-direction: column; gap: 0; }
+  .simple-page :is(.simple-project, .simple-music-project) > h3 { grid-column: 2; grid-row: 2; margin-top: 2px; font-size: 17px; }
+  .simple-page :is(.simple-project, .simple-music-project) > :not(.simple-project-image, .simple-project-meta, h3) { grid-column: 1 / -1; }
+  .simple-page :is(.simple-project, .simple-music-project) > .simple-project-summary { margin-top: 14px !important; }
+}
+@media (max-width: 500px) {
+  .simple-page :is(.simple-project, .simple-music-project) {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 4px 14px;
+  }
+  .simple-page :is(.simple-project, .simple-music-project) > .simple-project-image { grid-column: 1; grid-row: 1 / 3; aspect-ratio: 4/3; }
+  .simple-page :is(.simple-project, .simple-music-project) > .simple-project-meta { grid-column: 2; grid-row: 1; margin-top: 0; flex-direction: column; gap: 0; }
+  .simple-page :is(.simple-project, .simple-music-project) > h3 { grid-column: 2; grid-row: 2; margin-top: 2px; }
+  .simple-page :is(.simple-project, .simple-music-project) > :not(.simple-project-image, .simple-project-meta, h3) { grid-column: 1 / -1; }
+}
