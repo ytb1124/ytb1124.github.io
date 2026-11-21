@@ -42,7 +42,7 @@
           ]
         },
         "videoLabel": {
-          "en": "WATCH PERFORMANCE ON YOUTUBE →",
+          "en": "Watch the performance on YouTube →",
           "ko": "YouTube에서 공연 보기 →"
         },
         "reports": {
@@ -50,7 +50,7 @@
           "ko": "/reports/afc-ko.pdf"
         },
         "reportLabel": {
-          "en": "OPEN FIELD CASE STUDY →",
+          "en": "Open the field case study →",
           "ko": "현장 사례 보고서 열기 →"
         },
         "sources": []
@@ -86,7 +86,7 @@
           ]
         },
         "videoLabel": {
-          "en": "WATCH PROJECT ON YOUTUBE →",
+          "en": "Watch the project on YouTube →",
           "ko": "YouTube에서 프로젝트 보기 →"
         },
         "reports": null,
@@ -176,7 +176,7 @@
     },
     "playlistUrl": "https://youtube.com/playlist?list=OLAK5uy_nrL9Q46lqqVpIovhMFTqRS7W1ap8rybg4&si=g3Gbsei3riyYR1IX",
     "listenLabel": {
-      "en": "LISTEN TO MERRY NIGHT →",
+      "en": "Listen to Merry Night →",
       "ko": "Merry Night 듣기 →"
     }
   },

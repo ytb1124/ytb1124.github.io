@@ -48,3 +48,24 @@
   .simple-page :is(.simple-project, .simple-music-project) > h3 { grid-column: 2; grid-row: 2; margin-top: 2px; }
   .simple-page :is(.simple-project, .simple-music-project) > :not(.simple-project-image, .simple-project-meta, h3) { grid-column: 1 / -1; }
 }
+
+/* Type: same scale and roles as the main site. Maru Buri only for the name,
+   section headings and item titles; labels, roles and links stay in Inter. */
+.site-frame.simple-page .simple-hero h1 { font-size: var(--fs-display); line-height: 1.25; }
+.simple-page .simple-role-line { margin-top: 6px !important; color: var(--muted); font-size: var(--fs-body); }
+.simple-page .simple-intro { margin-top: 16px !important; font-size: var(--fs-body); line-height: 1.75; }
+.site-frame.simple-page .simple-section h2 { font-size: var(--fs-h2); line-height: 1.35; }
+.site-frame.simple-page :is(.simple-project, .simple-music-project) > h3 { font-size: var(--fs-h3-compact); line-height: 1.4; }
+.site-frame.simple-page :is(.simple-publication h3, .simple-planned h3, .simple-cv h3, .simple-contact h3) { font-size: var(--fs-h3); line-height: 1.4; }
+.site-frame.simple-page .simple-section .simple-role h4 {
+  font-family: var(--text-font) !important; font-weight: 500; font-size: var(--fs-label);
+  color: var(--soft); letter-spacing: 0;
+}
+.simple-page :is(.simple-project-summary, .simple-role p, .simple-section-description, .simple-publication > p:not(.simple-eyebrow)) { font-size: var(--fs-small); }
+.simple-page .simple-project .simple-links,
+.simple-page .simple-music-project .simple-links { font-size: var(--fs-label); }
+.simple-page .simple-email { font-family: var(--heading-font); font-weight: 700; font-size: var(--fs-h2); letter-spacing: 0; }
+.simple-page .simple-contact h3 { margin-top: 0; }
+@media (max-width: 500px) {
+  .site-frame.simple-page .simple-hero h1 { font-size: 26px; }
+}

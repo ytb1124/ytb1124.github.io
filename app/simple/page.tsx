@@ -49,7 +49,7 @@ export default function SimplePage() {
           <a className="brand" href="#top">{site.name}</a>
           <nav className="desktop-nav simple-nav" aria-label="Primary navigation">
             <a href="#projects">Projects</a>
-            <a href="#music">Music Production</a>
+            <a href="#music">Music</a>
             <a href="#research">Research</a>
             <a href="#bio">Bio</a>
             <ResourceLink href={site.socials.cv}>CV (PDF)</ResourceLink>
@@ -59,7 +59,8 @@ export default function SimplePage() {
       <main className="simple-main" id="main-content">
         <section className="simple-hero" aria-labelledby="hero-heading">
           <div className="simple-hero-copy">
-            <h1 id="hero-heading">{site.name} <span>/ {site.home.role}</span></h1>
+            <h1 id="hero-heading">{site.name}</h1>
+            <p className="simple-role-line">{site.home.role}</p>
             <p className="simple-intro">{site.home.intro}</p>
             <ul className="simple-links simple-intro-links"><li><a href={site.contact.emailHref}>Email <span aria-hidden="true">↗</span></a></li><li><ResourceLink href="https://github.com/ytb1124">GitHub</ResourceLink></li><li><ResourceLink href={site.socials.cv}>CV (PDF)</ResourceLink></li><li><ResourceLink href="https://taebin.link/">Full website · taebin.link</ResourceLink></li></ul>
           </div>
@@ -67,17 +68,18 @@ export default function SimplePage() {
         </section>
 
         <section className="simple-section" id="projects" aria-labelledby="projects-heading">
-          <div className="simple-section-heading"><div><span className="simple-number">{site.pageContent.en.projects.eyebrow}</span><h2 id="projects-heading">Featured projects</h2></div><a href="#research">Research & publications <span aria-hidden="true">↓</span></a></div>
+          <div className="simple-section-heading"><div><span className="simple-number">Selected work · 2025–2026</span><h2 id="projects-heading">Featured projects</h2></div><a href="#research">Research & publications <span aria-hidden="true">↓</span></a></div>
           <div className="simple-section-content simple-project-grid">
             {catalogProjects.map(project => {
+              const summary = getProjectSummary(project, 'en');
               const technicalRole = projectSummaries[project.slug]?.en?.build ?? project.contribution?.design.en;
               return (
               <article className="simple-project" id={project.slug} key={project.slug}>
                 <a className={`simple-project-image${project.slug === 'sound-manna' ? ' simple-ensemble-image' : ''}`} href={`/projects/${project.slug}`} aria-label={`Read more about ${project.title}`}><PortfolioImage src={project.image} alt={project.title} width={1200} height={750} sizes="auto, (max-width: 900px) 45vw, 360px" /></a>
                 <div className="simple-project-meta"><span>{project.category}</span><span>{project.year}{project.ongoing ? ' · Ongoing' : ''}</span></div>
                 <h3>{project.title}</h3>
-                <p className="simple-project-summary">{getProjectSummary(project, 'en')}</p>
-                {technicalRole && <div className="simple-role"><h4>My technical role</h4><p>{technicalRole}</p></div>}
+                <p className="simple-project-summary">{summary}</p>
+                {technicalRole && technicalRole !== summary && <div className="simple-role"><h4>My technical role</h4><p>{technicalRole}</p></div>}
                 <ul className="simple-links" aria-label={`${project.title} resources`}>
                   {projectLinks(project).map(link => <li key={link.href}><ResourceLink href={link.href}>{link.label}</ResourceLink></li>)}
                 </ul>
@@ -144,8 +146,7 @@ export default function SimplePage() {
             </div>
             <div className="simple-cv" id="cv"><div><h3>Curriculum vitae</h3><p>{site.experience.cvDescription}</p></div><ResourceLink href={site.socials.cv}>View CV (PDF)</ResourceLink></div>
             <div className="simple-contact" id="contact">
-              <p className="simple-eyebrow">{site.pageContent.en.contact.title}</p>
-              <h3>{site.pageContent.en.contact.eyebrow}</h3>
+              <h3>{site.pageContent.en.contact.title}</h3>
               <p className="simple-section-description">{site.pageContent.en.contact.intro}</p>
               <a className="simple-email" href={site.contact.emailHref}>{site.contact.email}<span aria-hidden="true"> ↗</span></a>
               <ul className="simple-links"><li><ResourceLink href={site.socials.linkedin}>LinkedIn</ResourceLink></li><li><ResourceLink href="https://github.com/ytb1124">GitHub</ResourceLink></li><li><ResourceLink href={site.socials.youtube}>YouTube</ResourceLink></li></ul>
