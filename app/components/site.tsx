@@ -8,9 +8,11 @@ import { getProjectImage, getProjectSummary, Locale, localizedPath, Project, sit
 const navigation = [
   { label: 'About', koreanLabel: '소개', path: '/profile' },
   { label: 'Projects', koreanLabel: '프로젝트', path: '/projects' },
-  { label: 'Music Production', koreanLabel: '음악 제작', path: '/music-production' },
+  { label: 'Publications', shortLabel: 'Papers', koreanLabel: '논문·발표', path: '/publications' },
+  { label: 'Music', koreanLabel: '음악', path: '/music-production' },
   { label: 'Experience', koreanLabel: '경력', path: '/experience' },
-  { label: 'Contact', koreanLabel: '연락처', path: '/contact' },
+  // Email already closes the home page and the footer, so Contact stays out of the header.
+  { label: 'Contact', koreanLabel: '연락처', path: '/contact', footerOnly: true },
   { label: 'CV ↗', koreanLabel: 'CV ↗', path: site.socials.cv, external: true },
 ];
 
@@ -38,9 +40,9 @@ export function Header({ locale, path = '/' }: { locale: Locale; path?: string }
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <a className="brand" href={localizedPath(locale, '/')}>{locale==='ko'?'유태빈':site.name}</a>
       <nav className="desktop-nav" aria-label={locale === 'ko' ? '주요 메뉴' : 'Primary navigation'}>
-        {navigation.filter(item => !item.external).map(item=>{
+        {navigation.filter(item => !item.external && !item.footerOnly).map(item=>{
           const active = path === item.path || path?.startsWith(`${item.path}/`);
-          return <a className={active?'is-active':''} aria-current={active?'page':undefined} key={item.label} href={localizedPath(locale,item.path)}>{locale === 'ko' ? item.koreanLabel : item.label}</a>;
+          return <a className={active?'is-active':''} aria-current={active?'page':undefined} key={item.label} href={localizedPath(locale,item.path)}>{locale === 'ko' || !item.shortLabel ? (locale === 'ko' ? item.koreanLabel : item.label) : <><span className="nav-full">{item.label}</span><span className="nav-short">{item.shortLabel}</span></>}</a>;
         })}
       </nav>
       <div className="header-actions">

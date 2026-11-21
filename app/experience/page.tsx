@@ -1,9 +1,7 @@
 import { PageIntro } from '../components/page-intro';
 import { PageShell } from '../components/site';
-import { WritingCitation } from '../components/writing-citation';
-import { allProjects, localizedPath, site } from '../data/site';
+import { localizedPath, site } from '../data/site';
 import { koreanExperience } from '../data/korean';
-import { getSelectedWriting } from '../data/writing';
 
 export const dynamic = 'force-static';
 
@@ -11,7 +9,6 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
   const ko = locale === 'ko';
   const copy = site.pageContent[locale].experience;
   const exp = ko ? { ...site.experience, ...koreanExperience } : site.experience;
-  const plannedSubmission = allProjects.find(project => project.slug === 'corrective-impulse-response')?.plannedSubmission;
   return <PageShell locale={locale} path="/experience">
     <div className="experience-essential overview-page">
       <PageIntro eyebrow={copy.eyebrow} title={exp.title}
@@ -23,20 +20,7 @@ export default function ExperiencePage({ locale = 'en' as const }: { locale?: 'e
         {copy.highlights.map(([period,role,org,description]) => <article className="career-line" key={role}><time>{period}</time><div><h3>{role}</h3><span>{org}</span></div><p>{description}</p></article>)}
         <a className="text-link career-work-link" href={localizedPath(locale,'/music-production')}>{ko ? '공연과 음악 제작 작업 보기 →' : 'See my sound and music work →'}</a>
       </section>
-      <section id="selected-writing" className="writing-essential">
-        <h2>{ko ? '발표와 기고' : 'Selected Writing & Presentations'}</h2>
-        {plannedSubmission && <article><span className="writing-type">{plannedSubmission.label[locale]}</span><div><a href={plannedSubmission.href} target="_blank" rel="noopener noreferrer">{plannedSubmission.venue} ↗</a><p>{plannedSubmission.description[locale]}</p></div></article>}
-        {getSelectedWriting(locale).map(publication => {
-          const primaryLink = publication.links.find(link => link.label.en.includes('(KO)')) ?? publication.links[0];
-          return <article key={publication.id}>
-            <span className="writing-type">{publication.kind}</span>
-            <div>
-              <WritingCitation publication={publication} titleHref={primaryLink?.href} />
-              {publication.award && <p className="writing-award">{publication.award}</p>}
-            </div>
-          </article>;
-        })}
-      </section>
+      <p className="experience-publications-link"><a className="text-link" href={localizedPath(locale,'/publications')}>{ko ? '논문과 발표 보기 →' : 'See publications and presentations →'}</a></p>
       <section className="experience-extra"><h2 className="always-visible-heading">{ko ? '기타 경력 · 장학금 · 자격' : 'Other experience, scholarships & qualifications'}</h2>
         <div className="extra-columns"><section><h3>{ko ? '기타 경력' : 'Other experience'}</h3><ul>
           <li><strong>{copy.churchRole}</strong><span>{copy.churchDescription}</span></li>

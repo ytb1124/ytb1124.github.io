@@ -38,7 +38,7 @@
         "title": "Immersive Audio",
         "focus": "How we hear",
         "question": "How can sound reshape space?",
-        "body": "The same music changes from one venue to another. I measure those differences and build systems to shape the sound around them.",
+        "body": "The same music sounds different in every venue. I measure the differences and shape sound to fit the room.",
         "links": [
           {
             "label": "Compensation Filter",
@@ -54,7 +54,7 @@
         "title": "Musical Expression",
         "focus": "How we express",
         "question": "How can music reflect individuality?",
-        "body": "Working with performers shifted my attention from the room to the person. I build instruments and editing tools that leave room for individual touch and musical decisions.",
+        "body": "From the room to the person. I build instruments and editing tools that keep each player’s touch.",
         "links": [
           {
             "label": "Personalized drums",
@@ -70,7 +70,7 @@
         "title": "Musical Participation",
         "focus": "How we join in",
         "question": "How can we be different, yet together?",
-        "body": "Adjusting sound for a venue and drum response for one player led me to ask what listeners should be able to choose. I built Sound Manna to explore that question through sound setup, mixing, and cue comparisons. It currently uses pink-noise placeholders; real recordings and CI user evaluation are next.",
+        "body": "From the player to the listener. Sound Manna lets each person set up, mix, and compare the sound.",
         "links": [
           {
             "label": "Sound Manna · prototype",
@@ -128,7 +128,7 @@
         "title": "이머시브 오디오",
         "focus": "어떻게 듣는가",
         "question": "소리는 공간을 어떻게 재구성할 수 있을까?",
-        "body": "같은 음악도 공연장이 바뀌면 다르게 들립니다. 그 차이를 측정하고, 공간에 맞게 소리를 조정하는 시스템을 만듭니다.",
+        "body": "같은 음악도 공연장마다 다르게 들립니다. 그 차이를 측정하고 공간에 맞게 소리를 조정합니다.",
         "links": [
           {
             "label": "보정 필터 시스템",
@@ -144,7 +144,7 @@
         "title": "음악적 표현",
         "focus": "어떻게 표현하는가",
         "question": "음악은 각자의 개성을 어떻게 담아낼 수 있을까?",
-        "body": "연주자와 함께 일하며 관심은 공간에서 사람으로 옮겨갔습니다. 각자의 타격 습관과 음악적 선택을 담을 수 있는 악기와 편집 도구를 만듭니다.",
+        "body": "공간에서 사람으로. 연주자 각자의 터치를 담는 악기와 편집 도구를 만듭니다.",
         "links": [
           {
             "label": "연주자 맞춤 전자드럼",
@@ -160,7 +160,7 @@
         "title": "음악적 참여",
         "focus": "어떻게 함께하는가",
         "question": "우리는 어떻게 서로 다르면서도 함께할 수 있을까?",
-        "body": "공간에 맞춘 소리 보정과 한 연주자에 맞춘 드럼 반응을 만들며, 듣는 사람은 무엇을 직접 선택할 수 있어야 할지 묻게 됐습니다. 소리 맞춤·믹싱·단서 비교를 직접 해보는 소리와 만나를 구현했습니다. 현재는 핑크노이즈 시험판이며, 실제 녹음과 CI 사용자 평가를 준비할 단계입니다.",
+        "body": "연주자에서 듣는 사람으로. 소리와 만나에서 각자 소리를 맞추고, 섞고, 비교합니다.",
         "links": [
           {
             "label": "소리와 만나 · 프로토타입",

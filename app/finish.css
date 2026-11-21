@@ -45,7 +45,7 @@ body { background-image: none; background-color: #0a0a09; color: #ecebe6; }
   padding: 0;
   background: none;
   color: var(--muted);
-  font-family: Sentient, Georgia, serif;
+  font-family:var(--text-font);
   font-size: 13px;
   font-style: italic;
   font-weight: 400;
@@ -95,7 +95,6 @@ body { background-image: none; background-color: #0a0a09; color: #ecebe6; }
 
 /* Home: numbered research path without the arrow choreography. */
 .site-frame .home-inquiry-marker { border-top-color: #3a3a36; color: var(--muted); }
-.site-frame .home-inquiry-marker > span:last-child { display: none; }
 .site-frame .home-inquiry-links { border-top-color: #2a2a27; }
 .site-frame .home-inquiry-links a { color: var(--soft); }
 .site-frame :is(.home-brief, .home-inquiry, .home-closing) a:hover { color: var(--ink); }
@@ -105,7 +104,7 @@ body { background-image: none; background-color: #0a0a09; color: #ecebe6; }
 /* Motto: set as a quiet line of type, not an orange slogan. */
 .site-frame :is(.home-inquiry, .question-progression) .research-motto {
   color: var(--ink);
-  font-family: Sentient, Georgia, serif;
+  font-family:var(--text-font);
   font-style: italic;
   font-weight: 400;
   font-size: clamp(22px, 2.4vw, 28px);
@@ -153,18 +152,31 @@ body { background-image: none; background-color: #0a0a09; color: #ecebe6; }
 /* Hover and keyboard focus: neutral instead of salmon. */
 .site-frame :is(a, summary, input, select, .dataset-table-wrap, .production-pick-summary):focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
 
+/* Maru Buri is split so English pages fetch only the 23KB Latin subset;
+   the full Korean file loads only when a page actually contains Hangul. */
+@font-face {
+  font-family: 'Maru Buri';
+  src: url('/fonts/maru-buri-bold-latin.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2190-2199, U+2212, U+2215;
+}
 @font-face {
   font-family: 'Maru Buri';
   src: url('/fonts/maru-buri-bold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
+  unicode-range: U+1100-11FF, U+3000-303F, U+3130-318F, U+A960-A97F, U+AC00-D7AF, U+D7B0-D7FF, U+FF00-FFEF;
 }
 
-.site-frame {
+/* Two typefaces: Maru Buri for headings, Inter Display for everything else.
+   Jersey stays only in the opening hero. */
+:root {
   --heading-font: 'Maru Buri', Georgia, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', serif;
+  --text-font: 'Inter Display', Arial, sans-serif;
 }
 .site-frame :is(h1, h2, h3, h4, h5, h6, .home-reveal-name, .question-progression .single-line-question):not(.home-hero h1),
-.site-frame .site-header :is(.brand, .desktop-nav a, .language-picker select, .language-picker option) {
+.site-frame .site-header .brand {
   font-family: var(--heading-font) !important;
   font-weight: 700;
   font-synthesis: none;
@@ -213,4 +225,178 @@ body { background-image: none; background-color: #0a0a09; color: #ecebe6; }
   .site-frame .home-featured .project-status { grid-column: 2; grid-row: 3; margin: 0; }
   .site-frame .home-featured :is(.project-question, .project-result) { grid-column: 1 / -1; }
   .site-frame .home-featured .project-question { margin-top: 14px !important; }
+}
+
+/* ---------- Type cleanup ----------
+   Former Sentient text now reads in the body face; italics are dropped because
+   Inter Display has no italic and synthesized slants look accidental. */
+.site-frame :is(.project-status, .research-question, .detail-aside strong, .experience-meta) { font-style: normal; }
+.site-frame :is(.home-inquiry, .question-progression) .research-motto,
+.site-frame .home-email {
+  font-family: var(--heading-font);
+  font-style: normal;
+  font-weight: 700;
+  font-synthesis: none;
+}
+.site-frame .site-header :is(.desktop-nav a, .language-picker select) { font-family: var(--text-font); font-weight: 400; }
+.locale-ko .site-header :is(.desktop-nav a, .language-picker select) { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
+
+/* Image boxes stay dark while previews load instead of flashing light grey. */
+.site-frame .project-media { background: #161614; }
+
+/* ---------- Phone header: one quiet row of links ----------
+   "Music Production" shortens to "Music" so all five links fit on one line. */
+.nav-short { display: none; }
+@media (max-width: 760px) {
+  .site-frame .desktop-nav { gap: 0; justify-content: space-between; }
+  .site-frame .desktop-nav a { flex: 0 1 auto; padding-inline: 2px; font-size: 13px; white-space: nowrap; }
+  .site-frame .desktop-nav .nav-full { display: none; }
+  .site-frame .desktop-nav .nav-short { display: inline; }
+}
+
+/* ---------- Phone cards: the question leads, the result supports ---------- */
+@media (max-width: 480px) {
+  .site-frame .catalog-grid .project-status { font-size: 12px !important; color: var(--muted); }
+  .site-frame .catalog-grid .project-question { margin-top: 12px !important; font-size: 14px !important; line-height: 1.5 !important; }
+  .site-frame .catalog-grid .project-result { margin-top: 4px !important; font-size: 13px; line-height: 1.65; color: var(--muted); }
+}
+
+/* ---------- Home: each research strand carries its own projects ----------
+   Replaces the separate "Selected Projects" grid that repeated the same work. */
+.site-frame .home-research .section-head { align-items: baseline; margin-bottom: 6px; padding-bottom: 0; border: 0; }
+.site-frame .home-research .section-head h2 { font-size: 20px; line-height: 1.3; letter-spacing: -.01em; }
+.site-frame .home-research .home-featured-intro { margin-bottom: 36px; font-size: 13px; color: var(--muted); }
+.site-frame .home-research .home-inquiry-body { margin-bottom: 22px; }
+.site-frame .home-strand-projects { display: grid; gap: 18px; margin-top: auto; padding-top: 20px; border-top: 1px solid #2a2a27; }
+.site-frame .home-strand-projects .project-card { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 4px 14px; align-items: start; }
+.site-frame .home-strand-projects .project-media { grid-column: 1; grid-row: 1 / 4; aspect-ratio: 4/3; }
+.site-frame .home-strand-projects .project-copy { display: contents; }
+.site-frame .home-strand-projects .project-meta { grid-column: 2; grid-row: 1; font-size: 11px; }
+.site-frame .home-strand-projects .project-meta > span + span { display: none; }
+.site-frame .home-strand-projects .project-copy h3, .site-frame .home-research .home-strand-projects .project-copy h3 { grid-column: 2; grid-row: 2; margin: 0; min-height: 0; font-size: 16px; line-height: 1.35; }
+.site-frame .home-strand-projects .project-status { grid-column: 2; grid-row: 3; margin: 0; font-size: 12px !important; }
+.site-frame .home-strand-projects :is(.project-question, .project-result) { display: none; }
+.site-frame .home-strand-projects .concept-cover { justify-content: center; padding: 8px; }
+.site-frame .home-strand-projects .concept-cover > span,
+.site-frame .home-strand-projects .concept-cover small { display: none; }
+.site-frame .home-strand-projects .concept-cover strong { font-size: 12px; line-height: 1.3; margin: 0; }
+.site-frame .home-research .research-motto { margin-top: 64px; }
+@media (max-width: 640px) {
+  .site-frame .home-research .home-featured-intro { margin-bottom: 24px; }
+  .site-frame .home-research .section-head { display: flex; flex-direction: row; justify-content: space-between; align-items: baseline; gap: 16px; }
+  .site-frame .home-research .section-head h2 { order: -1; font-size: 19px; }
+  .site-frame .home-research .section-head > a { flex-shrink: 0; font-size: 12px; text-align: right; line-height: 1.5; }
+  .site-frame .home-research .research-motto { margin-top: 44px; }
+}
+
+/* Desktop: the three strands share row lines (subgrid), so labels, questions,
+   project lists and their dividers line up even when one body runs longer. */
+.site-frame .home-inquiry-marker > span { font-size: 12px; }
+@media (min-width: 761px) {
+  .site-frame .home-research .home-inquiry-path { grid-template-rows: repeat(6, auto); column-gap: 56px; row-gap: 0; }
+  .site-frame .home-research .home-inquiry-path > li { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; }
+  .site-frame .home-research .home-inquiry-focus { margin: 24px 0 6px; }
+  .site-frame .home-research .home-inquiry-path > li > h3 { margin: 0 0 14px; font-size: clamp(24px, 2.1vw, 29px); line-height: 1.2; }
+  .site-frame .home-research .home-inquiry-path > li > h4 { min-height: 0; margin: 0 0 16px; font-size: 17px; line-height: 1.45; }
+  .site-frame .home-research .home-inquiry-body { margin: 0 0 32px; max-width: 46ch; color: var(--muted); font-size: 14px; line-height: 1.75; }
+  .site-frame .home-research .home-strand-projects { align-content: start; margin-top: 0; padding-top: 24px; gap: 20px; }
+}
+
+/* Section page titles (Projects, Publications, Music, Experience, ...):
+   Maru Buri Bold reads heavier than the old serif, so the titles step down. */
+.site-frame .page-intro h1 { font-size: clamp(24px, 2vw, 28px); line-height: 1.3; }
+@media (max-width: 760px) { .site-frame .page-intro h1 { font-size: 24px; } }
+
+/* ---------- Projects page: an index of rows ----------
+   Each project reads left to right (image, then year, title, question, result)
+   instead of two half-width cards whose text spilled under the thumbnail. */
+.site-frame .research-catalog .page-intro { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.site-frame .research-catalog .question-progression { margin: 32px 0 0; padding: 2px 0 2px 18px; border: 0; border-left: 2px solid var(--ink); }
+.site-frame .research-catalog .question-progression .research-motto {
+  margin: 0; padding: 0; border: 0; text-align: left;
+  font-size: 17px; line-height: 1.4;
+}
+.site-frame .research-catalog .question-progression .research-motto-copy { margin: 6px 0 0; text-align: left; font-size: 13px; line-height: 1.6; text-wrap: balance; }
+
+.site-frame .research-catalog .catalog-group { margin-top: 64px; }
+.site-frame .research-catalog .question-progression + .catalog-group { margin-top: 56px; }
+/* Section heads lead with the research question; number and strand name become a small label. */
+.site-frame .research-catalog .catalog-group-head,
+.site-frame .research-catalog .question-progression + .catalog-group .catalog-group-head {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0 8px; align-items: baseline;
+  margin: 0; padding: 0 0 20px; border: 0; border-bottom: 1px solid var(--ink);
+}
+.site-frame .research-catalog .catalog-group-head > span { color: var(--muted); font-size: 13px; line-height: 1.5; }
+.site-frame .research-catalog .catalog-group-head > div { display: contents; }
+.site-frame .research-catalog .catalog-group .catalog-group-head h2 { order: 0; margin: 0; color: var(--muted); font-family: var(--text-font) !important; font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0; }
+.site-frame .research-catalog .catalog-group-head p {
+  grid-column: 1 / -1; margin: 10px 0 0; color: var(--ink);
+  font-family: var(--heading-font); font-size: var(--fs-h2); font-weight: 700; line-height: 1.35;
+}
+.locale-ko .research-catalog .catalog-group-head h2 { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif !important; }
+
+.site-frame .research-catalog .catalog-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+.site-frame .research-catalog .catalog-grid .project-card-link + .project-card-link { border-top: 1px solid var(--line); }
+.site-frame .research-catalog .catalog-grid .project-card {
+  display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 0 36px;
+  align-items: start; height: auto; padding: 28px 0;
+}
+.site-frame .research-catalog .catalog-grid .project-media { grid-column: 1; grid-row: 1; aspect-ratio: 16/10; }
+.site-frame .research-catalog .catalog-grid .project-copy { display: block; grid-column: 2; padding: 0; }
+.site-frame .research-catalog .catalog-grid .project-meta { display: flex; font-size: 12px; }
+.site-frame .research-catalog .catalog-grid .project-copy h3 { margin: 6px 0 0; min-height: 0; font-size: 20px; line-height: 1.35; }
+.site-frame .research-catalog .catalog-grid .project-status { display: block; margin: 4px 0 0; padding: 0; font-size: 13px !important; color: var(--muted); }
+.site-frame .research-catalog .catalog-grid .project-question { max-width: 64ch; margin: 16px 0 0 !important; color: var(--ink) !important; font-size: 15px !important; font-weight: 500; line-height: 1.55 !important; }
+.site-frame .research-catalog .catalog-grid .project-result { max-width: 64ch; margin: 6px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+@media (max-width: 760px) {
+  .site-frame .research-catalog .catalog-group { margin-top: 44px; }
+  .site-frame .research-catalog .catalog-group-head p { font-size: 21px; }
+  .site-frame .research-catalog .catalog-grid .project-card { grid-template-columns: 104px minmax(0, 1fr); gap: 0 16px; padding: 22px 0; }
+  .site-frame .research-catalog .catalog-grid .project-media { aspect-ratio: 4/3; }
+  .site-frame .research-catalog .catalog-grid .project-copy h3 { font-size: 17px; }
+  .site-frame .research-catalog .catalog-grid .project-question { font-size: 14px !important; margin-top: 12px !important; }
+  .site-frame .research-catalog .catalog-grid .project-result { font-size: 13px; }
+}
+
+/* ---------- One type scale ----------
+   28 page title · 22 section heading · 18 item title · 16 compact item title
+   17 lead / question · 15 body · 13 small · 12 label. Desktop and tablet;
+   phones keep their own smaller steps below. */
+:root {
+  --fs-display: 28px; --fs-h2: 22px; --fs-h3: 18px; --fs-h3-compact: 16px;
+  --fs-lead: 17px; --fs-body: 15px; --fs-small: 13px; --fs-label: 12px;
+}
+@media (min-width: 761px) {
+  /* Page titles: section pages and project detail pages share one size. */
+  .site-frame { --page-title-size: var(--fs-display); }
+  .site-frame .page-intro h1 { font-size: var(--fs-display); }
+
+  /* Display moments */
+  .site-frame .home-brief h2 { font-size: var(--fs-display) !important; }
+  .site-frame .home-story-copy h2,
+  .site-frame .home-email { font-size: 24px !important; }
+
+  /* Section headings */
+  .site-frame main :is(
+    .career-highlights > h2, .experience-extra > h2, .compact-section-head h2,
+    .about-research h2, .profile-story-details > h2, .profile-media h2,
+    .contribution-box h2, .project-depth > h2, .home-research .section-head h2,
+    .home-inquiry-path > li > h3, .home-contact h3
+  ) { font-size: var(--fs-h2) !important; line-height: 1.35 !important; }
+
+  /* Item titles */
+  .site-frame main :is(
+    .production-pick h3, .recording-compact h3, .mixing-compact h3,
+    .research-catalog .catalog-grid .project-copy h3, .extra-columns h3
+  ) { font-size: var(--fs-h3) !important; line-height: 1.4 !important; }
+
+  /* Compact item titles (dense lists and grids) */
+  .site-frame main :is(
+    .activity-title-group h3, .home-strand-projects .project-copy h3,
+    .career-line h3, .story-section h3
+  ) { font-size: var(--fs-h3-compact) !important; line-height: 1.4 !important; }
+
+  /* Labels never drop below 12px */
+  .site-frame main :is(.home-inquiry-focus, .section-eyebrow) { font-size: var(--fs-label) !important; }
 }

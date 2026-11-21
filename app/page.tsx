@@ -8,7 +8,6 @@ import './home.css';
 export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale }) {
   const home = locale === 'ko' ? site.koreanHome : site.home;
   const copy = narrative[locale];
-  const featured = site.featuredProjectSlugs.map(slug=>allProjects.find(project=>project.slug===slug)!).filter(Boolean);
   return (
     <PageShell locale={locale} path="/">
       <section className="home-hero">
@@ -31,25 +30,23 @@ export default function HomePage({ locale = 'en' as Locale }: { locale?: Locale 
         </div>
       </section>
 
-      <section className="selected-projects content-width home-featured" aria-labelledby="home-projects-title">
+      <section className="home-inquiry home-research" aria-labelledby="home-projects-title">
         <div className="section-head">
           <a href={localizedPath(locale, '/projects')}>{locale === 'ko' ? '모든 프로젝트 보기 →' : 'View All Projects →'}</a>
-          <h2 id="home-projects-title">{locale === 'ko' ? '대표 프로젝트' : 'Selected Projects'}</h2>
+          <h2 id="home-projects-title">{locale === 'ko' ? '연구와 프로젝트' : 'Research & Projects'}</h2>
         </div>
         <p className="home-featured-intro">{copy.workIntro}</p>
-        <div className="project-grid">{featured.map(project => <ProjectCard key={project.slug} project={project} locale={locale} compact />)}</div>
-      </section>
-
-      <section className="home-inquiry" aria-label={locale === 'ko' ? '연구 질문' : 'Research questions'}>
         <ol className="home-inquiry-path">
           {copy.steps.map((step, index) => (
             <li key={step.title}>
-              <div className="home-inquiry-marker"><span>{String(index + 1).padStart(2, '0')}</span><span aria-hidden="true">{index < 2 ? '→' : '↗'}</span></div>
+              <div className="home-inquiry-marker"><span>{String(index + 1).padStart(2, '0')}</span></div>
               <p className="home-inquiry-focus">{step.focus}</p>
               <h3>{step.title}</h3>
               <h4>{step.question}</h4>
               <p className="home-inquiry-body">{step.body}</p>
-              <div className="home-inquiry-links">{step.links.map(link => <a key={link.slug} href={localizedPath(locale, `/projects/${link.slug}`)}>{link.label}</a>)}</div>
+              <div className="home-strand-projects">
+                {step.links.map(link => allProjects.find(project => project.slug === link.slug)).filter(project => project !== undefined).map(project => <ProjectCard key={project.slug} project={project} locale={locale} compact />)}
+              </div>
             </li>
           ))}
         </ol>

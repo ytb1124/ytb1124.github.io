@@ -57,7 +57,7 @@ for (const project of catalog) {
   for (const resource of project.resources ?? []) assert.ok(simple.links.includes(resource.href), `Missing project resource: ${resource.href}`);
 }
 const ir = catalog.find(project => project.slug === 'corrective-impulse-response');
-if (ir) for (const field of ['paperTitle', 'paperCitation', 'writingAward', 'magazineTitle', 'magazineCitation']) copied(experience[field].replace(/\s*↗$/, ''), 'experience');
+if (ir) for (const field of ['paperTitle', 'paperCitation', 'writingAward', 'magazineTitle', 'magazineCitation']) copied(experience[field].replace(/\s*↗$/, ''), 'publications');
 copied(site.pageContent.en.music.intro, 'music-production');
 for (const project of production.selectedProjects.projects) {
   copied(project.title, 'music-production');
